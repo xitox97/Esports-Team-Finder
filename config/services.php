@@ -50,4 +50,10 @@ return [
         'redirect' => env('SPOTIFY_REDIRECT_URI')
     ],
 
+    'steam' => [
+        'client_id' => null,
+        'client_secret' => env('STEAM_SECRET'),
+        'redirect' => env('STEAM_REDIRECT_URI')
+    ],
+
 ];

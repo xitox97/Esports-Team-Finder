@@ -47,7 +47,8 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('spotify')->redirect();
+        //dd("lala");
+        return Socialite::driver('steam')->redirect();
     }
 
     /**
@@ -57,7 +58,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('spotify')->user();
+        $user = Socialite::driver('steam')->user();
 
         dd($user);
     }
