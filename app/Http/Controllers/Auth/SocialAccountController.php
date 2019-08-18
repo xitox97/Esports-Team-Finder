@@ -33,7 +33,7 @@ class SocialAccountController extends Controller
         } catch (\Exception $e) {
             return redirect('/login');
         }
-
+        dd($user);
         $authUser = $accountService->findOrCreate(
             $user,
             $provider
@@ -42,5 +42,7 @@ class SocialAccountController extends Controller
         auth()->login($authUser, true);
 
         return redirect()->to('/home');
+
+
     }
 }
