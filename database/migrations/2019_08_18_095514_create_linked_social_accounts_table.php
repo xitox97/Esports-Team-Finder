@@ -18,6 +18,8 @@ class CreateLinkedSocialAccountsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('provider_name')->nullable();
             $table->string('provider_id')->unique()->nullable();
+             $table->string('dota_id')->unique()->nullable();
+            $table->string('avatar_url')->unique()->nullable();
             $table->timestamps();
         });
     }
