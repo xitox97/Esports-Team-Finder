@@ -40,26 +40,4 @@ class LoginController extends Controller
     }
 
 
-    /**
-     * Redirect the user to the GitHub authentication page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function redirectToProvider()
-    {
-        //dd("lala");
-        return Socialite::driver('steam')->redirect();
-    }
-
-    /**
-     * Obtain the user information from GitHub.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function handleProviderCallback()
-    {
-        $user = Socialite::driver('steam')->user();
-
-        dd($user);
-    }
 }

@@ -62,6 +62,12 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+
+                                <!-- Login page HTML code  -->
+<br>
+<a href="/login/steam"  class="btn btn-default btn-md">Log in with Steam</a>
+
+<!-- Login page HTML code  -->
                             </div>
                         </div>
                     </form>
