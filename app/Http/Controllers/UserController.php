@@ -15,10 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $user = \Socialite::with('steam')->user();
-
-        dd($user);
+         $users = User::where('id', auth()->id())->get();
+        dd($users->toArray());
         return view('users.profile');
     }
 
@@ -51,7 +49,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $dotas = auth()->user()->accounts()->get();
+       // dd($dotas->toArray());
+
+        return view('users.profile', compact('dotas'));
     }
 
     /**

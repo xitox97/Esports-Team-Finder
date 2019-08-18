@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in! profile
+                    @foreach ($dotas as $dota)
+
+
+                    {{ dd($dota->dota_id)}}
+
+
+                    @endforeach
                 </div>
             </div>
         </div>
