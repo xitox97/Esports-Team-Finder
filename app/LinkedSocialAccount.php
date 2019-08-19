@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class LinkedSocialAccount extends Model
 {
 
-    protected $fillable = ['provider_name', 'provider_id','avatar_url','dota_id' ];
+    protected $fillable = ['provider_name', 'provider_id','avatar_url','dota_id',
+    'profile_url','steam_name', 'mmr', 'win_lose' ];
 
     public function user()
 {
@@ -15,4 +16,8 @@ class LinkedSocialAccount extends Model
 
 
 }
+
+    protected $casts = [
+        'win_lose' => 'json'];
+
 }

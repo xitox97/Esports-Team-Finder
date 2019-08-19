@@ -20,6 +20,10 @@ class CreateLinkedSocialAccountsTable extends Migration
             $table->string('provider_id')->unique()->nullable();
              $table->string('dota_id')->unique()->nullable();
             $table->string('avatar_url')->unique()->nullable();
+            $table->string('profile_url')->unique()->nullable();
+            $table->string('steam_name')->nullable();
+            $table->string('mmr')->nullable();
+            $table->json('win_lose')->nullable();
             $table->timestamps();
         });
     }

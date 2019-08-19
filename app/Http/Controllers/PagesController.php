@@ -18,11 +18,11 @@ class PagesController extends Controller
 
     //     $player_id = $dotas->accounts->dota_id;
 
-        $client = new Client(['base_uri'
-     => 'https://api.opendota.com/api/']);
+    //     $client = new Client(['base_uri'
+    //  => 'https://api.opendota.com/api/']);
 
-     $response = $client->get("players/$player");
-     $fetchPlayers = json_decode($response->getBody(), true);
+    //  $response = $client->get("players/$player");
+    //  $fetchPlayers = json_decode($response->getBody(), true);
 
     // //dd($playerInfos);
     // //  dd(json_decode($response->getBody(), true));
@@ -30,9 +30,13 @@ class PagesController extends Controller
     //     return view('users.profile', compact('dotas','playerInfos'));
 
 
-    $playerInDB =  LinkedSocialAccount::where('dota_id', $player)->firstOrFail();
+    $fetchPlayers =  LinkedSocialAccount::where('dota_id', $player)->firstOrFail();
     //dd($test->user); //pangill user that belongs to this account
-    $ownerPlayers = $playerInDB->user;
+
+    // dd($fetchPlayers->toArray());
+
+
+    //$ownerPlayers = $fetchPlayers->user;
     return view('users.profile', compact('ownerPlayers','fetchPlayers'));
     }
 }
