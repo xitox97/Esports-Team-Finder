@@ -9,25 +9,25 @@
 
                 <div class="card" >
 
-                    <img src={{  $playerInfos['profile']['avatarfull']  }}" class="rounded mx-auto d-block" alt="...">
-                        {{-- {{dd($playerInfos['profile'])}} --}}
+                    <img src={{  $fetchPlayers['profile']['avatarfull']  }}" class="rounded mx-auto d-block" alt="...">
+                        {{-- {{dd($fetchPlayers['profile'])}} --}}
 
 
 
                     <div class="card-body">
-                      <h5 class="card-title text-center"><b>Steam Name:</b> {{  $playerInfos['profile']['personaname']  }}</h5>
+                      <h5 class="card-title text-center"><b>Steam Name:</b> {{  $fetchPlayers['profile']['personaname']  }}</h5>
                       <p class="card-text"></p>
                     </div>
                     <ul class="list-group list-group-flush text-center">
-                            <li class="list-group-item"><b>Steam Profile URL:</b>  <a href="{{  $playerInfos['profile']['profileurl']  }}">{{  $playerInfos['profile']['profileurl']  }}</a></li>
-                      <li class="list-group-item"><b>MMR ESTIMATE:</b>  {{  $playerInfos['solo_competitive_rank']  }}</li>
+                            <li class="list-group-item"><b>Steam Profile URL:</b>  <a href="{{  $fetchPlayers['profile']['profileurl']  }}">{{  $fetchPlayers['profile']['profileurl']  }}</a></li>
+                      <li class="list-group-item"><b>MMR ESTIMATE:</b>  {{  $fetchPlayers['solo_competitive_rank']  }}</li>
                       <li class="list-group-item">Dapibus ac facilisis in</li>
                       <li class="list-group-item">Vestibulum at eros</li>
                     </ul>
-                    <div class="card-body">
+                    {{-- <div class="card-body">
                       <a href="#" class="card-link">Card link</a>
                       <a href="#" class="card-link">Another link</a>
-                    </div>
+                    </div> --}}
                   </div>
 
             </div>
