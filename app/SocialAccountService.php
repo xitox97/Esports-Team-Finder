@@ -14,26 +14,28 @@ class SocialAccountService
 
         if ($account) {
             return $account->user;
-        } else {
-
-        $user = User::where('email', $providerUser->getEmail())->first();
-
-        if (! $user) {
-            $user = User::create([
-                'email' => $providerUser->getEmail(),
-                'name'  => $providerUser->getName(),
-            ]);
         }
 
-        $dotaId = $providerUser->getId() - 76561197960265728;
-        $user->accounts()->create([
-            'provider_id'   => $providerUser->getId(),
-            'provider_name' => $provider,
-             'dota_id' => $dotaId,
-             'avatar_url' => $providerUser->getAvatar(),
-        ]);
+        else {
 
-        return $user;
+                $user = User::where('email', $providerUser->getEmail())->first();
+
+                if (! $user) {
+                    $user = User::create([
+                        'email' => $providerUser->getEmail(),
+                        'name'  => $providerUser->getName(),
+                    ]);
+                }
+
+                $dotaId = $providerUser->getId() - 76561197960265728;
+                $user->accounts()->create([
+                    'provider_id'   => $providerUser->getId(),
+                    'provider_name' => $provider,
+                    'dota_id' => $dotaId,
+                    'avatar_url' => $providerUser->getAvatar(),
+                ]);
+
+                return $user;
 
         }
     }
