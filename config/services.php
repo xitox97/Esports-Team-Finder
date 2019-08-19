@@ -44,4 +44,16 @@ return [
         ],
     ],
 
+    'spotify' => [
+        'client_id' => env('SPOTIFY_KEY'),
+        'client_secret' => env('SPOTIFY_SECRET'),
+        'redirect' => env('SPOTIFY_REDIRECT_URI')
+    ],
+
+    'steam' => [
+        'client_id' => null,
+        'client_secret' => env('STEAM_SECRET'),
+        'redirect' => env('STEAM_REDIRECT_URI')
+    ],
+
 ];
