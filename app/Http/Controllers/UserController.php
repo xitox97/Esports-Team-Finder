@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -49,10 +50,22 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $dotas = auth()->user()->accounts()->get();
-       // dd($dotas->toArray());
+        $dotas = auth()->user();
+        //dd($dotas->accounts->dota_id);
+        //dd($dotas->accounts->toArray()); keluarkan accounts
 
-        return view('users.profile', compact('dotas'));
+        $player_id = $dotas->accounts->dota_id;
+
+        $client = new Client(['base_uri'
+     => 'https://api.opendota.com/api/']);
+
+     $response = $client->get("players/$player_id");
+     $playerInfos = json_decode($response->getBody(), true);
+
+    //dd($playerInfos);
+    //  dd(json_decode($response->getBody(), true));
+
+        return view('users.profile', compact('dotas','playerInfos'));
     }
 
     /**

@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function accounts(){
-        return $this->hasOne('App\LinkedSocialAccount');
+        return $this->hasOne(LinkedSocialAccount::class);
     }
 }
