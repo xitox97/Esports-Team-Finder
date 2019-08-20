@@ -27,7 +27,9 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        $id = auth()->user()->id;
+
+        return view('teams.create', compact('id'));
     }
 
     /**
@@ -36,9 +38,18 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $attributes = request()->validate([
+            'captain_id' => 'required',
+            'name' => 'required',
+            'area' => 'required',
+            'qtty_member' => 'required'
+        ]);
+
+        $team = auth()->user()->team()->create($attributes);
+
+        return redirect('teams.index');
     }
 
     /**
