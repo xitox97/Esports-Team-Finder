@@ -38,9 +38,9 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $request = request()->validate([
+        $request->validate([
             'captain_id' => 'required',
             'name' => 'required',
             'area' => 'required',
@@ -57,6 +57,8 @@ class TeamController extends Controller
         }
 
 
+        //dd($request->image);
+
         $team = Team::create([
             'captain_id' => $request['captain_id'],
             'name' => $request['name'],
@@ -65,7 +67,8 @@ class TeamController extends Controller
             'image' => $request->image
         ]);
 
-        return redirect('teams.index');
+        $path = $team->id;
+        return redirect("teams/$path");
     }
 
     /**
@@ -77,7 +80,7 @@ class TeamController extends Controller
     public function show(Team $team)
     {
 
-        dd($team->toArray());
+        return view('teams.show', compact('team'));
     }
 
     /**
