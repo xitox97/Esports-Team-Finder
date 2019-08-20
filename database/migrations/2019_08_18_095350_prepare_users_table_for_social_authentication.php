@@ -15,6 +15,7 @@ class PrepareUsersTableForSocialAuthentication extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Making email and password nullable
+
             $table->string('email')->nullable()->change();
             $table->string('password')->nullable()->change();
             $table->integer('age')->nullable()->change();
