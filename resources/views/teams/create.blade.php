@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/teams">
+                    <form method="POST" action="/teams" enctype="multipart/form-data">
                         @csrf
 
 
@@ -45,7 +45,12 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right" for="image">Team Image</label>
+                            <input type="file" name="image" id="image">
 
+
+                        </div>
 
 
                         <div class="form-group row mb-0">

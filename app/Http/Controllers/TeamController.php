@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Http\UploadedFile;
 class TeamController extends Controller
 {
     /**
@@ -40,14 +40,30 @@ class TeamController extends Controller
      */
     public function store()
     {
-        $attributes = request()->validate([
+        $request = request()->validate([
             'captain_id' => 'required',
             'name' => 'required',
             'area' => 'required',
-            'qtty_member' => 'required'
+            'qtty_member' => 'required',
+            'image' => 'required|image|max:1999'
         ]);
 
-        $team = auth()->user()->team()->create($attributes);
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $ext = $image->getClientOriginalExtension();
+            $filename = uniqid().'.'.$ext;
+            $image->storeAs('public/pics',$filename);
+            $request->image = $filename;
+        }
+
+
+        $team = Team::create([
+            'captain_id' => $request['captain_id'],
+            'name' => $request['name'],
+            'area' => $request['area'],
+            'qtty_member' => $request['qtty_member'],
+            'image' => $request->image
+        ]);
 
         return redirect('teams.index');
     }

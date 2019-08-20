@@ -9,7 +9,7 @@
 
                 <div class="card" >
 
-                    <img src={{  $fetchPlayers->avatar_url  }}" class="rounded mx-auto d-block" alt="...">
+                    <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded mx-auto d-block" alt="...">
                         {{-- {{dd($fetchPlayers['profile'])}} --}}
 
 
