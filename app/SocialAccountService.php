@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use GuzzleHttp\Client;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
 class SocialAccountService
@@ -27,12 +27,29 @@ class SocialAccountService
                     ]);
                 }
 
+                //dd($providerUser->user['avatarfull']);
                 $dotaId = $providerUser->getId() - 76561197960265728;
+
+                //coding for opendota api
+                $client = new Client(['base_uri'
+                => 'https://api.opendota.com/api/']);
+
+                $response = $client->get("players/$dotaId");
+                $fetchPlayers = json_decode($response->getBody(), true);
+
+                $response2 = $client->get("players/$dotaId/wl");
+                $fetchWL = json_decode($response2->getBody(), true);
+
+                // dd($fetchWL);
                 $user->accounts()->create([
                     'provider_id'   => $providerUser->getId(),
                     'provider_name' => $provider,
                     'dota_id' => $dotaId,
-                    'avatar_url' => $providerUser->getAvatar(),
+                    'profile_url' => $providerUser->user['profileurl'],
+                    'avatar_url' => $providerUser->user['avatarfull'],
+                    'steam_name' => $providerUser->user['personaname'],
+                    'mmr' => $fetchPlayers['solo_competitive_rank'],
+                    'win_lose' => $fetchWL,
                 ]);
 
                 return $user;
