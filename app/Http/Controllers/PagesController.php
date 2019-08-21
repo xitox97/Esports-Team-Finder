@@ -39,4 +39,9 @@ class PagesController extends Controller
     //$ownerPlayers = $fetchPlayers->user;
     return view('users.profile', compact('ownerPlayers','fetchPlayers'));
     }
+
+
+    public function steam(){
+        return view('auth.steam');
+    }
 }

@@ -22,7 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('login/steam/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('login/steam',          'Auth\SocialAccountController@redirectToProvider');
 Route::get('login/steam/callback', 'Auth\SocialAccountController@handleProviderCallback');
+
 Route::resource('users', 'UserController');
 Route::resource('teams', 'TeamController');
 
+
+Route::get('/steamconnects', 'PagesController@steam');
 Route::get('players/{player}', 'PagesController@show');

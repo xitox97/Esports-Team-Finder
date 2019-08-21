@@ -55,8 +55,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">
-
+                                    {{-- <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}"> --}}
+                                        <a class="dropdown-item" href="players">
                                         Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -8,6 +8,7 @@ class SocialAccountService
 {
     public function findOrCreate(ProviderUser $providerUser, $provider)
     {
+       // dd($providerUser->getId());
         $account = LinkedSocialAccount::where('provider_name', $provider)
                    ->where('provider_id', $providerUser->getId())
                    ->first();
