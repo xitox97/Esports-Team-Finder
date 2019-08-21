@@ -55,10 +55,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    {{-- <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}"> --}}
-                                        <a class="dropdown-item" href="players">
-                                        Profile
-                                    </a>
+
+                                    @if(Auth::user()->accounts)
+                                        <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">Profile</a>
+                                    @else
+                                        <a class="dropdown-item" href="/steamconnects">
+                                        Profile</a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
