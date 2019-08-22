@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\LinkedSocialAccount;
+use App\Offer;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -43,5 +44,15 @@ class PagesController extends Controller
 
     public function steam(){
         return view('auth.steam');
+    }
+
+    public function noti(){
+        $id = auth()->user()->id;
+
+        $offers = Offer::where('user_id', $id)->get();
+
+       // dd($offers);
+
+        return view('users.notification', compact('offers'));
     }
 }
