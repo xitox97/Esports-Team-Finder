@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function accounts(){
         return $this->hasOne(LinkedSocialAccount::class);
     }
+
+    public function team(){
+        return $this->belongsTo('App\Team');
+    }
 }

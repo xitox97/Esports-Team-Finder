@@ -9,19 +9,18 @@
 
                 <div class="card" >
 
-                    <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded mx-auto d-block" alt="...">
+                    <img src="{{  asset('storage/pics/' . $team->image) }}" class="rounded mx-auto d-block" alt="...">
                         {{-- {{dd($fetchPlayers['profile'])}} --}}
 
 
-
                     <div class="card-body">
-                      <h5 class="card-title text-center"><b>Steam Name:</b> {{  $fetchPlayers->steam_name  }}</h5>
+                      <h5 class="card-title text-center"><b>Team Name: {{ $team->name }}</b></h5>
                       <p class="card-text"></p>
                     </div>
                     <ul class="list-group list-group-flush text-center">
-                            <li class="list-group-item"><b>Steam Profile URL:</b>  <a href="{{  $fetchPlayers->profile_url  }}">{{  $fetchPlayers->profile_url  }}</a></li>
-                      <li class="list-group-item"><b>MMR ESTIMATE:</b>  {{  $fetchPlayers->mmr  }}</li>
-                      <li class="list-group-item"><b>Win:</b> {{  $fetchPlayers->win_lose['win']  }}<br><b> Lose:</b>  {{  $fetchPlayers->win_lose['lose']  }} </li>
+                            <li class="list-group-item"><b>Area:</b> {{ $team->area }} </li>
+                      <li class="list-group-item"><b>MMR ESTIMATE:</b> </li>
+                      <li class="list-group-item"><b>Win:</b><br><b> Lose:</b>  </li>
                       <li class="list-group-item"><b>Game:</b> Dota</li>
                     </ul>
                     {{-- <div class="card-body">

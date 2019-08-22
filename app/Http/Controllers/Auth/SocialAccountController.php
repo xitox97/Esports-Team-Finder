@@ -31,7 +31,7 @@ class SocialAccountController extends Controller
         try {
             $user = \Socialite::with('steam')->user();
         } catch (\Exception $e) {
-            return redirect('/login');
+            return redirect('/steamconnects');
         }
 
 

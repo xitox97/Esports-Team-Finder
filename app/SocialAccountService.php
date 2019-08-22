@@ -8,6 +8,7 @@ class SocialAccountService
 {
     public function findOrCreate(ProviderUser $providerUser, $provider)
     {
+       // dd($providerUser->getId());
         $account = LinkedSocialAccount::where('provider_name', $provider)
                    ->where('provider_id', $providerUser->getId())
                    ->first();
@@ -18,16 +19,10 @@ class SocialAccountService
 
         else {
 
-                $user = User::where('email', $providerUser->getEmail())->first();
+                $user = auth()->user();
 
-                if (! $user) {
-                    $user = User::create([
-                        'email' => $providerUser->getEmail(),
-                        'name'  => $providerUser->getName(),
-                    ]);
-                }
 
-                //dd($providerUser->user['avatarfull']);
+
                 $dotaId = $providerUser->getId() - 76561197960265728;
 
                 //coding for opendota api
