@@ -19,6 +19,7 @@ class CreateTeamsTable extends Migration
             $table->string('name')->unique();
             $table->string('area');
             $table->integer('qtty_member');
+            $table->string('image');
             $table->timestamps();
 
             $table->foreign('captain_id')->references('id')->on('users');
