@@ -25,6 +25,8 @@ Route::get('login/steam/callback', 'Auth\SocialAccountController@handleProviderC
 
 Route::resource('users', 'UserController');
 Route::resource('teams', 'TeamController');
+
+
 Route::get('/offer/{user}', 'OfferController@invite');
 Route::get('/accept/{offer}', 'OfferController@acceptOffer');
 Route::get('/reject/{offer}', 'OfferController@rejectOffer');

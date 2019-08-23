@@ -44,16 +44,22 @@ class OfferController extends Controller
         //$offers = Offer::where('user_id', $user->id)->get();
 
 
-        $accept = $user->team()->attach($offer->team_id);
 
-
-        $offer->status = 'Accepted';
-
-        $offer->save();
         //dd($accept);
 
 
+        try {
 
+            $user->team()->attach($offer->team_id);
+            $offer->status = 'Accepted';
+            $offer->save();
+            return back()->with('success', 'Successfully Joined');
+
+
+        } catch (\Illuminate\Database\QueryException $e) {
+            //dd('You must exit your team first before joining another team');
+            return back()->withError('You must exit your team first before joining another team');
+            }
 
     }
 

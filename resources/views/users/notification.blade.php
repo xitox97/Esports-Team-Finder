@@ -27,11 +27,22 @@
                             <a href="/reject/{{ $offer->id }}" class="btn btn-danger btn-lg active"
                             role="button" aria-pressed="true">Reject</a>
                         </li>
+
                     @else
                         Nothing
                     @endif
 
                     @endforeach
+                    @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li>{{ session('success') }}</li>
+                        </ul>
+                    </div>
+                @endif
                   </div>
 
             </div>

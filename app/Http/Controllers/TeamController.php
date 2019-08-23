@@ -67,6 +67,11 @@ class TeamController extends Controller
             'image' => $request->image
         ]);
 
+        //dd($team->id);
+
+        $user = auth()->user();
+        $user->team()->attach($team->id);
+
         $path = $team->id;
         return redirect("teams/$path");
     }
