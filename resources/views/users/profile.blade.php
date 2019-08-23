@@ -3,7 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+            <div class="col-md-3">
+
+                            <h1><u>Interactions</u></h1>
+
+
+
+            <a href="/offer/{{ $fetchPlayers->id }}" class="btn btn-success"
+                            role="button" aria-pressed="true">Offer</a>
+                            <a href="#" class="btn btn-primary"
+                            role="button" aria-pressed="true">Live Chat</a>
+                            <a href="#" class="btn btn-danger"
+                            role="button" aria-pressed="true">Add Friend</a>
+
+
+           </div>
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">Profile</div>
 

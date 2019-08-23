@@ -3,6 +3,36 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+            <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Team Members</div>
+
+                        <div class="card" >
+                                <div class="card-body">
+
+
+                                <ul>
+
+                        @foreach ($team->users as $player)
+
+                                <li> <a href="/players/{{ $player->accounts['dota_id']  }}">{{ $player->name }}</a> </li>
+
+
+
+
+                        @endforeach
+                    </ul>
+                </div>
+
+
+                            {{-- <div class="card-body">
+                              <a href="#" class="card-link">Card link</a>
+                              <a href="#" class="card-link">Another link</a>
+                            </div> --}}
+                          </div>
+
+                    </div>
+                </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Profile</div>

@@ -13,6 +13,10 @@ class Team extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class, 'user_team')->withTimestamps();
+    }
+
+    public function offers(){
+        return $this->hasMany('App\Offer');
     }
 }

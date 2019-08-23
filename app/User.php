@@ -42,6 +42,10 @@ class User extends Authenticatable
     }
 
     public function team(){
-        return $this->belongsTo('App\Team');
+        return $this->belongsToMany('App\Team', 'user_team')->withTimestamps();
+    }
+
+    public function offers(){
+        return $this->hasMany('App\Offer');
     }
 }
