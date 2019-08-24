@@ -9,7 +9,7 @@
 
 
 
-            <a href="/offer/{{ $fetchPlayers->id }}" class="btn btn-success"
+            <a href="/offer/{{ $fetchPlayers->user_id }}" class="btn btn-success"
                             role="button" aria-pressed="true">Offer</a>
                             <a href="#" class="btn btn-primary"
                             role="button" aria-pressed="true">Live Chat</a>

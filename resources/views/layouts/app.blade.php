@@ -59,23 +59,24 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
 
-
                                     @if(Auth::user()->accounts)
-
-                                        @foreach (Auth::user()->team as $item)
-
-
                                         {{-- <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">Profile</a> --}}
                                         <a class="dropdown-item" href=" {{ url('/players/' . Auth::user()->accounts->dota_id ) }}">Profile</a>
-
-                                        <a class="dropdown-item" href="{{ url('/teams/' . $item->id) }}">
-                                            My Team</a>
-                                        @endforeach
+                                        <a class="dropdown-item" href=" {{ url('/notifications') }}">Notification</a>
                                     @else
                                         <a class="dropdown-item" href="{{ url('/steamconnects') }}">
-                                        Profile</a>
-                                        <a class="dropdown-item" href="{{ url('/steamconnects') }}">
+                                        Link Steam Account</a>
+
+                                    @endif
+
+                                    @if (Auth::user()->team)
+
+                                    @foreach (Auth::user()->team as $item)
+
+                                    <a class="dropdown-item" href="{{ url('/teams/' . $item->id) }}">
                                         My Team</a>
+                                    @endforeach
+
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

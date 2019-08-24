@@ -30,6 +30,7 @@ Route::resource('teams', 'TeamController');
 Route::get('/offer/{user}', 'OfferController@invite');
 Route::get('/accept/{offer}', 'OfferController@acceptOffer');
 Route::get('/reject/{offer}', 'OfferController@rejectOffer');
+Route::get('/leave/{team}', 'OfferController@leaveTeam');
 
 Route::get('/notifications', 'PagesController@noti');
 Route::get('/steamconnects', 'PagesController@steam');
