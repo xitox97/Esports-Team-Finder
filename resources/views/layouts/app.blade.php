@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -49,6 +50,7 @@
                                 </li>
                             @endif
                         @else
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -56,11 +58,24 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+
+
                                     @if(Auth::user()->accounts)
-                                        <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">Profile</a>
+
+                                        @foreach (Auth::user()->team as $item)
+
+
+                                        {{-- <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">Profile</a> --}}
+                                        <a class="dropdown-item" href=" {{ url('/players/' . Auth::user()->accounts->dota_id ) }}">Profile</a>
+
+                                        <a class="dropdown-item" href="{{ url('/teams/' . $item->id) }}">
+                                            My Team</a>
+                                        @endforeach
                                     @else
-                                        <a class="dropdown-item" href="/steamconnects">
+                                        <a class="dropdown-item" href="{{ url('/steamconnects') }}">
                                         Profile</a>
+                                        <a class="dropdown-item" href="{{ url('/steamconnects') }}">
+                                        My Team</a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
