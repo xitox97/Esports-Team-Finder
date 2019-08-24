@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\OfferTeam;
 use App\Offer;
 use App\Team;
 use App\User;
@@ -30,7 +31,10 @@ class OfferController extends Controller
         'status' => 'pending',
     ]);
 
+    $user->notify(new OfferTeam($offer));
    dd($offer);
+
+
 
     // return redirect("teams/$path");
 
@@ -74,6 +78,29 @@ class OfferController extends Controller
         $offer->status = 'Rejected';
         $offer->save();
         //dd($accept);
+
+
+    }
+
+    public function leaveTeam(Team $team){
+        //dd($offer);
+
+        $user = auth()->user();
+
+        //$offers = Offer::where('user_id', $user->id)->get();
+
+
+
+        //dd($accept);
+
+
+
+
+            $user->team()->detach($team->id);
+
+            return back()->with('leave', 'Successfully left!');
+
+
 
 
     }

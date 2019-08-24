@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center"> <div class="row">
             <div class="col-md-4">
+
                     <div class="card">
                         <div class="card-header">Team Members</div>
 
@@ -32,6 +33,42 @@
                           </div>
 
                     </div>
+
+
+                    @foreach ($team->users as $player)
+
+                        @if ($player->id === Auth::user()->id)
+
+
+
+                        <div class="card">
+                                <div class="card-header">Action</div>
+
+                                <div class="card" >
+                                        <div class="card-body">
+                                        <a href="/leave/{{ $team->id }}" class="btn btn-danger btn-lg"
+                                                role="button" aria-disabled="true">Leave Team</a>
+                        </div>
+
+
+                                    {{-- <div class="card-body">
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                    </div> --}}
+                                </div>
+
+                            </div>
+                        @endif
+                    @endforeach
+
+                        @if (session('leave'))
+                        <div class="alert alert-success">
+                            <ul>
+                                <li>{{ session('leave') }}</li>
+                            </ul>
+                        </div>
+                    @endif
+
                 </div>
         <div class="col-md-8">
             <div class="card">
@@ -39,7 +76,7 @@
 
                 <div class="card" >
 
-                    <img src="{{  asset('storage/pics/' . $team->image) }}" class="rounded mx-auto d-block" alt="...">
+                    <img src="{{  asset('storage/pics/' . $team->image) }}" class="rounded mx-auto d-block mw-100" alt="...">
                         {{-- {{dd($fetchPlayers['profile'])}} --}}
 
 
@@ -60,8 +97,8 @@
                   </div>
 
             </div>
-        </div>
-    </div>
+        </div></div>
+
 </div>
 @endsection
    {{-- {{ dd($dotas->accounts->toArray())}} --}}
