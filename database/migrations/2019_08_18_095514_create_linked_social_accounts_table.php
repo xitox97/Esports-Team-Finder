@@ -24,6 +24,8 @@ class CreateLinkedSocialAccountsTable extends Migration
             $table->string('steam_name')->nullable();
             $table->string('mmr')->nullable();
             $table->json('win_lose')->nullable();
+            $table->string('medal')->nullable();
+            $table->string('leaderboard_rank')->nullable();
             $table->timestamps();
         });
     }

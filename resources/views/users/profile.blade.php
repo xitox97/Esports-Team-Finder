@@ -31,6 +31,8 @@
 
                     <div class="card-body">
                       <h5 class="card-title text-center"><b>Steam Name:</b> {{  $fetchPlayers->steam_name  }}</h5>
+                        @include('users.medal')
+
                       <p class="card-text"></p>
                     </div>
                     <ul class="list-group list-group-flush text-center">

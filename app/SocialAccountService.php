@@ -44,6 +44,8 @@ class SocialAccountService
                     'avatar_url' => $providerUser->user['avatarfull'],
                     'steam_name' => $providerUser->user['personaname'],
                     'mmr' => $fetchPlayers['solo_competitive_rank'],
+                    'medal' => $fetchPlayers['rank_tier'],
+                    'leaderboard_rank' => $fetchPlayers['leaderboard_rank'],
                     'win_lose' => $fetchWL,
                 ]);
 
