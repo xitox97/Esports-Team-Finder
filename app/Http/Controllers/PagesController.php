@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\LinkedSocialAccount;
 use App\Offer;
+use App\Scrimstatus;
+use App\Team;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -54,5 +56,15 @@ class PagesController extends Controller
        // dd($offers);
 
         return view('users.notification', compact('offers'));
+    }
+
+    public function notiScrim(){
+
+        $id = auth()->user()->id;
+        $myTeam = Team::where('captain_id', $id)->first();
+        $scrimStatus = Scrimstatus::where('team_id', $myTeam->id)->first();
+
+
+        return view('teams.notification', compact('scrimStatus'));
     }
 }

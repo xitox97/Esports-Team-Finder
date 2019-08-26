@@ -20,6 +20,7 @@ class CreateTeamsTable extends Migration
             $table->string('area');
             $table->integer('qtty_member');
             $table->string('image');
+            $table->integer('scrim')->nullable();
             $table->timestamps();
 
             $table->foreign('captain_id')->references('id')->on('users');
