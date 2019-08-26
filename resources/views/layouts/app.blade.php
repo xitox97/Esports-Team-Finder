@@ -97,6 +97,7 @@
                                         {{-- <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">Profile</a> --}}
                                         <a class="dropdown-item" href=" {{ url('/players/' . Auth::user()->accounts->dota_id ) }}">Profile</a>
                                         <a class="dropdown-item" href=" {{ url('/notifications') }}">Notification</a>
+                                        <a class="dropdown-item" href="{{ url('/teams/create') }}">Create Team</a>
                                     @else
                                         <a class="dropdown-item" href="{{ url('/steamconnects') }}">
                                         Link Steam Account</a>

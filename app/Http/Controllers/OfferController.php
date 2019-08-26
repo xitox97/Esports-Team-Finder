@@ -31,8 +31,8 @@ class OfferController extends Controller
         'status' => 'pending',
     ]);
 
-    $user->notify(new OfferTeam($offer));
-   dd($offer);
+   // $user->notify(new OfferTeam($offer)); send email notification just buang comment utk enable
+    return back()->with('offer', 'Offer has been sent!');
 
 
 
@@ -70,13 +70,12 @@ class OfferController extends Controller
     public function rejectOffer(Offer $offer){
 
 
-        $user = auth()->user();
 
 
 
+        $offer->delete();
 
-        $offer->status = 'Rejected';
-        $offer->save();
+        return back()->with('reject', 'You has reject the offer');
         //dd($accept);
 
 

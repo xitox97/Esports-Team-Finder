@@ -21,15 +21,14 @@
                     @foreach ($offers as $offer)
 
                     @if ($offer->status == 'pending')
-                        <li>Offer from Team {{ $offer->team->name }} <a
+                        <li>Offer from <a href="/teams/{{$offer->team->id}}"> Team {{ $offer->team->name }} </a>  <a
                         href="/accept/{{ $offer->id }}" class="btn btn-primary btn-lg active"
                             role="button" aria-pressed="true">Accept</a>
                             <a href="/reject/{{ $offer->id }}" class="btn btn-danger btn-lg active"
                             role="button" aria-pressed="true">Reject</a>
                         </li>
 
-                    @else
-                        Nothing
+
                     @endif
 
                     @endforeach
@@ -43,6 +42,13 @@
                         </ul>
                     </div>
                 @endif
+                @if (session('reject'))
+                <div class="alert alert-primary">
+                    <ul>
+                        <li>{{ session('reject') }}</li>
+                    </ul>
+                </div>
+            @endif
                   </div>
 
             </div>

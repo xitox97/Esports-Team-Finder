@@ -48,6 +48,19 @@
                                         <div class="card-body">
                                         <a href="/leave/{{ $team->id }}" class="btn btn-danger btn-lg"
                                                 role="button" aria-disabled="true">Leave Team</a>
+                                        <form action="/teams/{{ $team->id }}" method="POST">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                            <button type="submit" class="btn btn-danger btn-lg">Delete Team</button>
+                                        </form>
+
+                                        @if (session('cannot'))
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                <li>{{ session('cannot') }}</li>
+                                            </ul>
+                                        </div>
+                                    @endif
                         </div>
 
 

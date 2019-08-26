@@ -13,10 +13,16 @@
                             role="button" aria-pressed="true">Offer</a>
                             <a href="#" class="btn btn-primary"
                             role="button" aria-pressed="true">Live Chat</a>
-                            <a href="#" class="btn btn-danger"
-                            role="button" aria-pressed="true">Add Friend</a>
+                            <a href="{{  $fetchPlayers->profile_url  }}" class="btn btn-danger"
+                            role="button" aria-pressed="true">Add Friend In Steam</a>
 
-
+                            @if (session('offer'))
+                            <div class="alert alert-success">
+                                <ul>
+                                    <li>{{ session('offer') }}</li>
+                                </ul>
+                            </div>
+                        @endif
            </div>
         <div class="col-md-9">
             <div class="card">

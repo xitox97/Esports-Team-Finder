@@ -119,6 +119,15 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        $id = auth()->user()->id;
+
+        if($id == $team->captain_id){
+
+        $team->delete();
+            }
+        else{
+            return back()->with('cannot', 'Only Captain can delete team');
+        }
+        return redirect('/home');
     }
 }
