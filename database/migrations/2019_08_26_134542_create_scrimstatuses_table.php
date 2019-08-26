@@ -18,6 +18,7 @@ class CreateScrimstatusesTable extends Migration
             $table->unsignedBigInteger('team_id');
             $table->unsignedBigInteger('opponent_id');
             $table->string('status');
+            $table->dateTime('date_time');
             $table->timestamps();
 
 

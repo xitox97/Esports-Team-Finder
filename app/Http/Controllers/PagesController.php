@@ -62,8 +62,9 @@ class PagesController extends Controller
 
         $id = auth()->user()->id;
         $myTeam = Team::where('captain_id', $id)->first();
-        $scrimStatus = Scrimstatus::where('team_id', $myTeam->id)->first();
+        $scrimStatus = Scrimstatus::where('opponent_id', $myTeam->id)->first();
 
+        // dd($scrimStatus);
 
         return view('teams.notification', compact('scrimStatus'));
     }

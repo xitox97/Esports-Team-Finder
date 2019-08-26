@@ -30,14 +30,16 @@ Route::resource('teams', 'TeamController');
 Route::get('/scrims', 'ScrimController@index');
 Route::get('/scrims/add/{team}', 'ScrimController@add');
 Route::post('/scrims', 'ScrimController@invite');
-
-
+Route::get('/scrims/accept/{status}', 'ScrimController@acceptScrim');
+Route::get('/scrims/reject/{status}', 'ScrimController@rejectScrim');
 
 //button
 Route::get('/offer/{user}', 'OfferController@invite');
 Route::get('/accept/{offer}', 'OfferController@acceptOffer');
 Route::get('/reject/{offer}', 'OfferController@rejectOffer');
 Route::get('/leave/{team}', 'OfferController@leaveTeam');
+
+
 
 Route::get('/tnotification', 'PagesController@notiScrim');
 Route::get('/notifications', 'PagesController@noti');

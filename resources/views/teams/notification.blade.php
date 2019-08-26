@@ -14,24 +14,30 @@
 
 
                     <div class="card-body">
-                      <h5 class="card-title text-center"><b>Notification center</b> </h5>
+                      <h5 class="card-title text-center"><b>Notification center (Team)</b> </h5>
                       <p class="card-text"></p>
                     </div>
 
 
 
                     @if ($scrimStatus->status == 'pending')
-                        <li>Offer from <a href="/teams/{{$scrimStatus->team->id}}"> Team {{ $scrimStatus->team->name }} </a>  <a
-                        href="/accept/{{ $scrimStatus->id }}" class="btn btn-primary btn-lg active"
+                        <li>Invitation to scrim with <a href="/teams/{{$scrimStatus->team->id}}"> Team {{ $scrimStatus->team->name }} </a>  <a
+                        href="/scrims/accept/{{ $scrimStatus->id }}" class="btn btn-primary btn-lg active"
                             role="button" aria-pressed="true">Accept</a>
-                            <a href="/reject/{{ $scrimStatus->id }}" class="btn btn-danger btn-lg active"
+                            <a href="/scrims/reject/{{ $scrimStatus->id }}" class="btn btn-danger btn-lg active"
                             role="button" aria-pressed="true">Reject</a>
                         </li>
 
 
                     @endif
 
-
+                    @if (session('success'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li>{{ session('success') }}</li>
+                        </ul>
+                    </div>
+                @endif
                   </div>
 
             </div>
