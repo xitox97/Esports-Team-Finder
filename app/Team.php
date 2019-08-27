@@ -10,6 +10,9 @@ class Team extends Model
         'captain_id', 'name', 'area','age', 'qtty_member', 'image'
     ];
 
+    protected $casts = [
+        'scrim' => 'boolean',
+    ];
 
     public function users()
     {
@@ -19,4 +22,14 @@ class Team extends Model
     public function offers(){
         return $this->hasMany('App\Offer');
     }
+
+    public function scrims()
+    {
+        return $this->belongsToMany(Team::class, 'team_scrim', 'team_id', 'opponent_id')->withPivot('date_time')->withTimestamps();
+    }
+
+    public function scrimStatus(){
+        return $this->hasMany('App\Scrimstatus');
+    }
+
 }

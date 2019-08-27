@@ -37,6 +37,7 @@
 
                     @foreach ($team->users as $player)
 
+
                         @if ($player->id === Auth::user()->id)
 
 
@@ -46,12 +47,19 @@
 
                                 <div class="card" >
                                         <div class="card-body">
-                                        <a href="/leave/{{ $team->id }}" class="btn btn-danger btn-lg"
-                                                role="button" aria-disabled="true">Leave Team</a>
+                                            @if($team->scrim == false)
+                                                <a href="/teams/scrim/{{ $team->id }}" class="btn btn-primary "
+                                                    role="button" >Ready for scrim</a>
+                                            @else
+                                            <a href="/teams/notScrim/{{ $team->id }}" class="btn btn-info"
+                                                role="button" >Not Ready for scrim</a>
+                                            @endif
+                                        <a href="/leave/{{ $team->id }}" class="btn btn-warning "
+                                                role="button" >Leave Team</a>
                                         <form action="/teams/{{ $team->id }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger btn-lg">Delete Team</button>
+                                            <button type="submit" class="btn btn-danger ">Delete Team</button>
                                         </form>
 
                                         @if (session('cannot'))
@@ -81,6 +89,28 @@
                             </ul>
                         </div>
                     @endif
+
+
+                    <div class="card">
+                        <div class="card-header">Team notification</div>
+
+                        <div class="card" >
+                                <div class="card-body">
+                                <a href="/tnotification" class="btn btn-primary btn-lg"
+                                        role="button" aria-disabled="true">Notification</a>
+
+
+                </div>
+
+
+                            {{-- <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                            </div> --}}
+                        </div>
+
+                    </div>
+
 
                 </div>
         <div class="col-md-8">

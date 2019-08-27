@@ -130,4 +130,31 @@ class TeamController extends Controller
         }
         return redirect('/home');
     }
+
+    public function readyScrim(Team $team)
+    {
+        $id = auth()->user()->id;
+
+        // if($id == $team->captain_id){
+
+        // $team->delete();
+        //     }
+        // else{
+        //     return back()->with('cannot', 'Only Captain can delete team');
+        // }
+
+        $team->scrim = true;
+        $team->save();
+
+        return back();
+    }
+
+    public function notReadyScrim(Team $team)
+    {
+        $id = auth()->user()->id;
+        $team->scrim = false;
+        $team->save();
+
+        return back();
+    }
 }

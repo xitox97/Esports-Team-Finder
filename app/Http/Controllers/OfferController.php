@@ -42,15 +42,9 @@ class OfferController extends Controller
 
     public function acceptOffer(Offer $offer){
         //dd($offer);
-
         $user = auth()->user();
-
         //$offers = Offer::where('user_id', $user->id)->get();
-
-
-
         //dd($accept);
-
 
         try {
 
@@ -69,16 +63,10 @@ class OfferController extends Controller
 
     public function rejectOffer(Offer $offer){
 
-
-
-
-
-        $offer->delete();
-
+        $offer->status = 'Rejected';
+        $offer->save();
         return back()->with('reject', 'You has reject the offer');
         //dd($accept);
-
-
     }
 
     public function leaveTeam(Team $team){
@@ -88,19 +76,10 @@ class OfferController extends Controller
 
         //$offers = Offer::where('user_id', $user->id)->get();
 
-
-
         //dd($accept);
+       $user->team()->detach($team->id);
 
-
-
-
-            $user->team()->detach($team->id);
-
-            return back()->with('leave', 'Successfully left!');
-
-
-
+        return back()->with('leave', 'Successfully left!');
 
     }
 }
