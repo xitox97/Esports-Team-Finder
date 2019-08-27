@@ -25,13 +25,15 @@ Route::get('login/steam/callback', 'Auth\SocialAccountController@handleProviderC
 
 Route::resource('users', 'UserController');
 Route::resource('teams', 'TeamController');
-
+Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');
+Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
 
 Route::get('/scrims', 'ScrimController@index');
 Route::get('/scrims/add/{team}', 'ScrimController@add');
 Route::post('/scrims', 'ScrimController@invite');
 Route::get('/scrims/accept/{status}', 'ScrimController@acceptScrim');
 Route::get('/scrims/reject/{status}', 'ScrimController@rejectScrim');
+Route::get('/scrims-schedule', 'ScrimController@scrimList');
 
 //button
 Route::get('/offer/{user}', 'OfferController@invite');

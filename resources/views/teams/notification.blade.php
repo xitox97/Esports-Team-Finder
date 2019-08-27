@@ -9,28 +9,43 @@
 
                 <div class="card" >
 
-
-
-
-
                     <div class="card-body">
                       <h5 class="card-title text-center"><b>Notification center (Team)</b> </h5>
                       <p class="card-text"></p>
                     </div>
 
 
-
-                    @if ($scrimStatus->status == 'pending')
-                        <li>Invitation to scrim with <a href="/teams/{{$scrimStatus->team->id}}"> Team {{ $scrimStatus->team->name }} </a>  <a
-                        href="/scrims/accept/{{ $scrimStatus->id }}" class="btn btn-primary btn-lg active"
+                    @foreach ($inviteNotis as $inviteNoti)
+                    @if ($inviteNoti->status == 'pending')
+                        <li>Invitation to scrim with <a href="/teams/{{$inviteNoti->team->id}}"> Team {{ $inviteNoti->team->name }} </a>  <a
+                        href="/scrims/accept/{{ $inviteNoti->id }}" class="btn btn-primary btn-lg active"
                             role="button" aria-pressed="true">Accept</a>
-                            <a href="/scrims/reject/{{ $scrimStatus->id }}" class="btn btn-danger btn-lg active"
+                            <a href="/scrims/reject/{{ $inviteNoti->id }}" class="btn btn-danger btn-lg active"
                             role="button" aria-pressed="true">Reject</a>
                         </li>
 
 
                     @endif
+                    @endforeach
 
+
+                    @foreach ($acceptedNoti as $accept)
+
+
+                    @if ($accept->status == 'Accepted')
+                    <div class="alert alert-success">
+                        <ul>
+                            <li><b>Team {{ $accept->team->name}}</b> has aggreed to have a scrim with you on {{ $accept->date_time}}</li>
+                        </ul>
+                    </div>
+                    @elseif ($accept->status == 'Rejected')
+                    <div class="alert alert-warning">
+                        <ul>
+                            <li><b>Team {{ $accept->team->name}}</b> has rejected to have a scrim with you on {{ $accept->date_time}}</li>
+                        </ul>
+                    </div>
+                    @endif
+                    @endforeach
                     @if (session('success'))
                     <div class="alert alert-success">
                         <ul>
@@ -38,6 +53,13 @@
                         </ul>
                     </div>
                 @endif
+                @if (session('reject'))
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{{ session('reject') }}</li>
+                    </ul>
+                </div>
+            @endif
                   </div>
 
             </div>

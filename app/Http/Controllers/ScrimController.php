@@ -15,9 +15,13 @@ class ScrimController extends Controller
      */
     public function index()
     {
-        $teams = Team::where('scrim', true)->get(); //get team that want to scrim
+        //$teams = Team::where('scrim', true)->get(); //get team that want to scrim
+
+        $id = auth()->user()->id;
+        $myTeam = Team::where('captain_id', $id)->first();
 
 
+        $teams = Team::where('scrim', true)->get()->except($myTeam->id);
 
 
         return view('scrims.index', compact('teams'));
@@ -85,13 +89,30 @@ class ScrimController extends Controller
 
     }
 
-    public function rejectScrim(){
+    public function rejectScrim($statusID){
+
+        $scrimstatus = Scrimstatus::find($statusID)->first();
+       // dd($scrimstatus);
+            $scrimstatus->status = 'Rejected';
+            $scrimstatus->save();
+
+
+            return back()->with('reject', 'Scrims is not added to schedule');
 
 
 
+    }
+
+    public function scrimList(){
+
+        $id = auth()->user()->id;
+        $myTeam = Team::where('captain_id', $id)->first();
 
 
+       // $scrimTable = Scrimstatus::where('team_id', $myTeam->id)->get();
 
+        //dd($myTeam);
+        return view('scrims.scrimlist', compact('myTeam'));
     }
     /**
      * Show the form for creating a new resource.

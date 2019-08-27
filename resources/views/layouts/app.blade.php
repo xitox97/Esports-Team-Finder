@@ -110,6 +110,11 @@
 
                                     <a class="dropdown-item" href="{{ url('/teams/' . $item->id) }}">
                                         My Team</a>
+                                    <a class="dropdown-item" href="{{ url('/scrims')}}">
+                                        Find team to Scrims</a>
+                                    <a class="dropdown-item" href="{{ url('/scrims-schedule')}}">
+                                        Scrims Schedule</a>
+
                                     @endforeach
 
                                     @endif

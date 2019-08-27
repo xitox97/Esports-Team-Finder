@@ -33,7 +33,7 @@
 
                     @endforeach
 
-                    {{-- @if($myOffers != null)
+                    @if($myOffers != null)
                         @foreach ($myOffers as $myoffer)
 
                         @if ($myoffer->status == 'Accepted')
@@ -52,7 +52,7 @@
                         </div>
                         @endif
                         @endforeach
-                    @endif --}}
+                    @endif
 
                     @if (session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>

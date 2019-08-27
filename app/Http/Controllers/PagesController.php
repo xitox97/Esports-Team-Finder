@@ -53,19 +53,40 @@ class PagesController extends Controller
 
         $offers = Offer::where('user_id', $id)->get();
 
-       // dd($offers);
+        if( Team::where('captain_id', $id)->first() != null){
 
-        return view('users.notification', compact('offers'));
+
+        $myTeam = Team::where('captain_id', $id)->first();
+        $myOffers = Offer::where('team_id', $myTeam->id)->get();
+        return view('users.notificationFeedback', compact('offers','myOffers'));
+
+        }
+
+        else{
+            return view('users.notification', compact('offers'));
+        }
+
+      // dd($myOffers);
+
+
+
+
     }
 
     public function notiScrim(){
 
         $id = auth()->user()->id;
-        $myTeam = Team::where('captain_id', $id)->first();
-        $scrimStatus = Scrimstatus::where('opponent_id', $myTeam->id)->first();
+        $receivedTeam = Team::where('captain_id', $id)->first();
+        $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();
 
         // dd($scrimStatus);
 
-        return view('teams.notification', compact('scrimStatus'));
+        $senderTeam = Team::where('captain_id', $id)->first();
+        $acceptedNoti = Scrimstatus::where('team_id', $senderTeam->id)->get();
+
+        //dd($acceptedNoti->toArray());
+
+
+        return view('teams.notification', compact('inviteNotis','acceptedNoti'));
     }
 }
