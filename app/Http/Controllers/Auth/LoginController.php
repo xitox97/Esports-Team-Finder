@@ -27,7 +27,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected function redirectTo()
+{
+    return '/players/' . Auth::user()->accounts->dota_id;
+}
 
     /**
      * Create a new controller instance.

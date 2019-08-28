@@ -12,7 +12,9 @@ class Team extends Model
 
     protected $casts = [
         'scrim' => 'boolean',
+
     ];
+
 
     public function users()
     {
@@ -31,5 +33,6 @@ class Team extends Model
     public function scrimStatus(){
         return $this->hasMany('App\Scrimstatus');
     }
+
 
 }

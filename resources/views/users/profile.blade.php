@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
             <div class="col-md-3">
-
+                @if ( Auth::user()->id != $fetchPlayers->user_id )
                             <h1><u>Interactions</u></h1>
 
 
@@ -13,6 +13,7 @@
                             role="button" aria-pressed="true">Offer</a>
                             <a href="#" class="btn btn-primary"
                             role="button" aria-pressed="true">Live Chat</a>
+
                             <a href="{{  $fetchPlayers->profile_url  }}" class="btn btn-danger"
                             role="button" aria-pressed="true">Add Friend In Steam</a>
 
@@ -22,6 +23,7 @@
                                     <li>{{ session('offer') }}</li>
                                 </ul>
                             </div>
+                        @endif
                         @endif
            </div>
         <div class="col-md-9">

@@ -19,7 +19,8 @@
                               <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Team</th>
-                                <th scope="col">Date and Time</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Date</th>
                                 <th scope="col">Action</th>
 
                               </tr>
@@ -31,7 +32,8 @@
                                     <tr>
                                       <th scope="row">1</th>
                                       <td> <a href="{{ url('/teams/' . $scrim->id) }}">{{$scrim->name}}</a> </td>
-                                      <td>{{$scrim->pivot->date_time}}</td>
+                                      <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('h:i:s a') }}</td>
+                                      <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('d/m/Y') }}</td>
                                       <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
                                     </tr>
 
