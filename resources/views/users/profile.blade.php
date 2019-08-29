@@ -6,9 +6,6 @@
             <div class="col-md-3">
                 @if ( Auth::user()->id != $fetchPlayers->user_id )
                             <h1><u>Interactions</u></h1>
-
-
-
             <a href="/offer/{{ $fetchPlayers->user_id }}" class="btn btn-success"
                             role="button" aria-pressed="true">Offer</a>
                             <a href="#" class="btn btn-primary"
@@ -33,11 +30,8 @@
                 <div class="card" >
 
                     <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded mx-auto d-block" alt="...">
-                        {{-- {{dd($fetchPlayers['profile'])}} --}}
-
-
-
-                    <div class="card-body">
+                      <div class="card-body">
+                    <h5 class="card-title text-center"><b>Real Name:</b> {{  $fetchPlayers->user->name }}</h5>
                       <h5 class="card-title text-center"><b>Steam Name:</b> {{  $fetchPlayers->steam_name  }}</h5>
                         @include('users.medal')
 
@@ -48,11 +42,13 @@
                       <li class="list-group-item"><b>MMR ESTIMATE:</b>  {{  $fetchPlayers->mmr  }}</li>
                       <li class="list-group-item"><b>Win:</b> {{  $fetchPlayers->win_lose['win']  }}<br><b> Lose:</b>  {{  $fetchPlayers->win_lose['lose']  }} </li>
                       <li class="list-group-item"><b>Game:</b> Dota</li>
+                      <li class="list-group-item"><b>Age:</b> {{ $fetchPlayers->user->age }}</li>
+                      <li class="list-group-item"><b>Area:</b> {{ $fetchPlayers->user->area }}</li>
+                      <li class="list-group-item"><b>State:</b> {{ $fetchPlayers->user->state }}</li>
                     </ul>
-                    {{-- <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div> --}}
+
+                    <a href="{{url('users/' . $fetchPlayers->user_id  . '/edit')}}" class="btn btn-success"
+                        role="button" aria-pressed="true">Edit</a>
                   </div>
 
             </div>
@@ -60,6 +56,3 @@
     </div>
 </div>
 @endsection
-   {{-- {{ dd($dotas->accounts->toArray())}} --}}
-
-                    {{-- {{ dd($dotas->name)}} --}}

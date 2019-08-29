@@ -76,7 +76,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -88,7 +88,26 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
+        request()->validate([
+
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'age' => ['required', 'integer'],
+            'area' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255']
+        ]);
+
+
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->age = $request['age'];
+        $user->area = $request['area'];
+        $user->state = $request['state'];
+        $user->save();
+
+        $url = $user->accounts->dota_id;
+        return redirect("players/$url");
     }
 
     /**
