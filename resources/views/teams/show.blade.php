@@ -16,20 +16,17 @@
 
                         @foreach ($team->users as $player)
 
-                                <li> <a href="/players/{{ $player->accounts['dota_id']  }}">{{ $player->name }}</a> </li>
+                                <li>
+                                    @if ($player->id == $team->captain_id)
+                                        <b>Captain:</b>
+                                    @endif
 
-
-
-
+                                    <a href="/players/{{ $player->accounts['dota_id']  }}">{{ $player->name }}</a> </li>
                         @endforeach
+
                     </ul>
                 </div>
 
-
-                            {{-- <div class="card-body">
-                              <a href="#" class="card-link">Card link</a>
-                              <a href="#" class="card-link">Another link</a>
-                            </div> --}}
                           </div>
 
                     </div>
@@ -39,56 +36,50 @@
 
 
                         @if ($player->id === Auth::user()->id)
-
-
-
-                        <div class="card">
+                            <div class="card">
                                 <div class="card-header">Action</div>
 
                                 <div class="card" >
                                         <div class="card-body">
-                                            @if($team->scrim == false)
-                                                <a href="/teams/scrim/{{ $team->id }}" class="btn btn-primary "
-                                                    role="button" >Ready for scrim</a>
-                                            @else
-                                            <a href="/teams/notScrim/{{ $team->id }}" class="btn btn-info"
-                                                role="button" >Not Ready for scrim</a>
-                                            @endif
+
                                         <a href="/leave/{{ $team->id }}" class="btn btn-warning "
                                                 role="button" >Leave Team</a>
-                                        <form action="/teams/{{ $team->id }}" method="POST">
-                                        {{ method_field('DELETE') }}
-                                        {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger ">Delete Team</button>
-                                        </form>
 
-                                        @if (session('cannot'))
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                <li>{{ session('cannot') }}</li>
-                                            </ul>
+
+                                                {{-- Action for captain only --}}
+                                                @if ($team->captain_id === Auth::user()->id)
+
+                                                        @if($team->scrim == false)
+                                                            <a href="/teams/scrim/{{ $team->id }}" class="btn btn-primary "
+                                                            role="button" >Ready for scrim</a>
+                                                        @else
+                                                            <a href="/teams/notScrim/{{ $team->id }}" class="btn btn-info"
+                                                            role="button" >Not Ready for scrim</a>
+                                                        @endif
+
+                                                <form action="/teams/{{ $team->id }}" method="POST">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                        <button type="submit" class="btn btn-danger ">Delete Team</button>
+                                                    </form>
+                                                @endif
+
+
                                         </div>
-                                    @endif
-                        </div>
-
-
-                                    {{-- <div class="card-body">
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                    </div> --}}
-                                </div>
-
+                                 </div>
                             </div>
                         @endif
                     @endforeach
+                    @if (session('leave'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li>{{ session('leave') }}</li>
+                        </ul>
+                    </div>
+                @endif
 
-                        @if (session('leave'))
-                        <div class="alert alert-success">
-                            <ul>
-                                <li>{{ session('leave') }}</li>
-                            </ul>
-                        </div>
-                    @endif
+
+
 
 
                     <div class="card">
@@ -130,7 +121,11 @@
                     <ul class="list-group list-group-flush text-center">
                             <li class="list-group-item"><b>Area:</b> {{ $team->area }} </li>
                       <li class="list-group-item"><b>MMR ESTIMATE:</b> </li>
-                      <li class="list-group-item"><b>Win:</b><br><b> Lose:</b>  </li>
+                      @if($team->scrim == true)
+                        <li class="list-group-item"><b>Ready to scrim:</b><br><b>Ready</b></li>
+                      @else
+                        <li class="list-group-item"><b>Ready to scrim:</b><br><b>Not Ready</b></li>
+                      @endif
                       <li class="list-group-item"><b>Game:</b> Dota</li>
                     </ul>
                     {{-- <div class="card-body">

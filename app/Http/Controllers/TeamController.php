@@ -58,22 +58,27 @@ class TeamController extends Controller
 
 
         //dd($request->image);
+        try {
+                $team = Team::create([
+                    'captain_id' => $request['captain_id'],
+                    'name' => $request['name'],
+                    'area' => $request['area'],
+                    'qtty_member' => $request['qtty_member'],
+                    'image' => $request->image
+                ]);
 
-        $team = Team::create([
-            'captain_id' => $request['captain_id'],
-            'name' => $request['name'],
-            'area' => $request['area'],
-            'qtty_member' => $request['qtty_member'],
-            'image' => $request->image
-        ]);
+                //dd($team->id);
 
-        //dd($team->id);
+                $user = auth()->user();
+                $user->team()->attach($team->id);
 
-        $user = auth()->user();
-        $user->team()->attach($team->id);
+                $path = $team->id;
+                return redirect("teams/$path");
 
-        $path = $team->id;
-        return redirect("teams/$path");
+            }  catch (\Illuminate\Database\QueryException $e) {
+
+                return back()->withError('You must leave your current team first before creating new one!');
+            }
     }
 
     /**

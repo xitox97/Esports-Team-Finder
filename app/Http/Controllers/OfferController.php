@@ -70,16 +70,17 @@ class OfferController extends Controller
     }
 
     public function leaveTeam(Team $team){
-        //dd($offer);
 
         $user = auth()->user();
 
-        //$offers = Offer::where('user_id', $user->id)->get();
+        if($user->id == $team->captain_id){
+            return back()->with('leave', 'Captain can only delete team!');
+        }
+        else{
+            $user->team()->detach($team->id);
+            return back()->with('leave', 'Successfully left!');
+        }
 
-        //dd($accept);
-       $user->team()->detach($team->id);
-
-        return back()->with('leave', 'Successfully left!');
 
     }
 }
