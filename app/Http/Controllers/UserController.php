@@ -76,6 +76,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        abort_if($user->id !== auth()->id(), 403);
         return view('users.edit', compact('user'));
     }
 

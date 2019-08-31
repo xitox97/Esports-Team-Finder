@@ -46,9 +46,10 @@
                       <li class="list-group-item"><b>Area:</b> {{ $fetchPlayers->user->area }}</li>
                       <li class="list-group-item"><b>State:</b> {{ $fetchPlayers->user->state }}</li>
                     </ul>
-
+                    @if ( Auth::user()->id == $fetchPlayers->user_id )
                     <a href="{{url('users/' . $fetchPlayers->user_id  . '/edit')}}" class="btn btn-success"
                         role="button" aria-pressed="true">Edit</a>
+                    @endif
                   </div>
 
             </div>
