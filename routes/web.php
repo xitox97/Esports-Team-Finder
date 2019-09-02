@@ -50,7 +50,11 @@ Route::get('players/{player}', 'PagesController@show');
 
 
 Route::get('/tournaments', 'TournamentController@index');
-Route::get('/tournaments/create', 'TournamentController@create');
 Route::post('/tournaments', 'TournamentController@store');
 Route::get('/tournaments/interested/{tournament}', 'TournamentController@interested');
 Route::get('/tournaments/notInterested/{tournament}', 'TournamentController@notInterested');
+
+//admin only
+Route::get('/tournaments/create', 'TournamentController@create')->middleware('admin');
+Route::get('/admin', 'PagesController@adminIndex');
+Route::get('/admin/tournaments', 'PagesController@adminTour');

@@ -71,7 +71,7 @@ class TournamentController extends Controller
             'image' => $request->image
             ]);
 
-        return redirect('/tournaments');
+        return redirect('/admin/tournaments');
     }
 
     public function interested(Tournament $tournament)

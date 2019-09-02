@@ -6,6 +6,7 @@ use App\LinkedSocialAccount;
 use App\Offer;
 use App\Scrimstatus;
 use App\Team;
+use App\Tournament;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -64,5 +65,19 @@ class PagesController extends Controller
 
 
         return view('teams.notification', compact('inviteNotis','acceptedNoti'));
+    }
+
+
+    public function adminIndex()
+    {
+        return view('admins.index');
+    }
+
+    public function adminTour()
+    {
+        $tournament = Tournament::all();
+
+        return view('admins.tourList', compact('tournament'));
+
     }
 }
