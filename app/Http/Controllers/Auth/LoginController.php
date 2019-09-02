@@ -28,9 +28,19 @@ class LoginController extends Controller
      * @var string
      */
     protected function redirectTo()
-{
-    return '/players/' . Auth::user()->accounts->dota_id;
-}
+    {
+        if ( Auth::check() && Auth::user()->isAdmin() )
+        {
+
+            return '/admin';
+
+        }
+        else{
+            return '/players/' . Auth::user()->accounts->dota_id;
+        }
+
+
+    }
 
     /**
      * Create a new controller instance.

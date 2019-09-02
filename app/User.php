@@ -34,7 +34,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime', 'is_admin' => 'boolean',
     ];
 
     public function accounts(){
@@ -52,5 +52,11 @@ class User extends Authenticatable
     public function tournaments()
     {
         return $this->belongsToMany('App\Tournament')->withTimestamps();
+    }
+
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }
