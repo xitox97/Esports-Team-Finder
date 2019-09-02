@@ -14,7 +14,7 @@
 
                 <div class="card" >
                     <div class="card-body">
-                        <img src="" alt="">
+                        <img src="{{  asset('storage/tour/' . $item->image) }}" class="img-fluid mb-3">
                         <h5 class="card-title text-center"><b>Prize Pool:</b> RM {{ $item->prizepool }}</h5>
                         <p class="card-text"></p>
                     </div>

@@ -25,7 +25,7 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        //
+        return view('tournaments.create');
     }
 
     /**
@@ -36,7 +36,41 @@ class TournamentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->image);
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'venue' => 'required|alpha',
+            'state' => 'required|alpha',
+            'prizepool' => 'required|numeric',
+            'organizer' => 'required|alpha',
+            'image' => 'required|image|max:1999'
+        ]);
+
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $ext = $image->getClientOriginalExtension();
+            $filename = uniqid().'.'.$ext;
+            $image->storeAs('public/tour',$filename);
+            $request->image = $filename;
+        }
+
+       // dd($request->image);
+
+
+        Tournament::create([
+            'name' => $request['name'],
+            'start_date' => $request['start_date'],
+            'end_date' => $request['end_date'],
+            'venue' => $request['venue'],
+            'state' => $request['state'],
+            'prizepool' => $request['prizepool'],
+            'organizer' => $request['organizer'],
+            'image' => $request->image
+            ]);
+
+        return redirect('/tournaments');
     }
 
     /**

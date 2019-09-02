@@ -50,3 +50,5 @@ Route::get('players/{player}', 'PagesController@show');
 
 
 Route::get('/tournaments', 'TournamentController@index');
+Route::get('/tournaments/create', 'TournamentController@create');
+Route::post('/tournaments', 'TournamentController@store');
