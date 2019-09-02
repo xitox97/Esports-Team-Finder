@@ -47,3 +47,6 @@ Route::get('/tnotification', 'PagesController@notiScrim');
 Route::get('/notifications', 'PagesController@noti');
 Route::get('/steamconnects', 'PagesController@steam');
 Route::get('players/{player}', 'PagesController@show');
+
+
+Route::get('/tournaments', 'TournamentController@index');
