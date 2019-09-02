@@ -61,7 +61,7 @@
 
 
 
-                                        <a class="dropdown-item" href="{{ url('/tournaments/create') }}">Insert Tournament</a>
+                                        <a class="dropdown-item" href="{{ url('/admin/tournaments/create') }}">Insert Tournament</a>
                                         <a class="dropdown-item" href="{{ url('/admin/tournaments') }}">View Tournament</a>
 
 

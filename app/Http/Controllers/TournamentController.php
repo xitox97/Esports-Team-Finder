@@ -26,7 +26,7 @@ class TournamentController extends Controller
      */
     public function create()
     {
-        return view('tournaments.create');
+        return view('admins.tourCreate');
     }
 
     /**
@@ -44,7 +44,7 @@ class TournamentController extends Controller
             'end_date' => 'required',
             'venue' => 'required|alpha',
             'state' => 'required|alpha',
-            'prizepool' => 'required|numeric',
+            'prizepool' => 'required|numeric|digits_between:1,9',
             'organizer' => 'required|alpha',
             'image' => 'required|image|max:1999'
         ]);
