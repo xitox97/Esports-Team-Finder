@@ -48,4 +48,9 @@ class User extends Authenticatable
     public function offers(){
         return $this->hasMany('App\Offer');
     }
+
+    public function tournaments()
+    {
+        return $this->belongsToMany('App\Tournament')->withTimestamps();
+    }
 }
