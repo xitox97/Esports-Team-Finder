@@ -51,6 +51,6 @@ class User extends Authenticatable
 
     public function tournaments()
     {
-        return $this->belongsToMany('App\Tournament')->withTimestamps();;
+        return $this->belongsToMany('App\Tournament')->withTimestamps();
     }
 }

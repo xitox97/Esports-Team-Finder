@@ -15,6 +15,7 @@ class TournamentController extends Controller
     public function index()
     {
         $tournament = Tournament::all();
+
         return view('tournaments.index', compact('tournament'));
     }
 
@@ -71,6 +72,26 @@ class TournamentController extends Controller
             ]);
 
         return redirect('/tournaments');
+    }
+
+    public function interested(Tournament $tournament)
+    {
+
+        $id = auth()->user()->id;
+
+        $tournament->users()->attach($id);
+
+        return back()->with('interest', 'Added to interest list');
+    }
+
+    public function notInterested(Tournament $tournament)
+    {
+
+        $id = auth()->user()->id;
+
+        $tournament->users()->detach($id);
+
+        return back()->with('notInterest', 'Remove from interest list');
     }
 
     /**
