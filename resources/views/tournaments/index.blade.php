@@ -8,7 +8,7 @@
         @foreach ($tournament as $item)
 
 
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
             <div class="card">
             <div class="card-header">{{ $item->name }}</div>
 
@@ -23,7 +23,7 @@
                         <li class="list-group-item"><b>Date:</b> {{ $item->start_date }} until {{ $item->end_date }}</li>
                         <li class="list-group-item"><b>Venu:</b> {{ $item->venue }}</li>
                         <li class="list-group-item"><b>State:</b> {{ $item->state }}  </li>
-
+                        <a href="" class="btn btn-success" role="button" >Interested</a>
                     </ul>
                   </div>
             </div>
