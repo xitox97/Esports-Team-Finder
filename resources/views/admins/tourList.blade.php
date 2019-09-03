@@ -36,10 +36,14 @@
                         <li class="list-group-item"><b>Date:</b> {{ $tour->start_date }} until {{ $tour->end_date }}</li>
                         <li class="list-group-item"><b>Venu:</b> {{ $tour->venue }}</li>
                         <li class="list-group-item"><b>State:</b> {{ $tour->state }}  </li>
-
+                        @if($tour->status == 1)
+                        <li class="list-group-item"><b>Status: </b>Ended</li>
+                        @endif
                     </ul>
                     <a href="/admin/tournaments/{{ $tour->id }}/edit" class="btn btn-warning" role="button" >Update</a>
-                    <a href="/tournaments/interested/{{ $tour->id }}" class="btn btn-danger" role="button" >Delete</a>
+                    @if($tour->status == 0)
+                    <a href="/admin/tournaments/{{ $tour->id }}/status" class="btn btn-primary" role="button" >Complete or not</a>
+                    @endif
                   </div>
             </div>
         </div>

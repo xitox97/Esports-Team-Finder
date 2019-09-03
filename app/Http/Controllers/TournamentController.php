@@ -169,4 +169,11 @@ class TournamentController extends Controller
     {
         //
     }
+
+    public function status(Tournament $tournament)
+    {
+        $tournament->status = 1;
+        $tournament->save();
+        return redirect('/admin/tournaments');
+    }
 }

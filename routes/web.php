@@ -60,3 +60,4 @@ Route::get('/admin', 'PagesController@adminIndex');
 Route::get('/admin/tournaments', 'PagesController@adminTour');
 Route::get('/admin/tournaments/{tournament}/edit', 'TournamentController@edit');
 Route::patch('/admin/tournaments/{tournament}', 'TournamentController@update');
+Route::get('/admin/tournaments/{tournament}/status', 'TournamentController@status');

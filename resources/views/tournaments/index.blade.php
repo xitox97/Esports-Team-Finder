@@ -36,7 +36,11 @@
                         <li class="list-group-item"><b>Date:</b> {{ $tour->start_date }} until {{ $tour->end_date }}</li>
                         <li class="list-group-item"><b>Venu:</b> {{ $tour->venue }}</li>
                         <li class="list-group-item"><b>State:</b> {{ $tour->state }}  </li>
-
+                        @if($tour->status == 1)
+                        <li class="list-group-item"><b>Status: </b>Ended</li>
+                        @else
+                        <li class="list-group-item"><b>Status: </b>Upcoming</li>
+                        @endif
                         @php
                             $check = false;
                             foreach ($tour->users as $user) {
