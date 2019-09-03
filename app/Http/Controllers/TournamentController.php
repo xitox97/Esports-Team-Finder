@@ -42,10 +42,10 @@ class TournamentController extends Controller
             'name' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'venue' => 'required|alpha',
-            'state' => 'required|alpha',
+            'venue' => 'required|regex:/^[\pL\s\-]+$/u',
+            'state' => 'required|regex:/^[\pL\s\-]+$/u',
             'prizepool' => 'required|numeric|digits_between:1,9',
-            'organizer' => 'required|alpha',
+            'organizer' => 'required|regex:/^[\pL\s\-]+$/u',
             'image' => 'required|image|max:1999'
         ]);
 
@@ -113,7 +113,7 @@ class TournamentController extends Controller
      */
     public function edit(Tournament $tournament)
     {
-        //
+        return view('admins.tourEdit', compact('tournament'));
     }
 
     /**
@@ -125,7 +125,38 @@ class TournamentController extends Controller
      */
     public function update(Request $request, Tournament $tournament)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'venue' => 'required|regex:/^[\pL\s\-]+$/u',
+            'state' => 'required|regex:/^[\pL\s\-]+$/u',
+            'prizepool' => 'required|numeric|digits_between:1,9',
+            'organizer' => 'required|regex:/^[\pL\s\-]+$/u',
+            'image' => 'image|max:1999'
+        ]);
+
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $ext = $image->getClientOriginalExtension();
+            $filename = uniqid().'.'.$ext;
+            $image->storeAs('public/tour',$filename);
+            $request->image = $filename;
+        }
+        else{
+            $request->image = $tournament->image;
+        }
+
+        $tournament->name = $request['name'];
+        $tournament->image = $request->image;
+        $tournament->start_date = $request['start_date'];
+        $tournament->end_date = $request['end_date'];
+        $tournament->venue = $request['venue'];
+        $tournament->state = $request['state'];
+        $tournament->prizepool = $request['prizepool'];
+        $tournament->organizer = $request['organizer'];
+        $tournament->save();
+        return redirect('/admin/tournaments');
     }
 
     /**

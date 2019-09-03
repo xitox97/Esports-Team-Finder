@@ -23,6 +23,7 @@ class CreateTournamentsTable extends Migration
             $table->string('state');
             $table->integer('prizepool');
             $table->string('organizer');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

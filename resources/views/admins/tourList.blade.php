@@ -38,8 +38,8 @@
                         <li class="list-group-item"><b>State:</b> {{ $tour->state }}  </li>
 
                     </ul>
-                    <a href="/tournaments/interested/{{ $tour->id }}" class="btn btn-warning" role="button" >Update</a>
-                        <a href="/tournaments/interested/{{ $tour->id }}" class="btn btn-danger" role="button" >Delete</a>
+                    <a href="/admin/tournaments/{{ $tour->id }}/edit" class="btn btn-warning" role="button" >Update</a>
+                    <a href="/tournaments/interested/{{ $tour->id }}" class="btn btn-danger" role="button" >Delete</a>
                   </div>
             </div>
         </div>

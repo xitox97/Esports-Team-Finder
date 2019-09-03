@@ -58,3 +58,5 @@ Route::get('/tournaments/notInterested/{tournament}', 'TournamentController@notI
 Route::get('/admin/tournaments/create', 'TournamentController@create')->middleware('admin');
 Route::get('/admin', 'PagesController@adminIndex');
 Route::get('/admin/tournaments', 'PagesController@adminTour');
+Route::get('/admin/tournaments/{tournament}/edit', 'TournamentController@edit');
+Route::patch('/admin/tournaments/{tournament}', 'TournamentController@update');
