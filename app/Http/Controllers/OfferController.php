@@ -78,7 +78,7 @@ class OfferController extends Controller
         $offer->status = 'Rejected';
         $sender->notify(new RejectOffer($offer));
         $offer->save();
-
+        $noti->delete();
         return back()->with('reject', 'You has reject the offer');
         //dd($accept);
     }

@@ -26,26 +26,28 @@ class PagesController extends Controller
     }
 
     public function noti(){
-        $id = auth()->user()->id;
+        // $id = auth()->user()->id;
 
-        $offers = Offer::where('user_id', $id)->get();
+        // $offers = Offer::where('user_id', $id)->get();
 
-        if( Team::where('captain_id', $id)->first() != null){
+        // if( Team::where('captain_id', $id)->first() != null){
 
 
-        $myTeam = Team::where('captain_id', $id)->first();
-        $myOffers = Offer::where('team_id', $myTeam->id)->get();
-        return view('users.notificationFeedback', compact('offers','myOffers'));
+        // $myTeam = Team::where('captain_id', $id)->first();
+        // $myOffers = Offer::where('team_id', $myTeam->id)->get();
+        // return view('users.notificationFeedback', compact('offers','myOffers'));
 
-        }
+        // }
 
-        else{
-            return view('users.notification', compact('offers'));
-        }
+        // else{
+        //     return view('users.notification', compact('offers'));
+        // }
 
       // dd($myOffers);
 
+      //combine response and request. natofication.blade masih ada for backup
 
+      return view('users.notificationFeedback');
 
 
     }

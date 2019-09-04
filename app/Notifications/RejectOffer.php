@@ -58,7 +58,10 @@ class RejectOffer extends Notification
     {
         return [
             'user_id' => $this->offer->user->id,
-            'user_name' => $this->offer->user->name,
+            'steam_name' => $this->offer->user->accounts->steam_name,
+            'offer_id' => $this->offer->id,
+            'dota_id' => $this->offer->user->accounts->dota_id,
+            'offer_status' => $this->offer->status,
         ];
     }
 }
