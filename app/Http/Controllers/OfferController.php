@@ -31,7 +31,9 @@ class OfferController extends Controller
         'status' => 'pending',
     ]);
 
-   // $user->notify(new OfferTeam($offer)); send email notification just buang comment utk enable
+    //send email notification just buang comment utk enable
+    $user->notify(new OfferTeam($offer));
+
     return back()->with('offer', 'Offer has been sent!');
 
 

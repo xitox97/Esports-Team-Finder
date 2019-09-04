@@ -34,7 +34,8 @@ class OfferTeam extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        //return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -60,7 +61,8 @@ class OfferTeam extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'team_id' => $this->offer->team->id,
+            'team_name' => $this->offer->team->name,
         ];
     }
 }
