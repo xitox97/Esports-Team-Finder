@@ -37,9 +37,10 @@ Route::get('/scrims-schedule', 'ScrimController@scrimList');
 
 //button
 Route::get('/offer/{user}', 'OfferController@invite');
-Route::get('/accept/{offer}', 'OfferController@acceptOffer');
-Route::get('/reject/{offer}', 'OfferController@rejectOffer');
+Route::get('/accept/{offer}/notifications/{noti}', 'OfferController@acceptOffer');
+Route::get('/reject/{offer}/notifications/{noti}', 'OfferController@rejectOffer');
 Route::get('/leave/{team}', 'OfferController@leaveTeam');
+Route::delete('notifications/{noti}', 'OfferController@deleteNoti');
 
 
 

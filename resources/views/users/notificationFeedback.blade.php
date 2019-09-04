@@ -18,41 +18,78 @@
                       <p class="card-text"></p>
                     </div>
 
-                    @foreach ($offers as $offer)
+                    @foreach (Auth::user()->unreadNotifications as $noti)
 
-                    @if ($offer->status == 'pending')
-                        <li>Offer from <a href="/teams/{{$offer->team->id}}"> Team {{ $offer->team->name }} </a>  <a
-                        href="/accept/{{ $offer->id }}" class="btn btn-primary btn-lg active"
-                            role="button" aria-pressed="true">Accept</a>
-                            <a href="/reject/{{ $offer->id }}" class="btn btn-danger btn-lg active"
-                            role="button" aria-pressed="true">Reject</a>
-                        </li>
+                        @foreach ($offers as $offer)
+
+                        @if ($offer->status == 'pending')
+                            <li>Offer from <a href="/teams/{{$offer->team->id}}"> Team {{ $offer->team->name }} </a>  <a
+                            href="/accept/{{ $offer->id }}/notifications/{{$noti->id}}" class="btn btn-primary btn-lg active"
+                                role="button" aria-pressed="true">Accept</a>
+                                <a href="/reject/{{ $offer->id }}" class="btn btn-danger btn-lg active"
+                                role="button" aria-pressed="true">Reject</a>
+                            </li>
 
 
-                    @endif
+                        @endif
+
+                        @endforeach
+
+
+
+
+                        @if($myOffers != null)
+                            @foreach ($myOffers as $myoffer)
+
+                                @if ($myoffer->status == 'Accepted')
+                                    {{-- <div class="alert alert-success">
+                                        <ul>
+                                        <li><b> <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
+                                            {{ $myoffer->user->accounts->steam_name }} </a></b> has accept the offer</li>
+                                        </ul>
+                                    </div> --}}
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>
+                                            <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
+                                            {{ $myoffer->user->accounts->steam_name }}</a>
+                                        </strong> has accepts your offer
+
+                                    <form action="/notifications/{{$noti->id}}" method="post">
+                                        {{ method_field('DELETE') }}
+                                        @csrf
+
+                                        <button type="submit" class="close" > <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </form>
+                                    </div>
+
+                                @elseif ($myoffer->status == 'Rejected')
+                                    {{-- <div class="alert alert-warning">
+                                        <ul>
+                                        <li><b> <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
+                                            {{ $myoffer->user->accounts->steam_name }} </a></b> has reject the offer</li>
+                                        </ul>
+                                    </div> --}}
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong>
+                                                <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
+                                                {{ $myoffer->user->accounts->steam_name }}</a>
+                                            </strong> has accepts your offer
+
+                                        <form action="/notifications/{{$noti->id}}" method="post">
+                                            {{ method_field('DELETE') }}
+                                            @csrf
+
+                                            <button type="submit" class="close" > <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </form>
+                                        </div>
+                                @endif
+
+                            @endforeach
+                        @endif
 
                     @endforeach
-
-                    @if($myOffers != null)
-                        @foreach ($myOffers as $myoffer)
-
-                        @if ($myoffer->status == 'Accepted')
-                        <div class="alert alert-success">
-                            <ul>
-                            <li><b> <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
-                                {{ $myoffer->user->accounts->steam_name }} </a></b> has accept the offer</li>
-                            </ul>
-                        </div>
-                        @elseif ($myoffer->status == 'Rejected')
-                        <div class="alert alert-warning">
-                            <ul>
-                            <li><b> <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
-                                {{ $myoffer->user->accounts->steam_name }} </a></b> has reject the offer</li>
-                            </ul>
-                        </div>
-                        @endif
-                        @endforeach
-                    @endif
 
                     @if (session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>

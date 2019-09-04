@@ -8,14 +8,11 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class OfferTeam extends Notification
+class AcceptOffer extends Notification
 {
-
-
     use Queueable;
 
     protected $offer;
-
     /**
      * Create a new notification instance.
      *
@@ -34,7 +31,6 @@ class OfferTeam extends Notification
      */
     public function via($notifiable)
     {
-        //return ['mail'];
         return ['database'];
     }
 
@@ -47,9 +43,9 @@ class OfferTeam extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('There are new offer to join Dota 2 Team from Team ' . $this->offer->team->name)
-                    ->action('View', url('/notifications'))
-                    ->line('Good luck, Have Fun!');
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**
@@ -61,9 +57,8 @@ class OfferTeam extends Notification
     public function toArray($notifiable)
     {
         return [
-            'team_id' => $this->offer->team->id,
-            'team_name' => $this->offer->team->name,
-            'offer_id' => $this->offer->id,
+            'user_id' => $this->offer->user->id,
+            'user_name' => $this->offer->user->name,
         ];
     }
 }

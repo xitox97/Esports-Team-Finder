@@ -18,6 +18,22 @@
                       <p class="card-text"></p>
                     </div>
 
+                    @foreach (Auth::user()->unreadNotifications as $noti)
+
+                            <li>Offer from <a href="/teams/{{$noti->data['team_id']}}"> Team {{ $noti->data['team_name'] }} </a>  <a
+                            href="/accept/{{ $noti->data['offer_id'] }}/notifications/{{$noti->id}}" class="btn btn-primary btn-lg active"
+                                role="button" aria-pressed="true">Accept</a>
+                                <a href="/reject/{{ $noti->data['offer_id'] }}/notifications/{{$noti->id}}" class="btn btn-danger btn-lg active"
+                                role="button" aria-pressed="true">Reject</a>
+                            </li>
+                        @endforeach
+
+
+                    {{-- @endforeach --}}
+
+
+
+{{--
                     @foreach ($offers as $offer)
 
                     @if ($offer->status == 'pending')
@@ -31,28 +47,9 @@
 
                     @endif
 
-                    @endforeach
+                    @endforeach --}}
 
-                    {{-- @if($myOffers != null)
-                        @foreach ($myOffers as $myoffer)
 
-                        @if ($myoffer->status == 'Accepted')
-                        <div class="alert alert-success">
-                            <ul>
-                            <li><b> <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
-                                {{ $myoffer->user->accounts->steam_name }} </a></b> has accept the offer</li>
-                            </ul>
-                        </div>
-                        @elseif ($myoffer->status == 'Rejected')
-                        <div class="alert alert-warning">
-                            <ul>
-                            <li><b> <a href="{{ url('/players/' . $myoffer->user->accounts->dota_id) }}">
-                                {{ $myoffer->user->accounts->steam_name }} </a></b> has reject the offer</li>
-                            </ul>
-                        </div>
-                        @endif
-                        @endforeach
-                    @endif --}}
 
                     @if (session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>

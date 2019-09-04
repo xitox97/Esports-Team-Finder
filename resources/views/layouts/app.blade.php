@@ -50,6 +50,20 @@
     display: flex;
     flex-direction: row;
 }
+
+.notify-drop-footer {
+  border-top: 1px solid #e2e2e2;
+  bottom: 0;
+  position: relative;
+  padding: 8px 15px;
+}
+.notify-drop-footer a {
+  color: #777;
+  text-decoration: none;
+}
+.notify-drop-footer a:hover {
+  color: #333;
+}
 </style>
 
 
@@ -98,9 +112,21 @@
                                     @foreach(Auth::user()->unreadNotifications as $noti)
                                         @include('notifications.' . snake_case(class_basename($noti->type)))
                                     @endforeach
+                                    <div class="notify-drop-footer text-center">
+                                        <a href=""><i class="fa fa-eye"></i> Tümünü Göster</a>
+                                    </div>
                                 </div>
 
                         </li>
+                        @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                     <i class="far fa-bell"></i>
+                            </a>
+
+
+                        </li>
+
 
                         @endif
 

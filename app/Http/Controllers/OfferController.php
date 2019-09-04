@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\AcceptOffer;
 use App\Notifications\OfferTeam;
+use App\Notifications\RejectOffer;
 use App\Offer;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\DatabaseNotification;
 
 class OfferController extends Controller
 {
@@ -42,17 +45,23 @@ class OfferController extends Controller
 
     }
 
-    public function acceptOffer(Offer $offer){
-        //dd($offer);
+    public function acceptOffer(Offer $offer, DatabaseNotification $noti){
+
         $user = auth()->user();
-        //$offers = Offer::where('user_id', $user->id)->get();
-        //dd($accept);
+        $sender = User::where('id', $offer->team->captain_id)->first();
+
+        //dd($noti);
 
         try {
 
             $user->team()->attach($offer->team_id);
             $offer->status = 'Accepted';
             $offer->save();
+
+            $sender->notify(new AcceptOffer($offer));
+
+            $noti->delete();
+
             return back()->with('success', 'Successfully Joined');
 
 
@@ -63,10 +72,13 @@ class OfferController extends Controller
 
     }
 
-    public function rejectOffer(Offer $offer){
+    public function rejectOffer(Offer $offer, DatabaseNotification $noti){
 
+        $sender = User::where('id', $offer->team->captain_id)->first();
         $offer->status = 'Rejected';
+        $sender->notify(new RejectOffer($offer));
         $offer->save();
+
         return back()->with('reject', 'You has reject the offer');
         //dd($accept);
     }
@@ -84,5 +96,12 @@ class OfferController extends Controller
         }
 
 
+    }
+
+
+    public function deleteNoti(DatabaseNotification $noti)
+    {
+        $noti->delete();
+        return back();
     }
 }
