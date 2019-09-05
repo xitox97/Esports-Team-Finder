@@ -2,30 +2,27 @@
 
 namespace App\Notifications;
 
-use App\Offer;
-use App\Team;
+use App\Scrimstatus;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class OfferTeam extends Notification
+class OfferScrim extends Notification
 {
-
-
     use Queueable;
 
-    protected $offer,$team;
+    protected $scrim;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Offer $offer, Team $team)
+    public function __construct(Scrimstatus $scrim)
     {
-        $this->offer = $offer;
-        $this->team = $team;
+        $this->scrim = $scrim;
     }
 
     /**
@@ -36,7 +33,6 @@ class OfferTeam extends Notification
      */
     public function via($notifiable)
     {
-        //return ['mail'];
         return ['database'];
     }
 
@@ -49,9 +45,9 @@ class OfferTeam extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('There are new offer to join Dota 2 Team from Team ' . $this->offer->team->name)
-                    ->action('View', url('/notifications'))
-                    ->line('Good luck, Have Fun!');
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**
@@ -62,14 +58,15 @@ class OfferTeam extends Notification
      */
     public function toArray($notifiable)
     {
+        $date = Carbon::parse($this->scrim->date_time);
+
         return [
-            'user_id' => $this->offer->user->id,
-            'steam_name' => $this->offer->user->accounts->steam_name,
-            'offer_id' => $this->offer->id,
-            'dota_id' => $this->offer->user->accounts->dota_id,
-            'offer_status' => $this->offer->status,
-            'team_name' => $this->team->name,
-            'team_id' => $this->team->id,
+            'team_id' => $this->scrim->team->id,
+            'team_name' => $this->scrim->team->name,
+            'offer_id' => $this->scrim->id,
+            'offer_status' => $this->scrim->status,
+            'offer_time' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('h:i:s a'),
+            'offer_date' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y'),
         ];
     }
 }

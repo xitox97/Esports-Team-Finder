@@ -15,7 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+    integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -49,6 +50,8 @@
     display: flex;
     flex-direction: row;
 }
+
+
 </style>
 
 
@@ -84,6 +87,35 @@
                                 </li>
                             @endif
                         @else
+
+                        {{-- notification --}}
+
+                        @if (count(Auth::user()->unreadNotifications))
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span class="badge badge-pill badge-primary" style="float:right; margin-bottom:-10px; "> {{count(Auth::user()->unreadNotifications)}} </span> <i class="far fa-bell"></i>
+                            </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @foreach(Auth::user()->unreadNotifications as $noti)
+                                        @include('notifications.' . snake_case(class_basename($noti->type)))
+                                    @endforeach
+
+                                </div>
+
+                        </li>
+                        @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                     <i class="far fa-bell"></i>
+                            </a>
+
+
+                        </li>
+
+
+                        @endif
+
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

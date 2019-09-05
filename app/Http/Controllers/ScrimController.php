@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\AcceptScrim;
+use App\Notifications\OfferScrim;
+use App\Notifications\RejectScrim;
 use App\Scrimstatus;
 use App\Team;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\DatabaseNotification;
 
 class ScrimController extends Controller
 {
@@ -31,11 +36,6 @@ class ScrimController extends Controller
 
         $id = auth()->user()->id;
         $myTeam = Team::where('captain_id', $id)->first();
-
-
-
-
-
         return view('scrims.add', compact('team','myTeam'));
     }
 
@@ -56,31 +56,38 @@ class ScrimController extends Controller
         'date_time' => $request['date_time']
         ]);
 
+        $team = Team::where('id', $request['opponent_id'])->first();
+
+        $user = User::where('id', $team->captain_id)->first();
+        //dd($user);
+        $user->notify(new OfferScrim($inviteScrim));
+
         return redirect('/scrims');
 
     }
 
-    public function acceptScrim($statusID){
+    public function acceptScrim(Scrimstatus $status, DatabaseNotification $noti){
 
-        $scrimstatus = Scrimstatus::find($statusID)->first();
-        //dd($scrimstatus);
+
+
+
         $id = auth()->user()->id;
         $myTeam = Team::where('captain_id', $id)->first();
-    //$scrimStatus = Scrimstatus::where('opponent_id', $myTeam->id)->first();
 
-    //$scrim
 
-        //$myTeam->scrims()->attach($scrim->team_id);
+        $myTeam->scrims()->attach($status->team_id, ['date_time' => $status->date_time]);
 
-        $myTeam->scrims()->attach($scrimstatus->team_id, ['date_time' => $scrimstatus->date_time]);
+        $opponentTeam = Team::where('id', $status->team_id)->first();
 
-        $opponentTeam = Team::where('id', $scrimstatus->team_id)->first();
+        $opponentTeam->scrims()->attach($status->opponent_id, ['date_time' => $status->date_time]);
 
-        $opponentTeam->scrims()->attach($scrimstatus->opponent_id, ['date_time' => $scrimstatus->date_time]);
+        $status->status = 'Accepted';
+        $status->save();
 
-        $scrimstatus->status = 'Accepted';
-        $scrimstatus->save();
+        $sender = User::where('id', $opponentTeam->captain_id)->first();
 
+        $sender->notify(new AcceptScrim($status,$myTeam));
+        $noti->delete();
         return back()->with('success', 'Scrims added to schedule');
 
 
@@ -89,14 +96,20 @@ class ScrimController extends Controller
 
     }
 
-    public function rejectScrim($statusID){
+    public function rejectScrim(Scrimstatus $status, DatabaseNotification $noti){
 
-        $scrimstatus = Scrimstatus::find($statusID)->first();
-       // dd($scrimstatus);
-            $scrimstatus->status = 'Rejected';
-            $scrimstatus->save();
+            $id = auth()->user()->id;
+            $myTeam = Team::where('captain_id', $id)->first();
 
+            $status->status = 'Rejected';
+            $status->save();
 
+            $opponentTeam = Team::where('id', $status->team_id)->first();
+
+            $sender = User::where('id', $opponentTeam->captain_id)->first();
+
+            $sender->notify(new RejectScrim($status,$myTeam));
+            $noti->delete();
             return back()->with('reject', 'Scrims is not added to schedule');
 
 
