@@ -35,7 +35,7 @@ class OfferController extends Controller
     ]);
 
     //send email notification just buang comment utk enable
-    $user->notify(new OfferTeam($offer));
+    $user->notify(new OfferTeam($offer,$teams));
 
     return back()->with('offer', 'Offer has been sent!');
 

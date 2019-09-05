@@ -31,8 +31,8 @@ Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
 Route::get('/scrims', 'ScrimController@index');
 Route::get('/scrims/add/{team}', 'ScrimController@add');
 Route::post('/scrims', 'ScrimController@invite');
-Route::get('/scrims/accept/{status}', 'ScrimController@acceptScrim');
-Route::get('/scrims/reject/{status}', 'ScrimController@rejectScrim');
+Route::get('/scrims/accept/{status}/notifications/{noti}', 'ScrimController@acceptScrim');
+Route::get('/scrims/reject/{status}/notifications/{noti}', 'ScrimController@rejectScrim');
 Route::get('/scrims-schedule', 'ScrimController@scrimList');
 
 //button
@@ -40,7 +40,7 @@ Route::get('/offer/{user}', 'OfferController@invite');
 Route::get('/accept/{offer}/notifications/{noti}', 'OfferController@acceptOffer');
 Route::get('/reject/{offer}/notifications/{noti}', 'OfferController@rejectOffer');
 Route::get('/leave/{team}', 'OfferController@leaveTeam');
-Route::delete('notifications/{noti}', 'OfferController@deleteNoti');
+Route::delete('notifications/{noti}', 'OfferController@deleteNoti'); //delete noti bila tekan close dekat notification
 
 
 

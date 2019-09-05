@@ -32,7 +32,7 @@
                                     role="button" aria-pressed="true">Reject</a>
                                 </li>
 
-                            @else
+                            @elseif ( class_basename($noti->type) == "AcceptOffer")
 
                                     @if ($noti->data['offer_status'] == 'Accepted')
 
@@ -50,8 +50,10 @@
                                             </button>
                                         </form>
                                     </div>
+                                    @endif
 
-                                @elseif ($noti->data['offer_status'] == 'Rejected')
+                            @elseif ( class_basename($noti->type) == "RejectOffer")
+                                @if ($noti->data['offer_status'] == 'Rejected')
                                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                                 <strong>
                                                     <a href="{{ url('/players/' . $noti->data['dota_id']) }}">
