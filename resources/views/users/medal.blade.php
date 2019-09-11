@@ -21,8 +21,8 @@
 <div class="rankTierContainer">
         <div class="rankMedal">
             <img class="rankMedal-icon" src="
-            {{  asset('storage/medal/rank_icon_' . $fetchPlayers->medal[0] . '.png') }}" alt="">
-            <img class="rankMedal-star" src="{{  asset('storage/medal/rank_star_' . $fetchPlayers->medal[1] . '.png') }}" alt="">
+            {{  asset('img/medal/rank_icon_' . $fetchPlayers->medal[0] . '.png') }}" alt="">
+            <img class="rankMedal-star" src="{{  asset('img/medal/rank_star_' . $fetchPlayers->medal[1] . '.png') }}" alt="">
 
         </div>
     </div>
