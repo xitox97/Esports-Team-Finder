@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-$DATABASE_URL=parse_url('mysql://mws5anat5hb2t7pe:lzixfqezbpbpdutz@wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/y09jxhb2sp3yk88z');
+$DATABASE_URL=parse_url('mysql://hzxl9ftfl7ebdmzh:i5yfgaaua2ep6ge3@h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dpl4t9d3blylkz32');
 return [
 
     /*
