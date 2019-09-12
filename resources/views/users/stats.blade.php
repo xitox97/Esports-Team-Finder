@@ -14,7 +14,7 @@
                         <h5 class="card-title text-center"><b>Real Name:</b> {{  $fetchPlayers->user->name }}</h5>
                           <h5 class="card-title text-center"><b>Steam Name:</b> {{  $fetchPlayers->steam_name  }}</h5>
                             @include('users.medal')
-
+                           <div class="text-center mt-2"><b>Win:</b> {{  $fetchPlayers->win_lose['win']  }}<br><b> Lose:</b>  {{  $fetchPlayers->win_lose['lose']  }}</div>
                           <p class="card-text"></p>
                         </div>
 
