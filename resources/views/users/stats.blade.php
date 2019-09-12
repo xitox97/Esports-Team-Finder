@@ -17,11 +17,7 @@
                            <div class="text-center mt-2"><b>Win:</b> {{  $fetchPlayers->win_lose['win']  }}<br><b> Lose:</b>  {{  $fetchPlayers->win_lose['lose']  }}</div>
                           <p class="card-text"></p>
                         </div>
-
-
                       </div>
-
-
                 </div>
            </div>
            <div class="col-md-9">
@@ -37,6 +33,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                @if ($statistics != null)
                 @foreach ($statistics->recent_match as $recent)
                           <tr>
                             <td> @include('users.heroes')</td>
@@ -76,9 +73,16 @@
                                {{ $position }}
                             </td>
                             </tr>
-
-
             @endforeach
+            @else
+                            <tr class="mb-3 mt-3" ><td colspan="5"  > Fetching data... Comeback back again in minutes</td>
+
+                            </tr>
+
+
+
+
+            @endif
         </tbody>
     </table>
 </div>

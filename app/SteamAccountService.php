@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+
+use App\Jobs\consumeOpendotaApi;
 use GuzzleHttp\Client;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
@@ -36,14 +38,9 @@ class SteamAccountService
                 $response2 = $client->get("players/$dotaId/wl");
                 $fetchWL = json_decode($response2->getBody(), true);
 
-                $response3 = $client->get("players/$dotaId/recentMatches");
-                $fetchRM = json_decode($response3->getBody(), true);
 
-                // dd($fetchRM);
+                consumeOpendotaApi::dispatch($user);
 
-                $user->statistic()->create([
-                    'recent_match' => $fetchRM
-                ]);
 
                 $user->accounts()->create([
                     'provider_id'   => $providerUser->getId(),

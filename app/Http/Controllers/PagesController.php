@@ -28,27 +28,6 @@ class PagesController extends Controller
     }
 
     public function noti(){
-        // $id = auth()->user()->id;
-
-        // $offers = Offer::where('user_id', $id)->get();
-
-        // if( Team::where('captain_id', $id)->first() != null){
-
-
-        // $myTeam = Team::where('captain_id', $id)->first();
-        // $myOffers = Offer::where('team_id', $myTeam->id)->get();
-        // return view('users.notificationFeedback', compact('offers','myOffers'));
-
-        // }
-
-        // else{
-        //     return view('users.notification', compact('offers'));
-        // }
-
-      // dd($myOffers);
-
-      //combine response and request. natofication.blade masih ada for backup
-
       return view('users.notificationFeedback');
 
 
@@ -87,10 +66,13 @@ class PagesController extends Controller
 
     public function stats($player){
 
-        $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->firstOrFail();
-        $statistics = $fetchPlayers->user->statistic->first();
+        $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
 
-        //dd($statistics->recent_match);
+
+        $statistics = $fetchPlayers->user->statistic;
+
+
+
         return view('users.stats', compact('fetchPlayers','statistics'));
     }
 }
