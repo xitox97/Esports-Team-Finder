@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function accounts(){
-        return $this->hasOne(LinkedSocialAccount::class);
+        return $this->hasOne(LinkedSteamAccount::class);
     }
 
     public function team(){
@@ -58,5 +58,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin;
+    }
+
+    public function statistic()
+    {
+        return $this->hasOne(Statistic::class);
     }
 }

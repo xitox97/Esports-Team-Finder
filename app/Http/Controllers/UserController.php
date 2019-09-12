@@ -93,7 +93,6 @@ class UserController extends Controller
         request()->validate([
 
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'age' => ['required', 'integer'],
             'area' => ['required', 'string', 'max:255'],
             'state' => ['required', 'string', 'max:255']
@@ -101,7 +100,6 @@ class UserController extends Controller
 
 
         $user->name = $request['name'];
-        $user->email = $request['email'];
         $user->age = $request['age'];
         $user->area = $request['area'];
         $user->state = $request['state'];

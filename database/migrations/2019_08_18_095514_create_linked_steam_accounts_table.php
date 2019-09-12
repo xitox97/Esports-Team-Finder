@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinkedSocialAccountsTable extends Migration
+class CreateLinkedSteamAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLinkedSocialAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('linked_social_accounts', function (Blueprint $table) {
+        Schema::create('linked_steam_accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('provider_name')->nullable();
@@ -24,9 +24,13 @@ class CreateLinkedSocialAccountsTable extends Migration
             $table->string('steam_name')->nullable();
             $table->string('mmr')->nullable();
             $table->json('win_lose')->nullable();
+            $table->string('country')->nullable();
             $table->string('medal')->nullable();
             $table->string('leaderboard_rank')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

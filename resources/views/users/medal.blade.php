@@ -12,7 +12,7 @@
 <div class="rankTierContainer">
         <div class="rankMedal">
             <img class="rankMedal-icon" src="
-            {{  asset('storage/medal/rank_icon_0.png') }}" alt="">
+            {{  asset('img/medal/rank_icon_0.png') }}" alt="">
 
 
         </div>

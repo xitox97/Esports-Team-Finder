@@ -11,6 +11,9 @@
 |
 */
 
+use App\Jobs\consumeOpendotaApi;
+use App\User;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -48,6 +51,7 @@ Route::get('/tnotification', 'PagesController@notiScrim');
 Route::get('/notifications', 'PagesController@noti');
 Route::get('/steamconnects', 'PagesController@steam');
 Route::get('players/{player}', 'PagesController@show');
+Route::get('players/{player}/stats', 'PagesController@stats');
 
 
 Route::get('/tournaments', 'TournamentController@index');
@@ -62,3 +66,13 @@ Route::get('/admin/tournaments', 'PagesController@adminTour');
 Route::get('/admin/tournaments/{tournament}/edit', 'TournamentController@edit');
 Route::patch('/admin/tournaments/{tournament}', 'TournamentController@update');
 Route::get('/admin/tournaments/{tournament}/status', 'TournamentController@status');
+
+Route::get('/try-redis', function(){
+
+    $user = User::where('id', auth()->id())->first();
+    // dd($user);
+
+    consumeOpendotaApi::dispatch($user);
+
+    return 'Finished';
+});
