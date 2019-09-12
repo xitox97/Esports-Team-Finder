@@ -74,5 +74,5 @@ Route::get('/try-redis', function(){
 
     consumeOpendotaApi::dispatch($user);
 
-    return 'Finished';
+    return 'Finishedss';
 });
