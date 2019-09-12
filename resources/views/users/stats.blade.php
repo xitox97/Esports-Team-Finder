@@ -25,31 +25,63 @@
                 </div>
            </div>
            <div class="col-md-9">
-                <table class="table table-striped">
+                <div class="card" >
+                <table class="table table-striped text-center">
                         <thead>
                           <tr>
-                            <th scope="col">Match id</th>
                             <th scope="col">Hero</th>
+                            <th scope="col">Result</th>
+                            <th scope="col">Game Mode</th>
                             <th scope="col">Score (K/D/A)</th>
                             <th scope="col">Duration</th>
                           </tr>
                         </thead>
                         <tbody>
                 @foreach ($statistics->recent_match as $recent)
-                {{-- <li class="list-group-item"><b>Match ID:</b> {{ $recent['match_id'] }}</li> --}}
-
-
                           <tr>
-                            <th scope="row">{{ $recent['match_id'] }}</th>
-                            <td>{{ $recent['hero_id'] }}</td>
+                            <td> @include('users.heroes')</td>
+                            <td>
+                                @php
+                                    if($recent['player_slot'] >= 0 && $recent['player_slot'] <= 127)
+                                        {
+                                            $position = 'Radiant';
+                                        }
+                                    else {
+                                        $position =  'Dire';
+                                    }
+                                    if($recent['radiant_win'] == true && $position == 'Radiant')
+                                        {
+                                            $result = 'Won Match';
+                                        }
+                                    elseif ($recent['radiant_win'] == false && $position == 'Dire') {
+                                            $result = 'Won Match';
+                                        }
+                                    else {
+                                            $result = 'Lost Match';
+                                        }
+                                @endphp
+
+                            <a href="{{ $recent['match_id'] }}"><p class="{{ $result == 'Won Match' ? 'text-success' : 'text-danger' }}"> {{ $result}} </p></a>
+
+
+                            </td>
+                            <td> @include('users.gameMode')</td>
                             <td>{{ $recent['kills'] }}/{{ $recent['deaths'] }}/{{ $recent['assists'] }}</td>
-                            <td>{{ $recent['duration'] }}</td>
-                          </tr>
+                            <td>@php
+                                    $minutes=$recent['duration'];
+                                    $hours = intdiv($minutes, 60).':'. ($minutes % 60);
+                                    echo $hours;
+                                @endphp
+                                <br>
+                               {{ $position }}
+                            </td>
+                            </tr>
 
 
             @endforeach
         </tbody>
     </table>
+</div>
            </div>
 
     </div>

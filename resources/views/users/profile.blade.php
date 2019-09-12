@@ -45,6 +45,7 @@
                       <li class="list-group-item"><b>Age:</b> {{ $fetchPlayers->user->age }}</li>
                       <li class="list-group-item"><b>Area:</b> {{ $fetchPlayers->user->area }}</li>
                       <li class="list-group-item"><b>State:</b> {{ $fetchPlayers->user->state }}</li>
+                      <li class="list-group-item"><b>Country:</b> {{ $fetchPlayers->country }}</li>
                     </ul>
                     @if ( Auth::user()->id == $fetchPlayers->user_id )
                     <a href="{{url('users/' . $fetchPlayers->user_id  . '/edit')}}" class="btn btn-success"
