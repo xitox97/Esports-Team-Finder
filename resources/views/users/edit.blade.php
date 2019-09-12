@@ -25,7 +25,7 @@
                                 @enderror
                             </div>
                         </div>
-
+{{--
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -38,7 +38,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
 
 
@@ -75,7 +75,7 @@
                             <label for="state" class="col-md-4 col-form-label text-md-right">State</label>
 
                             <div class="col-md-6">
-                                <input id="state" type="text" class="form-control @error('state') is-invalid @enderror" name="state" placeholder="{{ $user->name}}" required autocomplete="state" autofocus>
+                                <input id="state" type="text" class="form-control @error('state') is-invalid @enderror" name="state" placeholder="{{ $user->state}}" required autocomplete="state" autofocus>
 
                                 @error('state')
                                     <span class="invalid-feedback" role="alert">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\SocialAccountService;
+use App\SteamAccountService;
 
 class SocialAccountController extends Controller
 {
@@ -23,7 +23,7 @@ class SocialAccountController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback(SocialAccountService $accountService)
+    public function handleProviderCallback(SteamAccountService $accountService)
     {
 
         $provider = 'steam';

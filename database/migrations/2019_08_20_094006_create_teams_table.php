@@ -23,7 +23,7 @@ class CreateTeamsTable extends Migration
             $table->integer('scrim')->nullable();
             $table->timestamps();
 
-            $table->foreign('captain_id')->references('id')->on('users');
+            $table->foreign('captain_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

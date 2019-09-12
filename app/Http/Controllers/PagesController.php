@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\LinkedSocialAccount;
+
+use App\LinkedSteamAccount;
 use App\Offer;
 use App\Scrimstatus;
+use App\Statistic;
 use App\Team;
 use App\Tournament;
 use App\User;
@@ -15,7 +17,7 @@ class PagesController extends Controller
 {
     public function show($player)
     {
-        $fetchPlayers =  LinkedSocialAccount::where('dota_id', $player)->firstOrFail();
+        $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->firstOrFail();
 
         return view('users.profile', compact('fetchPlayers'));
     }
@@ -81,5 +83,14 @@ class PagesController extends Controller
 
         return view('admins.tourList', compact('tournament'));
 
+    }
+
+    public function stats($player){
+
+        $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->firstOrFail();
+        $statistics = $fetchPlayers->user->statistic->first();
+
+        //dd($statistics->recent_match);
+        return view('users.stats', compact('fetchPlayers','statistics'));
     }
 }

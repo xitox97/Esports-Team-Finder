@@ -4,12 +4,12 @@ namespace App;
 use GuzzleHttp\Client;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
-class SocialAccountService
+class SteamAccountService
 {
     public function findOrCreate(ProviderUser $providerUser, $provider)
     {
        // dd($providerUser->getId());
-        $account = LinkedSocialAccount::where('provider_name', $provider)
+        $account = LinkedSteamAccount::where('provider_name', $provider)
                    ->where('provider_id', $providerUser->getId())
                    ->first();
 
@@ -32,10 +32,19 @@ class SocialAccountService
                 $response = $client->get("players/$dotaId");
                 $fetchPlayers = json_decode($response->getBody(), true);
 
+
                 $response2 = $client->get("players/$dotaId/wl");
                 $fetchWL = json_decode($response2->getBody(), true);
 
-                // dd($fetchWL);
+                $response3 = $client->get("players/$dotaId/recentMatches");
+                $fetchRM = json_decode($response3->getBody(), true);
+
+                // dd($fetchRM);
+
+                $user->statistic()->create([
+                    'recent_match' => $fetchRM
+                ]);
+
                 $user->accounts()->create([
                     'provider_id'   => $providerUser->getId(),
                     'provider_name' => $provider,
@@ -46,6 +55,7 @@ class SocialAccountService
                     'mmr' => $fetchPlayers['solo_competitive_rank'],
                     'medal' => $fetchPlayers['rank_tier'],
                     'leaderboard_rank' => $fetchPlayers['leaderboard_rank'],
+                    'country' => $providerUser->user['loccountrycode'],
                     'win_lose' => $fetchWL,
                 ]);
 
