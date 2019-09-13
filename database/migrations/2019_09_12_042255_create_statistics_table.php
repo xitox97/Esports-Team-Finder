@@ -17,6 +17,10 @@ class CreateStatisticsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->json('recent_match')->nullable();
+            $table->json('heroes_played')->nullable();
+            $table->json('peers')->nullable();
+            $table->json('tot_score')->nullable();
+            $table->json('match_counts')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

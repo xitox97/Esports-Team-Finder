@@ -13,8 +13,13 @@ class Statistic extends Model
 
     }
 
-    protected $fillable = ['recent_match'];
+    protected $fillable = ['recent_match','heroes_played','tot_score','peers','match_counts'];
 
     protected $casts = [
-        'recent_match' => 'json'];
+        'recent_match' => 'json',
+        'heroes_played' => 'json',
+        'tot_score' => 'json',
+        'peers' => 'json',
+        'match_counts' => 'json',
+    ];
 }
