@@ -98,17 +98,4 @@ class PagesController extends Controller
         return view('users.stats_totals', compact('fetchPlayers','statistics'));
     }
 
-    public function peers($player)
-    {
-        $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
-        $statistics = $fetchPlayers->user->statistic;
-        return view('users.stats_peers', compact('fetchPlayers','statistics'));
-    }
-
-    public function counts($player)
-    {
-        $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
-        $statistics = $fetchPlayers->user->statistic;
-        return view('users.stats_counts', compact('fetchPlayers','statistics'));
-    }
 }

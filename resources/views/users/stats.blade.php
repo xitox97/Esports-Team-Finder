@@ -29,18 +29,14 @@
                             <li class="nav-item">
                               <a class="nav-link active" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats">Overview</a>
                             </li>
-                            <li class="nav-item">
-                                    <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/peers">Peers</a>
-                            </li>
+
                             <li class="nav-item">
                               <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/heroes">Heroes</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/totals">Totals</a>
                             </li>
-                            <li class="nav-item">
-                              <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/counts">Counts</a>
-                            </li>
+
                           </ul>
 
     </div>

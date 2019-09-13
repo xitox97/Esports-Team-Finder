@@ -51,11 +51,6 @@ class consumeOpendotaApi implements ShouldQueue
            $response2 = $client->get("players/$dotaId/totals");
            $fetchTS = json_decode($response2->getBody(), true);
 
-           $response3 = $client->get("players/$dotaId/peers");
-           $fetchP = json_decode($response3->getBody(), true);
-
-           $response4 = $client->get("players/$dotaId/counts");
-           $fetchMC = json_decode($response4->getBody(), true);
 
             //dd($fetchHP);
 
@@ -63,8 +58,7 @@ class consumeOpendotaApi implements ShouldQueue
                'recent_match' => $fetchRM,
                'heroes_played' => $fetchHP,
                'tot_score' => $fetchTS,
-                'peers' => $fetchP,
-                'match_counts' => $fetchMC,
+
 
            ]);
     }
