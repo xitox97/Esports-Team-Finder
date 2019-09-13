@@ -2,26 +2,51 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">Profile</div>
 
-                    <div class="card" >
 
-                        <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded mx-auto d-block" alt="...">
-                          <div class="card-body">
-                        <h5 class="card-title text-center"><b>Real Name:</b> {{  $fetchPlayers->user->name }}</h5>
-                          <h5 class="card-title text-center"><b>Steam Name:</b> {{  $fetchPlayers->steam_name  }}</h5>
-                            @include('users.medal')
-                           <div class="text-center mt-2"><b>Win: <p class="text-success">{{  $fetchPlayers->win_lose['win']  }}</p></b><b> Lose:
-                            <p class="text-danger">{{  $fetchPlayers->win_lose['lose']  }}</p></b></div>
-                          <p class="card-text"></p>
-                        </div>
-                      </div>
-                </div>
-           </div>
-           <div class="col-md-9">
+        <div class="d-flex  flex-row">
+
+                        <div class="p-2" >
+                            <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded-circle" alt="...">   </div>
+                              <div class="p-2">
+
+                                <h5 class="p-2 mt-3 text-center"><b>{{  $fetchPlayers->steam_name  }}</b> </h5>
+
+                                <div class="d-flex ml-3 mt-2 ">
+                                    <h1 class="text-success" >WINS <br>{{  $fetchPlayers->win_lose['win']  }}</h1>
+                                    <h1 class="text-danger" >LOSSES <br>{{  $fetchPlayers->win_lose['lose']  }}</h1>
+                                    </div>
+                                </div>
+
+                                <div class="flex-grow-1"></div>
+
+                                <div class="p-2 mt-4">
+                              @include('users.medal')</div>
+                            </div>
+
+            <div class="flex-row">
+                    <ul class="nav nav-tabs d-flex justify-content-center">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/peers">Peers</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/heroes">Heroes</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/totals">Totals</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/counts">Counts</a>
+                            </li>
+                          </ul>
+
+    </div>
+    <div class="row mt-4">
+
+           <div class="col-md-12">
                 <div class="card" >
                 <table class="table table-striped text-center">
                         <thead>

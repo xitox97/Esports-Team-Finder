@@ -46,13 +46,16 @@ Route::get('/leave/{team}', 'OfferController@leaveTeam');
 Route::delete('notifications/{noti}', 'OfferController@deleteNoti'); //delete noti bila tekan close dekat notification
 
 
-
+//pages
 Route::get('/tnotification', 'PagesController@notiScrim');
 Route::get('/notifications', 'PagesController@noti');
 Route::get('/steamconnects', 'PagesController@steam');
 Route::get('players/{player}', 'PagesController@show');
 Route::get('players/{player}/stats', 'PagesController@stats');
-
+Route::get('players/{player}/heroes', 'PagesController@heroes');
+Route::get('players/{player}/totals', 'PagesController@totals');
+Route::get('players/{player}/peers', 'PagesController@peers');
+Route::get('players/{player}/counts', 'PagesController@counts');
 
 Route::get('/tournaments', 'TournamentController@index');
 Route::post('/tournaments', 'TournamentController@store');

@@ -22,4 +22,9 @@ class Statistic extends Model
         'peers' => 'json',
         'match_counts' => 'json',
     ];
+
+    // public function getJsonField($value)
+    // {
+    //     return collect($value);
+    // }
 }
