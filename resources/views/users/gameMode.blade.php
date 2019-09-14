@@ -5,7 +5,7 @@
     }
     elseif($recent['game_mode'] == 22)
     {
-        echo 'All Draft';
+        echo 'RANKED MMR';
     }
     elseif($recent['game_mode'] == 23)
     {

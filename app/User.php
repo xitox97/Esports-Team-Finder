@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Statistic::class);
     }
+
+    public function matches()
+    {
+        return $this->hasMany(Match::class);
+    }
 }

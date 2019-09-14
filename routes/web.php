@@ -12,6 +12,9 @@
 */
 
 use App\Jobs\consumeOpendotaApi;
+use App\Jobs\processMatches;
+use App\Match;
+use App\Statistic;
 use App\User;
 
 Route::get('/', function () {
@@ -78,8 +81,20 @@ Route::get('/try-redis', function(){
 
     $user = User::where('id', auth()->id())->first();
     // dd($user);
+    $stats = Statistic::first();
 
-    consumeOpendotaApi::dispatch($user);
+     consumeOpendotaApi::dispatch($user);
+    //processMatches::dispatch($user,$stats);
 
     return 'Finished';
+});
+
+Route::get('/try-json', function(){
+
+   $match = Match::all();
+   foreach($match as $m){
+    echo $m->match_details['match_id'];
+    echo "<br>";
+   }
+
 });
