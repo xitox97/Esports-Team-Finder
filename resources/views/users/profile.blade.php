@@ -13,6 +13,8 @@
 
                             <a href="{{  $fetchPlayers->profile_url  }}" class="btn btn-danger"
                             role="button" aria-pressed="true">Add Friend In Steam</a>
+                            <a href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="btn btn-warning"
+                                    role="button" aria-pressed="true">Player Overview</a>
 
                             @if (session('offer'))
                             <div class="alert alert-success">
