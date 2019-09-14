@@ -63,16 +63,33 @@
                             <td> @include('users.heroes')</td>
                             <td> {{$recent['games']}} ({{$recent['win']}} won)</td>
                             <td> @php
-                                echo (round(($recent['win'] / $recent['games']) * 100, 1));
-                            @endphp
+                                    if($recent['games'] != 0){
+                                        echo (round(($recent['win'] / $recent['games']) * 100, 1));
+                                    }
+                                    else {
+                                        echo "0";
+                                    }
+                                @endphp
                                 </td>
                             <td>  @php
-                                    echo (round(($recent['with_win'] / $recent['with_games']) * 100, 1));
-                                @endphp ({{$recent['with_win']}}/{{$recent['with_games']}})
+                                    if($recent['with_games'] != 0){
+                                        echo (round(($recent['with_win'] / $recent['with_games']) * 100, 1));
+                                        echo "(" . $recent['with_win'] . "/" . $recent['with_games'] . ")";
+                                    }
+                                    else {
+                                        echo "0";
+                                    }
+                                @endphp
                                 </td>
                             <td> @php
-                                    echo (round(($recent['against_win'] / $recent['against_games']) * 100, 1));
-                                @endphp ({{$recent['against_win']}}/{{$recent['against_games']}})</td>
+                                    if($recent['against_games'] != 0){
+                                        echo (round(($recent['against_win'] / $recent['against_games']) * 100, 1));
+                                        echo "(" . $recent['against_win'] . "/" . $recent['against_games'] . ")";
+                                    }
+                                    else {
+                                        echo "0";
+                                    }
+                                @endphp</td>
                             </tr>
             @endforeach
             @else

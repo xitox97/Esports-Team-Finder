@@ -44,6 +44,9 @@
 
            <div class="col-md-12">
                 <div class="card" >
+                        <div class="card-header">
+                                Recent Matches
+                              </div>
                 <table class="table table-striped text-center">
                         <thead>
                           <tr>
