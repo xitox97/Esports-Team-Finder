@@ -83,7 +83,7 @@
                                         }
                                 @endphp
 
-                            <a href="{{ $recent['match_id'] }}"><p class="{{ $result == 'Won Match' ? 'text-success' : 'text-danger' }}"> {{ $result}} </p></a>
+                            <a href="{{ url('matches/' . $recent['match_id']) }}"><p class="{{ $result == 'Won Match' ? 'text-success' : 'text-danger' }}"> {{ $result}} </p></a>
 
 
                             </td>

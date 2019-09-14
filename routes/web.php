@@ -75,7 +75,8 @@ Route::patch('/admin/tournaments/{tournament}', 'TournamentController@update');
 Route::get('/admin/tournaments/{tournament}/status', 'TournamentController@status');
 
 
-
+//match
+Route::get('/matches/{matchid}', 'MatchController@show');
 
 Route::get('/try-redis', function(){
 
