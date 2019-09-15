@@ -11,7 +11,11 @@
 |
 */
 
+use App\DotaData;
 use App\Jobs\consumeOpendotaApi;
+use App\Jobs\processMatches;
+use App\Match;
+use App\Statistic;
 use App\User;
 
 Route::get('/', function () {
@@ -27,6 +31,8 @@ Route::get('login/steam',          'Auth\SocialAccountController@redirectToProvi
 Route::get('login/steam/callback', 'Auth\SocialAccountController@handleProviderCallback');
 
 Route::resource('users', 'UserController');
+//search result
+Route::get('players/search', 'UserController@search');
 Route::resource('teams', 'TeamController');
 Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');
 Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
@@ -69,12 +75,38 @@ Route::get('/admin/tournaments/{tournament}/edit', 'TournamentController@edit');
 Route::patch('/admin/tournaments/{tournament}', 'TournamentController@update');
 Route::get('/admin/tournaments/{tournament}/status', 'TournamentController@status');
 
+
+//match
+Route::get('/matches/{matchid}', 'MatchController@show');
+
 Route::get('/try-redis', function(){
 
     $user = User::where('id', auth()->id())->first();
     // dd($user);
+    $stats = Statistic::first();
 
-    consumeOpendotaApi::dispatch($user);
+     consumeOpendotaApi::dispatch($user);
+    //processMatches::dispatch($user,$stats);
 
     return 'Finished';
+});
+
+Route::get('/try-json', function(){
+
+//    $match = Match::all();
+//    foreach($match as $m){
+//     echo $m->match_details['match_id'];
+//     echo "<br>";
+//    }
+
+   $match = DotaData::first();
+  // dd($match);
+    //dd($match->items['blink']['id']);
+
+    //code keluar kan image based on id
+        // foreach($match->items as $m){
+        //     if($m['id'] == 1)
+        //     echo $m['img'];
+        //     echo "<br>";
+        // }
 });

@@ -42,7 +42,7 @@ class consumeOpendotaApi implements ShouldQueue
 
 
 
-           $response = $client->get("players/$dotaId/recentMatches");
+           $response = $client->get("players/$dotaId/matches?game_mode=22&limit=30");
            $fetchRM = json_decode($response->getBody(), true);
 
            $response1 = $client->get("players/$dotaId/heroes");
@@ -54,12 +54,15 @@ class consumeOpendotaApi implements ShouldQueue
 
             //dd($fetchHP);
 
-           $this->user->statistic()->create([
+           $stats = $this->user->statistic()->create([
                'recent_match' => $fetchRM,
                'heroes_played' => $fetchHP,
                'tot_score' => $fetchTS,
 
 
            ]);
+
+           processMatches::dispatch($this->user, $stats)->delay(now()->addMinutes(1));;
+
     }
 }

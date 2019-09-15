@@ -27,20 +27,20 @@
             <div class="flex-row">
             <ul class="nav nav-tabs d-flex justify-content-center">
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats">Overview</a>
+                      <a class="nav-link" href="{{ url('/players/' .$fetchPlayers->dota_id ) }}/stats">Overview</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/heroes">Heroes</a>
+                      <a class="nav-link " href="{{ url('/players/' . $fetchPlayers->dota_id ) }}/heroes">Heroes</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link active" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/totals">Totals</a>
+                            <a class="nav-link active" href="{{ url('/players/' . $fetchPlayers->dota_id ) }}/totals">Totals</a>
                           </li>
                   </ul>
 
     </div>
     <div class="row mt-4">
 
-           <div class="col-md-12">
+           <div class="col-md-12 ">
                 @if ($statistics != null)
                 <div class="card" >
                     <div class="card-header">

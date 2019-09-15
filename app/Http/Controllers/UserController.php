@@ -119,4 +119,13 @@ class UserController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        $players = User::all();
+        //dd($player);
+        return view('users.search_result', compact('players'));
+
+
+    }
 }
