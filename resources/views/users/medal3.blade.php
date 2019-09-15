@@ -5,7 +5,7 @@
 @if ( $player['rank_tier'] == null)
 
 <div class="rankTierContainer">
-        <div class="rankMedal">
+        <div class="rankMedal-small">
             <img class="rankMedal-icon" src="
             {{  asset('img/medal/rank_icon_0.png') }}" alt="">
 

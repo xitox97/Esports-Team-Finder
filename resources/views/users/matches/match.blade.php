@@ -3,6 +3,28 @@
 @section('content')
 <div class="container-fuild my-5 mx-5 px-5">
 
+<div class="text-center"><h3><b>ALLL DRAFT</b></h3>
+    <h1>Radiant <span class="text-success">{{$matches->match_details['radiant_score']}}</span> :
+    <span class="text-danger">{{$matches->match_details['dire_score']}}</span> Dire</h1>
+    @if($matches->match_details['radiant_win'] == true)
+    <h2><span class="text-success">Radiant Victory
+            @php
+            $minutes=$matches->match_details['duration'];
+            $hours = intdiv($minutes, 60).':'. ($minutes % 60);
+            echo "(" . $hours . ")";
+        @endphp
+        </span></h2>
+    @else
+    <h2><span class="text-danger">Dire Victory
+            @php
+            $minutes=$matches->match_details['duration'];
+            $hours = intdiv($minutes, 60).':'. ($minutes % 60);
+            echo "(" . $hours . ")";
+        @endphp
+    </span></h2>
+    @endif
+
+</div>
 
 <table class="table table-striped text-center"><h3>Radiant - Overview</h3>
   <thead>
@@ -115,7 +137,7 @@
                   </tr>
           @else
           <tr>
-                  <td>Unknown<br>@include('users.heroes2')Unknown{{$player['rank_tier']}}</td>
+                  <td>Unknown<br>@include('users.heroes2')@include('users.medal3')</td>
                   <td>{{$player['level']}}</td>
                   <td>{{$player['kills']}} / {{$player['deaths']}} / {{$player['assists']}}</td>
                   <td>{{$player['last_hits']}} / {{$player['denies']}}</td>
