@@ -41,7 +41,9 @@
       <th scope="col">ITEMS</th>
       <th scope="col">CAMPS STACKED</th>
       <th scope="col">OBSERVER/SENTRY PLACED</th>
-      <th scope="col">COURIER KILLED</th>
+      <th scope="col">LANE</th>
+
+
     </tr>
   </thead>
   <tbody>
@@ -66,7 +68,7 @@
                 <td>@include('users.matches.items')</td>
                 <td>{{$player['camps_stacked']}}</td>
                 <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
-                <td>{{$player['isRadiant']}}</td>
+                <td>@include('users.matches.roles')</td>
 
                 </tr>
         @else
@@ -83,7 +85,7 @@
                 <td>@include('users.matches.items')</td>
                 <td>{{$player['camps_stacked']}}</td>
                 <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
-                <td>{{$player['isRadiant']}}</td>
+                <td>@include('users.matches.roles')</td>
                 </tr>
             @endif
     @endif
@@ -107,7 +109,7 @@
         <th scope="col">ITEMS</th>
         <th scope="col">CAMPS STACKED</th>
         <th scope="col">OBSERVER/SENTRY PLACED</th>
-        <th scope="col">COURIER KILLED</th>
+        <th scope="col">LANE</th>
       </tr>
     </thead>
     <tbody>
@@ -132,7 +134,7 @@
                   <td>@include('users.matches.items')</td>
                   <td>{{$player['camps_stacked']}}</td>
                   <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
-                  <td>{{$player['isRadiant']}}</td>
+                  <td>@include('users.matches.roles')</td>
 
                   </tr>
           @else
@@ -149,7 +151,7 @@
                   <td>@include('users.matches.items')</td>
                   <td>{{$player['camps_stacked']}}</td>
                   <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
-                  <td>{{$player['isRadiant']}}</td>
+                  <td>@include('users.matches.roles')</td>
                   </tr>
               @endif
       @endif
