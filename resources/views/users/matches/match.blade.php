@@ -41,7 +41,7 @@
                 <td>{{$player['tower_damage']}}</td>
                 <td>{{$player['hero_healing']}}</td>
                 <td>{{$player['total_gold']}}</td>
-                <td>{{$player['hero_damage']}}</td>
+                <td>@include('users.matches.items')</td>
                 <td>{{$player['camps_stacked']}}</td>
                 <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
                 <td>{{$player['isRadiant']}}</td>
@@ -58,7 +58,7 @@
                 <td>{{$player['tower_damage']}}</td>
                 <td>{{$player['hero_healing']}}</td>
                 <td>{{$player['total_gold']}}</td>
-                <td>{{$player['hero_damage']}}</td>
+                <td>@include('users.matches.items')</td>
                 <td>{{$player['camps_stacked']}}</td>
                 <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
                 <td>{{$player['isRadiant']}}</td>
@@ -107,7 +107,7 @@
                   <td>{{$player['tower_damage']}}</td>
                   <td>{{$player['hero_healing']}}</td>
                   <td>{{$player['total_gold']}}</td>
-                  <td>{{$player['hero_damage']}}</td>
+                  <td>@include('users.matches.items')</td>
                   <td>{{$player['camps_stacked']}}</td>
                   <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
                   <td>{{$player['isRadiant']}}</td>
@@ -124,7 +124,7 @@
                   <td>{{$player['tower_damage']}}</td>
                   <td>{{$player['hero_healing']}}</td>
                   <td>{{$player['total_gold']}}</td>
-                  <td>{{$player['hero_damage']}}</td>
+                  <td>@include('users.matches.items')</td>
                   <td>{{$player['camps_stacked']}}</td>
                   <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
                   <td>{{$player['isRadiant']}}</td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DotaData;
 use App\Match;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,8 @@ class MatchController extends Controller
     {
 
         $matches = Match::where('match_id', $match)->first();
+
+        $itemsData = DotaData::first();
          //dd($matches->match_details['chat']);
 
         //  foreach ($matches->match_details['players'] as $m)
@@ -58,7 +61,7 @@ class MatchController extends Controller
         //     }
         //  }
 
-        return view('users.matches.match', compact('matches'));
+        return view('users.matches.match', compact('matches','itemsData'));
     }
 
     /**

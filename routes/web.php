@@ -11,6 +11,7 @@
 |
 */
 
+use App\DotaData;
 use App\Jobs\consumeOpendotaApi;
 use App\Jobs\processMatches;
 use App\Match;
@@ -92,10 +93,20 @@ Route::get('/try-redis', function(){
 
 Route::get('/try-json', function(){
 
-   $match = Match::all();
-   foreach($match as $m){
-    echo $m->match_details['match_id'];
-    echo "<br>";
-   }
+//    $match = Match::all();
+//    foreach($match as $m){
+//     echo $m->match_details['match_id'];
+//     echo "<br>";
+//    }
 
+   $match = DotaData::first();
+  // dd($match);
+    //dd($match->items['blink']['id']);
+
+    //code keluar kan image based on id
+        // foreach($match->items as $m){
+        //     if($m['id'] == 1)
+        //     echo $m['img'];
+        //     echo "<br>";
+        // }
 });
