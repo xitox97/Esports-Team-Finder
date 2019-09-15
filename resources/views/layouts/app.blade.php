@@ -30,6 +30,15 @@
     filter: drop-shadow(rgba(0, 0, 0, 0.3) 2px -2px 2px) drop-shadow(rgba(0, 0, 0, 0.3) 2px -2px 2px);
     }
 
+    .rankMedal-small {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    filter: drop-shadow(rgba(0, 0, 0, 0.3) 2px -2px 2px) drop-shadow(rgba(0, 0, 0, 0.3) 2px -2px 2px);
+    }
+
     .rankTierContainer {
     display: flex;
     /* flex-direction: column; */
@@ -40,6 +49,11 @@
     .rankMedal img {
     width: 124px;
     height: 124px;
+    }
+
+    .rankMedal-small img {
+    width: 60px;
+    height: 60px;
     }
 
     .rankMedal-star {

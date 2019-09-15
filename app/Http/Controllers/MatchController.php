@@ -47,10 +47,18 @@ class MatchController extends Controller
     public function show($match)
     {
 
-        $match = Match::where('match_id', $match)->first();
-        //dd($match);
+        $matches = Match::where('match_id', $match)->first();
+         //dd($matches->match_details['chat']);
 
-        return view('users.matches.match', compact('match'));
+        //  foreach ($matches->match_details['players'] as $m)
+        //  {
+        //     if(array_key_exists("personaname", $m)){
+        //         echo $m['personaname'];
+        //         echo "<br>";
+        //     }
+        //  }
+
+        return view('users.matches.match', compact('matches'));
     }
 
     /**
