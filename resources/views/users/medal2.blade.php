@@ -1,4 +1,4 @@
-@if ( $player->accounts->medal == null)
+@if ( $player->accounts['medal'] == null)
 
     <div class="rankTierContainer">
             <div class="rankMedal">
