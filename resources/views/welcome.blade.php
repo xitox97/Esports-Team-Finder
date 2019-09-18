@@ -19,7 +19,7 @@
             .mySlides {display:none;}
         </style>
     </head>
-    <body class="bg-black font-mono">
+    <body class="bg-black font-sans">
             {{-- <!-- Full width column -->
             <nav class="fixed  z-50 bg-transparent w-full ">
                 <div class="container mx-auto ">
@@ -34,7 +34,7 @@
                         <div class="flex">
                             <div class="w-1/4 flex items-center">
                                 <button class="bg-red-500  text-white font-bold py-2 px-4 rounded inline-flex items-center">
-                                    <span class="text-lg">&lt;TeamFinder/&gt;</span>
+                                    <span class="text-lg">DOTA HUB</span>
                                 </button>
                             </div>
                             <div class="w-1/2 flex justify-center">
@@ -60,11 +60,11 @@
                                 <a href="/register" class="bg-red-600 hover:bg-red-700 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
                             </div>
 
-                            <div id="images" class="flex flex-wrap w-3/6 pt-2">
+                            <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
                                 <div class="w3-content w3-section" >
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:85%">
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:85%">
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:85%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:90%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:90%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:90%">
                                       </div>
                                 {{-- <img src="{{asset('img/og1.jpg')}}" class="w-2/5 shadow-2xl">
                                 <img src="{{asset('img/liquid.jpg')}}" class="w-2/5 shadow-2xl">
