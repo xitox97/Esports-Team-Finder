@@ -36,7 +36,13 @@ class LoginController extends Controller
 
         }
         else{
-            return '/players/' . Auth::user()->accounts->dota_id;
+
+            if(Auth::user()->accounts){
+                return '/players/' . Auth::user()->accounts->dota_id;}
+            else{
+                return '/home';
+            }
+
         }
 
 

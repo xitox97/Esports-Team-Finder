@@ -62,9 +62,9 @@
 
                             <div id="images" class="flex flex-wrap w-3/6 pt-2">
                                 <div class="w3-content w3-section" >
-                                        <img class="mySlides" src="{{asset('img/og.jpg')}}" style="width:200%">
-                                        <img class="mySlides" src="{{asset('img/liquid.jpg')}}" style="width:200%">
-                                        <img class="mySlides" src="{{asset('img/lgd.jpg')}}" style="width:200%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:85%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:85%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:85%">
                                       </div>
                                 {{-- <img src="{{asset('img/og1.jpg')}}" class="w-2/5 shadow-2xl">
                                 <img src="{{asset('img/liquid.jpg')}}" class="w-2/5 shadow-2xl">

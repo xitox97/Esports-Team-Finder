@@ -67,7 +67,7 @@
                 <td>{{$player['total_gold']}}</td>
                 <td>@include('users.matches.items')</td>
                 <td>{{$player['camps_stacked']}}</td>
-                <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
+                <td>@include('users.matches.wards')</td>
                 <td>@include('users.matches.roles')</td>
 
                 </tr>
@@ -84,7 +84,7 @@
                 <td>{{$player['total_gold']}}</td>
                 <td>@include('users.matches.items')</td>
                 <td>{{$player['camps_stacked']}}</td>
-                <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
+                <td>@include('users.matches.wards')</td>
                 <td>@include('users.matches.roles')</td>
                 </tr>
             @endif
@@ -133,7 +133,7 @@
                   <td>{{$player['total_gold']}}</td>
                   <td>@include('users.matches.items')</td>
                   <td>{{$player['camps_stacked']}}</td>
-                  <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
+                  <td>@include('users.matches.wards')</td>
                   <td>@include('users.matches.roles')</td>
 
                   </tr>
@@ -150,7 +150,7 @@
                   <td>{{$player['total_gold']}}</td>
                   <td>@include('users.matches.items')</td>
                   <td>{{$player['camps_stacked']}}</td>
-                  <td>{{$player['obs_placed']}} / {{$player['sen_placed']}}</td>
+                  <td>@include('users.matches.wards')</td>
                   <td>@include('users.matches.roles')</td>
                   </tr>
               @endif
