@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Match::class);
     }
+
+    public function knowledge()
+    {
+        return $this->hasOne(Knowledge::class);
+    }
 }
