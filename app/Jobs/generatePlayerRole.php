@@ -23,7 +23,6 @@ class generatePlayerRole implements ShouldQueue
         $this->stats = $stats;
         $this->user = $user;
     }
-
     /**
      * Execute the job.
      *
@@ -32,10 +31,7 @@ class generatePlayerRole implements ShouldQueue
     public function handle()
     {
         //coding utk dapatkan role dia
-
-
             //dd($fetchHP);
-
             //coding masuk dalam database data itu
            $knowledge = $this->user->knowledgebase()->create([
                'recent_match' => $fetchRM,

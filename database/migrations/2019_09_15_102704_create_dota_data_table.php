@@ -17,7 +17,8 @@ class CreateDotaDataTable extends Migration
             $table->bigIncrements('id');
             $table->longText('items');
             $table->longText('heroes');
-            $table->timestamps();
+            $table->longtext('hero_roles');
+
         });
     }
 
