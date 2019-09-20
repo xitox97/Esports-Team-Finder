@@ -8,6 +8,7 @@ class DotaData extends Model
 {
     protected $casts = [
         'items' => 'array',
+        'heroes' => 'array',
 
     ];
 }

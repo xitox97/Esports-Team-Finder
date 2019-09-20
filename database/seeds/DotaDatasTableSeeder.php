@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\File as IlluminateFile;
-
+use Illuminate\Support\Collection as collect;
 class DotaDatasTableSeeder extends Seeder
 {
     /**
@@ -13,11 +13,12 @@ class DotaDatasTableSeeder extends Seeder
      */
     public function run()
     {
-        $json = IlluminateFile::get(database_path('data/items.json'));
-        //dd($json);
+        $item = IlluminateFile::get(database_path('data/items.json'));
+        $heroes = IlluminateFile::get(database_path('data/heroes.json'));
 
         DB::table('dota_data')->insert([
-             'items' => $json,
+             'items' => $item,
+             'heroes' => $heroes,
         ]);
     }
 }

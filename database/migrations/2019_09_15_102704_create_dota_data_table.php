@@ -16,6 +16,7 @@ class CreateDotaDataTable extends Migration
         Schema::create('dota_data', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('items');
+            $table->longText('heroes');
             $table->timestamps();
         });
     }
