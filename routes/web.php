@@ -89,11 +89,11 @@ Route::get('/try-redis', function(){
 
      //consumeOpendotaApi::dispatch($user);
     //processMatches::dispatch($user,$stats);
-    //generatePlayerRole::dispatch($user);
+    generatePlayerRole::dispatch($user);
 
-    $data = DotaJson::first();
+    // $data = DotaJson::first();
 
-    dd($data->items['broadsword']);
+    // dd($data->items['broadsword']);
 
     return 'Finished';
 });

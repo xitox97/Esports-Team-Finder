@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\DotaJson;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -34,30 +35,56 @@ class generatePlayerRole implements ShouldQueue
         //coding utk dapatkan role dia
 
        // dd($this->user->statistic->heroes_played);
-            $roles = DB::table('dota_data')->first();
-             dd($roles);
+            $roles = DotaJson::first();
+            // dd($roles);
 
-            foreach($roles->hero_roles as $role)
-            {
-                dd($role);
-            }
+            // foreach($roles->hero_roles as $role)
+            // {
+            //     dd($role);
+            // }
+            $carry = 0;
+            $mid = 0;
+            $support = 0;
+            $roamer = 0;
+            $offlaner = 0;
+           foreach($this->user->statistic->heroes_played as $playedHero)
+           {
+               foreach($roles->hero_roles as $role){
+                //dd($role['id']);
+                if ($playedHero['games'] != 0 and $playedHero['hero_id'] == $role['id'])
+                    {
+                        if($role['lane'] == "Midlane" and $role['roles'] == "Carry"){
+                            $mid = $mid + $playedHero['games'];
+                        }
+                        elseif($role['lane'] == "Safelane" and $role['roles'] == "Carry"){
+                            $carry = $carry + $playedHero['games'];
+                        }
+                        elseif($role['lane'] == "Safelane" and $role['roles'] == "Support"){
+                            $support = $support + $playedHero['games'];
+                        }
+                        elseif($role['lane'] == "Safelane" and $role['roles'] == "Roamer"){
+                            $roamer = $roamer + $playedHero['games'];
+                        }
+                        elseif($role['lane'] == "Offlane" and $role['roles'] == "Tanker"){
+                            $offlaner = $offlaner + $playedHero['games'];
+                        }
+                    }
+               }
+               //dd($playedHero['hero_id']);
+           }
+        //    dd($roamer);
+        echo "Carry:". $carry ."\n";
+        echo "mid:". $mid ."\n";
+        echo "support:". $support ."\n";
+        echo "roamer:". $roamer ."\n";
+        echo "offlaner:". $offlaner ."\n";
 
-        //    foreach($this->user->statistic->heroes_played as $playedHero)
-        //    {
-        //        foreach($roles as $role){
 
-        //         dd($role['id']);
-        //         //if ($playedHero['hero_id'] == $role['id'] and
-
-        //        }
-        //        //dd($playedHero['hero_id']);
-        //    }
-
-            //coding masuk dalam database data itu
-           $knowledge = $this->user->knowledgebase()->create([
-               'recent_match' => $fetchRM,
-               'heroes_played' => $fetchHP,
-               'tot_score' => $fetchTS,
-           ]);
+        //     //coding masuk dalam database data itu
+        //    $knowledge = $this->user->knowledgebase()->create([
+        //        'recent_match' => $fetchRM,
+        //        'heroes_played' => $fetchHP,
+        //        'tot_score' => $fetchTS,
+        //    ]);
     }
 }
