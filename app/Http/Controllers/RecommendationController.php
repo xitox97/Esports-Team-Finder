@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Knowledge;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Validation\Rule;
 
 class RecommendationController extends Controller
 {
@@ -25,14 +28,41 @@ class RecommendationController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+        //dd($request);
+
+        //validation code
+        $request->validate([
+            'player_role' => ['required',Rule::in(['core','support']),],
+            'position' => ['required',Rule::in(['carry','mid','offlaner','roamer','support']),],
+            'rank' => ['required',Rule::in(['herald','guardian','crusader','archon','legend','ancient','divine','immortal']),],
+            'experience' => 'required',
+            'tournament' => 'required'
+        ]);
+
+
         $players = User::all();
 
         $users = $players->except([auth()->id()]);
-        // foreach($users as $user){
 
-        //     dd($user);
-        // }
+
+
+         foreach($users as $user){
+
+            $arr = $user->knowledge['player_role'];
+           // arsort($arr); sort array ikot number tinggi
+
+            //dd($arr['mid']);
+
+            $flattened = Arr::flatten($arr);
+
+            $b= max($flattened); //cari max value
+            //$main_role = $b[0];
+
+            //dd($b);
+
+
+
+         }
 
         return view('users.recommendation', compact('players'));
 

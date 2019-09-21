@@ -29,7 +29,7 @@
                             <label for="position" class="col-md-4 col-form-label text-md-right">position</label>
 
                             <div class="col-md-6">
-                                <input id="position" type="text" class="form-control @error('position') is-invalid @enderror" placeholder ="1/2/3/4/5" name="position" value="{{ old('position') }}" required autocomplete="position">
+                                <input id="position" type="text" class="form-control @error('position') is-invalid @enderror" placeholder ="carry/mid/support/roamer/offlaner" name="position" value="{{ old('position') }}" required autocomplete="position">
 
                                 @error('position')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                             <label for="rank" class="col-md-4 col-form-label text-md-right">Rank</label>
 
                             <div class="col-md-6">
-                                <input id="rank" type="text" class="form-control @error('rank') is-invalid @enderror" placeholder ="archon/divine/etc" name="rank" required autocomplete="new-rank">
+                                <input id="rank" type="text" class="form-control @error('rank') is-invalid @enderror" placeholder ="archon/divine/etc" name="rank" value="{{ old('rank') }}"required autocomplete="new-rank">
 
                                 @error('rank')
                                     <span class="invalid-feedback" role="alert">
