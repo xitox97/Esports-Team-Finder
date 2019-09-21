@@ -9,7 +9,6 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Support\Facades\DB;
 
 class generatePlayerRole implements ShouldQueue
 {
@@ -32,16 +31,7 @@ class generatePlayerRole implements ShouldQueue
      */
     public function handle()
     {
-        //coding utk dapatkan role dia
-
-       // dd($this->user->statistic->heroes_played);
             $roles = DotaJson::first();
-            // dd($roles);
-
-            // foreach($roles->hero_roles as $role)
-            // {
-            //     dd($role);
-            // }
             $carry = 0;
             $mid = 0;
             $support = 0;
@@ -70,21 +60,14 @@ class generatePlayerRole implements ShouldQueue
                         }
                     }
                }
-               //dd($playedHero['hero_id']);
+
            }
-        //    dd($roamer);
-        echo "Carry:". $carry ."\n";
-        echo "mid:". $mid ."\n";
-        echo "support:". $support ."\n";
-        echo "roamer:". $roamer ."\n";
-        echo "offlaner:". $offlaner ."\n";
 
+        $roleKnowledge = array("carry"=> $carry, "mid"=>$mid, "support"=>$support, "offlaner"=>$offlaner, "roamer" =>$roamer);
 
-        //     //coding masuk dalam database data itu
-        //    $knowledge = $this->user->knowledgebase()->create([
-        //        'recent_match' => $fetchRM,
-        //        'heroes_played' => $fetchHP,
-        //        'tot_score' => $fetchTS,
-        //    ]);
+        //coding masuk dalam database data itu
+           $knowledge = $this->user->knowledge()->create([
+               'player_role' => $roleKnowledge,
+           ]);
     }
 }

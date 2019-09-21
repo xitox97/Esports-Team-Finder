@@ -10,4 +10,12 @@ class Knowledge extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'player_role',
+    ];
+
+    protected $casts = [
+        'player_role' => 'array',
+    ];
 }

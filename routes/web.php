@@ -16,6 +16,7 @@ use App\DotaJson;
 use App\Jobs\consumeOpendotaApi;
 use App\Jobs\generatePlayerRole;
 use App\Jobs\processMatches;
+use App\Knowledge;
 use App\Match;
 use App\Statistic;
 use App\User;
@@ -38,6 +39,12 @@ Route::get('players/search', 'UserController@search');
 Route::resource('teams', 'TeamController');
 Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');
 Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
+
+//recommendation
+Route::get('players/recommendation', 'RecommendationController@index');
+Route::post('players/recommendation', 'RecommendationController@search');
+
+
 
 Route::get('/scrims', 'ScrimController@index');
 Route::get('/scrims/add/{team}', 'ScrimController@add');
@@ -106,8 +113,8 @@ Route::get('/try-json', function(){
 //     echo "<br>";
 //    }
 
-   $match = DotaData::first();
-  // dd($match);
+   $match = Knowledge::where('id', 4)->first();
+   dd($match->player_role['mid']);
     //dd($match->items['blink']['id']);
 
     //code keluar kan image based on id
@@ -116,4 +123,8 @@ Route::get('/try-json', function(){
         //     echo $m['img'];
         //     echo "<br>";
         // }
+
+
+
+
 });
