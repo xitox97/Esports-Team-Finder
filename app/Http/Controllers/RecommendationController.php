@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Knowledge;
+use App\Tournament;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -22,7 +23,8 @@ class RecommendationController extends Controller
 
     public function index()
     {
-        return view('users.recommendation', compact('players'));
+        $tours = Tournament::all();
+        return view('users.recommendation', compact('tours'));
     }
 
 
@@ -39,32 +41,76 @@ class RecommendationController extends Controller
             'tournament' => 'required'
         ]);
 
+        //Constraints (cr)
+        //player role = core -> position != roamer/support
+        //player role = support -> position != carry/mid/offlaner
+
+        if($request['player_role'] == "core"){
+
+            if($request['position'] == "roamer" or $request['position'] == "support"){
+                return back()->with('constraint', 'This position is not for core role');
+            }
+        }
+        elseif($request['player_role'] == "support"){
+
+            if($request['position'] == "carry" or $request['position'] == "mid" or $request['position'] == "offlaner"){
+                return back()->with('constraint', 'This position is not for support role');
+            }
+        }
+
+        //cf = Filter Conditions
+        //create past tournament punya page dan continue
+
 
         $players = User::all();
 
-        $users = $players->except([auth()->id()]);
+        //dekat sini akan ada coding untuk filter user yg join tournament sahaja
+
+        $admin = User::where('is_admin', 1)->first();
+        $users = $players->except([auth()->id(),$admin->id]);
 
 
 
          foreach($users as $user){
 
-            $arr = $user->knowledge['player_role'];
-           // arsort($arr); sort array ikot number tinggi
+           // echo ($user->knowledge['mid']);
+            //cari max
+            $current = $user->knowledge['mid'];
+            $role = 'mid';
+            if($user->knowledge['carry'] > $current)
+            {
+                $current = $user->knowledge['carry'];
+                $role = 'carry';
+            }
+            if($user->knowledge['support'] > $current)
+            {
+                $current = $user->knowledge['support'];
+                $role = 'support';
+            }
+            if($user->knowledge['roamer'] > $current)
+            {
+                $current = $user->knowledge['roamer'];
+                $role = 'roamer';
+            }
+            if($user->knowledge['offlaner'] > $current)
+            {
+                $current = $user->knowledge['offlaner'];
+                $role = 'offlaner';
+            }
 
-            //dd($arr['mid']);
+            $medal = $user->accounts->getMedal();
 
-            $flattened = Arr::flatten($arr);
+            //  echo $role . " ". $current;
+            //  echo "<br>";
+            //  echo $medal;
+            //  echo "<br><br>";
 
-            $b= max($flattened); //cari max value
-            //$main_role = $b[0];
-
-            //dd($b);
-
+            //coding masukkan user yg sesuai dengan semua dlm collection maybe?
 
 
          }
 
-        return view('users.recommendation', compact('players'));
+        return view('users.recommendationResult');
 
     }
 
@@ -85,8 +131,8 @@ class RecommendationController extends Controller
     //                 player role = support -> position != carry/mid/offlaner
 
     // cf - example:
-    //                 player role = core -> position =  carry/mid/offlaner
-    //                 player role = support -> position =  roamer/support
+    //                 player role = core -> position =  carry/mid/offlaner *reserve
+    //                 player role = support -> position =  roamer/support *reserve
     //                 exp = yes -> experiece = yes
 
     // cprod - list player yg mematuhi semua constraint

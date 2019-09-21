@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -36,6 +39,13 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                @if (session('constraint'))
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <li>{{ session('constraint') }}</li>
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
@@ -67,7 +77,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="tournament" class="col-md-4 col-form-label text-md-right">tournament</label>
 
                             <div class="col-md-6">
@@ -79,7 +89,25 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
+
+                        <div class="form-group row">
+                            <label for="tournament" class="col-md-4 col-form-label text-md-right">tournament</label>
+                            <div class="col-md-6">
+                        <select id="tournament" class="custom-select" name="tournament">
+                            <option selected>Open this select menu</option>
+                            @foreach($tours as $tour)
+                                <option value="{{$tour->id}}">{{$tour->name}}</option>
+                            @endforeach
+                          </select>
+                          @error('tournament')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+
+                  </div>
+                </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -16,7 +16,11 @@ class CreateKnowledgeTable extends Migration
         Schema::create('knowledge', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->json('player_role')->nullable();
+            $table->integer('mid');
+            $table->integer('carry');
+            $table->integer('roamer');
+            $table->integer('support');
+            $table->integer('offlaner');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

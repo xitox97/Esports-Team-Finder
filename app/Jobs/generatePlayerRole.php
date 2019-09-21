@@ -63,11 +63,13 @@ class generatePlayerRole implements ShouldQueue
 
            }
 
-        $roleKnowledge = array("carry"=> $carry, "mid"=>$mid, "support"=>$support, "offlaner"=>$offlaner, "roamer" =>$roamer);
-
         //coding masuk dalam database data itu
            $knowledge = $this->user->knowledge()->create([
-               'player_role' => $roleKnowledge,
+               'mid' => $mid,
+               'carry' => $carry,
+               'roamer' => $roamer,
+               'support' => $support,
+               'offlaner' => $offlaner
            ]);
     }
 }

@@ -12,10 +12,41 @@ class Knowledge extends Model
     }
 
     protected $fillable = [
-        'player_role',
+        'mid',
+        'carry',
+        'roamer',
+        'support',
+        'offlaner'
     ];
 
-    protected $casts = [
-        'player_role' => 'array',
-    ];
+    // public function mainRole()
+    // {
+
+    //     $current = $this->mid;
+    //     //dd($current);
+    //     $role = 'mid';
+    //     if($this->carry > $current)
+    //     {
+    //         $current = $this->carry;
+    //         $role = 'carry';
+    //     }
+    //     if($this->support > $current)
+    //     {
+    //         $current = $this->support;
+    //         $role = 'support';
+    //     }
+    //     if($this->roamer > $current)
+    //     {
+    //         $current = $this->roamer;
+    //         $role = 'roamer';
+    //     }
+    //     if($this->offlaner > $current)
+    //     {
+    //         $current = $this->offlaner;
+    //         $role = 'offlaner';
+    //     }
+
+
+    // }
+
 }
