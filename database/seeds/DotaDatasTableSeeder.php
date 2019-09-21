@@ -17,7 +17,11 @@ class DotaDatasTableSeeder extends Seeder
         $heroes = IlluminateFile::get(database_path('data/heroes.json'));
         $hero_roles = IlluminateFile::get(database_path('data/heroes-role.json'));
 
-        DB::table('dota_data')->insert([
+       // $jsonH = json_decode($heroes, true);
+       //dd($jsonH);
+       //dd($jsonH['23']);
+
+        DB::table('dota_jsons')->insert([
              'items' => $item,
              'heroes' => $heroes,
              'hero_roles' => $hero_roles

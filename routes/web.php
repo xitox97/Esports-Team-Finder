@@ -12,7 +12,9 @@
 */
 
 use App\DotaData;
+use App\DotaJson;
 use App\Jobs\consumeOpendotaApi;
+use App\Jobs\generatePlayerRole;
 use App\Jobs\processMatches;
 use App\Match;
 use App\Statistic;
@@ -85,8 +87,13 @@ Route::get('/try-redis', function(){
     // dd($user);
     $stats = Statistic::first();
 
-     consumeOpendotaApi::dispatch($user);
+     //consumeOpendotaApi::dispatch($user);
     //processMatches::dispatch($user,$stats);
+    //generatePlayerRole::dispatch($user);
+
+    $data = DotaJson::first();
+
+    dd($data->items['broadsword']);
 
     return 'Finished';
 });
