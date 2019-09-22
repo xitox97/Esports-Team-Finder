@@ -12,9 +12,11 @@
                             role="button" aria-pressed="true">Live Chat</a>
 
                             <a href="{{  $fetchPlayers->profile_url  }}" class="btn btn-danger"
-                            role="button" aria-pressed="true">Add Friend In Steam</a>
+                                role="button" aria-pressed="true">Add Friend In Steam</a>
                             <a href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="btn btn-warning"
-                                    role="button" aria-pressed="true">Player Overview</a>
+                                role="button" aria-pressed="true">Player Overview</a>
+                            <a href="{{ url('/players/' . $fetchPlayers->dota_id) }}/achievements" class="btn btn-success"
+                                role="button" aria-pressed="true">Player Achievements</a>
 
                             @if (session('offer'))
                             <div class="alert alert-success">

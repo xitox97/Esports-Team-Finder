@@ -43,9 +43,9 @@ class TournamentController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
             'venue' => 'required|regex:/^[\pL\s\-]+$/u',
-            'state' => 'required|regex:/^[\pL\s\-]+$/u',
+            'state' => 'required',
             'prizepool' => 'required|numeric|digits_between:1,9',
-            'organizer' => 'required|regex:/^[\pL\s\-]+$/u',
+            'organizer' => 'required',
             'image' => 'required|image|max:1999'
         ]);
 

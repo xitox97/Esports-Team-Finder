@@ -70,6 +70,11 @@ Route::get('players/{player}/stats', 'PagesController@stats');
 Route::get('players/{player}/heroes', 'PagesController@heroes');
 Route::get('players/{player}/totals', 'PagesController@totals');
 
+//achivement
+Route::get('players/{player}/achievements', 'AchievementController@index');
+Route::get('players/{player}/achievements/create', 'AchievementController@create');
+Route::post('players/{player}/achievements/create', 'AchievementController@store');
+
 
 Route::get('/tournaments', 'TournamentController@index');
 Route::post('/tournaments', 'TournamentController@store');
@@ -87,6 +92,8 @@ Route::get('/admin/tournaments/{tournament}/status', 'TournamentController@statu
 
 //match
 Route::get('/matches/{matchid}', 'MatchController@show');
+
+
 
 Route::get('/try-redis', function(){
 
