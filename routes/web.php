@@ -35,7 +35,7 @@ Route::get('login/steam/callback', 'Auth\SocialAccountController@handleProviderC
 
 Route::resource('users', 'UserController');
 //search result
-Route::get('players/search', 'UserController@search');
+Route::get('players/list', 'UserController@list');
 Route::resource('teams', 'TeamController');
 Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');
 Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
@@ -95,8 +95,8 @@ Route::get('/try-redis', function(){
     $stats = Statistic::first();
 
      //consumeOpendotaApi::dispatch($user);
-    //processMatches::dispatch($user,$stats);
-    generatePlayerRole::dispatch($user);
+    processMatches::dispatch($user,$stats);
+    //generatePlayerRole::dispatch($user);
 
     // $data = DotaJson::first();
 

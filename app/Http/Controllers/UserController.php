@@ -120,7 +120,7 @@ class UserController extends Controller
         //
     }
 
-    public function search()
+    public function list()
     {
         $players = User::all();
         //dd($player);

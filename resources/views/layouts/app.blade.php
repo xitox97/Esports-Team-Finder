@@ -146,7 +146,8 @@
                                         <a class="dropdown-item" href=" {{ url('/notifications') }}">Notification</a>
                                         <a class="dropdown-item" href=" {{ url('/tournaments') }}">Tournaments</a>
                                         <a class="dropdown-item" href="{{ url('/teams/create') }}">Create Team</a>
-                                        <a class="dropdown-item" href="{{ url('/players/search') }}">Search Player</a>
+                                        <a class="dropdown-item" href="{{ url('/players/list') }}">List Player</a>
+                                        <a class="dropdown-item" href="{{ url('/players/recommendation') }}">Recommendation Player</a>
                                     @else
                                         <a class="dropdown-item" href="{{ url('/steamconnects') }}">
                                         Link Steam Account</a>

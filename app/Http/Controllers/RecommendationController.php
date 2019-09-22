@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Knowledge;
+
 use App\Tournament;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
+
 use Illuminate\Validation\Rule;
 
 class RecommendationController extends Controller
@@ -70,7 +70,7 @@ class RecommendationController extends Controller
         $users = $players->except([auth()->id(),$admin->id]);
 
 
-
+        $result = collect();
          foreach($users as $user){
 
            // echo ($user->knowledge['mid']);
@@ -100,17 +100,37 @@ class RecommendationController extends Controller
 
             $medal = $user->accounts->getMedal();
 
+
             //  echo $role . " ". $current;
-            //  echo "<br>";
+            //   echo "<br>";
             //  echo $medal;
             //  echo "<br><br>";
 
             //coding masukkan user yg sesuai dengan semua dlm collection maybe?
 
+            //cf
 
+            $tour = Tournament::find($request['tournament']);
+            $exists = $tour->users->contains($user->id);
+            //dd($exists);
+            if($request['position'] == $role )
+            {
+                if($request['rank'] ==  $medal)
+                {
+                    if($exists == true)
+                    {
+                        // echo $user->name;
+                        // echo "<br>";
+
+                        $result->push($user);
+
+
+                    }
+                }
+            }
          }
-
-        return view('users.recommendationResult');
+         //dd($result);
+        return view('users.recommendationResult', compact('result'));
 
     }
 
