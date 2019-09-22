@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDotaDataTable extends Migration
+class CreateDotaJsonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateDotaDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('dota_data', function (Blueprint $table) {
+        Schema::create('dota_jsons', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->longText('items');
+            $table->longText('items')->nullable();
+            $table->longText('heroes')->nullable();
+            $table->longText('hero_roles')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateDotaDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dota_data');
+        Schema::dropIfExists('dota_jsons');
     }
 }

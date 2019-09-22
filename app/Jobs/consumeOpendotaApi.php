@@ -62,7 +62,7 @@ class consumeOpendotaApi implements ShouldQueue
 
            ]);
 
-           processMatches::dispatch($this->user, $stats)->delay(now()->addMinutes(1));;
+           processMatches::dispatch($this->user, $stats)->delay(now()->addMinutes(1));
 
     }
 }
