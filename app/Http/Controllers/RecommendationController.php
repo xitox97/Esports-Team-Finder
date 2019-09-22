@@ -16,10 +16,7 @@ class RecommendationController extends Controller
     //constraint -
     //filter conditions - Mid player -> kill banyak, duit banyak, lane mid. etc
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     public function index()
     {

@@ -36,14 +36,25 @@ class SocialAccountController extends Controller
 
 
         //dd($user->getAvatar());
-        $authUser = $accountService->findOrCreate(
-            $user,
-            $provider
-        );
+        $authUser = $accountService->findOrCreate($user,$provider);
 
-        auth()->login($authUser, true);
+        //auth()->login($authUser, true);
+        //dd($authUser->accounts->dota_id);
 
-        return redirect()->to('/home');
+        //dd(auth()->user());
+
+            if(auth()->user() == $authUser)
+            {
+                return redirect()->to('/players/' . $authUser->accounts->dota_id);
+
+            }
+            else{
+                return redirect('/steamconnects')->withError('Steam account that you trying to connect already in used!');
+            }
+
+
+
+
 
 
     }

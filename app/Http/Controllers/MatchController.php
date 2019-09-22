@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\DotaData;
+use App\DotaJson;
 use App\Match;
 use Illuminate\Http\Request;
 
@@ -50,7 +50,7 @@ class MatchController extends Controller
 
         $matches = Match::where('match_id', $match)->first();
 
-        $itemsData = DotaData::first();
+        $itemsData = DotaJson::first();
          //dd($matches->match_details['chat']);
 
         //  foreach ($matches->match_details['players'] as $m)

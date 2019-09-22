@@ -74,4 +74,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Knowledge::class);
     }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
 }

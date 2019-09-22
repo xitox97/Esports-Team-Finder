@@ -11,8 +11,12 @@
                     <a href="/login/steam" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Connect</a>
                 </div>
                 <div class="card-body">
-
+                    @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 </div>
+
+
             </div>
         </div>
     </div>
