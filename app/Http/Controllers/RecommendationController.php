@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Tournament;
 use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class RecommendationController extends Controller
@@ -61,17 +61,29 @@ class RecommendationController extends Controller
 
         $players = User::all();
 
-        //dekat sini akan ada coding untuk filter user yg join tournament sahaja
+        //dekat sini akan ada coding untuk filter user yg pernah join tournament sahaja
 
-        $admin = User::where('is_admin', 1)->first();
-        $users = $players->except([auth()->id(),$admin->id]);
+        // $admin = User::where('is_admin', 1)->first();
+        // $users = $players->except([auth()->id(),$admin->id]);
+
+        $userSteam = DB::table('users')
+            ->join('linked_steam_accounts', 'users.id', '=', 'linked_steam_accounts.user_id')
+            ->select('users.*')
+            ->get();
+
+        $users = collect();
+
+        foreach ($userSteam as $s) {
+            $user = $players->find($s->id);
+            $users->push($user);
+        }
+
 
 
         $result = collect();
+
          foreach($users as $user){
 
-           // echo ($user->knowledge['mid']);
-            //cari max
             $current = $user->knowledge['mid'];
             $role = 'mid';
             if($user->knowledge['carry'] > $current)

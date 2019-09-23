@@ -25,6 +25,7 @@ class SteamAccountService
 
 
 
+
                 $dotaId = $providerUser->getId() - 76561197960265728;
 
                 //coding for opendota api
@@ -40,6 +41,14 @@ class SteamAccountService
 
 
                 consumeOpendotaApi::dispatch($user);
+
+
+                // if(isset($providerUser->user['loccountrycode']) == false){
+                //     $country = null;
+                // }
+                // else{
+                //     $country = $providerUser->user['loccountrycode'];
+                // }
 
 
                 $user->accounts()->create([

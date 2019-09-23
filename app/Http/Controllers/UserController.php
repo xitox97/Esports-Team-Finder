@@ -5,29 +5,18 @@ namespace App\Http\Controllers;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-         $users = User::where('id', auth()->id())->get();
+        $users = User::where('id', auth()->id())->get();
         dd($users->toArray());
         return view('users.profile');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function show(User $user)
     {
         $dotas = auth()->user();
@@ -37,36 +26,20 @@ class UserController extends Controller
         $player_id = $dotas->accounts->dota_id;
 
         $client = new Client(['base_uri'
-     => 'https://api.opendota.com/api/']);
+        => 'https://api.opendota.com/api/']);
 
-     $response = $client->get("players/$player_id");
-     $playerInfos = json_decode($response->getBody(), true);
+        $response = $client->get("players/$player_id");
+        $playerInfos = json_decode($response->getBody(), true);
 
-    //dd($playerInfos);
-    //  dd(json_decode($response->getBody(), true));
-
-        return view('users.profile', compact('dotas','playerInfos'));
+        return view('users.profile', compact('dotas', 'playerInfos'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
         abort_if($user->id !== auth()->id(), 403);
         return view('users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, User $user)
     {
 
@@ -89,23 +62,20 @@ class UserController extends Controller
         return redirect("players/$url");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
-
     public function list()
     {
-        $players = User::all();
-        //dd($player);
+        $users = User::all();
+        $filter = DB::table('users')
+            ->join('linked_steam_accounts', 'users.id', '=', 'linked_steam_accounts.user_id')
+            ->select('users.*')
+            ->get();
+
+        $players = collect();
+
+        foreach ($filter as $f) {
+            $user = $users->find($f->id);
+            $players->push($user);
+        }
         return view('users.search_result', compact('players'));
-
-
     }
 }

@@ -35,7 +35,17 @@ class SocialAccountController extends Controller
         }
 
 
-        //dd($user->getAvatar());
+        //dd($user);
+
+        if(isset($user->user['loccountrycode']) == false){
+            return redirect('/steamconnects')->withError('Please select your country in your steam profile and try again.');
+        }
+        if($user->user['loccountrycode'] != "MY"){
+            return redirect('/steamconnects')->withError('Only Malaysian player can use this service, Please check your country in steam profile.');
+        }
+
+
+
         $authUser = $accountService->findOrCreate($user,$provider);
 
         //auth()->login($authUser, true);
