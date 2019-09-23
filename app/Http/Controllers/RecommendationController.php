@@ -17,7 +17,8 @@ class RecommendationController extends Controller
     //filter conditions - Mid player -> kill banyak, duit banyak, lane mid. etc
 
 
-
+    //idea knowledge - player banyak duit -> tambah lagi prob dia core
+    //               - player stack camp,wards -> tambah lagi supports dan maybe player tu versatile
     public function index()
     {
         $tours = Tournament::all();
@@ -31,9 +32,9 @@ class RecommendationController extends Controller
 
         //validation code
         $request->validate([
-            'player_role' => ['required',Rule::in(['core','support']),],
-            'position' => ['required',Rule::in(['carry','mid','offlaner','roamer','support']),],
-            'rank' => ['required',Rule::in(['herald','guardian','crusader','archon','legend','ancient','divine','immortal']),],
+            'player_role' => ['required', Rule::in(['core', 'support']),],
+            'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
+            'rank' => ['required', Rule::in(['herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
             'tournament' => 'required'
         ]);
@@ -42,67 +43,61 @@ class RecommendationController extends Controller
         //player role = core -> position != roamer/support
         //player role = support -> position != carry/mid/offlaner
 
-        if($request['player_role'] == "core"){
+        if ($request['player_role'] == "core") {
 
-            if($request['position'] == "roamer" or $request['position'] == "support"){
+            if ($request['position'] == "roamer" or $request['position'] == "support") {
                 return back()->with('constraint', 'This position is not for core role');
             }
-        }
-        elseif($request['player_role'] == "support"){
+        } elseif ($request['player_role'] == "support") {
 
-            if($request['position'] == "carry" or $request['position'] == "mid" or $request['position'] == "offlaner"){
+            if ($request['position'] == "carry" or $request['position'] == "mid" or $request['position'] == "offlaner") {
                 return back()->with('constraint', 'This position is not for support role');
             }
         }
 
-        //cf = Filter Conditions
-        //create past tournament punya page dan continue
-
-
         $players = User::all();
 
-        //dekat sini akan ada coding untuk filter user yg pernah join tournament sahaja
-
-        // $admin = User::where('is_admin', 1)->first();
-        // $users = $players->except([auth()->id(),$admin->id]);
 
         $userSteam = DB::table('users')
             ->join('linked_steam_accounts', 'users.id', '=', 'linked_steam_accounts.user_id')
             ->select('users.*')
+            ->where('users.id', '!=', auth()->id())
             ->get();
 
+        //dapatkan user yg dah connect steam
         $users = collect();
-
         foreach ($userSteam as $s) {
             $user = $players->find($s->id);
             $users->push($user);
         }
 
 
+        //cf = Filter Conditions
+        //cf untuk check user ada past experience ke tak
+        //belum wat
 
-        $result = collect();
 
-         foreach($users as $user){
+
+        $result = collect(); //output player yg satisfied semua
+
+        //find main role
+        foreach ($users as $user) {
 
             $current = $user->knowledge['mid'];
             $role = 'mid';
-            if($user->knowledge['carry'] > $current)
-            {
+            if ($user->knowledge['carry'] > $current) {
                 $current = $user->knowledge['carry'];
                 $role = 'carry';
             }
-            if($user->knowledge['support'] > $current)
-            {
+            if ($user->knowledge['support'] > $current) {
                 $current = $user->knowledge['support'];
                 $role = 'support';
             }
-            if($user->knowledge['roamer'] > $current)
-            {
+            if ($user->knowledge['roamer'] > $current) {
                 $current = $user->knowledge['roamer'];
                 $role = 'roamer';
             }
-            if($user->knowledge['offlaner'] > $current)
-            {
+            if ($user->knowledge['offlaner'] > $current) {
                 $current = $user->knowledge['offlaner'];
                 $role = 'offlaner';
             }
@@ -110,10 +105,6 @@ class RecommendationController extends Controller
             $medal = $user->accounts->getMedal();
 
 
-            //  echo $role . " ". $current;
-            //   echo "<br>";
-            //  echo $medal;
-            //  echo "<br><br>";
 
             //coding masukkan user yg sesuai dengan semua dlm collection maybe?
 
@@ -122,25 +113,19 @@ class RecommendationController extends Controller
             $tour = Tournament::find($request['tournament']);
             $exists = $tour->users->contains($user->id);
             //dd($exists);
-            if($request['position'] == $role )
-            {
-                if($request['rank'] ==  $medal)
-                {
-                    if($exists == true)
-                    {
+            if ($request['position'] == $role) {
+                if ($request['rank'] ==  $medal) {
+                    if ($exists == true) {
                         // echo $user->name;
                         // echo "<br>";
 
                         $result->push($user);
-
-
                     }
                 }
             }
-         }
-         //dd($result);
+        }
+        //dd($result);
         return view('users.recommendationResult', compact('result'));
-
     }
 
     // Vc (finder properties/requiremet) =

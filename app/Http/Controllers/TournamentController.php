@@ -94,16 +94,6 @@ class TournamentController extends Controller
         return back()->with('notInterest', 'Remove from interest list');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tournament  $tournament
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tournament $tournament)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -113,6 +103,8 @@ class TournamentController extends Controller
      */
     public function edit(Tournament $tournament)
     {
+        abort_unless(auth()->user()->isAdmin(), 403);
+
         return view('admins.tourEdit', compact('tournament'));
     }
 
@@ -172,6 +164,8 @@ class TournamentController extends Controller
 
     public function status(Tournament $tournament)
     {
+        abort_unless(auth()->user()->isAdmin(), 403);
+
         $tournament->status = 1;
         $tournament->save();
         return redirect('/admin/tournaments');

@@ -68,6 +68,7 @@ class UserController extends Controller
         $filter = DB::table('users')
             ->join('linked_steam_accounts', 'users.id', '=', 'linked_steam_accounts.user_id')
             ->select('users.*')
+            ->where('users.id', '!=', auth()->id())
             ->get();
 
         $players = collect();
