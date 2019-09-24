@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="area" class="col-md-4 col-form-label text-md-right">Area</label>
+                            <label for="area" class="col-md-4 col-form-label text-md-right">City</label>
 
                             <div class="col-md-6">
                                 <input id="area" type="text" class="form-control @error('area') is-invalid @enderror" name="area" value="{{ old('area') }}" required autocomplete="area" autofocus>
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="state" class="col-md-4 col-form-label text-md-right">State</label>
+                            <label for="state" class="col-md-4 col-form-label text-md-right">Region</label>
 
                             <div class="col-md-6">
                                 <input id="state" type="text" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required autocomplete="state" autofocus>
