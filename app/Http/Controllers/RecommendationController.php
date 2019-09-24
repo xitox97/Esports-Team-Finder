@@ -110,16 +110,26 @@ class RecommendationController extends Controller
 
             //cf
 
+            $exp = DB::table('achievements')
+                ->where('user_id', $user->id)
+                ->count() > 0;
+
+            //dd($exp);
+
+
+
             $tour = Tournament::find($request['tournament']);
-            $exists = $tour->users->contains($user->id);
+            $exists = $tour->users->contains($user->id);    //check whether user interested to join specific tournament
             //dd($exists);
             if ($request['position'] == $role) {
                 if ($request['rank'] ==  $medal) {
                     if ($exists == true) {
-                        // echo $user->name;
-                        // echo "<br>";
 
-                        $result->push($user);
+                        if ($request['experience'] == 1 and $exp == true) {
+                            $result->push($user);
+                        } elseif ($request['experience'] == 0 and $exp == false) {
+                            $result->push($user);
+                        }
                     }
                 }
             }
