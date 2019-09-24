@@ -24,7 +24,21 @@
                                     <li>{{ session('offer') }}</li>
                                 </ul>
                             </div>
-                        @endif
+                            @endif
+                            @if (session('team'))
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <li>{{ session('team') }}</li>
+                                </ul>
+                            </div>
+                            @endif
+                            @if (session('captain'))
+                            <div class="alert alert-warning">
+                                <ul>
+                                    <li>{{ session('captain') }}</li>
+                                </ul>
+                            </div>
+                            @endif
                         @endif
            </div>
         <div class="col-md-9">

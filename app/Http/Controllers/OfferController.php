@@ -10,42 +10,54 @@ use App\Team;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Support\Facades\DB;
 
 class OfferController extends Controller
 {
 
 
-    public function invite(User $user){
+    public function invite(User $user)
+    {
 
         $id = auth()->user()->id;
 
+
+        //check ada team or tidak
+        $exists = DB::table('user_team')
+            ->whereUserId($id)
+            ->whereTeamId(2)
+            ->count() > 0;
+
+        if ($exists == false) {
+            return back()->with('team', 'You need to create Team first!');
+        }
+
         $teams = Team::where('captain_id', $id)->first();
 
-        //dd($teams->captain_id);
+        //check captain or not
+        if ($teams == null) {
+            return back()->with('captain', 'Only Captain can invite players!');
+        }
 
-       // dd($user->id);
+        $offer = Offer::create([
+            'team_id' => $teams->id,
+            'user_id' => $user->id,
+            'status' => 'pending',
+        ]);
 
+        //send email notification just buang comment utk enable
+        $user->notify(new OfferTeam($offer, $teams));
 
-
-
-    $offer = Offer::create([
-        'team_id' => $teams->id,
-        'user_id' => $user->id,
-        'status' => 'pending',
-    ]);
-
-    //send email notification just buang comment utk enable
-    $user->notify(new OfferTeam($offer,$teams));
-
-    return back()->with('offer', 'Offer has been sent!');
+        return back()->with('offer', 'Offer has been sent!');
 
 
 
-    // return redirect("teams/$path");
+        // return redirect("teams/$path");
 
     }
 
-    public function acceptOffer(Offer $offer, DatabaseNotification $noti){
+    public function acceptOffer(Offer $offer, DatabaseNotification $noti)
+    {
 
         $user = auth()->user();
         $sender = User::where('id', $offer->team->captain_id)->first();
@@ -63,16 +75,14 @@ class OfferController extends Controller
             $noti->delete();
 
             return back()->with('success', 'Successfully Joined');
-
-
         } catch (\Illuminate\Database\QueryException $e) {
             //dd('You must exit your team first before joining another team');
             return back()->withError('You must exit your team first before joining another team');
-            }
-
+        }
     }
 
-    public function rejectOffer(Offer $offer, DatabaseNotification $noti){
+    public function rejectOffer(Offer $offer, DatabaseNotification $noti)
+    {
 
         $sender = User::where('id', $offer->team->captain_id)->first();
         $offer->status = 'Rejected';
@@ -83,19 +93,17 @@ class OfferController extends Controller
         //dd($accept);
     }
 
-    public function leaveTeam(Team $team){
+    public function leaveTeam(Team $team)
+    {
 
         $user = auth()->user();
 
-        if($user->id == $team->captain_id){
+        if ($user->id == $team->captain_id) {
             return back()->with('leave', 'Captain can only delete team!');
-        }
-        else{
+        } else {
             $user->team()->detach($team->id);
             return back()->with('leave', 'Successfully left!');
         }
-
-
     }
 
 
