@@ -20,7 +20,13 @@
                      @endforeach
                     </div>
 
-
+                    @if (session('captain'))
+                    <div class="alert alert-warning">
+                        <ul>
+                            <li>{{ session('captain') }}</li>
+                        </ul>
+                    </div>
+                    @endif
                   </div>
 
             </div>

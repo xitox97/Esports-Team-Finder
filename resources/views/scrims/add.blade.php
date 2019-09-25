@@ -31,9 +31,17 @@
                                 <input id="date_time" type="datetime-local" class="form-control" name="date_time" required autofocus>
 
                              </div>
+
+
                         </div>
 
-
+                        @error('date_time')
+                             <div class="alert alert-warning">
+                                <ul>
+                                    <li>{{ $message }}</li>
+                                </ul>
+                            </div>
+                                @enderror
 
 
                         <div class="form-group row mb-0">

@@ -21,12 +21,14 @@ class OfferController extends Controller
 
         $id = auth()->user()->id;
 
-
+        $allTeam = Team::all();
         //check ada team or tidak
-        $exists = DB::table('user_team')
-            ->whereUserId($id)
-            ->whereTeamId(2)
-            ->count() > 0;
+        foreach ($allTeam as $at) {
+            $exists = DB::table('user_team')
+                ->whereUserId($id)
+                ->whereTeamId($at->id)
+                ->count() > 0;
+        }
 
         if ($exists == false) {
             return back()->with('team', 'You need to create Team first!');
