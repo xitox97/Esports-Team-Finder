@@ -10,84 +10,67 @@
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <!-- Styles -->
-        <style>
-            html, body {
 
-                height: 100vh;
-
-            }
-            .mySlides {display:none;}
-        </style>
     </head>
-    <body class="bg-black font-sans">
-            {{-- <!-- Full width column -->
-            <nav class="fixed  z-50 bg-transparent w-full ">
-                <div class="container mx-auto ">
-                    <img src="https://postbox-inc.com/assets/images/postbox-logo-white.png" alt="">
-                </div>
-                  </nav>
-                  <section class="bg-primary bg-cover bg-center min-h-full" style="background-image:url(https://postbox-inc.com/assets/images/hero/postbox-hero-night.svg);">
-                </section> --}}
-            <div class="flex flex-col bg-primary bg-fixed bg-cover bg-center min-h-full" style="background-image:url({{asset('img/dota2.jpg')}})">
-                <header>
-                    <div class="container mx-auto pt-8 ">
-                        <div class="flex">
-                            <div class="w-1/4 flex items-center">
-                                <button class="bg-red-500  text-white font-bold py-2 px-4 rounded inline-flex items-center">
-                                    <span class="text-lg">DOTA HUB</span>
-                                </button>
-                            </div>
-                            <div class="w-1/2 flex justify-center">
-                            <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Players</a>
-                            <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Teams</a>
-                            <a href="#" class="text-lg font-semibold py-6 text-white">Tournaments</a>
-                            </div>
-                            <div class="w-1/4 flex items-center  flex-row-reverse text-right">
-                            <a href="/register" class="bg-transparent hover:bg-red-500 text-white font-semibold hover:text-white py-3 px-3 border border-red-500 hover:border-transparent rounded inline-block ">Sign Up</a>
-                            <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Login</a>
-                            </div>
-                        </div>
+    <body class="flex h-screen">
+
+        <side-bar class="w-2/12 flex flex-col bg-indigo-800">
+            <top-bar class="h-24  border-b-1  flex items-center border-black">
+                    <h1 class="text-white text-2xl font-sans m-auto">Dream Team</h1>
+            </top-bar>
+            <menu-bar class="h-full flex flex-col ">
+                    <a href="#" class="text-lg font-semibold mb-10 mt-12 ml-24 text-white">Overview</a>
+                    <a href="#" class="text-lg font-semibold mb-10 ml-24 text-white">Achievements</a>
+                    <a href="#" class="text-lg font-semibold mb-10 ml-24 text-white">Tournaments</a>
+                    <a href="#" class="text-lg font-semibold mb-10 ml-24 text-white">Teams</a>
+                    <a href="#" class="text-lg font-semibold text-white ml-24">Scrims</a>
+            </menu-bar>
+
+
+        </side-bar>
+
+        <main-div class="bg-grey w-10/12 flex flex-col">
+
+                    <header class="h-24 flex justify-between">
+                    <div class="w-8 flex items-center ml-12">
+                        <svg  class="w-8" xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </div>
+                    <div class="flex items-center mr-12">
+                        {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
+
+                        <svg class="w-8" xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                        <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+
+
+                        <img  class="rounded-full h-12 w-12" src="{{Auth::user()->accounts->avatar_url}}" alt="">
+
+                        <svg class="w-8" width="7px" height="20px" viewBox="0 0 7 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 3.8.1 (29687) - http://www.bohemiancoding.com/sketch -->
+                            <title>menu_option [#1375]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-266.000000, -800.000000)" fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path d="M212.333333,658 L214.666667,658 L214.666667,656 L212.333333,656 L212.333333,658 Z M210,660 L217,660 L217,654 L210,654 L210,660 Z M212.333333,651 L214.666667,651 L214.666667,649 L212.333333,649 L212.333333,651 Z M210,653 L217,653 L217,647 L210,647 L210,653 Z M212.333333,644 L214.666667,644 L214.666667,642 L212.333333,642 L212.333333,644 Z M210,646 L217,646 L217,640 L210,640 L210,646 Z" id="menu_option-[#1375]"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
                     </div>
                 </header>
 
-                <div class="container mx-auto mt-16">
+            <content-div class="bg-gray-300 h-full">
+                content
+            </content-div>
+        </main-div>
 
-                    <div class="flex ">
-                            <div id="section" class="w-3/6 mr-2 pt-2">
-                                <p class="text-4xl font-sans font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
-                                <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find teammates and participate in local tournaments</p>
-                                <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> play practice match with another teams</p>
-                                <a href="/register" class="bg-red-600 hover:bg-red-700 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
-                            </div>
 
-                            <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
-                                <div class="w3-content w3-section" >
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:90%">
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:90%">
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:90%">
-                                      </div>
-                                {{-- <img src="{{asset('img/og1.jpg')}}" class="w-2/5 shadow-2xl">
-                                <img src="{{asset('img/liquid.jpg')}}" class="w-2/5 shadow-2xl">
-                                <img src="{{asset('img/lgd.jpg')}}" class="w-2/5 shadow-2xl"> --}}
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <script>
-                    var myIndex = 0;
-                    carousel();
-
-                    function carousel() {
-                      var i;
-                      var x = document.getElementsByClassName("mySlides");
-                      for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                      }
-                      myIndex++;
-                      if (myIndex > x.length) {myIndex = 1}
-                      x[myIndex-1].style.display = "block";
-                      setTimeout(carousel, 2000); // Change image every 2 seconds
-                    }
-                    </script>
     </body>
 </html>
