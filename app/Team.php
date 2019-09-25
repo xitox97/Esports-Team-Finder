@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     protected $fillable = [
-        'captain_id', 'name', 'area','age', 'qtty_member', 'image'
+        'captain_id', 'name', 'area', 'age', 'qtty_member', 'image'
     ];
 
     protected $casts = [
@@ -21,18 +21,18 @@ class Team extends Model
         return $this->belongsToMany(User::class, 'user_team')->withTimestamps();
     }
 
-    public function offers(){
+    public function offers()
+    {
         return $this->hasMany('App\Offer');
     }
 
     public function scrims()
     {
-        return $this->belongsToMany(Team::class, 'team_scrim', 'team_id', 'opponent_id')->withPivot('date_time')->withTimestamps();
+        return $this->belongsToMany(Team::class, 'team_scrim', 'team_id', 'opponent_id')->withPivot('id', 'date_time')->withTimestamps();
     }
 
-    public function scrimStatus(){
+    public function scrimStatus()
+    {
         return $this->hasMany('App\Scrimstatus');
     }
-
-
 }

@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
 
 
     Route::get('/home', 'HomeController@index')->name('home');
@@ -45,13 +45,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('players/recommendation', 'RecommendationController@search');
 
 
-
+    //scrims
     Route::get('/scrims', 'ScrimController@index');
     Route::get('/scrims/add/{team}', 'ScrimController@add');
     Route::post('/scrims', 'ScrimController@invite');
     Route::get('/scrims/accept/{status}/notifications/{noti}', 'ScrimController@acceptScrim');
     Route::get('/scrims/reject/{status}/notifications/{noti}', 'ScrimController@rejectScrim');
     Route::get('/scrims-schedule', 'ScrimController@scrimList');
+    Route::get('/scrims/{scrimid}/details', 'ScrimController@details');
 
     //button
     Route::get('/offer/{user}', 'OfferController@invite');
@@ -95,14 +96,14 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 
-    Route::get('/try-redis', function(){
+    Route::get('/try-redis', function () {
 
         $user = User::where('id', auth()->id())->first();
         // dd($user);
         $stats = Statistic::first();
 
         //consumeOpendotaApi::dispatch($user);
-        processMatches::dispatch($user,$stats);
+        processMatches::dispatch($user, $stats);
         //generatePlayerRole::dispatch($user);
 
         // $data = DotaJson::first();
@@ -112,29 +113,27 @@ Route::group(['middleware' => 'auth'], function() {
         return 'Finished';
     });
 
-    Route::get('/try-json', function(){
+    Route::get('/try-json', function () {
 
-    //    $match = Match::all();
-    //    foreach($match as $m){
-    //     echo $m->match_details['match_id'];
-    //     echo "<br>";
-    //    }
+        //    $match = Match::all();
+        //    foreach($match as $m){
+        //     echo $m->match_details['match_id'];
+        //     echo "<br>";
+        //    }
 
-    $match = Knowledge::where('id', 4)->first();
-    dd($match->player_role['mid']);
+        $match = Knowledge::where('id', 4)->first();
+        dd($match->player_role['mid']);
         //dd($match->items['blink']['id']);
 
         //code keluar kan image based on id
-            // foreach($match->items as $m){
-            //     if($m['id'] == 1)
-            //     echo $m['img'];
-            //     echo "<br>";
-            // }
+        // foreach($match->items as $m){
+        //     if($m['id'] == 1)
+        //     echo $m['img'];
+        //     echo "<br>";
+        // }
 
 
 
 
     });
-
-
 });

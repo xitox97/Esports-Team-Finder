@@ -10,7 +10,7 @@
                 <div class="card" >
 
                     <div class="card-body">
-                      <h5 class="card-title text-center"><b>Scrim list</b> </h5>
+                      <h5 class="card-title text-center"><b>Scrim Details Coming Soon</b> </h5>
                       <p class="card-text"></p>
                     </div>
 
@@ -26,22 +26,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                            @foreach ($myTeam->scrims as $scrim)
 
-
-
-                                    <tr>
-                                      <td>{{$loop->index + 1}}</td>
-                                      <td> <a href="{{ url('/teams/' . $scrim->id) }}">{{$scrim->name}}</a> </td>
-                                      <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('h:i:s a') }}</td>
-                                      <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('d/m/Y') }}</td>
-                                      <td>
-                                        <a href="{{  url('/scrims/'. $scrim->pivot->id . '/details')  }}" class="btn btn-success"
-                                                role="button" aria-pressed="true">View Details</a></td>
-                                    </tr>
-
-
-                                  @endforeach
                                 </tbody>
                           </table>
 

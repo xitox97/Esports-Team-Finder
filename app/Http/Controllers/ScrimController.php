@@ -119,12 +119,36 @@ class ScrimController extends Controller
     {
 
         $id = auth()->user()->id;
-        $myTeam = Team::where('captain_id', $id)->first();
+        // $myTeam = Team::where('captain_id', $id)->first();
 
+
+        $myT = auth()->user()->team;
+        foreach ($myT as $t) {
+            $teamid = $t->id;
+        }
+        $myTeam = Team::find($teamid);
+
+
+
+
+
+        //dd($myTeam->scrims->pivot);
 
         // $scrimTable = Scrimstatus::where('team_id', $myTeam->id)->get();
 
         //dd($myTeam);
         return view('scrims.scrimlist', compact('myTeam'));
+    }
+
+    public function details($scrimid)
+    {
+        $scrimTable = DB::table('team_scrim')->find($scrimid);
+        //dd($scrimTable);
+
+        $myTeam = Team::find($scrimTable->team_id);
+        $oppTeam = Team::find($scrimTable->opponent_id);
+
+        //dd($oppTeam);
+        return view('scrims.scrimDetails', compact('myTeam', 'oppTeam'));
     }
 }
