@@ -50,7 +50,7 @@ class ScrimController extends Controller
         $request->validate([
             'team_id' => 'required',
             'opponent_id' => 'required',
-            'date_time' => 'required|after:now',
+            'date_time' => 'required|after_or_equal:now',
         ]);
 
 
