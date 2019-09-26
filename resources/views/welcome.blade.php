@@ -15,6 +15,7 @@
 
         <style>
         .material-icons.md-36 { font-size: 32px; }
+
         </style>
     </head>
     <body class="flex h-screen font-sans ">
@@ -82,7 +83,7 @@
                     <content-div class="bg-gray-200 h-screen">
                         <div class="container mx-auto mt-16">
                             <div class="flex">
-                                    <div class="w-2/3">
+                                    <div class="w-full ml-16">
                                         <div class="bg-white shadow-lg text-center rounded ">
                                             <table class="border-collapse w-full">
                                                 <thead>
@@ -114,17 +115,45 @@
                                                             <td class="py-4 px-6 border-b border-gray-300">Champion</td>
                                                             <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
                                                         </tr>
+                                                        <tr class="hover:bg-gray-200">
+                                                                <td class="py-4 px-6 border-b border-gray-300">3</td>
+                                                                <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
+                                                                <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
+                                                                <td class="py-4 px-6 border-b border-gray-300">Champion</td>
+                                                                <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
+                                                            </tr>
+                                                            <tr class="hover:bg-gray-200">
+                                                                    <td class="py-4 px-6 border-b border-gray-300">3</td>
+                                                                    <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
+                                                                    <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
+                                                                    <td class="py-4 px-6 border-b border-gray-300">Champion</td>
+                                                                    <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
+                                                                </tr>
+                                                                <tr class="hover:bg-gray-200">
+                                                                        <td class="py-4 px-6 border-b border-gray-300">3</td>
+                                                                        <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
+                                                                        <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
+                                                                        <td class="py-4 px-6 border-b border-gray-300">Champion</td>
+                                                                        <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
+                                                                    </tr>
+                                                                    <tr class="hover:bg-gray-200">
+                                                                            <td class="py-4 px-6 border-b border-gray-300">3</td>
+                                                                            <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
+                                                                            <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
+                                                                            <td class="py-4 px-6 border-b border-gray-300">Champion</td>
+                                                                            <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
+                                                                        </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="w-auto ml-24 mt-1">
-                                            <button class="bg-transparent hover:bg-indigo-700 text-indigo-800
+                                    <div class="w-1/3 ml-24 mt-2">
+                                        <button class="bg-transparent hover:bg-indigo-700 text-indigo-800
                                             font-semibold hover:text-white py-2 px-4 border border-indigo-800
-                                            hover:border-transparent rounded">
-                                                New Achievement
-                                            </button>
-                                        </div>
+                                            hover:border-transparent rounded shadow-md">
+                                            New Achievement
+                                        </button>
+                                    </div>
                             </div>
                         </div>
                     </content-div>
