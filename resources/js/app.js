@@ -24,5 +24,18 @@ Vue.component('sidebar-component', require('./components/SidebarComponent.vue').
 
 new Vue({
     el: '#app',
-
+    data() {
+        return {
+            isOpen: true,
+            isFull: false,
+            isSmall: true,
+        };
+    },
+    methods: {
+        toggle() {
+            this.isOpen = !this.isOpen;
+            this.isFull = true;
+            this.isSmall = false;
+        }
+    }
 });

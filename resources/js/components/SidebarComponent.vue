@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-2/12 flex flex-col bg-indigo-800">
+  <aside v-show="isOpen" class="w-2/12 flex flex-col bg-indigo-800">
     <header class="h-24 flex items-center border-b border-indigo-700 py-5">
       <img
         class="w-7/12 mx-auto mt-3"
@@ -7,9 +7,8 @@
         alt="netflix-font"
         border="0"
       />
-      <button @click="toggle" type="button">test</button>
     </header>
-    <section v-show="isOpen" class="h-full flex flex-col">
+    <section class="h-full flex flex-col">
       <a href="#" class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400">
         <i class="material-icons align-middle">assessment</i>
         <span class="align-middle ml-2">Overview</span>
@@ -42,16 +41,8 @@
 
 <script>
 export default {
-  props: [],
-  data() {
-    return {
-      isOpen: false
-    };
-  },
-  methods: {
-    toggle() {
-      this.isOpen = !this.isOpen;
-    }
+  props: {
+    isOpen: Boolean
   }
 };
 </script>

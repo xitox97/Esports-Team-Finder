@@ -1771,18 +1771,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [],
-  data: function data() {
-    return {
-      isOpen: false
-    };
-  },
-  methods: {
-    toggle: function toggle() {
-      this.isOpen = !this.isOpen;
-    }
+  props: {
+    isOpen: Boolean
   }
 });
 
@@ -37129,8 +37120,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("aside", { staticClass: "w-2/12 flex flex-col bg-indigo-800" }, [
-    _c(
+  return _c(
+    "aside",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.isOpen,
+          expression: "isOpen"
+        }
+      ],
+      staticClass: "w-2/12 flex flex-col bg-indigo-800"
+    },
+    [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
       "header",
       { staticClass: "h-24 flex items-center border-b border-indigo-700 py-5" },
       [
@@ -37142,60 +37153,7 @@ var render = function() {
             alt: "netflix-font",
             border: "0"
           }
-        }),
-        _vm._v(" "),
-        _c("button", { attrs: { type: "button" }, on: { click: _vm.toggle } }, [
-          _vm._v("test")
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "section",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isOpen,
-            expression: "isOpen"
-          }
-        ],
-        staticClass: "h-full flex flex-col"
-      },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4)
-      ]
-    ),
-    _vm._v(" "),
-    _vm._m(5)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400",
-        attrs: { href: "#" }
-      },
-      [
-        _c("i", { staticClass: "material-icons align-middle" }, [
-          _vm._v("assessment")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Overview")])
+        })
       ]
     )
   },
@@ -37203,81 +37161,87 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "text-lg font-semibold mb-10 ml-16 text-white",
-        attrs: { href: "#" }
-      },
-      [
-        _c("i", { staticClass: "material-icons align-middle" }, [
-          _vm._v("emoji_events")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "align-middle ml-2" }, [
-          _vm._v("Achievements")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "text-lg font-semibold mb-10 ml-16 text-purple-400",
-        attrs: { href: "#" }
-      },
-      [
-        _c("i", { staticClass: "material-icons align-middle" }, [
-          _vm._v("videogame_asset")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "align-middle ml-2" }, [
-          _vm._v("Tournaments")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "text-lg font-semibold mb-10 ml-16 text-purple-400",
-        attrs: { href: "#" }
-      },
-      [
-        _c("i", { staticClass: "material-icons align-middle" }, [
-          _vm._v("group")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Teams")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "text-lg font-semibold mb-10 ml-16 text-purple-400",
-        attrs: { href: "#" }
-      },
-      [
-        _c("i", { staticClass: "material-icons align-middle" }, [
-          _vm._v("sports_kabaddi")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Scrims")])
-      ]
-    )
+    return _c("section", { staticClass: "h-full flex flex-col" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400",
+          attrs: { href: "#" }
+        },
+        [
+          _c("i", { staticClass: "material-icons align-middle" }, [
+            _vm._v("assessment")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Overview")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "text-lg font-semibold mb-10 ml-16 text-white",
+          attrs: { href: "#" }
+        },
+        [
+          _c("i", { staticClass: "material-icons align-middle" }, [
+            _vm._v("emoji_events")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "align-middle ml-2" }, [
+            _vm._v("Achievements")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "text-lg font-semibold mb-10 ml-16 text-purple-400",
+          attrs: { href: "#" }
+        },
+        [
+          _c("i", { staticClass: "material-icons align-middle" }, [
+            _vm._v("videogame_asset")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "align-middle ml-2" }, [
+            _vm._v("Tournaments")
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "text-lg font-semibold mb-10 ml-16 text-purple-400",
+          attrs: { href: "#" }
+        },
+        [
+          _c("i", { staticClass: "material-icons align-middle" }, [
+            _vm._v("group")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Teams")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass: "text-lg font-semibold mb-10 ml-16 text-purple-400",
+          attrs: { href: "#" }
+        },
+        [
+          _c("i", { staticClass: "material-icons align-middle" }, [
+            _vm._v("sports_kabaddi")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Scrims")])
+        ]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -49478,7 +49442,21 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('sidebar-component', __webpack_require__(/*! ./components/SidebarComponent.vue */ "./resources/js/components/SidebarComponent.vue")["default"]);
 new Vue({
-  el: '#app'
+  el: '#app',
+  data: function data() {
+    return {
+      isOpen: true,
+      isFull: false,
+      isSmall: true
+    };
+  },
+  methods: {
+    toggle: function toggle() {
+      this.isOpen = !this.isOpen;
+      this.isFull = true;
+      this.isSmall = false;
+    }
+  }
 });
 
 /***/ }),
