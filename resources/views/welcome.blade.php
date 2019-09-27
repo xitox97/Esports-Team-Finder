@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
+ <!-- CSRF Token -->
+ <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Fonts -->
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -18,9 +19,11 @@
 
         </style>
     </head>
-    <body class="flex h-screen font-sans ">
+    <body>
+        <div id="app" class="flex h-screen font-sans ">
 
-        <side-bar class="w-2/12 flex flex-col bg-indigo-800">
+
+        {{-- <side-bar class="w-2/12 flex flex-col bg-indigo-800">
             <top-bar class="h-24 flex items-center border-b border-indigo-700 py-5">
                     <img class="w-7/12 mx-auto mt-3" src="https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png" alt="netflix-font" border="0">
             </top-bar>
@@ -55,8 +58,9 @@
                         log out
                     </span>
             </div>
-        </side-bar>
-        <main-div class="w-10/12 flex flex-col">
+        </side-bar> --}}
+        <sidebar-component></sidebar-component>
+        <section id="maindiv" class="w-10/12 flex flex-col">
                     <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
                         <div class="w-8 flex items-center ml-12">
                                 <i class="material-icons md-36 cursor-pointer">
@@ -80,7 +84,7 @@
                             </div>
                         </div>
                     </header>
-                    <content-div class="bg-gray-200 h-screen">
+                    <section id="content-div" class="bg-gray-200 h-screen">
                         <div class="container mx-auto mt-16">
                             <div class="flex">
                                     <div class="w-full ml-16">
@@ -156,9 +160,10 @@
                                     </div>
                             </div>
                         </div>
-                    </content-div>
-        </main-div>
+                    </section>
+                </section>
 
-
+    </div>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
 </html>
