@@ -12,7 +12,7 @@
         <div class="mx-auto bg-white shadow-xl mt-3 rounded p-6 w-5/12  font-sans">
             <form class="w-full p-3" method="POST" action="/players/{{$id}}/achievements/create" id="achievement">
                 @csrf
-                <span class="text-lg font-bold uppercase border-b-2 border-grey-200 pb-4 flex justify-center">Adding New Achievement</span>
+                <span class="text-lg font-bold uppercase border-b-2 border-gray-200 pb-4 flex justify-center">Adding New Achievement</span>
                 <div class="flex flex-wrap -mx-3 mt-10 mb-2">
                 <div class="w-full px-3 mb-2">
                     <label class="block uppercase tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-first-name">

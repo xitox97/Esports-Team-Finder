@@ -5,8 +5,8 @@
         <span class="italic text-sm">Home / <a href="{{url('/players/' . Auth::user()->accounts->dota_id . '/achievements')}}" class="no-underline hover:underline text-blue-500">Achievements</a></span>
    </section>
 
-<div class="container mx-auto mt-16">
-        <div class="flex">
+<div class="container mx-auto mt-12">
+<div class="flex">
 <div class="w-5/6 ml-16">
     <p class="text-2xl  ml-1 font-bold  pb-4 capitalize">past achievements</p>
         <div class="bg-white shadow-lg text-center rounded-lg px-4 pb-6 pt-5">
@@ -18,6 +18,7 @@
                     <th class="capitalize border-b border-gray-300 py-4 ">Team</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">Place</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">Date</th>
+                    <th class="capitalize border-b border-gray-300 py-4 "></th>
                 </thead>
                 <tbody class="text-center">
                     @forelse($users->achievements as $achievement)
@@ -39,6 +40,13 @@
                             @endif
                         </td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$achievement->date}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">
+                            <i class="material-icons text-indigo-600 cursor-pointer">
+                            create
+                            </i>
+                            <i class="material-icons text-red-600 cursor-pointer">
+                                delete_forever
+                                </i></td>
                     </tr>
                     @empty
                         <tr>
