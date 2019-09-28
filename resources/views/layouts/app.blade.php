@@ -90,18 +90,29 @@
                             <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
                         </div>
                         <div class="mx-3">
-                                <i class="material-icons md-36 cursor-pointer">
+                                <i v-on:click="dropOpen = !dropOpen" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="dropOpen">
                                         more_horiz
                                         </i>
                         </div>
+                        <div class="mt-16">
+                            <div v-show="dropOpen" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                                    <a href="#" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
+                                    <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
+                                    onclick="event.preventDefault();
+                                                  document.getElementById('logout-form').submit();">
+                                     {{ __('Logout') }}
+                                 </a>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                        </div>
+
                     </div>
                 </header>
 
                 <section id="content-div" class="bg-gray-200 h-screen">
-
-
                                 @yield('content')
-
                 </section>
             </section>
 

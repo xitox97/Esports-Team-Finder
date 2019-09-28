@@ -29,13 +29,35 @@ new Vue({
             isOpen: true,
             isFull: false,
             isSmall: true,
+            dropOpen: false,
         };
     },
+
+    watch: {
+        dropOpens(dropOpen) {
+            if (dropOpen) {
+                document.addEventListener('click', this.closeIfClickedOutside);
+            }
+        }
+    },
+
+
     methods: {
         toggle() {
             this.isOpen = !this.isOpen;
             this.isFull = true;
             this.isSmall = false;
+        },
+
+        closeIfClickedOutside(event) {
+
+            if (!document.getElementById('dropdown').contains(event.target)) {
+                console.log('masuk');
+                this.dropOpen = false;
+
+                document.removeEventListener('click', this.closeIfClickedOutside);
+                console.log('keluar');
+            }
         }
     }
 });
