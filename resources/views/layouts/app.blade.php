@@ -82,7 +82,7 @@
                     <div class="flex items-center justify-around mr-12">
                         {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
                         <div class="mx-3">
-                                <i class="material-icons mt-1 text-yellow-500 md-36 cursor-pointer">
+                                <i  class="material-icons mt-1 text-yellow-500 md-36 cursor-pointer">
                                         notifications_none
                                         </i>
                         </div>
@@ -90,12 +90,12 @@
                             <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
                         </div>
                         <div class="mx-3">
-                                <i v-on:click="dropOpen = !dropOpen" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="dropOpen">
+                                <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="dropOpen">
                                         more_horiz
                                         </i>
                         </div>
                         <div class="mt-16">
-                            <div v-show="dropOpen" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                            <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
                                     <a href="#" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
                                     onclick="event.preventDefault();
