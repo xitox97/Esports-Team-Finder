@@ -49483,8 +49483,8 @@ new Vue({
     };
   },
   watch: {
-    dropOpens: function dropOpens(dropOpen) {
-      if (dropOpen) {
+    dropOpen: function dropOpen(_dropOpen) {
+      if (_dropOpen) {
         document.addEventListener('click', this.closeIfClickedOutside);
       }
     }

@@ -34,7 +34,7 @@ new Vue({
     },
 
     watch: {
-        dropOpens(dropOpen) {
+        dropOpen(dropOpen) {
             if (dropOpen) {
                 document.addEventListener('click', this.closeIfClickedOutside);
             }
