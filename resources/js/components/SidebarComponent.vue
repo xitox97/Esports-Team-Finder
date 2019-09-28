@@ -38,13 +38,27 @@
       class="flex justify-center items-center py-6 pr-6 cursor-pointer bg-purple-800 border-t border-indigo-700"
     >
       <i class="material-icons mr-3 align-middle font-semibold text-white">power_settings_new</i>
-      <span class="font-semibold text-white text-xl align-middle">log out</span>
+      <a
+        class="font-semibold text-white text-xl align-middle"
+        href="/logout"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+      >log out</a>
+      <form id="logout-form" action="/logout" method="POST" style="display: none;">
+        <input type="hidden" name="_token" :value="csrf" />
+      </form>
     </div>
   </aside>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      csrf: document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content")
+    };
+  },
   props: {
     isOpen: Boolean,
     user: Object
@@ -53,6 +67,9 @@ export default {
   methods: {
     home() {
       window.location.href = "/";
+    },
+    submit() {
+      this.$refs.form.submit();
     }
   }
 };

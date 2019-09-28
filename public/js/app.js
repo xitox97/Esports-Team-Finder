@@ -1787,7 +1787,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+    };
+  },
   props: {
     isOpen: Boolean,
     user: Object
@@ -1795,6 +1807,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     home: function home() {
       window.location.href = "/";
+    },
+    submit: function submit() {
+      this.$refs.form.submit();
     }
   }
 });
@@ -37290,7 +37305,50 @@ var render = function() {
         _vm._m(3)
       ]),
       _vm._v(" "),
-      _vm._m(4)
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex justify-center items-center py-6 pr-6 cursor-pointer bg-purple-800 border-t border-indigo-700"
+        },
+        [
+          _c(
+            "i",
+            {
+              staticClass:
+                "material-icons mr-3 align-middle font-semibold text-white"
+            },
+            [_vm._v("power_settings_new")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "font-semibold text-white text-xl align-middle",
+              attrs: {
+                href: "/logout",
+                onclick:
+                  "event.preventDefault(); document.getElementById('logout-form').submit();"
+              }
+            },
+            [_vm._v("log out")]
+          ),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticStyle: { display: "none" },
+              attrs: { id: "logout-form", action: "/logout", method: "POST" }
+            },
+            [
+              _c("input", {
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.csrf }
+              })
+            ]
+          )
+        ]
+      )
     ]
   )
 }
@@ -37370,34 +37428,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("span", { staticClass: "align-middle ml-2" }, [_vm._v("Scrims")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex justify-center items-center py-6 pr-6 cursor-pointer bg-purple-800 border-t border-indigo-700"
-      },
-      [
-        _c(
-          "i",
-          {
-            staticClass:
-              "material-icons mr-3 align-middle font-semibold text-white"
-          },
-          [_vm._v("power_settings_new")]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          { staticClass: "font-semibold text-white text-xl align-middle" },
-          [_vm._v("log out")]
-        )
       ]
     )
   }
