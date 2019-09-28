@@ -1771,9 +1771,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     isOpen: Boolean
+  },
+  methods: {
+    home: function home() {
+      window.location.href = "/";
+    }
   }
 });
 
@@ -37133,30 +37139,33 @@ var render = function() {
       ],
       staticClass: "w-2/12 flex flex-col bg-indigo-800"
     },
-    [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+    [
+      _c(
+        "header",
+        {
+          staticClass: "h-24 flex items-center border-b border-indigo-700 py-5"
+        },
+        [
+          _c("img", {
+            staticClass: "w-7/12 mx-auto mt-3 cursor-pointer",
+            attrs: {
+              src:
+                "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
+              alt: "netflix-font",
+              border: "0"
+            },
+            on: { click: _vm.home }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1)
+    ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "header",
-      { staticClass: "h-24 flex items-center border-b border-indigo-700 py-5" },
-      [
-        _c("img", {
-          staticClass: "w-7/12 mx-auto mt-3",
-          attrs: {
-            src:
-              "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
-            alt: "netflix-font",
-            border: "0"
-          }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -5,127 +5,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
- <!-- CSRF Token -->
- <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <!-- Fonts -->
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
         {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <!-- Styles -->
-
         <style>
-        .material-icons.md-36 { font-size: 32px; }
+            html, body {
 
+                height: 100vh;
+
+            }
+            .mySlides {display:none;}
         </style>
     </head>
-    <body>
-        <div id="app" class="flex h-screen font-sans">
-        <sidebar-component v-bind:is-open="isOpen"></sidebar-component>
-        <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
-                    <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
-                        <div class="w-8 flex items-center ml-12">
-                               <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer">
-                                        menu_open
-                                        </i>
-                        </div>
-                        <div class="flex items-center justify-around mr-12">
-                            {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
-                            <div class="mx-3">
-                                    <i class="material-icons mt-1 text-yellow-500 md-36 cursor-pointer">
-                                            notifications_none
-                                            </i>
-                            </div>
-                            <div class="mx-3">
-                                <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
-                            </div>
-                            <div class="mx-3">
-                                    <i class="material-icons md-36 cursor-pointer">
-                                            more_horiz
-                                            </i>
-                            </div>
-                        </div>
-                    </header>
-                    <section id="content-div" class="bg-gray-200 h-screen">
-                        <div class="container mx-auto mt-16">
-                            <div class="flex">
-                                    <div class="w-full ml-16">
-                                        <div class="bg-white shadow-lg text-center rounded ">
-                                            <table class="border-collapse w-full">
-                                                <thead>
-                                                    <th class="uppercase border-b border-gray-400 py-4 ">#</th>
-                                                    <th class="uppercase border-b border-gray-400 py-4 ">Tournament Name</th>
-                                                    <th class="uppercase border-b border-gray-400 py-4 ">Team</th>
-                                                    <th class="uppercase border-b border-gray-400 py-4 ">Place</th>
-                                                    <th class="uppercase border-b border-gray-400 py-4 ">Date</th>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="hover:bg-gray-200">
-                                                        <td class="py-4 px-6 border-b border-gray-300">1</td>
-                                                        <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                        <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                        <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                        <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                    </tr>
-                                                    <tr class="hover:bg-gray-200">
-                                                            <td class="py-4 px-6 border-b border-gray-300">2</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                        </tr>
-                                                        <tr class="hover:bg-gray-200">
-                                                            <td class="py-4 px-6 border-b border-gray-300">3</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                            <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                        </tr>
-                                                        <tr class="hover:bg-gray-200">
-                                                                <td class="py-4 px-6 border-b border-gray-300">3</td>
-                                                                <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                                <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                                <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                                <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                            </tr>
-                                                            <tr class="hover:bg-gray-200">
-                                                                    <td class="py-4 px-6 border-b border-gray-300">3</td>
-                                                                    <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                                    <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                                    <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                                    <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                                </tr>
-                                                                <tr class="hover:bg-gray-200">
-                                                                        <td class="py-4 px-6 border-b border-gray-300">3</td>
-                                                                        <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                                        <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                                        <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                                        <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                                    </tr>
-                                                                    <tr class="hover:bg-gray-200">
-                                                                            <td class="py-4 px-6 border-b border-gray-300">3</td>
-                                                                            <td class="py-4 px-6 border-b border-gray-300">KL Major 2</td>
-                                                                            <td class="py-4 px-6 border-b border-gray-300">Liquid</td>
-                                                                            <td class="py-4 px-6 border-b border-gray-300">Champion</td>
-                                                                            <td class="py-4 px-6 border-b border-gray-300">12/02/2012</td>
-                                                                        </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="w-1/3 ml-24 mt-2">
-                                        <button class="bg-transparent hover:bg-indigo-700 text-indigo-800
-                                            font-semibold hover:text-white py-2 px-4 border border-indigo-800
-                                            hover:border-transparent rounded shadow-md">
-                                            New Achievement
-                                        </button>
-                                    </div>
-                            </div>
-                        </div>
-                    </section>
-                </section>
+    <body class="bg-black font-sans">
+            {{-- <!-- Full width column -->
+            <nav class="fixed  z-50 bg-transparent w-full ">
+                <div class="container mx-auto ">
+                    <img src="https://postbox-inc.com/assets/images/postbox-logo-white.png" alt="">
+                </div>
+                  </nav>
+                  <section class="bg-primary bg-cover bg-center min-h-full" style="background-image:url(https://postbox-inc.com/assets/images/hero/postbox-hero-night.svg);">
+                </section> --}}
+            <div class="flex flex-col bg-primary bg-fixed bg-cover bg-center min-h-full" style="background-image:url({{asset('img/dota2.jpg')}})">
+                <header>
+                    <div class="container mx-auto pt-8 ">
+                        <div class="flex">
 
-    </div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+                            <div class="w-1/4 flex items-center">
+                                <button class="bg-red-500  text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                                    <span class="text-lg">DOTA HUB</span>
+                                </button>
+                            </div>
+
+                            <div class="w-1/2 flex justify-center">
+                                <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Players</a>
+                                <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Teams</a>
+                                <a href="#" class="text-lg font-semibold py-6 text-white">Tournaments</a>
+                            </div>
+
+                            <div class="w-1/4 flex items-center  flex-row-reverse text-right">
+                                <a href="/register" class="bg-transparent hover:bg-red-500 text-white font-semibold hover:text-white py-3 px-3 border border-red-500 hover:border-transparent rounded inline-block ">Sign Up</a>
+                                <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Login</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+
+                <div class="container mx-auto mt-16">
+
+                    <div class="flex ">
+                            <div id="section" class="w-3/6 mr-2 pt-2">
+                                <p class="text-4xl font-sans font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
+                                <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find teammates and participate in local tournaments</p>
+                                <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> play practice match with another teams</p>
+                                <a href="/register" class="bg-red-600 hover:bg-red-700 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
+                            </div>
+
+                            <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
+                                <div class="w3-content w3-section" >
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:90%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:90%">
+                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:90%">
+                                      </div>
+                                {{-- <img src="{{asset('img/og1.jpg')}}" class="w-2/5 shadow-2xl">
+                                <img src="{{asset('img/liquid.jpg')}}" class="w-2/5 shadow-2xl">
+                                <img src="{{asset('img/lgd.jpg')}}" class="w-2/5 shadow-2xl"> --}}
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                    var myIndex = 0;
+                    carousel();
+
+                    function carousel() {
+                      var i;
+                      var x = document.getElementsByClassName("mySlides");
+                      for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                      }
+                      myIndex++;
+                      if (myIndex > x.length) {myIndex = 1}
+                      x[myIndex-1].style.display = "block";
+                      setTimeout(carousel, 2000); // Change image every 2 seconds
+                    }
+                    </script>
     </body>
 </html>

@@ -2,7 +2,8 @@
   <aside v-show="isOpen" class="w-2/12 flex flex-col bg-indigo-800">
     <header class="h-24 flex items-center border-b border-indigo-700 py-5">
       <img
-        class="w-7/12 mx-auto mt-3"
+        v-on:click="home"
+        class="w-7/12 mx-auto mt-3 cursor-pointer"
         src="https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png"
         alt="netflix-font"
         border="0"
@@ -43,6 +44,12 @@
 export default {
   props: {
     isOpen: Boolean
+  },
+
+  methods: {
+    home() {
+      window.location.href = "/";
+    }
   }
 };
 </script>
