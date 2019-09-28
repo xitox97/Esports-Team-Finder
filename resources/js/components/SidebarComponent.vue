@@ -14,7 +14,10 @@
         <i class="material-icons align-middle">assessment</i>
         <span class="align-middle ml-2">Overview</span>
       </a>
-      <a href="#" class="text-lg font-semibold mb-10 ml-16 text-white">
+      <a
+        v-bind:href="'/players/' + user.dota_id + '/achievements'"
+        class="text-lg font-semibold mb-10 ml-16 text-white cursor-pointer"
+      >
         <i class="material-icons align-middle">emoji_events</i>
         <span class="align-middle ml-2">Achievements</span>
       </a>
@@ -43,7 +46,8 @@
 <script>
 export default {
   props: {
-    isOpen: Boolean
+    isOpen: Boolean,
+    user: Object
   },
 
   methods: {

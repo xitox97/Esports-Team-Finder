@@ -14,9 +14,9 @@ class AchievementController extends Controller
         $steam = LinkedSteamAccount::where('dota_id', $player)->first();
         $users = $steam->user;
 
-       // $achievements = $users->achievements;
+        // $achievements = $users->achievements;
         //dd($achievements);
-       //$achievements = auth()->user()->achievements;
+        //$achievements = auth()->user()->achievements;
 
         return view('users.achievement.index', compact('users'));
     }
@@ -33,7 +33,7 @@ class AchievementController extends Controller
 
         $request->validate([
             'tournament_name' => 'required',
-            'date' => 'required',
+            'date' => 'required|before_or_equal:now',
             'place' => 'required',
             'team' => 'required'
         ]);

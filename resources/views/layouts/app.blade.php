@@ -71,7 +71,7 @@
 <body>
 
     <div id="app" class="flex h-screen font-sans">
-            <sidebar-component v-bind:is-open="isOpen"></sidebar-component>
+            <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}"></sidebar-component>
             <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
                 <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
                     <div class="w-8 flex items-center ml-12">
@@ -96,14 +96,15 @@
                         </div>
                     </div>
                 </header>
+
                 <section id="content-div" class="bg-gray-200 h-screen">
-                    <div class="container mx-auto mt-16">
-                        <div class="flex">
+
+
                                 @yield('content')
-                        </div>
-                    </div>
+
                 </section>
             </section>
+
 
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
