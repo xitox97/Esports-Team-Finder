@@ -8,6 +8,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import ClickOutside from "vue-click-outside";
+
+Vue.use(ClickOutside);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -23,22 +26,16 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('sidebar-component', require('./components/SidebarComponent.vue').default);
 
 new Vue({
+
+
     el: '#app',
     data() {
         return {
             isOpen: true,
             isFull: false,
             isSmall: true,
-            dropOpen: false,
+            opened: false
         };
-    },
-
-    watch: {
-        dropOpen(dropOpen) {
-            if (dropOpen) {
-                document.addEventListener('click', this.closeIfClickedOutside);
-            }
-        }
     },
 
 
@@ -49,15 +46,17 @@ new Vue({
             this.isSmall = false;
         },
 
-        closeIfClickedOutside(event) {
+        onoff() {
+            this.opened = true;
+        },
 
-            if (!document.getElementById('dropdown').contains(event.target)) {
-                console.log('masuk');
-                this.dropOpen = false;
-
-                document.removeEventListener('click', this.closeIfClickedOutside);
-                console.log('keluar');
-            }
+        hide() {
+            this.opened = false;
         }
+
+    },
+
+    directives: {
+        ClickOutside
     }
 });

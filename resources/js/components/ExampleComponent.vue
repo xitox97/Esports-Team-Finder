@@ -1,23 +1,38 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div>
+    <div v-click-outside="hide" @click="onoff">Toggle</div>
+    <div v-show="opened">Popup item</div>
+  </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+import ClickOutside from "vue-click-outside";
+
+export default {
+  data() {
+    return {
+      opened: false
+    };
+  },
+
+  methods: {
+    onoff() {
+      this.opened = true;
+    },
+
+    hide() {
+      this.opened = false;
     }
+  },
+
+  mounted() {
+    // prevent click outside event with popupItem.
+    this.popupItem = this.$el;
+  },
+
+  // do not forget this section
+  directives: {
+    ClickOutside
+  }
+};
 </script>
