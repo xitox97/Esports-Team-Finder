@@ -698,6 +698,19 @@ video {
   background-color: #434190;
 }
 
+.mini-card {
+  background-color: #fff;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 14rem;
+  text-transform: capitalize;
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;

@@ -7,7 +7,7 @@
         </section>
 
         <!--topsection-->
-            <div class="container mx-auto w-full mt-4 bg-white shadow-lg rounded-lg pt-3 pl-3">
+            <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">
                 <div class="flex">
                     <div class="flex w-3/4">
                         <div class="flex">
@@ -35,8 +35,353 @@
                             <a href="{{ url('/players/' . $fetchPlayers->dota_id ) }}/totals" class="text-md font-medium text-indigo-500 ml-20 hover:text-indigo-600
                             {{Request::is('players/'.$fetchPlayers->dota_id.'/totals') ? 'border-b-2 border-purple-500 pb-3' : ''}}">Totals</a>
                         </div>
+
                 </div>
-<div class="container">
+
+                <div class="container mx-auto w-full mt-4">
+                    <p class="text-2xl font-semibold text-indigo-700">All Matches</p>
+                    <div class="flex flex-wrap rounded-lg p-4">
+                        @if ($statistics != null)
+                            @foreach ($statistics->tot_score as $recent)
+                            @if ($recent['field'] == 'kills')
+                                <div class="mini-card">
+                                    <div class="card-header">
+                                            {{$recent['field']}}
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                    </ul>
+                                </div>
+                            @elseif($recent['field'] == 'deaths')
+                            <div class="mini-card">
+                                    <div class="card-header">
+                                            {{$recent['field']}}
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                    </ul>
+                                </div>
+                                @elseif($recent['field'] == 'assists')
+                                <div class="mini-card">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'last_hits')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'denies')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'duration')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                @php
+                                                    $days = (int)($recent['sum']/86400);
+                                                    $rdays = ($recent['sum']-($days*86400));
+                                                    $hours = (int)($rdays/3600);
+                                                    $rhours = ($rdays-($hours*3600));
+                                                    $minutes = (int)($rhours/60);
+                                                @endphp
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$days}}D : {{$hours}}H : {{$minutes}}M</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'level')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'hero_damage')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'tower_damage')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'hero_healing')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'hero_healing')
+                                    <div class="mini-card">
+                                            <div class="card-header">
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                            </ul>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="container mx-auto w-full mt-4">
+                        <p class="text-2xl font-semibold text-indigo-700">Parsed Matches</p>
+                        <div class="flex flex-wrap rounded-lg p-4">
+                                @if ($statistics != null)
+                                @foreach ($statistics->tot_score as $recent)
+                                    @if ($recent['field'] == 'stuns')
+                                        <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{ round($recent['sum'], 0)}}</li>
+                                            </ul>
+                                        </div>
+                                    @elseif($recent['field'] == 'tower_kills')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'neutral_kills')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'courier_kills')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'purchase_tpscroll')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'purchase_ward_observer')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'purchase_ward_sentry')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'purchase_gem')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'purchase_rapier')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+                                    @elseif($recent['field'] == 'pings')
+                                    <div class="mini-card">
+                                            <div>
+                                                    {{$recent['field']}}
+                                            </div>
+                                            <ul>
+                                                <li class="-item">{{$recent['sum']}}</li>
+                                            </ul>
+                                    </div>
+
+                                    @endif
+                                @endforeach
+                                @endif
+
+                    </div>
+                </div>
+                                <!--parsed match-->
+                            {{-- @if ($statistics != null)
+                            <div class="card mt-3" >
+                                    <div class="card-header">
+                                            In Parsed Matches
+                                              </div>
+                            @foreach ($statistics->tot_score as $recent)
+                                @if ($recent['field'] == 'stuns')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                    <div class="card-header">
+                                            {{$recent['field']}}
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{ round($recent['sum'], 0)}}</li>
+
+                                    </ul>
+                                </div>
+                                @elseif($recent['field'] == 'tower_kills')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'neutral_kills')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'courier_kills')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'purchase_tpscroll')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'purchase_ward_observer')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'purchase_ward_sentry')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'purchase_gem')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'purchase_rapier')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+                                @elseif($recent['field'] == 'pings')
+                                <div class="card mt-4 ml-2 mb-3 mr-2" style="width: 18rem;">
+                                        <div class="card-header">
+                                                {{$recent['field']}}
+                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">{{$recent['sum']}}</li>
+
+                                        </ul>
+                                </div>
+
+                                @endif
+                            @endforeach
+                            @endif
+
+                        </div> --}}
+
+{{-- <div class="container">
 
 
         <div class="d-flex  flex-row">
@@ -319,5 +664,5 @@
             @endforeach
             @endif
     </div>
-</div>
+</div> --}}
 @endsection

@@ -11,4 +11,7 @@
     @apply bg-indigo-800;
 }
 
+.mini-card{
+    @apply bg-white m-2 rounded-lg shadow-md px-4 py-2 w-56 capitalize;
+}
 @tailwind utilities;
