@@ -19,6 +19,7 @@
       rel="stylesheet">
 
 <style>
+
     .rankMedal {
     position: relative;
     display: flex;
@@ -62,17 +63,18 @@
     display: flex;
     flex-direction: row;
 }
-
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 </style>
 
 
 </head>
-<body>
+<body class="h-full">
 @php
     $playerUrl = 'players/'. Auth::user()->accounts->dota_id;
 @endphp
-    <div id="app" class="flex h-screen font-sans">
+    <div id="app" class="flex font-sans min-h-screen">
 
             <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}">
                 <a href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats"
@@ -149,7 +151,7 @@
                     </div>
                 </header>
 
-                <section id="content-div" class="bg-gray-200 h-screen">
+                <section id="content-div" class="bg-gray-200 h-full pb-20">
                                 @yield('content')
                 </section>
             </section>
