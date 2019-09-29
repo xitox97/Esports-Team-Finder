@@ -69,9 +69,47 @@
 
 </head>
 <body>
-
+@php
+    $playerUrl = 'players/'. Auth::user()->accounts->dota_id;
+@endphp
     <div id="app" class="flex h-screen font-sans">
-            <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}"></sidebar-component>
+
+            <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}">
+                <a href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats"
+                class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">assessment</i>
+                <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">Overview</span>
+              </a>
+              <a
+              href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/achievements"
+                class="text-lg font-semibold mb-10 ml-16 cursor-pointer text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">emoji_events</i>
+                <span class="align-middle ml-2 {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">Achievements</span>
+              </a>
+              <a
+                href="/tournaments"
+                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is('tournaments') ? 'text-white' : ''}}" >videogame_asset</i>
+                <span class="align-middle ml-2 {{Request::is('tournaments') ? 'text-white' : ''}}" >Tournaments</span>
+              </a>
+              <a
+                href="{{ url('/teams/create') }}"
+                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is('teams/create', 'teams/*') ? 'text-white' : ''}}" >group</i>
+                <span class="align-middle ml-2 {{Request::is('teams/create', 'teams/*') ? 'text-white' : ''}}" >Teams</span>
+              </a>
+              <a
+                href="/scrims"
+                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}">sports_kabaddi</i>
+                <span class="align-middle ml-2 {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}" >Scrims</span>
+              </a>
+            </sidebar-component>
             <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
                 <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
                     <div class="w-8 flex items-center ml-12">

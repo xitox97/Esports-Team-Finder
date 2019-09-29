@@ -27,17 +27,15 @@ Vue.component('sidebar-component', require('./components/SidebarComponent.vue').
 
 new Vue({
 
-
     el: '#app',
     data() {
         return {
             isOpen: true,
             isFull: false,
             isSmall: true,
-            opened: false
+            opened: false,
         };
     },
-
 
     methods: {
         toggle() {
@@ -52,8 +50,7 @@ new Vue({
 
         hide() {
             this.opened = false;
-        }
-
+        },
     },
 
     directives: {
