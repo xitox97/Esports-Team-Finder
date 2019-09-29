@@ -134,7 +134,7 @@
                         </div>
                         <div class="mt-16">
                             <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
-                                    <a href="#" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
+                                    <a href="/players/{{Auth::user()->accounts->dota_id}}" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
                                     onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
@@ -156,6 +156,8 @@
 
 
     </div>
+
+
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

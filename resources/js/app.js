@@ -34,6 +34,7 @@ new Vue({
             isFull: false,
             isSmall: true,
             opened: false,
+            alert: true
         };
     },
 
@@ -51,6 +52,9 @@ new Vue({
         hide() {
             this.opened = false;
         },
+        hideAlert() {
+            this.alert = false;
+        }
     },
 
     directives: {

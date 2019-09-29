@@ -1706,28 +1706,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      opened: false
-    };
-  },
-  methods: {
-    onoff: function onoff() {
-      this.opened = true;
-    },
-    hide: function hide() {
-      this.opened = false;
-    }
-  },
-  mounted: function mounted() {
-    // prevent click outside event with popupItem.
-    this.popupItem = this.$el;
-  },
-  // do not forget this section
-  directives: {
-    ClickOutside: vue_click_outside__WEBPACK_IMPORTED_MODULE_0___default.a
+  props: {
+    errors: Object
   }
 });
 
@@ -37167,38 +37165,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        directives: [
+  return _c(
+    "div",
+    {
+      staticClass:
+        "-mt-8 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded absolute",
+      attrs: { role: "alert" }
+    },
+    [
+      _c("strong", { staticClass: "font-bold" }, [_vm._v("Ops!")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "block sm:inline" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "absolute top-0 bottom-0 right-0 px-4 py-3" }, [
+        _c(
+          "svg",
           {
-            name: "click-outside",
-            rawName: "v-click-outside",
-            value: _vm.hide,
-            expression: "hide"
-          }
-        ],
-        on: { click: _vm.onoff }
-      },
-      [_vm._v("Toggle")]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.opened,
-            expression: "opened"
-          }
-        ]
-      },
-      [_vm._v("Popup item")]
-    )
-  ])
+            staticClass: "fill-current h-6 w-6 text-red-500",
+            attrs: {
+              role: "button",
+              xmlns: "http://www.w3.org/2000/svg",
+              viewBox: "0 0 20 20"
+            }
+          },
+          [
+            _c("title", [_vm._v("Close")]),
+            _vm._v(" "),
+            _c("path", {
+              attrs: {
+                d:
+                  "M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"
+              }
+            })
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49492,7 +49495,8 @@ new Vue({
       isOpen: true,
       isFull: false,
       isSmall: true,
-      opened: false
+      opened: false,
+      alert: true
     };
   },
   methods: {
@@ -49506,6 +49510,9 @@ new Vue({
     },
     hide: function hide() {
       this.opened = false;
+    },
+    hideAlert: function hideAlert() {
+      this.alert = false;
     }
   },
   directives: {

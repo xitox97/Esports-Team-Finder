@@ -7,6 +7,7 @@
 </section>
 <div class="container ml-24 mt-12">
     <div class="flex">
+    {{-- edit card --}}
     <div class="w-5/12 bg-white rounded-lg shadow-xl">
         <p class="text-gray-700 text-xl capitalize border-b-2 border-gray-200 pb-6 px-5 pt-3">edit profile</p>
         <form class="w-full max-w-lg p-4 ml-2 mb-2">
@@ -110,6 +111,24 @@
                           </button>
                     </div>
                   </form></div>
+
+            </div>
+
+            {{-- user card --}}
+            <div class="-mr-24 bg-white ml-32 rounded-lg shadow-xl w-6/12">
+                <div class="flex flex-col items-center border-b-2 mx-10 pb-6">
+                    <img src="{{  Auth::user()->accounts->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48">
+                    <p class="text-2xl font-semibold leading-loose text-indigo-900 capitalize">{{Auth::user()->name}}, {{Auth::user()->age}}</p>
+                    <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">{{Auth::user()->area}}, {{Auth::user()->state}}</p>
+                </div>
+                <div class="flex flex-col items-center mt-4">
+                        <p class="text-lg font-semibold  text-indigo-900 capitalize ">Winrate: {{  round((Auth::user()->accounts->win_lose['win'] / (Auth::user()->accounts->win_lose['win'] +
+                                Auth::user()->accounts->win_lose['lose'])) * 100, 2)  }} %</p>
+                        <p class="text-lg font-semibold  text-indigo-900 capitalize">Total Games: {{  Auth::user()->accounts->win_lose['win'] + Auth::user()->accounts->win_lose['lose']  }}</p>
+                        <p class="text-lg font-semibold  text-indigo-900 capitalize">Main Roles: *reserve</p>
+                </div>
+            </div>
+
             {{-- <div class="col-md-3">
                 @if ( Auth::user()->id != $fetchPlayers->user_id )
                             <h1><u>Interactions</u></h1>
@@ -148,7 +167,7 @@
                             @endif
                         @endif
            </div> --}}
-        </div>
+
         {{-- <div class="w-1/6">
             <div class="card">
                 <div class="card-header">Profile</div>
