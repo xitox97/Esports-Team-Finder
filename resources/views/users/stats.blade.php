@@ -35,9 +35,8 @@
                         <a href="{{ url('/players/' . $fetchPlayers->dota_id ) }}/totals" class="text-md font-medium text-indigo-500 ml-20 hover:text-indigo-600
                         {{Request::is('players/'.$fetchPlayers->dota_id.'/totals') ? 'border-b-2 border-purple-500 pb-3' : ''}}">Totals</a>
                     </div>
-
+                </div>
             <!--stats section-->
-            </div>
             <div class="container mx-auto w-full mt-4">
                 <p class="text-2xl font-semibold text-indigo-700">Recent Matches</p>
                 <div class="bg-white rounded-lg  p-4">

@@ -7,7 +7,7 @@
         </section>
 
         <!--topsection-->
-            <div class="container mx-auto w-full mt-4 bg-white shadow-lg rounded-lg pt-3 pl-3">
+            <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">
                 <div class="flex">
                     <div class="flex w-3/4">
                         <div class="flex">
@@ -36,8 +36,68 @@
                             {{Request::is('players/'.$fetchPlayers->dota_id.'/totals') ? 'border-b-2 border-purple-500 pb-3' : ''}}">Totals</a>
                         </div>
                 </div>
+                <div class="container mx-auto w-full mt-4">
+                        <p class="text-2xl font-semibold text-indigo-700">Heroes Played</p>
+                        <div class="bg-white rounded-lg  p-4">
+                            <table class="border-collapse w-full">
+                                    <thead class="text-gray-600">
+                                        <tr>
+                                            <th class="text-left capitalize border-b border-gray-300 py-4">Hero</th>
+                                            <th class="text-left capitalize border-b border-gray-300 py-4">Matches Played</th>
+                                            <th class="text-left capitalize border-b border-gray-300 py-4">Win Rate %</th>
+                                            <th class="text-left capitalize border-b border-gray-300 py-4">With Win %</th>
+                                            <th class="text-left capitalize border-b border-gray-300 py-4">Win Against %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            @if ($pageHeroes != null)
+                                            @foreach ($pageHeroes as $recent)
+                                                      <tr>
+                                                        <td> @include('users.heroes')</td>
+                                                        <td> {{$recent['games']}} ({{$recent['win']}} won)</td>
+                                                        <td> @php
+                                                                if($recent['games'] != 0){
+                                                                    echo (round(($recent['win'] / $recent['games']) * 100, 1));
+                                                                }
+                                                                else {
+                                                                    echo "0";
+                                                                }
+                                                            @endphp
+                                                            </td>
+                                                        <td>  @php
+                                                                if($recent['with_games'] != 0){
+                                                                    echo (round(($recent['with_win'] / $recent['with_games']) * 100, 1));
+                                                                    echo "(" . $recent['with_win'] . "/" . $recent['with_games'] . ")";
+                                                                }
+                                                                else {
+                                                                    echo "0";
+                                                                }
+                                                            @endphp
+                                                            </td>
+                                                        <td> @php
+                                                                if($recent['against_games'] != 0){
+                                                                    echo (round(($recent['against_win'] / $recent['against_games']) * 100, 1));
+                                                                    echo "(" . $recent['against_win'] . "/" . $recent['against_games'] . ")";
+                                                                }
+                                                                else {
+                                                                    echo "0";
+                                                                }
+                                                            @endphp</td>
+                                                        </tr>
+                                        @endforeach
+                                        @else
+                                                        <tr class="mb-3 mt-3" ><td colspan="5"  > Fetching data... Comeback back again in minutes</td>
 
-<div class="container">
+                                                        </tr>
+                                        @endif
+                                    </tbody>
+                            </table>
+                            <div class="mt-4">
+                                {{ $pageHeroes->links() }}
+                            </div>
+                        </div>
+                    </div>
+{{-- <div class="container">
 
 
         <div class="d-flex  flex-row">
@@ -73,8 +133,8 @@
                           </li>
                   </ul>
 
-    </div>
-    <div class="row mt-4">
+    </div> --}}
+    {{-- <div class="row mt-4">
 
            <div class="col-md-12">
 
@@ -144,5 +204,5 @@
            </div>
 
     </div>
-</div>
+</div> --}}
 @endsection
