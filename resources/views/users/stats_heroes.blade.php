@@ -57,8 +57,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                @if ($statistics != null)
-                @foreach ($statistics->heroes_played as $recent)
+                @if ($pageHeroes != null)
+                @foreach ($pageHeroes as $recent)
                           <tr>
                             <td> @include('users.heroes')</td>
                             <td> {{$recent['games']}} ({{$recent['win']}} won)</td>
@@ -103,6 +103,7 @@
             @endif
         </tbody>
     </table>
+    {{ $pageHeroes->links() }}
 </div>
            </div>
 

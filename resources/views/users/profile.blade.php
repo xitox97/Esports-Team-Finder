@@ -86,7 +86,7 @@
                                     <input class="appearance-none block w-full bg-gray-200 text-gray-700
                                     border border-gray-200 rounded py-3 px-4 mb-0 leading-tight focus:outline-none
                                     focus:bg-white focus:shadow-outline {{$errors->has('password') ? 'border-red-500' : ''}} "
-                                    id="password" type="password" name="password" value="{{ old('password')}}">
+                                    id="password1" type="password" name="password" value="{{ old('password')}}">
                                     @error('password')
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                     @enderror
@@ -100,7 +100,7 @@
                                             <input class="appearance-none block w-full bg-gray-200 text-gray-700
                                             border border-gray-200 rounded py-3 px-4 mb-0 leading-tight focus:outline-none
                                             focus:bg-white focus:shadow-outline {{$errors->has('password') ? 'border-red-500' : ''}} "
-                                            id="password" type="password" name="password" value="{{ old('password')}}">
+                                            id="password2" type="password" name="password" value="{{ old('password')}}">
                                             @error('password')
                                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                             @enderror

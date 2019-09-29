@@ -58,8 +58,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                @if ($statistics != null)
-                @foreach ($statistics->recent_match as $recent)
+                @if ($pageStats != null)
+                @foreach ($pageStats as $recent)
                           <tr>
                             <td> @include('users.heroes')</td>
                             <td>
@@ -109,7 +109,9 @@
 
             @endif
         </tbody>
+
     </table>
+    {{ $pageStats->links() }}
 </div>
            </div>
 

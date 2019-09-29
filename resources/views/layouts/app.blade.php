@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -137,10 +137,10 @@
                                     <a href="/players/{{Auth::user()->accounts->dota_id}}" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
                                     onclick="event.preventDefault();
-                                                  document.getElementById('logout-form').submit();">
+                                                  document.getElementById('logout-form2').submit();">
                                      {{ __('Logout') }}
                                  </a>
-                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                 <form id="logout-form2" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
@@ -158,6 +158,5 @@
     </div>
 
 
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
