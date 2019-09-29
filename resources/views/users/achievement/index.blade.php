@@ -21,7 +21,7 @@
                     <th class="capitalize border-b border-gray-300 py-4 "></th>
                 </thead>
                 <tbody class="text-center">
-                    @forelse($users->achievements as $achievement)
+                    @forelse($achievements as $achievement)
                     <tr class="hover:bg-gray-200">
                         <td class="py-4 px-6 border-b border-gray-300">{{$loop->index + 1}}</td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$achievement->tournament_name}}</td>
@@ -54,12 +54,18 @@
                         </tr>
                     @endforelse
                 </tbody>
+
             </table>
+            <div class="mt-4 -mb-1">
+                {{ $achievements->links() }}
+
+            </div>
         </div>
+
     </div>
     @if(Auth::user()->accounts->dota_id == $users->accounts->dota_id)
     <div class="w-1/6 ml-20 mt-16">
-        <a href="/players/{{$users->accounts->dota_id}}/achievements/create" class="bg-indigo-700 hover:bg-indigo-800 text-white
+        <a href="/players/{{$users->accounts->dota_id}}/achievements/create" class="btn-indigo
                             font-semibold py-2 px-2 border border-indigo-800 hover:border-transparent rounded-lg shadow-md text-md
                             flex items-center leading-loose"><i class="material-icons mr-1">
                                 add</i>New Achievement</a>

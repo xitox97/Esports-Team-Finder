@@ -54,7 +54,7 @@
                   </div>
                 </div>
                 <div class="flex justify-center items-center">
-                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                <button type="submit" class="btn-indigo font-bold py-2 px-4 rounded">
                         Save
                       </button>
                 </div>
@@ -105,7 +105,7 @@
                                         </div>
                                         </div>
                     <div class="flex justify-center items-center">
-                    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mb-3">
+                    <button type="submit" class="btn-indigo font-bold py-2 px-4 rounded mb-3">
                             Save
                           </button>
                     </div>

@@ -13,12 +13,13 @@ class AchievementController extends Controller
 
         $steam = LinkedSteamAccount::where('dota_id', $player)->first();
         $users = $steam->user;
+        $achievements = $users->achievements()->paginate(7);
 
         // $achievements = $users->achievements;
         //dd($achievements);
         //$achievements = auth()->user()->achievements;
 
-        return view('users.achievement.index', compact('users'));
+        return view('users.achievement.index', compact('achievements', 'users'));
     }
 
     public function create()

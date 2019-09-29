@@ -10,7 +10,10 @@
       />
     </header>
     <section class="h-full flex flex-col">
-      <a href="#" class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400">
+      <a
+        v-bind:href="'/players/' + user.dota_id + '/stats'"
+        class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
+      >
         <i class="material-icons align-middle">assessment</i>
         <span class="align-middle ml-2">Overview</span>
       </a>
@@ -21,7 +24,7 @@
         <i class="material-icons align-middle">emoji_events</i>
         <span class="align-middle ml-2">Achievements</span>
       </a>
-      <a href="#" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+      <a href="/tournaments" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
         <i class="material-icons align-middle">videogame_asset</i>
         <span class="align-middle ml-2">Tournaments</span>
       </a>
@@ -29,7 +32,7 @@
         <i class="material-icons align-middle">group</i>
         <span class="align-middle ml-2">Teams</span>
       </a>
-      <a href="#" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+      <a href="/scrims" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
         <i class="material-icons align-middle">sports_kabaddi</i>
         <span class="align-middle ml-2">Scrims</span>
       </a>
