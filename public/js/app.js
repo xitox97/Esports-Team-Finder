@@ -1770,6 +1770,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37236,79 +37240,88 @@ var render = function() {
           expression: "isOpen"
         }
       ],
-      staticClass: "w-2/12 flex flex-col bg-indigo-800"
+      staticClass: "w-2/12 bg-indigo-800"
     },
     [
-      _c(
-        "header",
-        {
-          staticClass: "h-24 flex items-center border-b border-indigo-700 py-5"
-        },
-        [
-          _c("img", {
-            staticClass: "w-7/12 mx-auto mt-3 cursor-pointer",
-            attrs: {
-              src:
-                "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
-              alt: "netflix-font",
-              border: "0"
-            },
-            on: { click: _vm.home }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "section",
-        { staticClass: "h-full flex flex-col" },
-        [_vm._t("default")],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "flex justify-center items-center py-6 pr-6 cursor-pointer bg-purple-800 border-t border-indigo-700"
-        },
-        [
+      _c("div", { staticClass: "flex flex-col h-full" }, [
+        _c(
+          "header",
+          {
+            staticClass:
+              "h-24 flex items-center border-b border-indigo-700 py-5"
+          },
+          [
+            _c("img", {
+              staticClass: "w-7/12 mx-auto mt-3 cursor-pointer",
+              attrs: {
+                src:
+                  "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
+                alt: "netflix-font",
+                border: "0"
+              },
+              on: { click: _vm.home }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "section",
+          { staticClass: "h-full flex flex-col" },
+          [_vm._t("default")],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", [
           _c(
-            "i",
+            "div",
             {
               staticClass:
-                "material-icons mr-3 align-middle font-semibold text-white"
-            },
-            [_vm._v("power_settings_new")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "font-semibold text-white text-xl align-middle",
-              attrs: {
-                href: "/logout",
-                onclick:
-                  "event.preventDefault(); document.getElementById('logout-form').submit();"
-              }
-            },
-            [_vm._v("log out")]
-          ),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              staticStyle: { display: "none" },
-              attrs: { id: "logout-form", action: "/logout", method: "POST" }
+                "flex justify-center items-center py-6 pr-6 cursor-pointer bg-purple-800 border-t border-indigo-700"
             },
             [
-              _c("input", {
-                attrs: { type: "hidden", name: "_token" },
-                domProps: { value: _vm.csrf }
-              })
+              _c(
+                "i",
+                {
+                  staticClass:
+                    "material-icons mr-3 align-middle font-semibold text-white"
+                },
+                [_vm._v("power_settings_new")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "font-semibold text-white text-xl align-middle",
+                  attrs: {
+                    href: "/logout",
+                    onclick:
+                      "event.preventDefault(); document.getElementById('logout-form').submit();"
+                  }
+                },
+                [_vm._v("log out")]
+              ),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  staticStyle: { display: "none" },
+                  attrs: {
+                    id: "logout-form",
+                    action: "/logout",
+                    method: "POST"
+                  }
+                },
+                [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf }
+                  })
+                ]
+              )
             ]
           )
-        ]
-      )
+        ])
+      ])
     ]
   )
 }
