@@ -52,10 +52,10 @@
                                     <tbody>
                                             @if ($pageHeroes != null)
                                             @foreach ($pageHeroes as $recent)
-                                                      <tr>
-                                                        <td> @include('users.heroes')</td>
-                                                        <td> {{$recent['games']}} ({{$recent['win']}} won)</td>
-                                                        <td> @php
+                                                      <tr  class="py-4 px-6 border-b border-gray-300 hover:bg-gray-200 text-left">
+                                                        <td class="py-2"> @include('users.heroes')</td>
+                                                        <td class="py-2"> {{$recent['games']}} ({{$recent['win']}} won)</td>
+                                                        <td class="py-2"> @php
                                                                 if($recent['games'] != 0){
                                                                     echo (round(($recent['win'] / $recent['games']) * 100, 1));
                                                                 }
@@ -64,7 +64,7 @@
                                                                 }
                                                             @endphp
                                                             </td>
-                                                        <td>  @php
+                                                        <td class="py-2">  @php
                                                                 if($recent['with_games'] != 0){
                                                                     echo (round(($recent['with_win'] / $recent['with_games']) * 100, 1));
                                                                     echo "(" . $recent['with_win'] . "/" . $recent['with_games'] . ")";
@@ -74,7 +74,7 @@
                                                                 }
                                                             @endphp
                                                             </td>
-                                                        <td> @php
+                                                        <td class="py-2"> @php
                                                                 if($recent['against_games'] != 0){
                                                                     echo (round(($recent['against_win'] / $recent['against_games']) * 100, 1));
                                                                     echo "(" . $recent['against_win'] . "/" . $recent['against_games'] . ")";

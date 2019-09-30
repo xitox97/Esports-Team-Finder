@@ -54,7 +54,7 @@
                             <tbody>
                                     @if ($pageStats != null)
                                     @foreach ($pageStats as $recent)
-                                              <tr>
+                                              <tr  class="py-4 px-6 border-b border-gray-300 hover:bg-gray-200">
                                                 <td class="text-center"> @include('users.heroes')</td>
                                                 <td>
                                                     @php
