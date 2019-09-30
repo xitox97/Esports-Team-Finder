@@ -5,11 +5,13 @@
     <span class="italic text-sm">Home / <a href="{{url('/players/' . $fetchPlayers->dota_id)}}"
         class="no-underline hover:underline text-blue-500">Profile</a> / {{$fetchPlayers->user->name}}</span>
 </section>
+{{-- //lg untuk laptop 1278 x XXX
+//xl tuk desktop 1440 x 737 --}}
 <div class="container ml-24 mt-12">
-    <div class="flex">
+    <div class="flex xl:flex-row lg:flex-col">
     {{-- edit card --}}
     @if( Auth::user()->id == $fetchPlayers->user_id )
-    <div class="w-5/12 bg-white rounded-lg shadow-xl">
+    <div class="w-5/12 bg-white rounded-lg shadow-xl lg:ml-32">
         <p class="text-gray-700 text-xl capitalize border-b-2 border-gray-200 pb-6 px-5 pt-3">edit profile</p>
         <form class="w-full max-w-lg p-4 ml-2 mb-2">
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -116,7 +118,7 @@
             </div>
 
             {{-- user card --}}
-            <div class="-mr-24 bg-white ml-32 rounded-lg shadow-xl w-6/12 mb-32">
+            <div class="-mr-24 bg-white mb-40 ml-20 rounded-lg shadow-xl w-5/12 lg:ml-32 lg:mt-20">
                 @if ( Auth::user()->id == $fetchPlayers->user_id )
                 <div class="flex justify-center mx-10 ">
                     <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
@@ -136,7 +138,7 @@
                         <p class="text-2xl font-semibold leading-loose text-indigo-900 capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
                         <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
                 </div>
-                <div class="flex flex-col items-center mt-4">
+                <div class="flex flex-col items-center mt-4 pb-5">
                         <p class="text-lg font-semibold  text-indigo-900 capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
                                 $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
                         <p class="text-lg font-semibold  text-indigo-900 capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}

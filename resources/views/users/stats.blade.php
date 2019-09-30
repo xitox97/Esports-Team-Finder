@@ -7,7 +7,7 @@
     </section>
 
     <!--topsection-->
-        <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">
+        <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3 px-5">
             <div class="flex">
                 <div class="flex w-3/4">
                     <div class="flex">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             <!--stats section-->
-            <div class="container mx-auto w-full mt-4">
+            <div class="container mx-auto w-full mt-4 px-5">
                 <p class="text-2xl font-semibold text-indigo-700">Recent Matches</p>
                 <div class="bg-white rounded-lg  p-4">
                     <table class="border-collapse w-full">
@@ -110,76 +110,4 @@
                     </div>
                 </div>
             </div>
-
-    {{-- <div class="row mt-4">
-           <div class="col-md-12">
-                <div class="card" >
-                        <div class="card-header">
-                                Recent Matches
-                              </div>
-                <table class="table table-striped text-center">
-                        <thead>
-                          <tr>
-                            <th scope="col">Hero</th>
-                            <th scope="col">Result</th>
-                            <th scope="col">Game Mode</th>
-                            <th scope="col">Score (K/D/A)</th>
-                            <th scope="col">Duration</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                @if ($pageStats != null)
-                @foreach ($pageStats as $recent)
-                          <tr>
-                            <td> @include('users.heroes')</td>
-                            <td>
-                                @php
-                                    if($recent['player_slot'] >= 0 && $recent['player_slot'] <= 127)
-                                        {
-                                            $position = 'Radiant';
-                                        }
-                                    else {
-                                        $position =  'Dire';
-                                    }
-                                    if($recent['radiant_win'] == true && $position == 'Radiant')
-                                        {
-                                            $result = 'Won Match';
-                                        }
-                                    elseif ($recent['radiant_win'] == false && $position == 'Dire') {
-                                            $result = 'Won Match';
-                                        }
-                                    else {
-                                            $result = 'Lost Match';
-                                        }
-                                @endphp
-
-                            <a href="{{ url('matches/' . $recent['match_id']) }}"><p class="{{ $result == 'Won Match' ? 'text-success' : 'text-danger' }}"> {{ $result}} </p></a>
-
-
-                            </td>
-                            <td> @include('users.gameMode')</td>
-                            <td>{{ $recent['kills'] }}/{{ $recent['deaths'] }}/{{ $recent['assists'] }}</td>
-                            <td>@php
-                                    $minutes=$recent['duration'];
-                                    $hours = intdiv($minutes, 60).':'. ($minutes % 60);
-                                    echo $hours;
-                                @endphp
-                                <br>
-                               {{ $position }}
-                            </td>
-                            </tr>
-            @endforeach
-            @else
-                            <tr class="mb-3 mt-3" ><td colspan="5"  > Fetching data... Comeback back again in minutes</td>
-
-                            </tr>
-            @endif
-        </tbody>
-
-    </table>
-    {{ $pageStats->links() }}
-</div>
-           </div>
-
-    </div> --}}
 @endsection
