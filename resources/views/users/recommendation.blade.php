@@ -1,7 +1,159 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<section id="breadcrumb" class="ml-4 pt-2">
+        <span class="italic text-sm">Home / Recomendation / Search</a></span>
+    </section>
+    <div class="container mx-auto mt-12">
+            <div class="flex">
+                    <div class="mx-auto bg-white shadow-xl mt-3 rounded p-6 w-5/12  font-sans">
+                    <form class="w-full p-3" method="POST" action="/players/recommendation" id="achievement">
+                        @csrf
+                        <span class="text-lg font-bold uppercase border-b-2 border-gray-200 pb-4 flex justify-center">Generate Recommendation</span>
+                        <div class="flex flex-wrap -mx-3">
+                                <div class="w-full px-3 my-2">
+                                <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-first-name">
+                                    Player Role
+                                </label>
+                                <div class="w-full ">
+                                        <div class="relative">
+                                                <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700
+                                                py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                                " id="player_role-state" name="player_role">
+                                                <option disabled selected>Select Role</option>
+                                                <option selected>Select rank</option>
+                                                <option value="core">Core</option>
+                                                <option value="support">Support</option>
+                                            </select>
+                                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                </div>
+                                            </div>
+                                            @error('player_role')
+                                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                            @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 ">
+                                <div class="w-full px-3 my-2">
+                                <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-first-name">
+                                    Player Position
+                                </label>
+                                <div class="w-full ">
+                                        <div class="relative">
+                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700
+                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                        " id="position-state" name="position">
+                                        <option disabled selected>Select Position</option>
+                                        <option value="carry">Carry</option>
+                                        <option value="mid">Mid</option>
+                                        <option value="offlaner">Offlaner</option>
+                                        <option value="roamer">Roamer</option>
+                                        <option value="support">Support</option>
+                                    </select>
+                                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                </div>
+                                            </div>
+                                            @error('position')
+                                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                            @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 ">
+                                <div class="w-full px-3 my-2">
+                                <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="rank">
+                                    Rank
+                                </label>
+                                <div class="w-full ">
+                                    <div class="relative">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700
+                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                    " id="rank" name="rank">
+                                    <option disabled selected>Select Position</option>
+                                    <option value="uncalibrated">Uncalibrated</option>
+                                    <option value="herald">Herald</option>
+                                    <option value="guardian">Guardian</option>
+                                    <option value="crusader">Crusader</option>
+                                    <option value="archon">Archon</option>
+                                    <option value="legend">legend</option>
+                                    <option value="ancient">ancient</option>
+                                    <option value="divine">divine</option>
+                                    <option value="immortal">immortal</option>
+                                </select>
+                                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                </div>
+                                            </div>
+                                            @error('rank')
+                                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                            @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                <div class="w-full px-3 my-2">
+                                <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="rank">
+                                    Experience
+                                </label>
+                                <div class="w-full ">
+                                    <div class="relative">
+                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700
+                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                    " id="experience" name="experience">
+                                    <option disabled selected>Select Experience</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    </div>
+                                </div>
+                                @error('experience')
+                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 mb-2">
+                                    <div class="w-full px-3 my-2">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="rank">
+                                        Tournament
+                                    </label>
+                                    <div class="w-full ">
+                                        <div class="relative">
+                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700
+                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                        " id="tournament" name="tournament">
+                                        <option disabled selected>Select Tournament</option>
+                                        @foreach($tours as $tour)
+                                        <option value="{{$tour->id}}">{{$tour->name}}</option>
+                                    @endforeach
+                                  </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                        </div>
+                                    </div>
+                                    @error('tournament')
+                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center items-center">
+
+                                    <div>
+                                        <a href="javascript:;" onclick="document.getElementById('achievement').submit()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold
+                                        py-2  px-4 rounded mx-auto ml-2 ">Generate</a>
+                                    </div>
+                                </div>
+                    </form>
+                    </div>
+            </div>
+    </div>
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -115,5 +267,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
