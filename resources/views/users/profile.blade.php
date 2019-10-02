@@ -11,7 +11,7 @@
     <div class="flex xl:flex-row lg:flex-col">
     {{-- edit card --}}
     @if( Auth::user()->id == $fetchPlayers->user_id )
-    <div class="w-5/12 bg-white rounded-lg shadow-xl lg:ml-32">
+    <div class="w-5/12 bg-white rounded-lg shadow-xl lg:ml-32 mb-16">
         <p class="text-gray-700 text-xl capitalize border-b-2 border-gray-200 pb-6 px-5 pt-3">edit profile</p>
         <form class="w-full max-w-lg p-4 ml-2 mb-2">
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -109,7 +109,7 @@
                                         </div>
                                         </div>
                     <div class="flex justify-center items-center">
-                    <button type="submit" class="btn-indigo font-bold py-2 px-4 rounded mb-3">
+                    <button type="submit" class="btn-indigo font-bold py-2 px-4 rounded">
                             Change Password
                           </button>
                     </div>

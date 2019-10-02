@@ -71,6 +71,7 @@
                                 add</i>New Achievement</a>
     </div>
     @endif
+
+</div>
+</div>
 @endsection
-</div>
-</div>

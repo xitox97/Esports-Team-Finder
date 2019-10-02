@@ -104,12 +104,17 @@
                 <i class="material-icons align-middle {{Request::is('teams/create', 'teams/*') ? 'text-white' : ''}}" >group</i>
                 <span class="align-middle ml-2 {{Request::is('teams/create', 'teams/*') ? 'text-white' : ''}}" >Teams</span>
               </a>
-              <a
-                href="/scrims"
-                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
-              >
+              <a href="/scrims" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
                 <i class="material-icons align-middle {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}">sports_kabaddi</i>
                 <span class="align-middle ml-2 {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}" >Scrims</span>
+              </a>
+              <a href="/players/list" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('players/list') ? 'text-white' : ''}}">face</i>
+                <span class="align-middle ml-2 {{Request::is('players/list') ? 'text-white' : ''}}" >Players</span>
+              </a>
+              <a href="/players/recommendation" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
+                <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
             </sidebar-component>
             <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
