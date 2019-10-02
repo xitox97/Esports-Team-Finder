@@ -47,7 +47,7 @@
 
                             <div class="w-1/4 flex items-center  flex-row-reverse text-right">
                                 <a href="/register" class="bg-transparent hover:bg-red-500 text-white font-semibold hover:text-white py-3 px-3 border border-red-500 hover:border-transparent rounded inline-block ">Sign Up</a>
-                                <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Login</a>
+                                <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Sign In</a>
                             </div>
 
                         </div>

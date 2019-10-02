@@ -59,7 +59,7 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
                             <p class="text-red-500 text-xs italic -mt-3 text-center">{{ $message }}</p>
                     @enderror
                       <div class="flex flex-col items-center justify-center">
-                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
+                            <button class="btn-indigo text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
                                     Login
                             </button>
                             <a class="inline-block align-baseline font-bold text-sm text-gray-600 hover:text-blue-800 mt-3" href="register">

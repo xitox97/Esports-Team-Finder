@@ -35,44 +35,140 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
 </head>
 <body class="h-screen">
     <div id="app" class="flex h-auto max-w-full" >
-        <div class="flex  flex-col  items-center justify-center h-screen w-2/4 bg-gradient">
-            <div class="w-full max-w-md">
-                    <form class="bg-white shadow-md rounded px-8 pt-16 pb-12 mb-4 antialiased" method="POST" action="{{ route('login') }}">
+        <div class="flex  flex-col  items-start justify-start h-screen w-2/4 ">
+            <div class="w-full">
+                    <form class="bg-white rounded px-32 pt-16  mb-4 antialiased" method="POST" action="{{ route('register') }}">
                             @csrf
-                    <p class=" text-center font-medium text-md text-gray-500 mb-1">Welcome Back!</p>
-                    <p class=" text-center font-extrabold text-2xl text-black mb-6">Let's hunt some players!</p>
-                      <div class="mb-4 border-b-2 border-indigo-500 py-2">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                          Email
-                        </label>
-                        <input name="email" placeholder="Enter your email" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" id="email" type="text" >
-                      </div>
-
-                      <div class="mb-4 border-b-2 border-indigo-500 py-2">
-                            <label class="block text-gray-700 text-sm font-bold  mb-2" for="password">
+                    <p class=" text-left font-extrabold text-4xl text-black mb-5 mt-20">Let's hunt some players!</p>
+                    <p class=" text-left font-medium text-lg text-indigo-700 mb-5">Sign up now to start creating your Dream Team!</p>
+                    <p class=" text-left font-base text-md text-black mb-10">Already have an account?
+                        <span class="text-indigo-700 hover:text-indigo-800 cursor-pointer font-medium">
+                            Log in.</span></p>
+                            <div class="flex flex-wrap -mx-3 mb-3">
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                        Full Name
+                                    </label>
+                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
+                                    type="text" placeholder="Enter your full name" name="name" required>
+                                    @error('name')
+                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                        Age
+                                    </label>
+                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" id="grid-last-name"
+                                    type="text" placeholder="Enter your age" name="age" required>
+                                    @error('age')
+                                        <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="w-full md:w-1/2 px-3 mt-5">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                        E-mail
+                                    </label>
+                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" id="grid-last-name"
+                                    type="email" placeholder="Enter your valid email address" name="email" required>
+                                    @error('email')
+                                        <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="w-full md:w-1/2 px-3 mt-5">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                        Phone
+                                    </label>
+                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
+                                    type="text" placeholder="Enter your phone number" required>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 mb-3">
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-state">
+                                        City
+                                    </label>
+                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
+                                    type="text" placeholder="Enter your city" name="area" required>
+                                    @error('area')
+                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-state">
+                                        State
+                                    </label>
+                                    <div class="relative">
+                                        <select class="block appearance-none w-full border border-gray-500
+                                        text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none
+                                        focus:border-indigo-600 " name="state" required>
+                                        <option selected>Select state</option>
+                                        <option value="Johor">Johor</option>
+                                        <option value="Kedah">Kedah</option>
+                                        <option value="Kelantan">Kelantan</option>
+                                        <option value="Melaka">Melaka</option>
+                                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                        <option value="Pahang">Pahang</option>
+                                        <option value="Penang">Penang</option>
+                                        <option value="Perak">Perak</option>
+                                        <option value="Perlis">Perlis</option>
+                                        <option value="Sabah">Sabah</option>
+                                        <option value="Sarawak">Sarawak</option>
+                                        <option value="Selangor">Selangor</option>
+                                        <option value="Terengganu">Terengganu</option>
+                                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                        <option value="Labuan">Labuan</option>
+                                        <option value="Putrajaya">Putrajaya</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                        </div>
+                                    </div>
+                                    @error('state')
+                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap -mx-3 mb-6">
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2">
                                     Password
-                            </label>
-                            <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none" id="password" name="password" type="password" placeholder="***************">
-                          </div>
-                          @error('email')
-                            <p class="text-red-500 text-xs italic -mt-3 text-center">{{ $message }}</p>
-                    @enderror
-                      <div class="flex flex-col items-center justify-center">
-                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
-                                    Login
-                            </button>
-                            <a class="inline-block align-baseline font-bold text-sm text-black hover:text-blue-800 mt-3" href="register">
-                                    Create New Account?
-                                  </a>
-                      </div>
+                                    </label>
+                                    <input class="appearance-none block w-full  text-gray-700 border  border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  focus:border-indigo-600"
+                                    type="password" id="password" placeholder="*****" name="password" required>
+                                    @error('password')
+                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2">
+                                        Confirm Password
+                                    </label>
+                                    <input class="appearance-none block w-full  text-gray-700 border  border-gray-500 rounded py-3 px-4 mb-3
+                                    leading-tight focus:outline-none  focus:border-indigo-600" type="password"
+                                    placeholder="*****" name="password_confirmation" required id="password-confirm" required>
+
+                                </div>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <button class="btn-indigo text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
+                                            Sign Up
+                                    </button>
+                                    <a href="/" class=" bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-2 text-center
+                                    ">Back</a>
+                                </div>
                     </form>
-                    <p class="text-center text-gray-500 text-xs">
+                    <p class="text-center text-indigo-700 text-xs">
                       &copy;2019 DotaHunt. All rights reserved.
                     </p>
                   </div>
         </div>
-        <div class="bg-cover bg-center h-auto max-w-full w-2/4" style="background-image: url({{asset('img/liq.jpg')}})">
+        <div class="bg-cover bg-center h-auto max-w-full w-2/4" style="background-image: url({{asset('img/3.jpg')}})">
         </div>
     </div>
 </body>
