@@ -98,11 +98,11 @@
                 <span class="align-middle ml-2 {{Request::is('tournaments') ? 'text-white' : ''}}" >Tournaments</span>
               </a>
               <a
-                href="{{ url('/teams/create') }}"
+                href="{{ url('/teams') }}"
                 class="text-lg font-semibold mb-10 ml-16 text-purple-400"
               >
-                <i class="material-icons align-middle {{Request::is('teams/create', 'teams/*') ? 'text-white' : ''}}" >group</i>
-                <span class="align-middle ml-2 {{Request::is('teams/create', 'teams/*') ? 'text-white' : ''}}" >Teams</span>
+                <i class="material-icons align-middle {{Request::is('teams') ? 'text-white' : ''}}" >group</i>
+                <span class="align-middle ml-2 {{Request::is('teams') ? 'text-white' : ''}}" >Teams</span>
               </a>
               <a href="/scrims" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
                 <i class="material-icons align-middle {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}">sports_kabaddi</i>

@@ -17,21 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<style>
-    .bg-gradient
-    {
-        background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
-    }
 
-.gradient{
-    background: #8E2DE2;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-
-</style>
 </head>
 <body class="h-screen">
     <div id="app" class="flex h-auto max-w-full" >
@@ -42,8 +28,8 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
                     <p class=" text-left font-extrabold text-4xl text-black mb-5 mt-20">Let's hunt some players!</p>
                     <p class=" text-left font-medium text-lg text-indigo-700 mb-5">Sign up now to start creating your Dream Team!</p>
                     <p class=" text-left font-base text-md text-black mb-10">Already have an account?
-                        <span class="text-indigo-700 hover:text-indigo-800 cursor-pointer font-medium">
-                            Log in.</span></p>
+                        <a href="/login" class="text-indigo-700 hover:text-indigo-800 cursor-pointer font-medium">
+                            Log in.</a></p>
                             <div class="flex flex-wrap -mx-3 mb-3">
                                 <div class="w-full md:w-1/2 px-3">
                                     <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
