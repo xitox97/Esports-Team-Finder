@@ -23,13 +23,16 @@ class TeamController extends Controller
 
         $myTeam = Auth()->user()->team->first();
         //dd($myTeam->id);
+        if ($myTeam != null) {
+            $players = DB::table('user_team')->where('team_id', $myTeam->id)->get();
+            //dd($myTeam);
+            $userid = Arr::pluck($players, 'user_id');
+            $teamMembers = User::find($userid);
 
-        $players = DB::table('user_team')->where('team_id', $myTeam->id)->get();
-        //dd($players);
-        $userid = Arr::pluck($players, 'user_id');
-        $teamMembers = User::find($userid);
+            return view('teams.myteam', compact('myTeam', 'teamMembers'));
+        }
 
-        return view('teams.myteam', compact('myTeam', 'teamMembers'));
+        return view('teams.noteam');
     }
 
     /**
