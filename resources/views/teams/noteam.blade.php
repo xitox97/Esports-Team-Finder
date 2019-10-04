@@ -10,7 +10,7 @@
         <p class="text-md">Please create your own team or wait for invitation.</p>
     </div>
     <div class="flex justify-center">
-        <a href="/players/achievements/create" class="btn-indigo text-white font-bold
+        <a href="/teams/create" class="btn-indigo text-white font-bold
         py-4 px-6 rounded-full w-64 shadow-md mt-4 text-center">Create New Team</a>
     </div>
 </div>
