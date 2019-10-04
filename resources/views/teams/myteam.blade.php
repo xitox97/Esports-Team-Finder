@@ -11,7 +11,7 @@
                 <div class="w-full px-10 bg-purple-500 ">
                         <p class="text-white font-semibold text-2xl capitalize text-center">Team {{$myTeam->name}}</p>
                 </div>
-                <div class="flex justify-center">
+                <div class="flex justify-center my-2">
                         <img src="{{  asset('storage/pics/' . $myTeam->image) }}" alt="" class=" rounded-sm w-3/5">
                 </div>
 

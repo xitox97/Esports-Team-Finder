@@ -28,15 +28,7 @@
                             {{-- {{dd($user->accounts->avatar_url)}} --}}
                                 @if($user->accounts->avatar_url == null)
                                     <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{asset('img/default.svg')}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{asset('img/default.svg')}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{asset('img/default.svg')}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{asset('img/default.svg')}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{asset('img/default.svg')}}">
                                 @else
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{$user->accounts->avatar_url}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{$user->accounts->avatar_url}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{$user->accounts->avatar_url}}">
-                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{$user->accounts->avatar_url}}">
                                     <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{$user->accounts->avatar_url}}">
                                 @endif
                                 {{-- <p>{{$user->name}}</p> --}}
