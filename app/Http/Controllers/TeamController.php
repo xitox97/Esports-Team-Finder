@@ -104,7 +104,15 @@ class TeamController extends Controller
     public function show(Team $team)
     {
 
-        return view('teams.show', compact('team'));
+        //$myTeam = Auth()->user()->team->first();
+        //dd($myTeam->id);
+
+        $players = DB::table('user_team')->where('team_id', $team->id)->get();
+        //dd($myTeam);
+        $userid = Arr::pluck($players, 'user_id');
+        $teamMembers = User::find($userid);
+
+        return view('teams.show', compact('team', 'teamMembers'));
     }
 
     /**

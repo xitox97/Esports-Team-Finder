@@ -49509,7 +49509,8 @@ new Vue({
       isFull: false,
       isSmall: true,
       opened: false,
-      alert: true
+      alert: true,
+      team: false
     };
   },
   methods: {
@@ -49519,13 +49520,19 @@ new Vue({
       this.isSmall = false;
     },
     onoff: function onoff() {
-      this.opened = true;
+      this.opened = !this.opened;
     },
     hide: function hide() {
       this.opened = false;
     },
+    hides: function hides() {
+      this.team = false;
+    },
     hideAlert: function hideAlert() {
       this.alert = false;
+    },
+    dropTeam: function dropTeam() {
+      this.team = !this.team;
     }
   },
   directives: {

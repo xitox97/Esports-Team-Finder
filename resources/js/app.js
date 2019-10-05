@@ -34,7 +34,8 @@ new Vue({
             isFull: false,
             isSmall: true,
             opened: false,
-            alert: true
+            alert: true,
+            team: false,
         };
     },
 
@@ -46,14 +47,20 @@ new Vue({
         },
 
         onoff() {
-            this.opened = true;
+            this.opened = !this.opened;
         },
 
         hide() {
             this.opened = false;
         },
+        hides() {
+            this.team = false;
+        },
         hideAlert() {
             this.alert = false;
+        },
+        dropTeam() {
+            this.team = !this.team;
         }
     },
 

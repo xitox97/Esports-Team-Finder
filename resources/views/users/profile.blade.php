@@ -137,6 +137,17 @@
                 <div class="flex flex-col items-center border-b-2 pb-6">
                         <p class="text-2xl font-semibold leading-loose text-indigo-900 capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
                         <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
+
+                        <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">Current Team:
+                            @if($fetchPlayers->user->team()->exists() != false)
+                            <a class="no-underline hover:underline text-blue-500"
+                            href="/teams/{{$fetchPlayers->user->team[0]->id}}">
+                            {{$fetchPlayers->user->team[0]->name}}</a>
+                            @else
+                                None
+                            @endif
+                        </p>
+
                 </div>
                 <div class="flex flex-col items-center mt-4 pb-5">
                         <p class="text-lg font-semibold  text-indigo-900 capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
@@ -176,6 +187,15 @@
         <div class="flex flex-col items-center border-b-2 pb-6">
                 <p class="text-2xl font-semibold leading-loose text-indigo-900 capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
                 <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
+                <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">Current Team:
+                        @if($fetchPlayers->user->team()->exists() != false)
+                        <a class="no-underline hover:underline text-blue-500"
+                        href="/teams/{{$fetchPlayers->user->team[0]->id}}">
+                        {{$fetchPlayers->user->team[0]->name}}</a>
+                        @else
+                            None
+                        @endif
+                    </p>
         </div>
         <div class="flex flex-col items-center mt-4">
                 <p class="text-lg font-semibold  text-indigo-900 capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
