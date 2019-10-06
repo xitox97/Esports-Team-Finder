@@ -49510,7 +49510,8 @@ new Vue({
       isSmall: true,
       opened: false,
       alert: true,
-      team: false
+      team: false,
+      notification: false
     };
   },
   methods: {
@@ -49533,6 +49534,12 @@ new Vue({
     },
     dropTeam: function dropTeam() {
       this.team = !this.team;
+    },
+    hideNoti: function hideNoti() {
+      this.notification = false;
+    },
+    noti: function noti() {
+      this.notification = !this.notification;
     }
   },
   directives: {

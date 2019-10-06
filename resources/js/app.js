@@ -36,6 +36,7 @@ new Vue({
             opened: false,
             alert: true,
             team: false,
+            notification: false
         };
     },
 
@@ -61,6 +62,12 @@ new Vue({
         },
         dropTeam() {
             this.team = !this.team;
+        },
+        hideNoti() {
+            this.notification = false;
+        },
+        noti() {
+            this.notification = !this.notification;
         }
     },
 

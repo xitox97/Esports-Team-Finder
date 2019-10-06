@@ -1,5 +1,6 @@
 
 
-        <a class="dropdown-item" href="{{ url('/notifications') }}">
+        <a class="block text-default py-2 px-4 no-underline
+        text-md leading-loose ml-1 my-1 hover:bg-gray-200" href="{{ url('/notifications') }}">
             {{ $noti->data['steam_name']}} has accepted your offer  </a>
 

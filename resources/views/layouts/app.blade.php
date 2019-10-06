@@ -127,10 +127,27 @@
                     <div class="flex items-center justify-around mr-12">
                         {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
                         <div class="mx-3">
-                                <i  class="material-icons mt-1 text-yellow-500 md-36 cursor-pointer">
-                                        notifications_none
+                                @if (count(Auth::user()->unreadNotifications))
+                                <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                    notifications
                                         </i>
+
+                            <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                            right-0 text-center w-auto">
+
+                                @foreach(Auth::user()->unreadNotifications as $noti)
+                                        @include('notifications.' . snake_case(class_basename($noti->type)))
+                                    @endforeach
+
+
+                                </div>
+                                @else
+                                <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                        notifications_none
+                                            </i>
+                                @endif
                         </div>
+
                         <div class="mx-3">
                             <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
                         </div>
@@ -158,6 +175,32 @@
 
                 <section id="content-div" class="bg-gray-200 h-full pb-20">
                                 @yield('content')
+
+                            {{-- @if (count(Auth::user()->unreadNotifications))
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <span class="badge badge-pill badge-primary" style="float:right; margin-bottom:-10px; "> {{count(Auth::user()->unreadNotifications)}} </span> <i class="far fa-bell"></i>
+                                </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        @foreach(Auth::user()->unreadNotifications as $noti)
+                                            @include('notifications.' . snake_case(class_basename($noti->type)))
+                                        @endforeach
+
+                                    </div>
+
+                            </li>
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <i class="far fa-bell"></i>
+                                </a>
+
+
+                            </li>
+
+
+                            @endif --}}
                 </section>
             </section>
 
