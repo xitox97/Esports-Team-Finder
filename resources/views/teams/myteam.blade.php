@@ -56,6 +56,11 @@
                     <p class="text-center"><span class="font-semibold">Captain:</span> {{$myTeam->captain_id}}*</p>
                     <p class="text-center"><span class="font-semibold">Sponsor:</span> Razer* Logitech*</p>
                     <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,Temporibus minus numquam illum beatae</p>
+                    @if($myTeam->scrim == true)
+                    <p class="text-center"><span class="font-semibold">Scrim:</span> Ready</p>
+                    @else
+                    <p class="text-center"><span class="font-semibold">Scrim:</span> Not Ready</p>
+                    @endif
                 </div>
                 <div class="w-full px-10 bg-purple-500">
                         <p class="font-semibold text-xl capitalize text-center text-white ">Achievements</p>
@@ -130,6 +135,15 @@
                         </span>
                     </div>
             @endif
+            @if (session('scrim'))
+            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+                <strong class="font-bold">Ops!</strong>
+                <span class="block sm:inline">{{ session('scrim') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                </span>
+            </div>
+        @endif
         </div>
 
 

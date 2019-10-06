@@ -25,7 +25,13 @@
                     <p class="text-center"><span class="font-semibold">State:</span> Melaka*</p>
                     <p class="text-center"><span class="font-semibold">Captain:</span> {{$team->captain_id}}*</p>
                     <p class="text-center"><span class="font-semibold">Sponsor:</span> Razer* Logitech*</p>
-                    <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,Temporibus minus numquam illum beatae</p>
+                    <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,
+                        Temporibus minus numquam illum beatae</p>
+                    @if($team->scrim == true)
+                    <p class="text-center"><span class="font-semibold">Scrim:</span> Ready</p>
+                    @else
+                    <p class="text-center"><span class="font-semibold">Scrim:</span> Not Ready</p>
+                    @endif
                 </div>
                 <div class="w-full px-10 bg-purple-500">
                         <p class="font-semibold text-xl capitalize text-center text-white ">Achievements</p>
@@ -71,18 +77,11 @@
                                         </td>
                                         </tr>
                                         @endforeach
-
                                         </tbody>
-
                                     </table>
-
                         </div>
-
             </div>
-
         </div>
-
-
     </div>
 </div>
 @endsection

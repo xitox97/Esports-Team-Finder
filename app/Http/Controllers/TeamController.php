@@ -168,6 +168,9 @@ class TeamController extends Controller
         // else{
         //     return back()->with('cannot', 'Only Captain can delete team');
         // }
+        if ($team->qtty_member < 5) {
+            return back()->with('scrim', 'You need 5 players to scrim with others');
+        }
 
         $team->scrim = true;
         $team->save();
