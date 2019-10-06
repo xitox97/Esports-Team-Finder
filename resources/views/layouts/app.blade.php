@@ -145,6 +145,15 @@
                                 <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
                                         notifications_none
                                             </i>
+                                <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                                right-0 text-center w-2/12">
+
+                                <p class="block text-default py-2 px-4 no-underline
+                                text-md leading-loose ml-1 my-1 hover:bg-gray-200">
+                                    No notification</p>
+
+
+                                    </div>
                                 @endif
                         </div>
 
