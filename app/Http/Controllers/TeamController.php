@@ -88,7 +88,7 @@ class TeamController extends Controller
             $user->team()->attach($team->id);
 
             $path = $team->id;
-            return redirect("teams/$path");
+            return redirect("teams");
         } catch (\Illuminate\Database\QueryException $e) {
 
             return back()->withError('You must leave your current team first before creating new one!');

@@ -32,12 +32,23 @@ class PagesController extends Controller
 
     public function noti()
     {
-        return view('users.notificationFeedback');
+        //user noti
+
+        $id = auth()->user()->id;
+        $receivedTeam = Team::where('captain_id', $id)->first();
+        $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();
+
+        $senderTeam = Team::where('captain_id', $id)->first();
+        $acceptedNoti = Scrimstatus::where('team_id', $senderTeam->id)->get();
+
+
+
+        return view('users.notificationFeedback', compact('inviteNotis', 'acceptedNoti'));
     }
 
     public function notiScrim()
     {
-
+        //team noti
         $id = auth()->user()->id;
         $receivedTeam = Team::where('captain_id', $id)->first();
         $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();

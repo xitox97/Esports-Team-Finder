@@ -132,14 +132,15 @@
                                     notifications
                                         </i>
 
-                            <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                            <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
                             right-0 text-center w-auto">
 
                                 @foreach(Auth::user()->unreadNotifications as $noti)
                                         @include('notifications.' . snake_case(class_basename($noti->type)))
                                     @endforeach
 
-
+                                    <a href="http://teamfinder.test/tnotification" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
+                                      See All Notifications</a>
                                 </div>
                                 @else
                                 <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
