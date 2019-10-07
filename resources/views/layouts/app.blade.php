@@ -139,7 +139,7 @@
                                         @include('notifications.' . snake_case(class_basename($noti->type)))
                                     @endforeach
 
-                                    <a href="http://teamfinder.test/tnotification" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
+                                    <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
                                       See All Notifications</a>
                                 </div>
                                 @else

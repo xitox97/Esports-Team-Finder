@@ -34,8 +34,12 @@ class PagesController extends Controller
     {
         //user noti
 
+        dd('sala');
         $id = auth()->user()->id;
         $receivedTeam = Team::where('captain_id', $id)->first();
+
+
+
         $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();
 
         $senderTeam = Team::where('captain_id', $id)->first();
@@ -51,6 +55,10 @@ class PagesController extends Controller
         //team noti
         $id = auth()->user()->id;
         $receivedTeam = Team::where('captain_id', $id)->first();
+
+        if ($receivedTeam == null) {
+            return view('teams.notification');
+        }
         $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();
 
         // dd($scrimStatus);
