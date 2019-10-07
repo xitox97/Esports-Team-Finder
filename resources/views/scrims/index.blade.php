@@ -2,7 +2,7 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2">
-    <span class="italic text-sm">Home / Scrims /  Available Team</span>
+    <span class="italic text-sm">Home / <a href="/scrims" class="text-blue-500 hover:underline">Scrim</a> /  Available Team</span>
     </section>
 
     <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">

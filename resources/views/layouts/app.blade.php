@@ -152,7 +152,8 @@
                                 <p class="block text-default py-2 px-4 no-underline
                                 text-md leading-loose ml-1 my-1 hover:bg-gray-200">
                                     No notification</p>
-
+                                    <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
+                                        See All Notifications</a>
 
                                     </div>
                                 @endif
