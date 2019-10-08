@@ -50,48 +50,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                            @if ($pageHeroes != null)
-                                            @foreach ($pageHeroes as $recent)
-                                                      <tr  class="py-4 px-6 border-b border-gray-300 hover:bg-gray-200 text-left">
-                                                        <td class="py-2"> @include('users.heroes')</td>
-                                                        <td class="py-2"> {{$recent['games']}} ({{$recent['win']}} won)</td>
-                                                        <td class="py-2"> @php
-                                                                if($recent['games'] != 0){
-                                                                    echo (round(($recent['win'] / $recent['games']) * 100, 1));
-                                                                }
-                                                                else {
-                                                                    echo "0";
-                                                                }
-                                                            @endphp
-                                                            </td>
-                                                        <td class="py-2">  @php
-                                                                if($recent['with_games'] != 0){
-                                                                    echo (round(($recent['with_win'] / $recent['with_games']) * 100, 1));
-                                                                    echo "(" . $recent['with_win'] . "/" . $recent['with_games'] . ")";
-                                                                }
-                                                                else {
-                                                                    echo "0";
-                                                                }
-                                                            @endphp
-                                                            </td>
-                                                        <td class="py-2"> @php
-                                                                if($recent['against_games'] != 0){
-                                                                    echo (round(($recent['against_win'] / $recent['against_games']) * 100, 1));
-                                                                    echo "(" . $recent['against_win'] . "/" . $recent['against_games'] . ")";
-                                                                }
-                                                                else {
-                                                                    echo "0";
-                                                                }
-                                                            @endphp</td>
-                                                        </tr>
-                                        @endforeach
-
-                                        @endif
+                                            <tr class="mb-3 cursor-wait text-center" ><td colspan="5"  > <p class="font-semibold text-lg  mt-5 ">Fetching data... Comeback back again in minutes</p></td>
+                                            </tr>
                                     </tbody>
                             </table>
-                            <div class="mt-4">
-                                {{ $pageHeroes->links() }}
-                            </div>
+
                         </div>
                     </div>
 

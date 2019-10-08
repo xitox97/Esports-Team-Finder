@@ -91,16 +91,21 @@ class PagesController extends Controller
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
         $statistics = $fetchPlayers->user->statistic;
 
-        $items = collect($statistics->recent_match);
+        if ($statistics != null) {
+            $items = collect($statistics->recent_match);
 
-        $page = Input::get('page', 1);
+            $page = Input::get('page', 1);
 
-        $perPage = 10;
+            $perPage = 10;
 
-        $pageStats = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
-        $pageStats->setPath(url()->current());
-        //dd(url()->current());
-        return view('users.stats', compact('fetchPlayers', 'pageStats'));
+            $pageStats = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
+            $pageStats->setPath(url()->current());
+            //dd(url()->current());
+            return view('users.stats', compact('fetchPlayers', 'pageStats'));
+        } else {
+
+            return view('users.stats_none', compact('fetchPlayers'));
+        }
     }
 
     public function heroes($player)
@@ -108,15 +113,19 @@ class PagesController extends Controller
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
         $statistics = $fetchPlayers->user->statistic;
 
-        $items = collect($statistics->heroes_played);
-        $page = Input::get('page', 1);
+        if ($statistics != null) {
+            $items = collect($statistics->heroes_played);
+            $page = Input::get('page', 1);
 
-        $perPage = 10;
-        $pageHeroes = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
-        $pageHeroes->setPath(url()->current());
+            $perPage = 10;
+            $pageHeroes = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
+            $pageHeroes->setPath(url()->current());
 
 
-        return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes'));
+            return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes'));
+        } else {
+            return view('users.stats_heroes_none', compact('fetchPlayers'));
+        }
     }
 
     public function totals($player)
@@ -124,6 +133,10 @@ class PagesController extends Controller
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
         $statistics = $fetchPlayers->user->statistic;
 
-        return view('users.stats_totals', compact('fetchPlayers', 'statistics'));
+        if ($statistics != null) {
+            return view('users.stats_totals', compact('fetchPlayers', 'statistics'));
+        } else {
+            return view('users.stats_totals_none', compact('fetchPlayers'));
+        }
     }
 }

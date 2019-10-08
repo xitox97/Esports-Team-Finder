@@ -72,19 +72,25 @@
 </head>
 <body class="h-full">
 @php
-    $playerUrl = 'players/'. Auth::user()->accounts->dota_id;
+
+    if(Auth::user()->accounts()->exists() == true){
+        $playerUrl = 'players/'. Auth::user()->accounts->dota_id;
+    }
+    else{
+        $playerUrl = 0;
+    }
 @endphp
     <div id="app" class="flex font-sans min-h-screen">
 
             <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}">
-                <a href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats"
+                <a href="/{{$playerUrl}}/stats"
                 class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
               >
                 <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">assessment</i>
                 <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">Overview</span>
               </a>
               <a
-              href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/achievements"
+              href="/{{$playerUrl}}/achievements"
                 class="text-lg font-semibold mb-10 ml-16 cursor-pointer text-purple-400"
               >
                 <i class="material-icons align-middle {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">emoji_events</i>
@@ -160,7 +166,11 @@
                         </div>
 
                         <div class="mx-3">
+                            @if(Auth::user()->accounts()->exists() == true)
                             <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
+                            @else
+                            <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+                            @endif
                         </div>
                         <div class="mx-3">
                                 <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="opened">
@@ -169,7 +179,7 @@
                         </div>
                         <div class="mt-16">
                             <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
-                                    <a href="/players/{{Auth::user()->accounts->dota_id}}" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
+                                    <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
                                     onclick="event.preventDefault();
                                                   document.getElementById('logout-form2').submit();">

@@ -50,8 +50,10 @@ class MatchController extends Controller
 
         $matches = Match::where('match_id', $match)->first();
 
+        //dd($matches);
+
         $itemsData = DotaJson::first();
-         //dd($matches->match_details['chat']);
+        //dd($matches->match_details['chat']);
 
         //  foreach ($matches->match_details['players'] as $m)
         //  {
@@ -61,7 +63,7 @@ class MatchController extends Controller
         //     }
         //  }
 
-        return view('users.matches.match', compact('matches','itemsData'));
+        return view('users.matches.match', compact('matches', 'itemsData'));
     }
 
     /**

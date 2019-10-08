@@ -3,6 +3,8 @@
 @section('content')
 <div class="container-fuild my-5 mx-5 px-5">
 
+@if($matches != null)
+
 <div class="text-center"><h3><b>ALLL DRAFT</b></h3>
     <h1>Radiant <span class="text-success">{{$matches->match_details['radiant_score']}}</span> :
     <span class="text-danger">{{$matches->match_details['dire_score']}}</span> Dire</h1>
@@ -159,5 +161,8 @@
               @endforeach
     </tbody>
   </table>
+  @else
+  <p class="font-semibold text-lg  mt-5 ">Processing Match details... Comeback back again in minutes</p>
+  @endif
 </div>
 @endsection

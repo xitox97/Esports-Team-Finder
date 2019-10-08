@@ -51,59 +51,12 @@
                                     <th class="text-left capitalize border-b border-gray-300 py-4"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                    @if ($pageStats != null)
-                                    @foreach ($pageStats as $recent)
-                                              <tr  class="py-4 px-6 border-b border-gray-300 hover:bg-gray-200">
-                                                <td class="text-center"> @include('users.heroes')</td>
-                                                <td>
-                                                    @php
-                                                        if($recent['player_slot'] >= 0 && $recent['player_slot'] <= 127)
-                                                            {
-                                                                $position = 'Radiant';
-                                                            }
-                                                        else {
-                                                            $position =  'Dire';
-                                                        }
-                                                        if($recent['radiant_win'] == true && $position == 'Radiant')
-                                                            {
-                                                                $result = 'Won Match';
-                                                            }
-                                                        elseif ($recent['radiant_win'] == false && $position == 'Dire') {
-                                                                $result = 'Won Match';
-                                                            }
-                                                        else {
-                                                                $result = 'Lost Match';
-                                                            }
-                                                    @endphp
-
-                                                <a href="{{ url('matches/' . $recent['match_id']) }}"><p class="{{ $result == 'Won Match' ? 'text-green-300' : 'text-red-500' }}">
-                                                    {{ $result}} </p></a>
-
-
-                                                </td>
-                                                <td> @include('users.gameMode')</td>
-                                                <td>{{ $recent['kills'] }}/{{ $recent['deaths'] }}/{{ $recent['assists'] }}</td>
-                                                <td>@php
-                                                        $minutes=$recent['duration'];
-                                                        $hours = intdiv($minutes, 60).':'. ($minutes % 60);
-                                                        echo $hours;
-                                                    @endphp
-                                                    <br>
-                                                   {{ $position }}
-                                                </td>
-                                                <td><a href="{{ url('matches/' . $recent['match_id']) }}"><i class="material-icons text-indigo-600 cursor-pointer md-48">
-                                                        pageview
-                                                        </i></a></td>
-                                                </tr>
-                                @endforeach
-
-                                @endif
-
+                            <tbody class="">
+                                <tr class="mb-3 cursor-wait text-center" ><td colspan="5"  > <p class="font-semibold text-lg  mt-5 ">Fetching data... Comeback back again in minutes</p></td>
+                                </tr>
                             </tbody>
                     </table>
                     <div class="mt-4">
-                        {{ $pageStats->links() }}
                     </div>
                 </div>
             </div>
