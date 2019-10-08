@@ -21,6 +21,9 @@ class CreateTeamsTable extends Migration
             $table->integer('qtty_member');
             $table->string('image');
             $table->integer('scrim')->nullable();
+            $table->string('state');
+            $table->string('sponsor')->nullable();
+            $table->text('description');
             $table->timestamps();
 
             $table->foreign('captain_id')->references('id')->on('users')->onDelete('cascade');

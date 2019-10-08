@@ -11,7 +11,7 @@
 
         <p class="text-2xl  ml-1 font-bold  pb-4 capitalize text-indigo-800">Schedule Scrim</p>
         <div class="flex justify-content">
-        <form method="POST" action="/scrims" class="bg-white shadow-lg w-7/12 p-5 rounded-lg">
+        <form method="POST" action="/scrims" class="bg-white shadow-lg w-5/12 rounded-lg pt-6 pb-4">
             @csrf
             <input name="team_id" type="hidden" value="{{ $myTeam->id }}">
             <input name="opponent_id" type="hidden" value="{{ $team->id }}">

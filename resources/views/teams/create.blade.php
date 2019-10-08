@@ -149,7 +149,7 @@
                                           </label>
                                       <textarea class="appearance-none block w-full  text-gray-700 border-2 border-gray-300 rounded
                                       py-3 px-4 leading-tight focus:outline-none focus:border-purple-500" placeholder="Tell us a bit about your team..."
-                                      rows="4"></textarea>
+                                      rows="4" name="description"></textarea>
                                     </div>
                                   </div>
                                   <div class="flex -mx-3 mb-6 mt-5 justify-center items-center">

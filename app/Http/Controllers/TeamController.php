@@ -60,7 +60,9 @@ class TeamController extends Controller
             'name' => 'required',
             'area' => 'required',
             'qtty_member' => 'required',
-            'image' => 'required|image|max:1999'
+            'image' => 'required|image|max:1999',
+            'description' => 'required|max:255',
+            'state' => 'required'
         ]);
 
         if ($request->hasFile('image')) {
@@ -79,7 +81,9 @@ class TeamController extends Controller
                 'name' => $request['name'],
                 'area' => $request['area'],
                 'qtty_member' => $request['qtty_member'],
-                'image' => $request->image
+                'image' => $request->image,
+                'state' => $request['state'],
+                'description' => $request['description']
             ]);
 
             //dd($team->id);

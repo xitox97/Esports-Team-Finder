@@ -54,8 +54,14 @@
                     <p class="text-center"><span class="font-semibold">City:</span> {{$myTeam->area}}</p>
                     <p class="text-center"><span class="font-semibold">State:</span> Melaka*</p>
                     <p class="text-center"><span class="font-semibold">Captain:</span> {{$myTeam->captain_id}}*</p>
-                    <p class="text-center"><span class="font-semibold">Sponsor:</span> Razer* Logitech*</p>
-                    <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,Temporibus minus numquam illum beatae</p>
+                    <p class="text-center"><span class="font-semibold">Main Sponsor:</span>
+                        @if($myTeam->sponsor == null)
+                        None
+                        @else
+                        {{$myTeam->sponsor}}
+                        @endif
+                        </p>
+                <p class="text-center"><span class="font-semibold">Description:</span> {{$myTeam->description}}</p>
                     @if($myTeam->scrim == true)
                     <p class="text-center"><span class="font-semibold">Scrim:</span> Ready</p>
                     @else
