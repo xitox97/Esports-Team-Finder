@@ -12,9 +12,10 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::where('id', auth()->id())->get();
-        dd($users->toArray());
-        return view('users.profile');
+        abort(403);
+        // $users = User::where('id', auth()->id())->get();
+        // dd($users->toArray());
+        // return view('users.profile');
     }
 
     public function show(User $user)

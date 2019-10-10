@@ -63,8 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     //pages
-    Route::get('/tnotification', 'PagesController@notiScrim');
-    Route::get('/notifications', 'PagesController@noti');
+    Route::get('/notifications', 'PagesController@notiScrim');
+    //Route::get('/notifications', 'PagesController@noti');
     Route::get('/steamconnects', 'PagesController@steam');
     Route::get('players/{player}', 'PagesController@show');
     Route::get('players/{player}/stats', 'PagesController@stats');

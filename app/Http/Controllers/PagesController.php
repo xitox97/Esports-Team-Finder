@@ -12,6 +12,8 @@ use App\Tournament;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Input;
 
 class PagesController extends Controller
 {
@@ -23,20 +25,40 @@ class PagesController extends Controller
     }
 
 
-    public function steam(){
+    public function steam()
+    {
         return view('auth.steam');
     }
 
-    public function noti(){
-      return view('users.notificationFeedback');
+    public function noti()
+    {
+        //user noti
 
-
-    }
-
-    public function notiScrim(){
-
+        dd('sala');
         $id = auth()->user()->id;
         $receivedTeam = Team::where('captain_id', $id)->first();
+
+
+
+        $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();
+
+        $senderTeam = Team::where('captain_id', $id)->first();
+        $acceptedNoti = Scrimstatus::where('team_id', $senderTeam->id)->get();
+
+
+
+        return view('users.notificationFeedback', compact('inviteNotis', 'acceptedNoti'));
+    }
+
+    public function notiScrim()
+    {
+        //team noti
+        $id = auth()->user()->id;
+        $receivedTeam = Team::where('captain_id', $id)->first();
+
+        if ($receivedTeam == null) {
+            return view('teams.notification');
+        }
         $inviteNotis = Scrimstatus::where('opponent_id', $receivedTeam->id)->get();
 
         // dd($scrimStatus);
@@ -47,7 +69,7 @@ class PagesController extends Controller
         //dd($acceptedNoti->toArray());
 
 
-        return view('teams.notification', compact('inviteNotis','acceptedNoti'));
+        return view('teams.notification', compact('inviteNotis', 'acceptedNoti'));
     }
 
 
@@ -61,41 +83,60 @@ class PagesController extends Controller
         $tournament = Tournament::all();
 
         return view('admins.tourList', compact('tournament'));
-
     }
 
-    public function stats($player){
+    public function stats($player)
+    {
 
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
-
-
         $statistics = $fetchPlayers->user->statistic;
 
+        if ($statistics != null) {
+            $items = collect($statistics->recent_match);
 
+            $page = Input::get('page', 1);
 
-        return view('users.stats', compact('fetchPlayers','statistics'));
+            $perPage = 10;
+
+            $pageStats = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
+            $pageStats->setPath(url()->current());
+            //dd(url()->current());
+            return view('users.stats', compact('fetchPlayers', 'pageStats'));
+        } else {
+
+            return view('users.stats_none', compact('fetchPlayers'));
+        }
     }
 
     public function heroes($player)
     {
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
-
-
         $statistics = $fetchPlayers->user->statistic;
 
-        // $array =  $statistics->getJsonField($statistics->heroes_played);
-        // dd($array->where('hero_id', 1));
-        // dd($statistics->heroes_played->where('hero_id', 107));
+        if ($statistics != null) {
+            $items = collect($statistics->heroes_played);
+            $page = Input::get('page', 1);
+
+            $perPage = 10;
+            $pageHeroes = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
+            $pageHeroes->setPath(url()->current());
 
 
-        return view('users.stats_heroes', compact('fetchPlayers','statistics'));
+            return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes'));
+        } else {
+            return view('users.stats_heroes_none', compact('fetchPlayers'));
+        }
     }
 
     public function totals($player)
     {
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
         $statistics = $fetchPlayers->user->statistic;
-        return view('users.stats_totals', compact('fetchPlayers','statistics'));
-    }
 
+        if ($statistics != null) {
+            return view('users.stats_totals', compact('fetchPlayers', 'statistics'));
+        } else {
+            return view('users.stats_totals_none', compact('fetchPlayers'));
+        }
+    }
 }

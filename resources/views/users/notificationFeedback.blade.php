@@ -14,7 +14,7 @@
 
 
                     <div class="card-body">
-                      <h5 class="card-title text-center"><b>Notification center</b> </h5>
+                      <h5 class="card-title text-center"><b>User Notification center</b> </h5>
                       <p class="card-text"></p>
                     </div>
 

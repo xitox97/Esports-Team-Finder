@@ -1,36 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Team that available to Scrim</div>
+<section id="breadcrumb" class="ml-4 pt-2">
+    <span class="italic text-sm">Home / <a href="/scrims" class="text-blue-500 hover:underline">Scrim</a> /  Available Team</span>
+    </section>
 
-                <div class="card" >
+    <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">
+        <div class="flex flex-wrap">
 
+        @foreach ($teams as $team)
+                <div class="bg-white w-1/4 flex flex-col m-2 shadow-lg rounded-t-lg">
+                    <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">
+                    <div class="flex p-4 border-b border-gray-300">
+                        <img class="w-24 h-24 rounded-full" src="{{  asset('storage/pics/' . $team->image) }}" alt="">
+                        <div class="ml-5">
 
+                                <p class="font-medium text-lg text-indigo-700 ml-1 capitalize">{{$team->name}}</p>
+                            <p class="text-md font-medium text-gray-800 ml-1 -mt-1 capitalize">{{$team->area}}</p>
+                            <p class="text-sm font-medium text-gray-600 ml-1  capitalize">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div></a>
+                    <div class="flex flex-col justify-center py-3 border-b border-gray-300">
+                        <div><p class="text-center font-medium text-orange-500 mb-1">Team Members</p></div>
+                        <div class="flex justify-center">
+                            @foreach($team->users as $user)
+                            {{-- {{dd($user->accounts->avatar_url)}} --}}
+                                @if($user->accounts->avatar_url == null)
+                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{asset('img/default.svg')}}">
+                                @else
+                                    <img class="w-12 h-12 rounded-full border-2 border-white relative -ml-2" src="{{$user->accounts->avatar_url}}">
+                                @endif
+                                {{-- <p>{{$user->name}}</p> --}}
+                            @endforeach
+                        </div>
 
-
-
-                    <div class="card-body">
-                     @foreach ($teams as $item)
-                    <li> <a href="/teams/{{$item->id}}">{{$item->name }}</a> <a href="/scrims/add/{{$item->id}}" class="btn btn-success"
-                        role="button" >Invite for scrim</a> </li><br>
-                     @endforeach
                     </div>
-
-                    @if (session('captain'))
-                    <div class="alert alert-warning">
-                        <ul>
-                            <li>{{ session('captain') }}</li>
-                        </ul>
+                    <div class="text-center py-4  bg-indigo-700 hover:bg-indigo-800">
+                        <a href="/scrims/add/{{$team->id}}" class="text-white font-semibold cursor-pointer">Send Scrim Invite</a>
                     </div>
-                    @endif
-                  </div>
-
-            </div>
+                    {{-- <div class="text-center py-4  bg-indigo-700 hover:bg-indigo-800">
+                        <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">View Details</a>
+                    </div> --}}
+                </div>
+        @endforeach
         </div>
     </div>
-</div>
+
 @endsection

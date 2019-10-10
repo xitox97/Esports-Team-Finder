@@ -21,16 +21,11 @@ class OfferController extends Controller
 
         $id = auth()->user()->id;
 
-        $allTeam = Team::all();
         //check ada team or tidak
-        foreach ($allTeam as $at) {
-            $exists = DB::table('user_team')
-                ->whereUserId($id)
-                ->whereTeamId($at->id)
-                ->count() > 0;
-        }
+        $myTeam = Auth()->user()->team->first();
 
-        if ($exists == false) {
+        //dd($myTeam);
+        if ($myTeam == null) {
             return back()->with('team', 'You need to create Team first!');
         }
 
@@ -39,6 +34,12 @@ class OfferController extends Controller
         //check captain or not
         if ($teams == null) {
             return back()->with('captain', 'Only Captain can invite players!');
+        }
+
+
+        //dd($team);
+        if ($myTeam->qtty_member >= 5) {
+            return back()->with('full', 'Your team is already full');
         }
 
         $offer = Offer::create([
@@ -51,11 +52,7 @@ class OfferController extends Controller
         $user->notify(new OfferTeam($offer, $teams));
 
         return back()->with('offer', 'Offer has been sent!');
-
-
-
         // return redirect("teams/$path");
-
     }
 
     public function acceptOffer(Offer $offer, DatabaseNotification $noti)
@@ -65,6 +62,12 @@ class OfferController extends Controller
         $sender = User::where('id', $offer->team->captain_id)->first();
 
         //dd($noti);
+
+        $team = Team::find($offer->team_id);
+        //dd($team);
+
+        $team->qtty_member = $team->qtty_member + 1;
+        $team->save();
 
         try {
 

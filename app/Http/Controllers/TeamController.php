@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
+
 class TeamController extends Controller
 {
     /**
@@ -16,8 +19,20 @@ class TeamController extends Controller
     public function index()
     {
 
-        $teams = DB::table('teams')->get();
-        dd($teams);
+        //$teams = DB::table('teams')->get();
+
+        $myTeam = Auth()->user()->team->first();
+        //dd($myTeam->id);
+        if ($myTeam != null) {
+            $players = DB::table('user_team')->where('team_id', $myTeam->id)->get();
+            //dd($myTeam);
+            $userid = Arr::pluck($players, 'user_id');
+            $teamMembers = User::find($userid);
+
+            return view('teams.myteam', compact('myTeam', 'teamMembers'));
+        }
+
+        return view('teams.noteam');
     }
 
     /**
@@ -45,40 +60,43 @@ class TeamController extends Controller
             'name' => 'required',
             'area' => 'required',
             'qtty_member' => 'required',
-            'image' => 'required|image|max:1999'
+            'image' => 'required|image|max:1999',
+            'description' => 'required|max:255',
+            'state' => 'required'
         ]);
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->image;
             $ext = $image->getClientOriginalExtension();
-            $filename = uniqid().'.'.$ext;
-            $image->storeAs('public/pics',$filename);
+            $filename = uniqid() . '.' . $ext;
+            $image->storeAs('public/pics', $filename);
             $request->image = $filename;
         }
 
 
         //dd($request->image);
         try {
-                $team = Team::create([
-                    'captain_id' => $request['captain_id'],
-                    'name' => $request['name'],
-                    'area' => $request['area'],
-                    'qtty_member' => $request['qtty_member'],
-                    'image' => $request->image
-                ]);
+            $team = Team::create([
+                'captain_id' => $request['captain_id'],
+                'name' => $request['name'],
+                'area' => $request['area'],
+                'qtty_member' => $request['qtty_member'],
+                'image' => $request->image,
+                'state' => $request['state'],
+                'description' => $request['description']
+            ]);
 
-                //dd($team->id);
+            //dd($team->id);
 
-                $user = auth()->user();
-                $user->team()->attach($team->id);
+            $user = auth()->user();
+            $user->team()->attach($team->id);
 
-                $path = $team->id;
-                return redirect("teams/$path");
+            $path = $team->id;
+            return redirect("teams");
+        } catch (\Illuminate\Database\QueryException $e) {
 
-            }  catch (\Illuminate\Database\QueryException $e) {
-
-                return back()->withError('You must leave your current team first before creating new one!');
-            }
+            return back()->withError('You must leave your current team first before creating new one!');
+        }
     }
 
     /**
@@ -90,7 +108,15 @@ class TeamController extends Controller
     public function show(Team $team)
     {
 
-        return view('teams.show', compact('team'));
+        //$myTeam = Auth()->user()->team->first();
+        //dd($myTeam->id);
+
+        $players = DB::table('user_team')->where('team_id', $team->id)->get();
+        //dd($myTeam);
+        $userid = Arr::pluck($players, 'user_id');
+        $teamMembers = User::find($userid);
+
+        return view('teams.show', compact('team', 'teamMembers'));
     }
 
     /**
@@ -126,11 +152,10 @@ class TeamController extends Controller
     {
         $id = auth()->user()->id;
 
-        if($id == $team->captain_id){
+        if ($id == $team->captain_id) {
 
-        $team->delete();
-            }
-        else{
+            $team->delete();
+        } else {
             return back()->with('cannot', 'Only Captain can delete team');
         }
         return redirect('/home');
@@ -147,6 +172,9 @@ class TeamController extends Controller
         // else{
         //     return back()->with('cannot', 'Only Captain can delete team');
         // }
+        if ($team->qtty_member < 5) {
+            return back()->with('scrim', 'You need 5 players to scrim with others');
+        }
 
         $team->scrim = true;
         $team->save();

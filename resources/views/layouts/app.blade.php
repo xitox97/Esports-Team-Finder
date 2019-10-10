@@ -8,19 +8,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
-    integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 <style>
+
     .rankMedal {
     position: relative;
     display: flex;
@@ -64,132 +63,171 @@
     display: flex;
     flex-direction: row;
 }
-
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 </style>
 
 
 </head>
-<body>
+<body class="h-full">
+@php
 
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    &lt;TeamFinder/&gt;
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    if(Auth::user()->accounts()->exists() == true){
+        $playerUrl = 'players/'. Auth::user()->accounts->dota_id;
+    }
+    else{
+        $playerUrl = 0;
+    }
+@endphp
+    <div id="app" class="flex font-sans min-h-screen">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+            <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}">
+                <a href="/{{$playerUrl}}/stats"
+                class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">assessment</i>
+                <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">Overview</span>
+              </a>
+              <a
+              href="/{{$playerUrl}}/achievements"
+                class="text-lg font-semibold mb-10 ml-16 cursor-pointer text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">emoji_events</i>
+                <span class="align-middle ml-2 {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">Achievements</span>
+              </a>
+              <a
+                href="/tournaments"
+                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is('tournaments') ? 'text-white' : ''}}" >videogame_asset</i>
+                <span class="align-middle ml-2 {{Request::is('tournaments') ? 'text-white' : ''}}" >Tournaments</span>
+              </a>
+              <a
+                href="{{ url('/teams') }}"
+                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+              >
+                <i class="material-icons align-middle {{Request::is('teams') ? 'text-white' : ''}}" >group</i>
+                <span class="align-middle ml-2 {{Request::is('teams') ? 'text-white' : ''}}" >Teams</span>
+              </a>
+              <a href="/scrims" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}">sports_kabaddi</i>
+                <span class="align-middle ml-2 {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}" >Scrims</span>
+              </a>
+              <a href="/players/list" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('players/list') ? 'text-white' : ''}}">face</i>
+                <span class="align-middle ml-2 {{Request::is('players/list') ? 'text-white' : ''}}" >Players</span>
+              </a>
+              <a href="/players/recommendation" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
+                <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
+              </a>
+            </sidebar-component>
+            <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
+                <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
+                    <div class="w-8 flex items-center ml-12">
+                           <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer">
+                                    menu_open
+                                    </i>
+                    </div>
+                    <div class="flex items-center justify-around mr-12">
+                        {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
+                        <div class="mx-3">
+                                @if (count(Auth::user()->unreadNotifications))
+                                <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                    notifications
+                                        </i>
 
-                    </ul>
+                            <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
+                            right-0 text-center w-auto">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-
-                        {{-- notification --}}
-
-                        @if (count(Auth::user()->unreadNotifications))
-
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span class="badge badge-pill badge-primary" style="float:right; margin-bottom:-10px; "> {{count(Auth::user()->unreadNotifications)}} </span> <i class="far fa-bell"></i>
-                            </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    @foreach(Auth::user()->unreadNotifications as $noti)
+                                @foreach(Auth::user()->unreadNotifications as $noti)
                                         @include('notifications.' . snake_case(class_basename($noti->type)))
                                     @endforeach
 
+                                    <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
+                                      See All Notifications</a>
                                 </div>
+                                @else
+                                <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                        notifications_none
+                                            </i>
+                                <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                                right-0 text-center w-2/12">
 
-                        </li>
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     <i class="far fa-bell"></i>
-                            </a>
+                                <p class="block text-default py-2 px-4 no-underline
+                                text-md leading-loose ml-1 my-1 hover:bg-gray-200">
+                                    No notification</p>
+                                    <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
+                                        See All Notifications</a>
 
+                                    </div>
+                                @endif
+                        </div>
 
-                        </li>
-
-
-                        @endif
-
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-
-                                    @if(Auth::user()->accounts)
-                                        {{-- <a class="dropdown-item" href="players/{{ Auth::user()->accounts->dota_id}}">Profile</a> --}}
-                                        <a class="dropdown-item" href=" {{ url('/players/' . Auth::user()->accounts->dota_id ) }}">My Profile</a>
-                                        <a class="dropdown-item" href=" {{ url('/players/' . Auth::user()->accounts->dota_id ) }}/stats">Overview</a>
-                                        <a class="dropdown-item" href=" {{ url('/notifications') }}">Notification</a>
-                                        <a class="dropdown-item" href="{{ url('/players/' . Auth::user()->accounts->dota_id ) }}/achievements">My Achievements</a>
-                                        <a class="dropdown-item" href=" {{ url('/tournaments') }}">Tournaments</a>
-                                        <a class="dropdown-item" href="{{ url('/players/list') }}">List Player</a>
-                                        <a class="dropdown-item" href="{{ url('/players/recommendation') }}">Recommendation Player</a>
-                                        <a class="dropdown-item" href="{{ url('/teams/create') }}">Create Team</a>
-                                    @else
-                                        <a class="dropdown-item" href="{{ url('/steamconnects') }}">
-                                        Link Steam Account</a>
-
-                                    @endif
-
-                                    @if (Auth::user()->team)
-
-                                    @foreach (Auth::user()->team as $item)
-
-                                    <a class="dropdown-item" href="{{ url('/teams/' . $item->id) }}">
-                                        My Team</a>
-                                    <a class="dropdown-item" href="{{ url('/scrims')}}">
-                                        Find team to Scrims</a>
-                                    <a class="dropdown-item" href="{{ url('/scrims-schedule')}}">
-                                        Scrims Schedule</a>
-
-                                    @endforeach
-
-                                    @endif
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <div class="mx-3">
+                            @if(Auth::user()->accounts()->exists() == true)
+                            <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
+                            @else
+                            <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+                            @endif
+                        </div>
+                        <div class="mx-3">
+                                <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="opened">
+                                        more_horiz
+                                        </i>
+                        </div>
+                        <div class="mt-16">
+                            <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                                    <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
+                                    <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
+                                    onclick="event.preventDefault();
+                                                  document.getElementById('logout-form2').submit();">
+                                     {{ __('Logout') }}
+                                 </a>
+                                 <form id="logout-form2" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                        </div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+                    </div>
+                </header>
+
+                <section id="content-div" class="bg-gray-200 h-full pb-20">
+                                @yield('content')
+
+                            {{-- @if (count(Auth::user()->unreadNotifications))
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <span class="badge badge-pill badge-primary" style="float:right; margin-bottom:-10px; "> {{count(Auth::user()->unreadNotifications)}} </span> <i class="far fa-bell"></i>
+                                </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        @foreach(Auth::user()->unreadNotifications as $noti)
+                                            @include('notifications.' . snake_case(class_basename($noti->type)))
+                                        @endforeach
+
+                                    </div>
+
+                            </li>
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <i class="far fa-bell"></i>
+                                </a>
+
+
+                            </li>
+
+
+                            @endif --}}
+                </section>
+            </section>
+
+
     </div>
+
+
 </body>
 </html>

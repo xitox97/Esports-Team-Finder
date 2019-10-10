@@ -8,6 +8,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import ClickOutside from "vue-click-outside";
+
+Vue.use(ClickOutside);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,13 +23,55 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('sidebar-component', require('./components/SidebarComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+new Vue({
 
-const app = new Vue({
     el: '#app',
+    data() {
+        return {
+            isOpen: true,
+            isFull: false,
+            isSmall: true,
+            opened: false,
+            alert: true,
+            team: false,
+            notification: false
+        };
+    },
+
+    methods: {
+        toggle() {
+            this.isOpen = !this.isOpen;
+            this.isFull = true;
+            this.isSmall = false;
+        },
+
+        onoff() {
+            this.opened = !this.opened;
+        },
+
+        hide() {
+            this.opened = false;
+        },
+        hides() {
+            this.team = false;
+        },
+        hideAlert() {
+            this.alert = false;
+        },
+        dropTeam() {
+            this.team = !this.team;
+        },
+        hideNoti() {
+            this.notification = false;
+        },
+        noti() {
+            this.notification = !this.notification;
+        }
+    },
+
+    directives: {
+        ClickOutside
+    }
 });

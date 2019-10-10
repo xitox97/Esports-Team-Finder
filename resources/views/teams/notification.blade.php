@@ -1,91 +1,257 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Notification center</div>
+<section id="breadcrumb" class="ml-4 pt-2">
+    <span class="italic text-sm">Home / Notifications</span>
+</section>
+<div class="container ml-24 mt-12">
+    <div class="p-4">
 
-                <div class="card" >
+        <p class=" text-center font-semibold text-indigo-800 text-3xl border-b-2 border-gray-300">Notifications Dashboard</p>
 
-                    <div class="card-body">
-                      <h5 class="card-title text-center"><b>Notification center (Team)</b> </h5>
-                      <p class="card-text"></p>
-                    </div>
+        <div class="flex flex-col items-center justify-center mt-3">
+        @foreach (Auth::user()->unreadNotifications as $noti)
 
-                    @foreach (Auth::user()->unreadNotifications as $noti)
+            @if( class_basename($noti->type) == "OfferTeam")
 
-                        @if( class_basename($noti->type) == "OfferScrim")
+                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                        <div class="mr-12">
+                                <i class="material-icons md-48 text-indigo-700">transfer_within_a_station</i>
+                        </div>
+                        <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                            <p class="text-xl font-bold">
+                                    You received new offer!
+                            </p>
+                            <span class="text-md font-base">
+                                <span class="font-bold text-purple-600">Team {{ $noti->data['team_name'] }}</span> has sent you offer to join their team!
+                            </span>
+                        </div>
+                        <div class="flex">
+                            <div class="flex flex-col mr-2 cursor-pointer">
+                                <a
+                                href="/accept/{{ $noti->data['offer_id'] }}/notifications/{{$noti->id}}"
+                                role="button" aria-pressed="true">
+                                    <i class="material-icons md-48 text-green-600 hover:text-green-700">
+                                    check
+                                    </i>
+                                    <p class="text-md font-medium">Accept</p>
+                                </a>
+                            </div>
+                            <div class="flex flex-col ml-2 cursor-pointer">
+                                <a href="/reject/{{ $noti->data['offer_id'] }}/notifications/{{$noti->id}}"
+                                    role="button">
+                                    <i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                        close
+                                    </i>
+                                </a>
+                                <p class="text-md font-medium">Reject</p>
+                            </div>
+                        </div>
+                </div>
 
-                        <li>Invitation to scrim with <a href="/teams/{{$noti->data['team_id']}}"> Team {{ $noti->data['team_name'] }}</a> on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
-                            <a href="/scrims/accept/{{ $noti->data['offer_id'] }}/notifications/{{ $noti->id}}"
-                                class="btn btn-primary btn-lg active" role="button"
-                                aria-pressed="true">Accept
-                            </a>
 
-                            <a href="/scrims/reject/{{ $noti->data['offer_id'] }}/notifications/{{ $noti->id}}"
-                                class="btn btn-danger btn-lg active"
-                                role="button" aria-pressed="true">Reject
-                            </a>
-                            </li>
+            @elseif ( class_basename($noti->type) == "AcceptOffer")
 
-                        @elseif( class_basename($noti->type) == "AcceptScrim")
+                @if ($noti->data['offer_status'] == 'Accepted')
+                    <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                        <div class="mr-12">
+                                <i class="material-icons md-48 text-green-500">transfer_within_a_station</i>
+                        </div>
+                        <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                            <p class="text-xl font-bold">
+                                    Offer Accepted!
+                            </p>
+                            <span class="text-md font-base">
+                                <span class="font-bold text-purple-600"><a href="{{ url('/players/' . $noti->data['dota_id']) }}">
+                                    {{ $noti->data['steam_name'] }}</a></span> has accepts your offer.
+                            </span>
+                        </div>
+                        <div class="flex">
 
-                            @if ($noti->data['offer_status'] == 'Accepted')
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>
-                                    Team {{ $noti->data['team_name']}}
-                                </strong>has aggreed to have a <a href="{{url('/scrims-schedule')}}">scrim</a>  with you on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
+                            <div class="flex flex-col ml-2 cursor-pointer">
+                                    <form action="/notifications/{{$noti->id}}" method="post">
+                                        {{ method_field('DELETE') }}
+                                        @csrf
+                                        <button type="submit" class="close" ><i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                                close
+                                            </i>
+                                        </button>
 
-                                <form action="/notifications/{{$noti->id}}" method="post">
-                                    {{ method_field('DELETE') }}
-                                    @csrf
-
-                                    <button type="submit" class="close" > <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </form>
                             </div>
-                            @endif
-
-                        @elseif( class_basename($noti->type) == "RejectScrim")
-                            @if ($noti->data['offer_status'] == 'Rejected')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>
-                                    Team {{ $noti->data['team_name']}}
-                                </strong>has rejected to have a <a href="{{url('/scrims-schedule')}}">scrim</a>  with you on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
-
-                                <form action="/notifications/{{$noti->id}}" method="post">
-                                    {{ method_field('DELETE') }}
-                                    @csrf
-
-                                    <button type="submit" class="close" > <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </form>
-                            </div>
-                            @endif
-                        @endif
-
-                    @endforeach
-
-                    @if (session('success'))
-                    <div class="alert alert-success">
-                        <ul>
-                            <li>{{ session('success') }}</li>
-                        </ul>
+                        </div>
                     </div>
                 @endif
-                @if (session('reject'))
-                <div class="alert alert-danger">
-                    <ul>
-                        <li>{{ session('reject') }}</li>
-                    </ul>
+
+            @elseif ( class_basename($noti->type) == "RejectOffer")
+                @if ($noti->data['offer_status'] == 'Rejected')
+                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                    <div class="mr-12">
+                            <i class="material-icons md-48 text-red-500">transfer_within_a_station</i>
+                    </div>
+                    <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                        <p class="text-xl font-bold">
+                                Offer Rejected!
+                        </p>
+                        <span class="text-md font-base">
+                            <span class="font-bold text-purple-600"><a href="{{ url('/players/' . $noti->data['dota_id']) }}">
+                                {{ $noti->data['steam_name'] }}</a></span> has rejects your offer.
+                        </span>
+                    </div>
+                    <div class="flex">
+
+                        <div class="flex flex-col ml-2 cursor-pointer">
+                                <form action="/notifications/{{$noti->id}}" method="post">
+                                    {{ method_field('DELETE') }}
+                                    @csrf
+                                    <button type="submit" class="close" ><i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                            close
+                                        </i>
+                                    </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                @endif
+            @endif
+        @endforeach
+
+        @foreach (Auth::user()->unreadNotifications as $noti)
+
+            @if( class_basename($noti->type) == "OfferScrim")
+
+                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                    <div class="mr-12">
+                            <i class="material-icons md-48 text-indigo-700">sports_kabaddi</i>
+                    </div>
+                    <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                        <p class="text-xl font-bold">
+                                You received new scrim invitation!
+                        </p>
+                        <span class="text-md font-base">
+                            <span class="font-bold text-purple-600"><a href="/teams/{{$noti->data['team_id']}}"> Team {{ $noti->data['team_name'] }}</a>
+                            </span> schedule a scrim on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
+                        </span>
+                    </div>
+                    <div class="flex">
+                        <div class="flex flex-col mr-2 cursor-pointer">
+                            <a
+                            href="/scrims/accept/{{ $noti->data['offer_id'] }}/notifications/{{ $noti->id}}"
+                            role="button" aria-pressed="true">
+                                <i class="material-icons md-48 text-green-600 hover:text-green-700">
+                                check
+                                </i>
+                                <p class="text-md font-medium">Accept</p>
+                            </a>
+                        </div>
+                        <div class="flex flex-col ml-2 cursor-pointer">
+                            <a href="/scrims/reject/{{ $noti->data['offer_id'] }}/notifications/{{ $noti->id}}"
+                                role="button">
+                                <i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                    close
+                                </i>
+                            </a>
+                            <p class="text-md font-medium">Reject</p>
+                        </div>
+                    </div>
+                </div>
+
+            @elseif( class_basename($noti->type) == "AcceptScrim")
+
+                @if ($noti->data['offer_status'] == 'Accepted')
+                    <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                        <div class="mr-12">
+                                <i class="material-icons md-48 text-green-500">sports_kabaddi</i>
+                        </div>
+                        <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                            <p class="text-xl font-bold">
+                                    Scrim Invitation Accepted!
+                            </p>
+                            <span class="text-md font-base">
+                                <span class="font-bold text-purple-600"> Team {{ $noti->data['team_name']}} </span> has aggreed to <a class="font-bold text-purple-600"
+                                href="{{url('/scrims-schedule')}}">scrim</a>
+                                with you on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
+                            </span>
+                        </div>
+                        <div class="flex">
+
+                            <div class="flex flex-col ml-2 cursor-pointer">
+                                    <form action="/notifications/{{$noti->id}}" method="post">
+                                        {{ method_field('DELETE') }}
+                                        @csrf
+                                        <button type="submit" class="close" ><i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                                close
+                                            </i>
+                                        </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+            @elseif( class_basename($noti->type) == "RejectScrim")
+                @if ($noti->data['offer_status'] == 'Rejected')
+
+                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                    <div class="mr-12">
+                            <i class="material-icons md-48 text-red-500">sports_kabaddi</i>
+                    </div>
+                    <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                        <p class="text-xl font-bold">
+                                Scrim Invitation Rejected!
+                        </p>
+                        <span class="text-md font-base">
+                            <span class="font-bold text-purple-600"> Team {{ $noti->data['team_name']}} </span> has rejected to <a class="font-bold text-purple-600"
+                            href="{{url('/scrims-schedule')}}">scrim</a>
+                            with you on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
+                        </span>
+                    </div>
+                    <div class="flex">
+
+                        <div class="flex flex-col ml-2 cursor-pointer">
+                                <form action="/notifications/{{$noti->id}}" method="post">
+                                    {{ method_field('DELETE') }}
+                                    @csrf
+                                    <button type="submit" class="close" ><i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                            close
+                                        </i>
+                                    </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+            @endif
+        @endforeach
+
+            @if (session('success'))
+                <div v-show="alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded" v-on:click="hideAlert" role="alert">
+                    <strong class="font-bold">Success!</strong>
+                    <span class="block sm:inline">{{ session('success') }}</span>
+                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                    </span>
                 </div>
             @endif
-                  </div>
 
-            </div>
+            @if (session('reject'))
+                <div v-show="alert" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded " v-on:click="hideAlert" role="alert">
+                    <span class="block sm:inline">{{ session('reject') }}</span>
+                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                        <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                    </span>
+                </div>
+            @endif
+
+
         </div>
+
     </div>
 </div>
 @endsection

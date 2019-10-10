@@ -23,12 +23,19 @@ class ScrimController extends Controller
     public function index()
     {
         $id = auth()->user()->id;
-        $myTeam = auth()->user()->team;
-        foreach ($myTeam as $t) {
-            $teamid = $t->id;
+        $check = auth()->user()->team->first();
+        //dd($myTeam);
+        if ($check != null) {
+
+            $myTeam = auth()->user()->team;
+            foreach ($myTeam as $t) {
+                $teamid = $t->id;
+            }
+            $teams = Team::where('scrim', true)->get()->except($teamid);
+            return view('scrims.index', compact('teams'));
         }
-        $teams = Team::where('scrim', true)->get()->except($teamid);
-        return view('scrims.index', compact('teams'));
+
+        return view('teams.noteam');
     }
 
     public function add(Team $team)

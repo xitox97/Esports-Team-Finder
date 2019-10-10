@@ -32,20 +32,24 @@
                 <header>
                     <div class="container mx-auto pt-8 ">
                         <div class="flex">
+
                             <div class="w-1/4 flex items-center">
                                 <button class="bg-red-500  text-white font-bold py-2 px-4 rounded inline-flex items-center">
                                     <span class="text-lg">DOTA HUB</span>
                                 </button>
                             </div>
+
                             <div class="w-1/2 flex justify-center">
-                            <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Players</a>
-                            <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Teams</a>
-                            <a href="#" class="text-lg font-semibold py-6 text-white">Tournaments</a>
+                                <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Players</a>
+                                <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Teams</a>
+                                <a href="#" class="text-lg font-semibold py-6 text-white">Tournaments</a>
                             </div>
+
                             <div class="w-1/4 flex items-center  flex-row-reverse text-right">
-                            <a href="/register" class="bg-transparent hover:bg-red-500 text-white font-semibold hover:text-white py-3 px-3 border border-red-500 hover:border-transparent rounded inline-block ">Sign Up</a>
-                            <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Login</a>
+                                <a href="/register" class="bg-transparent hover:bg-red-500 text-white font-semibold hover:text-white py-3 px-3 border border-red-500 hover:border-transparent rounded inline-block ">Sign Up</a>
+                                <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Sign In</a>
                             </div>
+
                         </div>
                     </div>
                 </header>
@@ -54,7 +58,7 @@
 
                     <div class="flex ">
                             <div id="section" class="w-3/6 mr-2 pt-2">
-                                <p class="text-4xl font-sans font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
+                                <p class="text-4xl font-sans font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-sans font-bold text-white  max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
                                 <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find teammates and participate in local tournaments</p>
                                 <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> play practice match with another teams</p>
                                 <a href="/register" class="bg-red-600 hover:bg-red-700 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
