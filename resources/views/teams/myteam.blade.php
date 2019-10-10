@@ -52,7 +52,7 @@
                 </div>
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2">
                     <p class="text-center"><span class="font-semibold">City:</span> {{$myTeam->area}}</p>
-                    <p class="text-center"><span class="font-semibold">State:</span> Melaka*</p>
+                    <p class="text-center"><span class="font-semibold">State:</span> {{$myTeam->state}}</p>
                     <p class="text-center"><span class="font-semibold">Captain:</span> {{$myTeam->captain_id}}*</p>
                     <p class="text-center"><span class="font-semibold">Main Sponsor:</span>
                         @if($myTeam->sponsor == null)
