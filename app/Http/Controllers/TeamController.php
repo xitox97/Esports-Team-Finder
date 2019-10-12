@@ -57,7 +57,7 @@ class TeamController extends Controller
     {
         $request->validate([
             'captain_id' => 'required',
-            'name' => 'required',
+            'name' => 'required|unique:teams',
             'area' => 'required',
             'qtty_member' => 'required',
             'image' => 'required|image|max:1999',
@@ -189,5 +189,12 @@ class TeamController extends Controller
         $team->save();
 
         return back();
+    }
+
+    public function kick(User $user, Team $team){
+        
+        $user->team()->detach($team->id);
+        return back()->with('kick', 'The user has been kick!');
+    
     }
 }

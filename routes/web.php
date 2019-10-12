@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('teams', 'TeamController');
     Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');
     Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
+    Route::get('/kick/{user}/team/{team}', 'TeamController@kick');
 
     //recommendation
     Route::get('players/recommendation', 'RecommendationController@index');
