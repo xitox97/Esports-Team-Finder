@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tournaments/notInterested/{tournament}', 'TournamentController@notInterested');
 
     Route::get('/tournamentss', function () {
-        return Tournament::latest()->pluck('id');
+        return Tournament::first()->pluck('id');
     });
 
     //admin only

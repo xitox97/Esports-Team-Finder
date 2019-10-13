@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="tournament in tournaments" v-text="tournament"></li>
+      <p v-for="tournament in tournaments" v-text="tournament"></p>
     </ul>
   </div>
 </template>
@@ -12,14 +12,15 @@ export default {
   },
 
   created() {
-    axios
-      .get("/tournamentss")
-      .then(response => (this.tournaments = response.data));
+    // axios
+    //   .get("/tournamentss")
+    //   .then(response => (this.tournament = response.data));
+    //this.tournament = "la";
 
     window.Echo.channel("tournaments").listen(
       "TournamentAdded",
       ({ tournament }) => {
-        this.tournaments.push(tournament);
+        this.tournaments.push(tournament.name);
       }
     );
   }

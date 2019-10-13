@@ -1713,13 +1713,14 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/tournamentss").then(function (response) {
-      return _this.tournaments = response.data;
-    });
+    // axios
+    //   .get("/tournamentss")
+    //   .then(response => (this.tournament = response.data));
+    //this.tournament = "la";
     window.Echo.channel("tournaments").listen("TournamentAdded", function (_ref) {
       var tournament = _ref.tournament;
 
-      _this.tournaments.push(tournament);
+      _this.tournaments.push(tournament.name);
     });
   }
 });
@@ -47651,7 +47652,7 @@ var render = function() {
     _c(
       "ul",
       _vm._l(_vm.tournaments, function(tournament) {
-        return _c("li", { domProps: { textContent: _vm._s(tournament) } })
+        return _c("p", { domProps: { textContent: _vm._s(tournament) } })
       }),
       0
     )
