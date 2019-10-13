@@ -19,10 +19,10 @@
       rel="stylesheet">
 
 <style>
-.fade-enter-active, .fade-leave-active {
+.fadedrop-enter-active, .fadedrop-leave-active {
   transition: opacity .3s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fadedrop-enter, .fadedrop-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
     .rankMedal {
@@ -182,7 +182,7 @@
                                         </i>
                         </div>
                         <div class="mt-16">
-                            <transition name="fade">
+                            <transition name="fadedrop">
                             <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
                                     <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
