@@ -1,39 +1,27 @@
 <template>
-    <div class="container">
-        <div class="col-md-6 col-md-offset-3">
-            <button 
-             class="btn-indigo" 
-             @click="show = !show">
-                 Show
-            </button>
-        </div>
-        <br><br>
-        <transition name="fade">
-            <div class="btn-indigo" v-if="show">
-                Howdy! How cool is VueJS ?
-            </div>
-        </transition>
-    </div>
+  <div>
+    <ul>
+      <li v-for="tournament in tournaments" v-text="tournament"></li>
+    </ul>
+  </div>
 </template>
 <script>
-    export default {
-        data(){
-            return { show : false }
-        }
-    }
+export default {
+  data() {
+    return { tournaments: [] };
+  },
+
+  created() {
+    axios
+      .get("/tournamentss")
+      .then(response => (this.tournaments = response.data));
+
+    window.Echo.channel("tournaments").listen(
+      "TournamentAdded",
+      ({ tournament }) => {
+        this.tournaments.push(tournament);
+      }
+    );
+  }
+};
 </script>
-<style>
-    .fade-enter{
-        opacity: 0;
-    }
-    .fade-enter-active{
-        transition: opacity 1s;
-    }
-    .fade-leave{
-        /* opacity: 1; */
-    }
-    .fade-leave-active{
-        transition: opacity 1s;
-        opacity: 0;
-    }
-</style> 

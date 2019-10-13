@@ -40,8 +40,7 @@ export default {
     return {
       csrf: document
         .querySelector('meta[name="csrf-token"]')
-        .getAttribute("content"),
-      isOpen: true
+        .getAttribute("content")
     };
   },
   props: {

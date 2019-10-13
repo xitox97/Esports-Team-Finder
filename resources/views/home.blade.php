@@ -8,4 +8,6 @@
 <p class="text-3xl font-semibold text-indigo-700 text-center">Succesfully Login!</p>
 
 <example-component></example-component>
+
+
 @endsection

@@ -13,12 +13,14 @@
 
 use App\DotaData;
 use App\DotaJson;
+use App\Events\TournamentAdded;
 use App\Jobs\consumeOpendotaApi;
 use App\Jobs\generatePlayerRole;
 use App\Jobs\processMatches;
 use App\Knowledge;
 use App\Match;
 use App\Statistic;
+use App\Tournament;
 use App\User;
 
 Route::get('/', function () {
@@ -83,6 +85,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tournaments/interested/{tournament}', 'TournamentController@interested');
     Route::get('/tournaments/notInterested/{tournament}', 'TournamentController@notInterested');
 
+    Route::get('/tournamentss', function () {
+        return Tournament::latest()->pluck('id');
+    });
+
     //admin only
     Route::get('/admin/tournaments/create', 'TournamentController@create')->middleware('admin');
     Route::get('/admin', 'PagesController@adminIndex');
@@ -122,8 +128,9 @@ Route::group(['middleware' => 'auth'], function () {
         //     echo "<br>";
         //    }
 
-        $match = Knowledge::where('id', 4)->first();
-        dd($match->player_role['mid']);
+        // $match = Knowledge::where('id', 4)->first();
+        // dd($match->player_role['mid']);
+
         //dd($match->items['blink']['id']);
 
         //code keluar kan image based on id
@@ -133,8 +140,8 @@ Route::group(['middleware' => 'auth'], function () {
         //     echo "<br>";
         // }
 
-
-
-
+        $t = Tournament::find(2);
+        event(new TournamentAdded($t));
+        dd('la');
     });
 });

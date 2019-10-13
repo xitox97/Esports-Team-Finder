@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TournamentAdded;
 use App\Tournament;
 use Illuminate\Http\Request;
 
@@ -49,18 +50,18 @@ class TournamentController extends Controller
             'image' => 'required|image|max:1999'
         ]);
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->image;
             $ext = $image->getClientOriginalExtension();
-            $filename = uniqid().'.'.$ext;
-            $image->storeAs('public/tour',$filename);
+            $filename = uniqid() . '.' . $ext;
+            $image->storeAs('public/tour', $filename);
             $request->image = $filename;
         }
 
-       // dd($request->image);
+        // dd($request->image);
 
 
-        Tournament::create([
+        $t = Tournament::create([
             'name' => $request['name'],
             'start_date' => $request['start_date'],
             'end_date' => $request['end_date'],
@@ -69,7 +70,10 @@ class TournamentController extends Controller
             'prizepool' => $request['prizepool'],
             'organizer' => $request['organizer'],
             'image' => $request->image
-            ]);
+        ]);
+        //dd($t->id);
+
+        event(new TournamentAdded($t));
 
         return redirect('/admin/tournaments');
     }
@@ -128,14 +132,13 @@ class TournamentController extends Controller
             'image' => 'image|max:1999'
         ]);
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->image;
             $ext = $image->getClientOriginalExtension();
-            $filename = uniqid().'.'.$ext;
-            $image->storeAs('public/tour',$filename);
+            $filename = uniqid() . '.' . $ext;
+            $image->storeAs('public/tour', $filename);
             $request->image = $filename;
-        }
-        else{
+        } else {
             $request->image = $tournament->image;
         }
 
