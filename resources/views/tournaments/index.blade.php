@@ -27,7 +27,7 @@
             @foreach ($tournament as $tour)
                 <div class="max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2  bg-white  hover:bg-gray-100 ">
                     <div>
-                            <img class="w-full" src="{{  asset('storage/tour/' . $tour->image) }}" alt="">
+                            <img class="max-h-1/4 object-scale-down w-full" src="{{  asset('storage/tour/' . $tour->image) }}" alt="">
 
                     </div>
                     <div class="px-6 py-4 text-center">

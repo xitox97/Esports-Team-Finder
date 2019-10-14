@@ -9,10 +9,19 @@ module.exports = {
             linkLast: 'ml-6 border rounded',
         }),
 
+        maxHeight: {
+            '0': '0',
+            '1/4': '20rem',
+            '1/2': '50%',
+            '3/4': '75%',
+            'full': '100%',
+        },
+
         extend: {
             margin: {
                 '96': '20rem',
             },
+
         }
     },
     variants: {},

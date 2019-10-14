@@ -1770,6 +1770,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -47717,6 +47721,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "flex flex-wrap flex-row justify-center" },
     _vm._l(_vm.tournaments, function(tournament) {
       return _c(
         "div",
@@ -47727,7 +47732,7 @@ var render = function() {
         [
           _c("div", [
             _c("img", {
-              staticClass: "w-full",
+              staticClass: "max-h-1/4 object-scale-down w-full",
               attrs: { src: "/storage/tour/" + tournament.image, alt: "" }
             })
           ]),

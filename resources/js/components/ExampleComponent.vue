@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-wrap flex-row justify-center">
     <!-- <ul v-for="tournament in tournaments">
       <p class="text-indigo-500">{{tournament.name}}</p>
       <p class="text-indigo-500">{{tournament.venue}}</p>
@@ -11,7 +11,11 @@
       class="max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2 bg-white hover:bg-gray-100"
     >
       <div>
-        <img class="w-full" :src="'/storage/tour/' + tournament.image" alt />
+        <img
+          class="max-h-1/4 object-scale-down w-full"
+          :src="'/storage/tour/' + tournament.image"
+          alt
+        />
       </div>
       <div class="px-6 py-4 text-center">
         <div class="font-bold text-xl">{{ tournament.name }}</div>
