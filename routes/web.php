@@ -19,6 +19,7 @@ use App\Jobs\generatePlayerRole;
 use App\Jobs\processMatches;
 use App\Knowledge;
 use App\Match;
+use App\Notifications\TournamentAdded as AppTournamentAdded;
 use App\Statistic;
 use App\Tournament;
 use App\User;
@@ -140,8 +141,11 @@ Route::group(['middleware' => 'auth'], function () {
         //     echo $m['img'];
         //     echo "<br>";
         // }
+        $user = User::find(1);
         $t = Tournament::latest()->first();
         event(new TournamentAdded($t));
+        $user->notify(new AppTournamentAdded($t));
+
         dd('la');
     });
 });

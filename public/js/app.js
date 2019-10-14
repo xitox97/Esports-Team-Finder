@@ -1702,6 +1702,117 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      notifications: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    // axios
+    //   .get("/tournamentss")
+    //   .then(response => (this.tournaments = response.data));
+    //this.tournament = "la";
+    // window.Echo.channel("tournaments").listen(
+    //   "TournamentAdded",
+    //   ({ tournament }) => {
+    //     this.tournaments.push(tournament);
+    //   }
+    // );
+    var userId = $('meta[name="userId"]').attr("content");
+    Echo["private"]("App.User." + userId).notification(function (notification) {
+      _this.notifications.push(notification);
+
+      console.log(notification);
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+    };
+  },
+  props: {
+    isOpen: Boolean,
+    user: Object
+  },
+  methods: {
+    home: function home() {
+      window.location.href = "/";
+    },
+    submit: function submit() {
+      this.$refs.form.submit();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TournamentComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TournamentComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1793,73 +1904,6 @@ __webpack_require__.r(__webpack_exports__);
 
       _this.tournaments.push(tournament);
     });
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
-    };
-  },
-  props: {
-    isOpen: Boolean,
-    user: Object
-  },
-  methods: {
-    home: function home() {
-      window.location.href = "/";
-    },
-    submit: function submit() {
-      this.$refs.form.submit();
-    }
   }
 });
 
@@ -47721,97 +47765,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-wrap flex-row justify-center" },
-    _vm._l(_vm.tournaments, function(tournament) {
-      return _c(
-        "div",
-        {
-          staticClass:
-            "max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2 bg-white hover:bg-gray-100"
-        },
-        [
-          _c("div", [
-            _c("img", {
-              staticClass: "max-h-1/4 object-scale-down w-full",
-              attrs: { src: "/storage/tour/" + tournament.image, alt: "" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "px-6 py-4 text-center" }, [
-            _c("div", { staticClass: "font-bold text-xl" }, [
-              _vm._v(_vm._s(tournament.name))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "font-medium text-md mb-2" }, [
-              _vm._v("Prize Pool: RM " + _vm._s(tournament.prizepool))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
-              _c("span", { staticClass: "font-medium capitalize" }, [
-                _vm._v("Organizer:")
-              ]),
-              _vm._v("\n        " + _vm._s(tournament.organizer) + "\n      ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
-              _c("span", { staticClass: "font-medium capitalize" }, [
-                _vm._v("Date:")
-              ]),
-              _vm._v(
-                "\n        " +
-                  _vm._s(tournament.start_date) +
-                  " until " +
-                  _vm._s(tournament.end_date) +
-                  "\n      "
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
-              _c("span", { staticClass: "font-medium capitalize" }, [
-                _vm._v("venue:")
-              ]),
-              _vm._v("\n        " + _vm._s(tournament.venue) + "\n      ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
-              _c("span", { staticClass: "font-medium capitalize" }, [
-                _vm._v("State:")
-              ]),
-              _vm._v("\n        " + _vm._s(tournament.state) + "\n      ")
-            ]),
-            _vm._v(" "),
-            tournament.status == 1
-              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
-                  _c("span", { staticClass: "font-medium capitalize" }, [
-                    _vm._v("Status:")
-                  ]),
-                  _vm._v(" Ended\n      ")
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            tournament.status != 1
-              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
-                  _c("span", { staticClass: "font-medium capitalize" }, [
-                    _vm._v("Status:")
-                  ]),
-                  _vm._v(" Upcoming\n      ")
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center pb-3 -mt-3" }, [
-            _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block bg-green-500 rounded-full px-3 py-1 text-md font-semibold text-white mt-3 text-center hover:bg-green-600",
-                attrs: { href: "/tournaments/interested/" + tournament.id }
-              },
-              [_vm._v("Interested")]
-            )
-          ])
-        ]
-      )
+    _vm._l(_vm.notifications, function(noti) {
+      return _c("p", { domProps: { textContent: _vm._s(noti) } })
     }),
     0
   )
@@ -47936,6 +47891,125 @@ var render = function() {
       ]
     )
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TournamentComponent.vue?vue&type=template&id=275ea60e&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TournamentComponent.vue?vue&type=template&id=275ea60e& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "flex flex-wrap flex-row justify-center" },
+    _vm._l(_vm.tournaments, function(tournament) {
+      return _c(
+        "div",
+        {
+          staticClass:
+            "max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2 bg-white hover:bg-gray-100"
+        },
+        [
+          _c("div", [
+            _c("img", {
+              staticClass: "max-h-1/4 object-scale-down w-full",
+              attrs: { src: "/storage/tour/" + tournament.image, alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "px-6 py-4 text-center" }, [
+            _c("div", { staticClass: "font-bold text-xl" }, [
+              _vm._v(_vm._s(tournament.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "font-medium text-md mb-2" }, [
+              _vm._v("Prize Pool: RM " + _vm._s(tournament.prizepool))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("Organizer:")
+              ]),
+              _vm._v("\n        " + _vm._s(tournament.organizer) + "\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("Date:")
+              ]),
+              _vm._v(
+                "\n        " +
+                  _vm._s(tournament.start_date) +
+                  " until " +
+                  _vm._s(tournament.end_date) +
+                  "\n      "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("venue:")
+              ]),
+              _vm._v("\n        " + _vm._s(tournament.venue) + "\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("State:")
+              ]),
+              _vm._v("\n        " + _vm._s(tournament.state) + "\n      ")
+            ]),
+            _vm._v(" "),
+            tournament.status == 1
+              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
+                  _c("span", { staticClass: "font-medium capitalize" }, [
+                    _vm._v("Status:")
+                  ]),
+                  _vm._v(" Ended\n      ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            tournament.status != 1
+              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
+                  _c("span", { staticClass: "font-medium capitalize" }, [
+                    _vm._v("Status:")
+                  ]),
+                  _vm._v(" Upcoming\n      ")
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-center pb-3 -mt-3" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "inline-block bg-green-500 rounded-full px-3 py-1 text-md font-semibold text-white mt-3 text-center hover:bg-green-600",
+                attrs: { href: "/tournaments/interested/" + tournament.id }
+              },
+              [_vm._v("Interested")]
+            )
+          ])
+        ]
+      )
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -60113,6 +60187,7 @@ Vue.use(vue_click_outside__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('sidebar-component', __webpack_require__(/*! ./components/SidebarComponent.vue */ "./resources/js/components/SidebarComponent.vue")["default"]);
+Vue.component('tournament-component', __webpack_require__(/*! ./components/TournamentComponent.vue */ "./resources/js/components/TournamentComponent.vue")["default"]);
 new Vue({
   el: '#app',
   data: function data() {
@@ -60379,6 +60454,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarComponent_vue_vue_type_template_id_54833a28___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarComponent_vue_vue_type_template_id_54833a28___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TournamentComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/TournamentComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TournamentComponent_vue_vue_type_template_id_275ea60e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TournamentComponent.vue?vue&type=template&id=275ea60e& */ "./resources/js/components/TournamentComponent.vue?vue&type=template&id=275ea60e&");
+/* harmony import */ var _TournamentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TournamentComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/TournamentComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TournamentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TournamentComponent_vue_vue_type_template_id_275ea60e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TournamentComponent_vue_vue_type_template_id_275ea60e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TournamentComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TournamentComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/TournamentComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TournamentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TournamentComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TournamentComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TournamentComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TournamentComponent.vue?vue&type=template&id=275ea60e&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/TournamentComponent.vue?vue&type=template&id=275ea60e& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TournamentComponent_vue_vue_type_template_id_275ea60e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TournamentComponent.vue?vue&type=template&id=275ea60e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TournamentComponent.vue?vue&type=template&id=275ea60e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TournamentComponent_vue_vue_type_template_id_275ea60e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TournamentComponent_vue_vue_type_template_id_275ea60e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

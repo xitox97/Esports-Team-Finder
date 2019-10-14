@@ -67,7 +67,7 @@
 
                 </div>
             @endforeach
-            <example-component></example-component>
+            <tournament-component></tournament-component>
         </div>
 
     </div>

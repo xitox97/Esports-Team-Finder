@@ -24,6 +24,7 @@ Vue.use(ClickOutside);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('sidebar-component', require('./components/SidebarComponent.vue').default);
+Vue.component('tournament-component', require('./components/TournamentComponent.vue').default);
 
 new Vue({
 
