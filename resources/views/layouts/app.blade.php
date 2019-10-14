@@ -200,6 +200,7 @@
 
                     </div>
                 </header>
+                <alert-component></alert-component>
 
                 <section id="content-div" class="bg-gray-200 h-full pb-20">
                                 @yield('content')
