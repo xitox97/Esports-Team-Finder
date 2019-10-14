@@ -1704,10 +1704,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tournaments: []
+      tournaments: [],
+      check: false
     };
   },
   created: function created() {
@@ -1715,12 +1782,12 @@ __webpack_require__.r(__webpack_exports__);
 
     // axios
     //   .get("/tournamentss")
-    //   .then(response => (this.tournament = response.data));
+    //   .then(response => (this.tournaments = response.data));
     //this.tournament = "la";
     window.Echo.channel("tournaments").listen("TournamentAdded", function (_ref) {
       var tournament = _ref.tournament;
 
-      _this.tournaments.push(tournament.name);
+      _this.tournaments.push(tournament);
     });
   }
 });
@@ -47648,15 +47715,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "ul",
-      _vm._l(_vm.tournaments, function(tournament) {
-        return _c("p", { domProps: { textContent: _vm._s(tournament) } })
-      }),
-      0
-    )
-  ])
+  return _c(
+    "div",
+    _vm._l(_vm.tournaments, function(tournament) {
+      return _c(
+        "div",
+        {
+          staticClass:
+            "max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2 bg-white hover:bg-gray-100"
+        },
+        [
+          _c("div", [
+            _c("img", {
+              staticClass: "w-full",
+              attrs: { src: "/storage/tour/" + tournament.image, alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "px-6 py-4 text-center" }, [
+            _c("div", { staticClass: "font-bold text-xl" }, [
+              _vm._v(_vm._s(tournament.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "font-medium text-md mb-2" }, [
+              _vm._v("Prize Pool: RM " + _vm._s(tournament.prizepool))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("Organizer:")
+              ]),
+              _vm._v("\n        " + _vm._s(tournament.organizer) + "\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("Date:")
+              ]),
+              _vm._v(
+                "\n        " +
+                  _vm._s(tournament.start_date) +
+                  " until " +
+                  _vm._s(tournament.end_date) +
+                  "\n      "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("venue:")
+              ]),
+              _vm._v("\n        " + _vm._s(tournament.venue) + "\n      ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-700 text-base" }, [
+              _c("span", { staticClass: "font-medium capitalize" }, [
+                _vm._v("State:")
+              ]),
+              _vm._v("\n        " + _vm._s(tournament.state) + "\n      ")
+            ]),
+            _vm._v(" "),
+            tournament.status == 1
+              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
+                  _c("span", { staticClass: "font-medium capitalize" }, [
+                    _vm._v("Status:")
+                  ]),
+                  _vm._v(" Ended\n      ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            tournament.status != 1
+              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
+                  _c("span", { staticClass: "font-medium capitalize" }, [
+                    _vm._v("Status:")
+                  ]),
+                  _vm._v(" Upcoming\n      ")
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-center pb-3 -mt-3" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "inline-block bg-green-500 rounded-full px-3 py-1 text-md font-semibold text-white mt-3 text-center hover:bg-green-600",
+                attrs: { href: "/tournaments/interested/" + tournament.id }
+              },
+              [_vm._v("Interested")]
+            )
+          ])
+        ]
+      )
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -86,7 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tournaments/notInterested/{tournament}', 'TournamentController@notInterested');
 
     Route::get('/tournamentss', function () {
-        return Tournament::first()->pluck('id');
+        //return Tournament::all();
+        return Tournament::latest()->first();
     });
 
     //admin only
@@ -139,8 +140,7 @@ Route::group(['middleware' => 'auth'], function () {
         //     echo $m['img'];
         //     echo "<br>";
         // }
-
-        $t = Tournament::find(2);
+        $t = Tournament::latest()->first();
         event(new TournamentAdded($t));
         dd('la');
     });
