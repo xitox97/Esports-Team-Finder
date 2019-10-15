@@ -61615,7 +61615,8 @@ new Vue({
       alert: true,
       team: false,
       notification: false,
-      bell: false
+      bell: false,
+      count: 0
     };
   },
   created: function created() {
@@ -61624,6 +61625,7 @@ new Vue({
     var userId = $('meta[name="userId"]').attr("content");
     Echo["private"]("App.User." + userId).notification(function (notification) {
       _this.bell = true;
+      _this.count++;
     });
   },
   methods: {

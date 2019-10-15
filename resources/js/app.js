@@ -44,6 +44,7 @@ new Vue({
             team: false,
             notification: false,
             bell: false,
+            count: 0,
         };
     },
 
@@ -51,6 +52,7 @@ new Vue({
         var userId = $('meta[name="userId"]').attr("content");
         Echo.private("App.User." + userId).notification(notification => {
             this.bell = true;
+            this.count++;
         });
     },
 

@@ -139,13 +139,14 @@
                         {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
                         <div class="mx-3">
                                 @if (count(Auth::user()->unreadNotifications))
-                                <div class="relative">
-                                    <i  v-click-outside="hideNoti" @click="noti" class=" material-icons mt-1 text-yellow-500  cursor-pointer">
-                                        notifications
-                                            </i> <span class="absolute text-white rounded-full bg-red-500 p-1">1</span>
+                                <div class="mr-3 cursor-pointer" v-click-outside="hideNoti" @click="noti" v-bind:kira="{{count(Auth::user()->unreadNotifications)}}">
+                                        <i
+                                        class="material-icons mt-1 text-yellow-500   md-36">
+                                                notifications_active
+                                        </i>
+                                    <span class="absolute -mt-2 -ml-2 text-white rounded-full bg-red-500 text-sm px-1">
+                                        <p>{{count(Auth::user()->unreadNotifications)}}</p></span>
                                 </div>
-
-
                             <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
                             right-0 text-center w-auto">
 
@@ -157,12 +158,29 @@
                                       See All Notifications</a>
                                 </div>
                                 @else
-                                <i  v-if="bell == false"  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
-                                        notifications_none
-                                            </i>
-                                <i  v-if="bell == true"  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
-                                    notifications
+                                <div class="mr-3 cursor-pointer" v-click-outside="hideNoti" @click="noti" v-if="bell == false">
+                                        <i
+                                        class="material-icons mt-1 text-yellow-500   md-36">
+                                        notifications
                                         </i>
+                                    <span class="absolute -mt-2 -ml-2 text-white rounded-full bg-red-500 text-sm px-1">
+                                        <p v-text="count"></p></span>
+                                </div>
+
+                                {{-- <i  v-if="bell == false"  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                        notifications
+                                            </i> --}}
+                                <div class="mr-3 cursor-pointer" v-click-outside="hideNoti" @click="noti" v-if="bell == true">
+                                        <i
+                                        class="material-icons mt-1 text-yellow-500   md-36">
+                                        notifications_active
+                                        </i>
+                                    <span class="absolute -mt-2 -ml-2 text-white rounded-full bg-red-500 text-sm px-1">
+                                        <p v-text="count"></p></span>
+                                </div>
+                                {{-- <i  v-if="bell == true"  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                    notifications_active
+                                        </i> --}}
                                 <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
                                 right-0 text-center w-2/12">
 
