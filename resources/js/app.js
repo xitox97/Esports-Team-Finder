@@ -28,10 +28,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('sidebar-component', require('./components/SidebarComponent.vue').default);
 Vue.component('tournament-component', require('./components/TournamentComponent.vue').default);
 Vue.component('alert-component', require('./components/AlertComponent.vue').default);
+Vue.component('noti-component', require('./components/NotiComponent.vue').default);
 
 new Vue({
 
     el: '#app',
+
     data() {
         return {
             isOpen: true,
@@ -40,8 +42,16 @@ new Vue({
             opened: false,
             alert: true,
             team: false,
-            notification: false
+            notification: false,
+            bell: false,
         };
+    },
+
+    created() {
+        var userId = $('meta[name="userId"]').attr("content");
+        Echo.private("App.User." + userId).notification(notification => {
+            this.bell = true;
+        });
     },
 
     methods: {
@@ -73,30 +83,7 @@ new Vue({
         noti() {
             this.notification = !this.notification;
         },
-        clear() {
-            // remove all notifications
-            this.$notify({
-                group: 'foo',
-                clean: true
-            })
-        },
-        notify() {
-            this.$notify({
-                group: 'foo',
-                title: '<h4>Nothing!</h4>',
-                text: 'Don`t eat it!',
-                type: 'warning',
-                duration: -10
-            })
-        },
-        notificate() {
-            this.$notify({
-                group: 'app',
-                text: '<p><b>How about No?</b></p>',
-                type: 'error',
-                speed: 3000
-            })
-        },
+
     },
 
     directives: {

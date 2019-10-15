@@ -6,6 +6,7 @@ use App\Offer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class RejectOffer extends Notification
@@ -31,7 +32,7 @@ class RejectOffer extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -43,9 +44,9 @@ class RejectOffer extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
@@ -63,5 +64,20 @@ class RejectOffer extends Notification
             'dota_id' => $this->offer->user->accounts->dota_id,
             'offer_status' => $this->offer->status,
         ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
+        // return new BroadcastMessage([
+        //     $this->tournament
+        // ]);
+
+        return (new BroadcastMessage([
+            'user_id' => $this->offer->user->id,
+            'steam_name' => $this->offer->user->accounts->steam_name,
+            'offer_id' => $this->offer->id,
+            'dota_id' => $this->offer->user->accounts->dota_id,
+            'offer_status' => $this->offer->status,
+        ]))->onConnection('sync');
     }
 }

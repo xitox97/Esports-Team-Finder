@@ -8,13 +8,14 @@ use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class RejectScrim extends Notification
 {
     use Queueable;
 
-    protected $scrim,$team;
+    protected $scrim, $team;
 
     /**
      * Create a new notification instance.
@@ -36,7 +37,7 @@ class RejectScrim extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -48,9 +49,9 @@ class RejectScrim extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
     /**
@@ -71,5 +72,21 @@ class RejectScrim extends Notification
             'offer_time' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('h:i:s a'),
             'offer_date' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y'),
         ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
+        // return new BroadcastMessage([
+        //     $this->tournament
+        // ]);
+        $date = Carbon::parse($this->scrim->date_time);
+        return (new BroadcastMessage([
+            'team_id' => $this->team->id,
+            'team_name' => $this->team->name,
+            'offer_id' => $this->scrim->id,
+            'offer_status' => $this->scrim->status,
+            'offer_time' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('h:i:s a'),
+            'offer_date' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y'),
+        ]))->onConnection('sync');
     }
 }

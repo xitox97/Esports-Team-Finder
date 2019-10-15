@@ -139,9 +139,12 @@
                         {{-- <h1 class=" text-2xl font-sans m-auto">Dream Team</h1> --}}
                         <div class="mx-3">
                                 @if (count(Auth::user()->unreadNotifications))
-                                <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
-                                    notifications
-                                        </i>
+                                <div class="relative">
+                                    <i  v-click-outside="hideNoti" @click="noti" class=" material-icons mt-1 text-yellow-500  cursor-pointer">
+                                        notifications
+                                            </i> <span class="absolute text-white rounded-full bg-red-500 p-1">1</span>
+                                </div>
+
 
                             <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
                             right-0 text-center w-auto">
@@ -149,20 +152,24 @@
                                 @foreach(Auth::user()->unreadNotifications as $noti)
                                         @include('notifications.' . snake_case(class_basename($noti->type)))
                                     @endforeach
-
+                                        <noti-component v-bind:realnoti="true"></noti-component>
                                     <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
                                       See All Notifications</a>
                                 </div>
                                 @else
-                                <i  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                <i  v-if="bell == false"  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
                                         notifications_none
                                             </i>
+                                <i  v-if="bell == true"  v-click-outside="hideNoti" @click="noti" class="material-icons mt-1 text-yellow-500  cursor-pointer">
+                                    notifications
+                                        </i>
                                 <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
                                 right-0 text-center w-2/12">
 
-                                <p class="block text-default py-2 px-4 no-underline
+                                {{-- <p class="block text-default py-2 px-4 no-underline
                                 text-md leading-loose ml-1 my-1 hover:bg-gray-200">
-                                    No notification</p>
+                                    No notification</p> --}}
+                                    <noti-component v-bind:realnoti="bell"></noti-component>
                                     <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
                                         See All Notifications</a>
 
