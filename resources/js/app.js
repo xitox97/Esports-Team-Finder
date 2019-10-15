@@ -50,6 +50,9 @@ new Vue({
 
     created() {
         var userId = $('meta[name="userId"]').attr("content");
+        var kira = $('meta[name="noticount"]').attr("content");
+        //console.log(kira);
+        this.count = parseInt(kira);
         Echo.private("App.User." + userId).notification(notification => {
             this.bell = true;
             this.count++;

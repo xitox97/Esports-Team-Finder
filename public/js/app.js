@@ -61623,6 +61623,9 @@ new Vue({
     var _this = this;
 
     var userId = $('meta[name="userId"]').attr("content");
+    var kira = $('meta[name="noticount"]').attr("content"); //console.log(kira);
+
+    this.count = parseInt(kira);
     Echo["private"]("App.User." + userId).notification(function (notification) {
       _this.bell = true;
       _this.count++;
