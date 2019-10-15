@@ -144,8 +144,8 @@ Route::group(['middleware' => 'auth'], function () {
         // }
         $user = User::find(1);
         $t = Tournament::latest()->first();
-        event(new TournamentAdded($t));
-        //$user->notify(new AppTournamentAdded($t));
+        //event(new TournamentAdded($t));
+        $user->notify(new AppTournamentAdded($t));
         //Notification::send($user, new AppTournamentAdded($t));
         dd('la');
     });

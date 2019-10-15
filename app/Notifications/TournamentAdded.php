@@ -72,12 +72,10 @@ class TournamentAdded extends Notification
 
     public function toBroadcast($notifiable)
     {
-        return new BroadcastMessage([
-            $this->tournament
-        ]);
-
-        // return (new BroadcastMessage([
+        // return new BroadcastMessage([
         //     $this->tournament
-        // ]))->onConnectionn('sync');
+        // ]);
+
+        return (new BroadcastMessage([$this->tournament]))->onConnection('sync');
     }
 }
