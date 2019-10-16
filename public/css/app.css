@@ -5111,12 +5111,24 @@ video {
   margin-left: -1px !important;
 }
 
-.max-h-full {
-  max-height: 100% !important;
+.max-h-0 {
+  max-height: 0 !important;
 }
 
-.max-h-screen {
-  max-height: 100vh !important;
+.max-h-1\/4 {
+  max-height: 20rem !important;
+}
+
+.max-h-1\/2 {
+  max-height: 50% !important;
+}
+
+.max-h-3\/4 {
+  max-height: 75% !important;
+}
+
+.max-h-full {
+  max-height: 100% !important;
 }
 
 .max-w-xs {
@@ -15876,12 +15888,24 @@ video {
     margin-left: -1px !important;
   }
 
-  .sm\:max-h-full {
-    max-height: 100% !important;
+  .sm\:max-h-0 {
+    max-height: 0 !important;
   }
 
-  .sm\:max-h-screen {
-    max-height: 100vh !important;
+  .sm\:max-h-1\/4 {
+    max-height: 20rem !important;
+  }
+
+  .sm\:max-h-1\/2 {
+    max-height: 50% !important;
+  }
+
+  .sm\:max-h-3\/4 {
+    max-height: 75% !important;
+  }
+
+  .sm\:max-h-full {
+    max-height: 100% !important;
   }
 
   .sm\:max-w-xs {
@@ -26642,12 +26666,24 @@ video {
     margin-left: -1px !important;
   }
 
-  .md\:max-h-full {
-    max-height: 100% !important;
+  .md\:max-h-0 {
+    max-height: 0 !important;
   }
 
-  .md\:max-h-screen {
-    max-height: 100vh !important;
+  .md\:max-h-1\/4 {
+    max-height: 20rem !important;
+  }
+
+  .md\:max-h-1\/2 {
+    max-height: 50% !important;
+  }
+
+  .md\:max-h-3\/4 {
+    max-height: 75% !important;
+  }
+
+  .md\:max-h-full {
+    max-height: 100% !important;
   }
 
   .md\:max-w-xs {
@@ -37408,12 +37444,24 @@ video {
     margin-left: -1px !important;
   }
 
-  .lg\:max-h-full {
-    max-height: 100% !important;
+  .lg\:max-h-0 {
+    max-height: 0 !important;
   }
 
-  .lg\:max-h-screen {
-    max-height: 100vh !important;
+  .lg\:max-h-1\/4 {
+    max-height: 20rem !important;
+  }
+
+  .lg\:max-h-1\/2 {
+    max-height: 50% !important;
+  }
+
+  .lg\:max-h-3\/4 {
+    max-height: 75% !important;
+  }
+
+  .lg\:max-h-full {
+    max-height: 100% !important;
   }
 
   .lg\:max-w-xs {
@@ -48174,12 +48222,24 @@ video {
     margin-left: -1px !important;
   }
 
-  .xl\:max-h-full {
-    max-height: 100% !important;
+  .xl\:max-h-0 {
+    max-height: 0 !important;
   }
 
-  .xl\:max-h-screen {
-    max-height: 100vh !important;
+  .xl\:max-h-1\/4 {
+    max-height: 20rem !important;
+  }
+
+  .xl\:max-h-1\/2 {
+    max-height: 50% !important;
+  }
+
+  .xl\:max-h-3\/4 {
+    max-height: 75% !important;
+  }
+
+  .xl\:max-h-full {
+    max-height: 100% !important;
   }
 
   .xl\:max-w-xs {

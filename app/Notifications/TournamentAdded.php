@@ -2,26 +2,27 @@
 
 namespace App\Notifications;
 
-use App\Offer;
+use App\Tournament;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class RejectOffer extends Notification
+class TournamentAdded extends Notification
 {
     use Queueable;
 
-    protected $offer;
+    protected $tournament;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Offer $offer)
+    public function __construct(Tournament $tournament)
     {
-        $this->offer = $offer;
+        $this->tournament = $tournament;
     }
 
     /**
@@ -58,11 +59,14 @@ class RejectOffer extends Notification
     public function toArray($notifiable)
     {
         return [
-            'user_id' => $this->offer->user->id,
-            'steam_name' => $this->offer->user->accounts->steam_name,
-            'offer_id' => $this->offer->id,
-            'dota_id' => $this->offer->user->accounts->dota_id,
-            'offer_status' => $this->offer->status,
+            $this->tournament
+        ];
+    }
+
+    public function toDatabase($notifiable)
+    {
+        return [
+            'name' => $this->tournament->name
         ];
     }
 
@@ -72,12 +76,6 @@ class RejectOffer extends Notification
         //     $this->tournament
         // ]);
 
-        return (new BroadcastMessage([
-            'user_id' => $this->offer->user->id,
-            'steam_name' => $this->offer->user->accounts->steam_name,
-            'offer_id' => $this->offer->id,
-            'dota_id' => $this->offer->user->accounts->dota_id,
-            'offer_status' => $this->offer->status,
-        ]))->onConnection('sync');
+        return (new BroadcastMessage([$this->tournament]))->onConnection('sync');
     }
 }

@@ -191,10 +191,10 @@ class TeamController extends Controller
         return back();
     }
 
-    public function kick(User $user, Team $team){
-        
+    public function kick(User $user, Team $team)
+    {
+
         $user->team()->detach($team->id);
         return back()->with('kick', 'The user has been kick!');
-    
     }
 }

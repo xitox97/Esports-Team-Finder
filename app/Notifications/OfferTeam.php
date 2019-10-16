@@ -7,6 +7,7 @@ use App\Team;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class OfferTeam extends Notification
@@ -15,7 +16,7 @@ class OfferTeam extends Notification
 
     use Queueable;
 
-    protected $offer,$team;
+    protected $offer, $team;
 
     /**
      * Create a new notification instance.
@@ -37,7 +38,7 @@ class OfferTeam extends Notification
     public function via($notifiable)
     {
         //return ['mail'];
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -49,9 +50,9 @@ class OfferTeam extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('There are new offer to join Dota 2 Team from Team ' . $this->offer->team->name)
-                    ->action('View', url('/notifications'))
-                    ->line('Good luck, Have Fun!');
+            ->line('There are new offer to join Dota 2 Team from Team ' . $this->offer->team->name)
+            ->action('View', url('/notifications'))
+            ->line('Good luck, Have Fun!');
     }
 
     /**
@@ -71,5 +72,22 @@ class OfferTeam extends Notification
             'team_name' => $this->team->name,
             'team_id' => $this->team->id,
         ];
+    }
+
+    public function toBroadcast($notifiable)
+    {
+        // return new BroadcastMessage([
+        //     $this->tournament
+        // ]);
+
+        return (new BroadcastMessage([
+            'user_id' => $this->offer->user->id,
+            'steam_name' => $this->offer->user->accounts->steam_name,
+            'offer_id' => $this->offer->id,
+            'dota_id' => $this->offer->user->accounts->dota_id,
+            'offer_status' => $this->offer->status,
+            'team_name' => $this->team->name,
+            'team_id' => $this->team->id,
+        ]))->onConnection('sync');
     }
 }

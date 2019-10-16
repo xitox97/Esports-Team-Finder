@@ -22,7 +22,7 @@
                 </div>
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2">
                     <p class="text-center"><span class="font-semibold">City:</span> {{$team->area}}</p>
-                    <p class="text-center"><span class="font-semibold">State:</span> {{$myTeam->state}}</p>
+                    <p class="text-center"><span class="font-semibold">State:</span> {{$team->state}}</p>
                     <p class="text-center"><span class="font-semibold">Captain:</span> {{$team->captain_id}}*</p>
                     <p class="text-center"><span class="font-semibold">Sponsor:</span> Razer* Logitech*</p>
                     <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,

@@ -9,8 +9,10 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import ClickOutside from "vue-click-outside";
+import Notifications from 'vue-notification';
 
 Vue.use(ClickOutside);
+Vue.use(Notifications);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,10 +26,14 @@ Vue.use(ClickOutside);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('sidebar-component', require('./components/SidebarComponent.vue').default);
+Vue.component('tournament-component', require('./components/TournamentComponent.vue').default);
+Vue.component('alert-component', require('./components/AlertComponent.vue').default);
+Vue.component('noti-component', require('./components/NotiComponent.vue').default);
 
 new Vue({
 
     el: '#app',
+
     data() {
         return {
             isOpen: true,
@@ -36,8 +42,21 @@ new Vue({
             opened: false,
             alert: true,
             team: false,
-            notification: false
+            notification: false,
+            bell: false,
+            count: 0,
         };
+    },
+
+    created() {
+        var userId = $('meta[name="userId"]').attr("content");
+        var kira = $('meta[name="noticount"]').attr("content");
+        //console.log(kira);
+        this.count = parseInt(kira);
+        Echo.private("App.User." + userId).notification(notification => {
+            this.bell = true;
+            this.count++;
+        });
     },
 
     methods: {
@@ -68,7 +87,8 @@ new Vue({
         },
         noti() {
             this.notification = !this.notification;
-        }
+        },
+
     },
 
     directives: {

@@ -1,39 +1,24 @@
 <template>
-    <div class="container">
-        <div class="col-md-6 col-md-offset-3">
-            <button 
-             class="btn-indigo" 
-             @click="show = !show">
-                 Show
-            </button>
-        </div>
-        <br><br>
-        <transition name="fade">
-            <div class="btn-indigo" v-if="show">
-                Howdy! How cool is VueJS ?
-            </div>
-        </transition>
+  <div>
+    <div v-for="noti in notifications">
+      <p v-text="noti"></p>
     </div>
+  </div>
 </template>
 <script>
-    export default {
-        data(){
-            return { show : false }
-        }
-    }
+export default {
+  data() {
+    return {
+      notifications: []
+    };
+  },
+
+  created() {
+    var userId = $('meta[name="userId"]').attr("content");
+    Echo.private("App.User." + userId).notification(notification => {
+      this.notifications.push(notification);
+      console.log(notification);
+    });
+  }
+};
 </script>
-<style>
-    .fade-enter{
-        opacity: 0;
-    }
-    .fade-enter-active{
-        transition: opacity 1s;
-    }
-    .fade-leave{
-        /* opacity: 1; */
-    }
-    .fade-leave-active{
-        transition: opacity 1s;
-        opacity: 0;
-    }
-</style> 
