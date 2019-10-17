@@ -8,7 +8,7 @@
     <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">
         <div class="flex flex-wrap">
 
-        @foreach ($teams as $team)
+        @forelse ($teams as $team)
                 <div class="bg-white w-1/4 flex flex-col m-2 shadow-lg rounded-t-lg">
                     <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">
                     <div class="flex p-4 border-b border-gray-300">
@@ -42,7 +42,15 @@
                         <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">View Details</a>
                     </div> --}}
                 </div>
-        @endforeach
+                @empty
+                <div class="container ml-20 mt-12 max-w-6xl mr-2">
+                    <div class="bg-purple-100 border-t border-b border-purple-500 text-purple-700 px-4 py-3 text-center" role="alert">
+                        <p class="font-bold text-lg">Currently there is no team wanted to scrim</p>
+                        <p class="text-md">Please come back later.</p>
+                    </div>
+
+                </div>
+        @endforelse
         </div>
     </div>
 

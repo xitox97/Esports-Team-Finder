@@ -64,16 +64,14 @@
                                 <a href="/register" class="bg-red-600 hover:bg-red-700 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
                             </div>
 
-                            <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
+                            {{-- <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
                                 <div class="w3-content w3-section" >
                                         <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:90%">
                                         <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:90%">
                                         <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:90%">
                                       </div>
-                                {{-- <img src="{{asset('img/og1.jpg')}}" class="w-2/5 shadow-2xl">
-                                <img src="{{asset('img/liquid.jpg')}}" class="w-2/5 shadow-2xl">
-                                <img src="{{asset('img/lgd.jpg')}}" class="w-2/5 shadow-2xl"> --}}
-                            </div>
+
+                            </div> --}}
                     </div>
                 </div>
             </div>
