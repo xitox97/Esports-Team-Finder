@@ -1,0 +1,146 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+p {
+    font-size: 13px;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.base_receive p {
+    background: #4bdbe6;
+}
+
+.base_sent p {
+    background: #e674a8;
+}
+
+time {
+    font-size: 11px;
+    font-style: italic;
+}
+
+#login-box {
+    margin-top: 20px
+}
+
+#chat_box {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 27%;
+}
+
+.close-chat {
+    margin-top: -17px;
+    cursor: pointer;
+}
+
+.chat_box {
+    margin-right: 25px;
+    width: 310px;
+}
+
+.chat-area {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+#users li {
+    margin-bottom: 5px;
+}
+
+#chat-overlay {
+    position: fixed;
+    right: 0%;
+    bottom: 0%;
+}
+
+.glyphicon-ok {
+    color: #42b7dd;
+}
+
+.loader {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

@@ -139,4 +139,11 @@ class PagesController extends Controller
             return view('users.stats_totals_none', compact('fetchPlayers'));
         }
     }
+
+    public function chat()
+    {
+        $users = User::where('id', '!=', auth()->user()->id)->get();
+
+        return view('chat', compact('users'));
+    }
 }

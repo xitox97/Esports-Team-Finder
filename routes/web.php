@@ -76,6 +76,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('players/{player}/heroes', 'PagesController@heroes');
     Route::get('players/{player}/totals', 'PagesController@totals');
 
+    //chat
+    Route::get('/chat', 'PagesController@chat');
+    Route::get('/load-latest-messages', 'MessagesController@getLoadLatestMessages');
+    Route::post('/send', 'MessagesController@postSendMessage');
+    Route::get('/fetch-old-messages', 'MessagesController@getOldMessages');
+
     //achivement
     Route::get('players/{player}/achievements', 'AchievementController@index');
     Route::get('players/{player}/achievements/create', 'AchievementController@create');
