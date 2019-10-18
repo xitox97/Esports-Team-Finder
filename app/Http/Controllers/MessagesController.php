@@ -22,7 +22,7 @@ class MessagesController extends Controller
     public function index()
     {
         // All threads, ignore deleted/archived participants
-        $threads = Thread::getAllLatest()->get();
+        //$threads = Thread::getAllLatest()->get();
         // $participant = Participant::find(8);
         // foreach($threads->users as $user){
         //     dd($user->where('id', 1));
@@ -33,8 +33,8 @@ class MessagesController extends Controller
         //dd($participant->user);
 
         // All threads that user is participating in
-        // $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
-
+        $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
+        // dd($threads);
         // All threads that user is participating in, with new messages
         // $threads = Thread::forUserWithNewMessages(Auth::id())->latest('updated_at')->get();
 
