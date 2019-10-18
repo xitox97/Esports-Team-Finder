@@ -66,7 +66,10 @@ class MessagesController extends Controller
 
         $thread->markAsRead($userId);
 
-        return view('messenger.show', compact('thread', 'users'));
+         $receiver = $thread->participants()->where('user_id','!=', auth()->user()->id)->firstOrFail();
+        $sendTo = $receiver->user;
+        //dd($sendTo);
+        return view('messenger.show', compact('thread', 'users','sendTo'));
     }
 
     /**
