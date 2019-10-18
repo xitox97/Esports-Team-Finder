@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','age', 'state', 'area',
+        'name', 'email', 'password', 'age', 'state', 'area',
     ];
 
     /**
@@ -37,15 +37,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime', 'is_admin' => 'boolean',
     ];
 
-    public function accounts(){
+    public function accounts()
+    {
         return $this->hasOne(LinkedSteamAccount::class);
     }
 
-    public function team(){
+    public function team()
+    {
         return $this->belongsToMany('App\Team', 'user_team')->withTimestamps();
     }
 
-    public function offers(){
+    public function offers()
+    {
         return $this->hasMany('App\Offer');
     }
 
@@ -78,5 +81,10 @@ class User extends Authenticatable
     public function achievements()
     {
         return $this->hasMany(Achievement::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'from_user');
     }
 }

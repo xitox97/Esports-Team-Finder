@@ -19,6 +19,7 @@ use App\Jobs\generatePlayerRole;
 use App\Jobs\processMatches;
 use App\Knowledge;
 use App\Match;
+use App\Message;
 use App\Notifications\TournamentAdded as AppTournamentAdded;
 use App\Statistic;
 use App\Tournament;
@@ -154,5 +155,30 @@ Route::group(['middleware' => 'auth'], function () {
         $user->notify(new AppTournamentAdded($t));
         //Notification::send($user, new AppTournamentAdded($t));
         dd('la');
+    });
+
+    Route::get('/cat', function () {
+
+        //    $match = Match::all();
+        //    foreach($match as $m){
+        //     echo $m->match_details['match_id'];
+        //     echo "<br>";
+        //    }
+
+        // $match = Knowledge::where('id', 4)->first();
+        // dd($match->player_role['mid']);
+
+        //dd($match->items['blink']['id']);
+
+        //code keluar kan image based on id
+        // foreach($match->items as $m){
+        //     if($m['id'] == 1)
+        //     echo $m['img'];
+        //     echo "<br>";
+        // }
+        $m = Message::find(29);
+
+        $u = User::find(1);
+        dd($m->user);
     });
 });

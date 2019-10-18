@@ -50,7 +50,6 @@ class MessagesController extends Controller
      */
     public function postSendMessage(Request $request)
     {
-        var_dump('masuk');
         if (!$request->to_user || !$request->message) {
             return;
         }
