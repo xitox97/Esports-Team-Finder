@@ -126,6 +126,7 @@ function getMessageSenderHtml(message) {
  * @returns {string}
  */
 function getMessageReceiverHtml(message) {
+
     return `
            <div class="row msg_container base_receive" data-message-id="${message.id}">
            <div class="col-md-2 col-xs-2 avatar">

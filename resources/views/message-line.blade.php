@@ -5,7 +5,7 @@
             <div class="messages msg_sent text-right">
                 <p>{!! $message->content !!}</p>
                 <time datetime="{{ date("Y-m-dTH:i", strtotime($message->created_at->toDateTimeString())) }}">
-                    {{ $message->fromUser }} • {{ $message->created_at->diffForHumans() }}</time>
+                    {{ $message->user->name }} • {{ $message->created_at->diffForHumans() }}</time>
             </div>
         </div>
         <div class="col-md-2 col-xs-2 avatar">
@@ -23,7 +23,7 @@
             <div class="messages msg_receive text-left">
                 <p>{!! $message->content !!}</p>
                 <time datetime="{{ date("Y-m-dTH:i", strtotime($message->created_at->toDateTimeString())) }}">
-                    {{ $message->fromUser }} • {{ $message->created_at->diffForHumans() }}</time>
+                    {{ $message->user->name }} • {{ $message->created_at->diffForHumans() }}</time>
             </div>
         </div>
     </div>

@@ -179,6 +179,6 @@ Route::group(['middleware' => 'auth'], function () {
         $m = Message::find(29);
 
         $u = User::find(1);
-        dd($m->user);
+        dd($m->user->name);
     });
 });

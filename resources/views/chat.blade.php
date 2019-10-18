@@ -7,7 +7,8 @@
                 <h3>Pick a user to chat with</h3>
                 <ul id="users">
                     @foreach($users as $user)
-                        <li><span class="label label-info">{{ $user->name }}</span> <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}" data-user="{{ $user->name }}">Open chat</a></li>
+                        <li><span class="label label-info">{{ $user->name }}</span> <a href="javascript:void(0);" class="chat-toggle" data-id="{{ $user->id }}"
+                            data-user="{{ $user->name }}">Open chat</a></li>
                     @endforeach
                 </ul>
             @else
