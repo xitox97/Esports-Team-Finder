@@ -8,8 +8,14 @@
 @foreach ($thread->messages as $message)
 <div class="media">
         <a class="pull-left" href="#">
-            <img src="{{$message->user->accounts->avatar_url}}"
+                @if($message->user->accounts->avatar_url == null)
+                <img src="{{asset('img/default.svg')}}"
+                 alt="{{ $message->user->accounts->steam_name }}" class="img-circle " style="width: 40%;">
+                @else
+                <img src="{{$message->user->accounts->avatar_url}}"
                  alt="{{ $message->user->accounts->steam_name }}" class="img-circle">
+                @endif
+
         </a>
         <div class="media-body">
             <h5 class="media-heading">{{ $message->user->accounts->steam_name }}</h5>

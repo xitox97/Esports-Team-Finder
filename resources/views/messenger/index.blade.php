@@ -45,8 +45,11 @@
 
                     <div class="bg-white flex py-2 px-3">
                         <div class="w-auto mr-4">
-                                <img src="{{$user->accounts->avatar_url}}" class="rounded-full w-12">
-
+                            @if($user->accounts->avatar_url == null)
+                            <img src="{{asset('img/default.svg')}}" class="rounded-full w-12">
+                            @else
+                            <img src="{{$user->accounts->avatar_url}}" class="rounded-full w-12">
+                            @endif
                         </div>
                     <div class="w-2/4">
                             <p class="text-lg text-black font-semibold">{{ $user->name }}</p>
