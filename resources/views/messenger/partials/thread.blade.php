@@ -1,3 +1,5 @@
+
+{{dd($thread->users)}}
 <?php $class = $thread->isUnread(Auth::id()) ? 'alert-info' : ''; ?>
 
 <div class="media alert {{ $class }}">

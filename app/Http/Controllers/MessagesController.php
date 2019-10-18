@@ -23,6 +23,14 @@ class MessagesController extends Controller
     {
         // All threads, ignore deleted/archived participants
         $threads = Thread::getAllLatest()->get();
+        // $participant = Participant::find(8);
+        // foreach($threads->users as $user){
+        //     dd($user->where('id', 1));
+
+
+        // }
+        //dd($threads->participants);
+        //dd($participant->user);
 
         // All threads that user is participating in
         // $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
@@ -66,11 +74,19 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function create()
+    // public function create($id)
+    // {
+    //     $users = User::where('id', '!=', Auth::id())->get();
+
+    //     return view('messenger.create', compact('users'));
+    // }
+
+    public function create(User $user)
     {
+        //dd('s');
         $users = User::where('id', '!=', Auth::id())->get();
 
-        return view('messenger.create', compact('users'));
+        return view('messenger.create2', compact('users','user'));
     }
 
     /**
@@ -78,6 +94,36 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
+    // public function store()
+    // {
+    //     $input = Request::all();
+
+    //     $thread = Thread::create([
+    //         'subject' => $input['subject'],
+    //     ]);
+
+    //     // Message
+    //     Message::create([
+    //         'thread_id' => $thread->id,
+    //         'user_id' => Auth::id(),
+    //         'body' => $input['message'],
+    //     ]);
+
+    //     // Sender
+    //     Participant::create([
+    //         'thread_id' => $thread->id,
+    //         'user_id' => Auth::id(),
+    //         'last_read' => new Carbon,
+    //     ]);
+
+    //     // Recipients
+    //     if (Request::has('recipients')) {
+    //         $thread->addParticipant($input['recipients']);
+    //     }
+
+    //     return redirect()->route('messages');
+    // }
+
     public function store()
     {
         $input = Request::all();
