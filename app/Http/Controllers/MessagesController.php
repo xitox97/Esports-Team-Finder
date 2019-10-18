@@ -70,7 +70,13 @@ class MessagesController extends Controller
 
         $message->dateHumanReadable = $message->created_at->diffForHumans();
 
-        $message->fromUserName = $message->fromUser;
+        $message->fromUserName = $message->user->name;
+
+        if ($message->user->accounts->avatar_url == null) {
+            $message->avatar = "/img/default.svg";
+        } else {
+            $message->avatar = $message->user->accounts->avatar_url;
+        }
 
         $message->from_user_id = Auth::user()->id;
 

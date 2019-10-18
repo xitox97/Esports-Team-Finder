@@ -176,9 +176,9 @@ Route::group(['middleware' => 'auth'], function () {
         //     echo $m['img'];
         //     echo "<br>";
         // }
-        $m = Message::find(29);
+        $m = Message::find(63);
 
-        $u = User::find(1);
-        dd($m->user->name);
+        $u = User::find(2);
+        dd($m->user->accounts->avatar_url);
     });
 });

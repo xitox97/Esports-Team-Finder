@@ -1,7 +1,8 @@
 $(function () {
     let pusher = new Pusher($("#pusher_app_key").val(), {
         cluster: $("#pusher_cluster").val(),
-        encrypted: true
+        encrypted: true,
+        disableStats: true
     });
 
     let channel = pusher.subscribe('chat');
@@ -102,6 +103,8 @@ function loaderHtml() {
  * @returns {string}
  */
 function getMessageSenderHtml(message) {
+
+
     return `
            <div class="row msg_container base_sent" data-message-id="${message.id}">
         <div class="col-md-10 col-xs-10">
@@ -111,7 +114,7 @@ function getMessageSenderHtml(message) {
             </div>
         </div>
         <div class="col-md-2 col-xs-2 avatar">
-            <img src="` + base_url + '/img/user-avatar.png' + `" width="50" height="50" class="img-responsive">
+            <img src="${message.avatar}" width="50" height="50" class="img-responsive">
         </div>
     </div>
     `;
@@ -130,7 +133,7 @@ function getMessageReceiverHtml(message) {
     return `
            <div class="row msg_container base_receive" data-message-id="${message.id}">
            <div class="col-md-2 col-xs-2 avatar">
-             <img src="` + base_url + '/img/user-avatar.png' + `" width="50" height="50" class="img-responsive">
+             <img src="${message.avatar}" width="50" height="50" class="img-responsive">
            </div>
         <div class="col-md-10 col-xs-10">
             <div class="messages msg_receive text-left">
