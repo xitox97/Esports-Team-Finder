@@ -41,7 +41,7 @@
 
                 <?php $class = $thread->isUnread(Auth::id()) ? 'alert-info' : ''; ?>
                 <a href="{{ route('messages.show', $thread->id) }}">
-                <div class=" mt-2 flex flex-col w-1/4 rounded-lg shadow-md">
+                <div class="flex flex-col w-1/4 rounded-lg  hover:shadow-lg mt-4">
 
                     <div class="bg-white flex py-2 px-3">
                         <div class="w-auto mr-4">
