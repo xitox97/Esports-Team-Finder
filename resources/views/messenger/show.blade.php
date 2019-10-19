@@ -8,53 +8,52 @@
     <div class="container ml-24 mt-5">
     @include('messenger.partials.flash')
     <p class="text-3xl font-bold text-black">Chat</p>
-    <div class="flex">
-
-        <div class="border-t-2 ml-10 w-8/12" v-if="chat == false">
+    <div class="flex pb-2">
+        <div class="border-t-2 ml-10 w-10/12" v-if="chat == false">
             <div class="mt-4">
                 <div>
-                    <p class="font-bold text-xl text-gray-700 capitalize">Lets Play Dota</p>
-                    <p class="font-semibold text-md text-gray-600 -mt-1">From: Paan</p>
+                    <p class="font-bold text-xl text-gray-700 capitalize">{{$thread->subject}}</p>
                 </div>
 
-@foreach ($thread->messages as  $message)
+                <div class=" overflow-auto max-h-2/4">
+                @foreach ($thread->messages as  $message)
             {{-- first --}}
 
             <div class="flex flex-col">
                     @if(auth()->user()->id != $message->user->id)
                 <div class="mt-4 flex py-1 px-2">
-                    <div>
+                        <div class="flex flex-col items-center">
                             @if($message->user->accounts->avatar_url == null)
                             <img src="{{asset('img/default.png')}}"
                             class="rounded-full w-12" >
-                            <p class="text-xs font-medium">{{ $message->user->accounts->steam_name }}</p>
+                            <p class="text-xs font-medium">{{ $message->user->name }}</p>
                             @else
                             <img src="{{ $message->user->accounts->avatar_url}}" class="rounded-full w-12">
-                            <p class="text-xs font-medium">{{ $message->user->accounts->steam_name }}</p>
+                            <p class="text-xs font-medium">{{ $message->user->name }}</p>
                             @endif
                     </div>
-                    <div class="rounded-lg bg-white ml-4 p-2 shadow-md">
-                        <p class="max-w-xl font-medium">{{ $message->body }}</p>
-                        <p class="text-xs text-gray-500 text-right">{{ $message->created_at->diffForHumans() }}</p>
+                    <div class="rounded-lg bg-white ml-4 p-2 shadow-md mb-1">
+                        <p class="max-w-xl font-medium mb-2 pl-1">{{ $message->body }}</p>
+                        <p class="text-xs text-gray-500 text-right pl-1">{{ $message->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
                 @elseif(auth()->user()->id == $message->user->id)
                 <div class="flex flex-row-reverse mt-4 py-1 px-2">
-                        <div>
+                        <div class="flex flex-col items-center">
                                 <img src="{{ $message->user->accounts->avatar_url}}" class="rounded-full w-12">
-                                <p class="text-xs font-medium">{{ $message->user->accounts->steam_name }}</p>
+                                <p class="text-xs font-medium">{{ $message->user->name }}</p>
 
                         </div>
-                        <div class="rounded-lg bg-indigo-700 mr-4 p-2 shadow-md">
-                            <p class="max-w-xl font-medium text-white">{{ $message->body }}</p>
-                            <p class="text-xs text-gray-300 text-right">{{ $message->created_at->diffForHumans() }}</p>
+                        <div class="rounded-lg bg-indigo-700 mr-4 p-2 shadow-md mb-2">
+                            <p class="max-w-xl font-medium text-white mb-1 pl-1">{{ $message->body }}</p>
+                            <p class="text-xs text-gray-300 text-right pl-1">{{ $message->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
                 @endif
                 {{-- second --}}
             </div>
 
-            @endforeach
+            @endforeach</div>
             {{-- send message --}}
 
                     <form action="{{ route('messages.update', $thread->id) }}" method="post" class="flex items-start bg-white rounded-lg px-3 pt-3  mt-6 hover:shadow-lg">
