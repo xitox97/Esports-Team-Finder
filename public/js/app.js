@@ -8442,7 +8442,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active,\n.fade-leave-active {\n  transition: transform 0.2s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\n", ""]);
+exports.push([module.i, ".fade-enter-active,\r\n.fade-leave-active {\n  transition: transform 0.2s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\r\n", ""]);
 
 // exports
 
@@ -61616,7 +61616,8 @@ new Vue({
       team: false,
       notification: false,
       bell: false,
-      count: 0
+      count: 0,
+      chat: false
     };
   },
   created: function created() {

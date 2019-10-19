@@ -45,6 +45,7 @@ new Vue({
             notification: false,
             bell: false,
             count: 0,
+            chat: false
         };
     },
 
