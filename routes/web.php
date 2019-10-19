@@ -14,6 +14,8 @@
 use App\DotaData;
 use App\DotaJson;
 use App\Events\TournamentAdded;
+use App\Http\Resources\Message as AppMessage;
+use App\Http\Resources\MessageCollection;
 use App\Jobs\consumeOpendotaApi;
 use App\Jobs\generatePlayerRole;
 use App\Jobs\processMatches;
@@ -23,6 +25,8 @@ use App\Notifications\TournamentAdded as AppTournamentAdded;
 use App\Statistic;
 use App\Tournament;
 use App\User;
+use Cmgmyr\Messenger\Models\Message;
+use Cmgmyr\Messenger\Models\Thread;
 use Illuminate\Support\Facades\Notification;
 
 Route::get('/', function () {
@@ -157,4 +161,9 @@ Route::group(['prefix' => 'messages'], function () {
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});
+
+Route::get('/jmessage', function () {
+    $t = Thread::find(10);
+    return new AppMessage($t);
 });

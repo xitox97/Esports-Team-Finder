@@ -40,8 +40,8 @@
                 @foreach ($thread->users as $user)
                         @if($user->id != auth()->user()->id)
                             <?php $class = $thread->isUnread(Auth::id()) ? 'alert-info' : ''; ?>
-                                <a href="{{ route('messages.show', $thread->id) }}">
-                                    <div class="flex flex-col rounded-lg  hover:shadow-lg mt-4 bg-white">
+                                {{-- <a href="{{ route('messages.show', $thread->id) }}"> --}}
+                                    <div class="flex flex-col rounded-lg  hover:shadow-lg mt-4 bg-white" v-on:click="getThread({{$thread->id}})">
                                         <div class="bg-white flex py-2 px-3">
                                             <div class="w-auto mr-4">
                                                 @if($user->accounts->avatar_url == null)
@@ -61,19 +61,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                {{-- </a> --}}
                         @endif
                     @endforeach
                 @endforeach
         </div>
-        <div class="border-t-2 ml-10 w-8/12" v-if="chat == false">
+        <chat-component  v-bind:threadid="threadid"></chat-component>
+        {{-- <div class="border-t-2 ml-10 w-8/12" v-if="chat == false">
             <div class="mt-4">
                 <div>
                     <p class="font-bold text-xl text-gray-700 capitalize">Lets Play Dota</p>
                     <p class="font-semibold text-md text-gray-600 -mt-1">From: Paan</p>
                 </div>
             {{-- first --}}
-
+{{--
             <div class="flex flex-col">
 
                 <div class="mt-4 flex py-1 px-2">
@@ -88,7 +89,7 @@
                     </div>
                 </div>
                 {{-- second --}}
-                <div class="flex flex-row-reverse mt-4 py-1 px-2">
+                {{-- <div class="flex flex-row-reverse mt-4 py-1 px-2">
                         <div>
                                 <img src="{{auth()->user()->accounts->avatar_url}}" class="rounded-full w-12">
 
@@ -99,10 +100,10 @@
                             <p class="text-xs text-gray-300 text-right">12 hours ago</p>
                         </div>
                     </div>
-            </div>
+            </div>  --}}
 
             {{-- send message --}}
-                <div class=" flex items-start bg-white rounded-lg px-3 pt-3  mt-6 hover:shadow-lg">
+                {{-- <div class=" flex items-start bg-white rounded-lg px-3 pt-3  mt-6 hover:shadow-lg">
                     <textarea class="
                     outline-none resize-none w-full  focus:border-indigo-600"
                     name="message" class="form-control"
@@ -119,7 +120,7 @@
             </div>
 
 
-        </div>
+        </div> --}}
 
     </div>
 

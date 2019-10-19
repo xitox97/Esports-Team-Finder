@@ -29,7 +29,7 @@ Vue.component('sidebar-component', require('./components/SidebarComponent.vue').
 Vue.component('tournament-component', require('./components/TournamentComponent.vue').default);
 Vue.component('alert-component', require('./components/AlertComponent.vue').default);
 Vue.component('noti-component', require('./components/NotiComponent.vue').default);
-
+Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 new Vue({
 
     el: '#app',
@@ -45,7 +45,8 @@ new Vue({
             notification: false,
             bell: false,
             count: 0,
-            chat: false
+            chat: false,
+            threadid: [],
         };
     },
 
@@ -61,6 +62,9 @@ new Vue({
     },
 
     methods: {
+        getThread(data) {
+            this.threadid = data;
+        },
         toggle() {
             this.isOpen = !this.isOpen;
             this.isFull = true;
