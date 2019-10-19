@@ -46,7 +46,9 @@ new Vue({
             bell: false,
             count: 0,
             chat: false,
-            threadid: [],
+            thread: Object,
+            sendto: String,
+            account: String,
         };
     },
 
@@ -62,8 +64,11 @@ new Vue({
     },
 
     methods: {
-        getThread(data) {
-            this.threadid = data;
+        getThread(data, user, acc) {
+            this.thread = data;
+            this.sendto = user.name;
+            this.account = acc.avatar_url;
+            this.chat = true;
         },
         toggle() {
             this.isOpen = !this.isOpen;

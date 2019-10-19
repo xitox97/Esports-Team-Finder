@@ -7,12 +7,12 @@
 
     <div class="container ml-24 mt-5">
     @include('messenger.partials.flash')
-    <p class="text-3xl font-bold text-black">Chat</p>
+    <p class="text-3xl font-bold text-black ml-10">Chat</p>
     <div class="flex pb-2">
         <div class="border-t-2 ml-10 w-10/12" v-if="chat == false">
             <div class="mt-4">
-                <div>
-                    <p class="font-bold text-xl text-gray-700 capitalize">{{$thread->subject}}</p>
+                <div class="mb-2">
+                    <p class="font-bold text-xl text-gray-700 capitalize">Subject: {{$thread->subject}}</p>
                 </div>
 
                 <div class=" overflow-auto max-h-2/4">
@@ -32,9 +32,9 @@
                             <p class="text-xs font-medium">{{ $message->user->name }}</p>
                             @endif
                     </div>
-                    <div class="rounded-lg bg-white ml-4 p-2 shadow-md mb-1">
+                    <div class="rounded-lg bg-pink-500 text-white ml-4 p-2 shadow-md mb-1">
                         <p class="max-w-xl font-medium mb-2 pl-1">{{ $message->body }}</p>
-                        <p class="text-xs text-gray-500 text-right pl-1">{{ $message->created_at->diffForHumans() }}</p>
+                        <p class="text-xs text-gray-300 text-right pl-1">{{ $message->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
                 @elseif(auth()->user()->id == $message->user->id)
