@@ -18,12 +18,12 @@
             @foreach ($threads as $thread)
                 @foreach ($thread->users as $user)
                         @if($user->id != auth()->user()->id)
-                            <?php $class = $thread->isUnread(Auth::id()) ? 'alert-info' : ''; ?>
+                            <?php $class = $thread->isUnread(Auth::id()) ? 'bg-white border-indigo-600 border-l-8 flex px-3 py-2' : ''; ?>
                                 {{-- <a href="{{ route('messages.show', $thread->id) }}"> --}}
                                     <div class="flex flex-col rounded-lg  hover:shadow-lg mt-4 bg-white  cursor-pointer"
                                     v-on:click="getThread({{$thread}},{{$user}},{{$user->accounts}})"
                                     >
-                                        <div class="bg-white flex py-2 px-3">
+                                        <div class="bg-white flex py-2 px-3 {{$class}}">
                                             <div class="w-auto mr-4">
                                                 @if($user->accounts->avatar_url == null)
                                                     <img src="{{asset('img/default.svg')}}" class="rounded-full w-12">
