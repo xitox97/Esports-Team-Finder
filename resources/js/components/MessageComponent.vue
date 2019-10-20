@@ -1,7 +1,7 @@
 <template>
-  <modal name="hello-world" height="auto">
+  <modal name="hello-world" height="auto" @before-open="beforeOpen">
     <div class="rounded-lg py-4">
-      <p class="text-left font-bold text-2xl px-4 mb-3">Sending New Message to Farhan</p>
+      <p class="text-left font-bold text-2xl px-4 mb-3">Sending New Message to {{name}}</p>
       <form @submit.prevent="submit" class="border-t-2">
         <div class="p-4">
           <p class="font-medium text-lg">Subject:</p>
@@ -11,6 +11,7 @@
             name="subject"
             placeholder="Subject"
             v-model="form.subject"
+            required
           />
           <p class="font-medium text-lg mt-4">Message:</p>
           <textarea
@@ -18,9 +19,10 @@
             class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none"
             placeholder="Enter your message.."
             v-model="form.message"
+            required
           ></textarea>
 
-          <input type="text" name="recipients" value="7" hidden v-model="form.recipients" />
+          <input type="text" name="recipients" hidden v-model="form.recipients" />
 
           <!-- Submit Form Input -->
           <div class="flex justify-center mt-4">
@@ -47,30 +49,25 @@ export default {
         subject: "",
         message: "",
         recipients: ""
-      }
+      },
+      name: String
     };
   },
-  created() {
-    // axios
-    //   .get("/tournamentss")
-    //   .then(response => (this.tournaments = response.data));
-    //this.tournament = "la";
-
-    window.Echo.channel("tournaments").listen(
-      "TournamentAdded",
-      ({ tournament }) => {
-        this.$notify({
-          group: "app",
-          title: "<h1><b>Alert!</b></h1>",
-          text: "<h2>New Tournament has been added</h2>",
-          type: "success",
-          speed: 1500,
-          closeOnClick: true
-        });
-      }
-    );
-  },
-  methods: {}
+  created() {},
+  methods: {
+    beforeOpen(event) {
+      this.form.recipients = event.params.user[0].id;
+      this.name = event.params.user[1].name;
+      console.log(event.params.user[1].name);
+    },
+    submit() {
+      axios.post("/messages", this.form).then(response => {
+        alert("Succesfully send");
+        //console.log(response.data);
+        location = response.data.message;
+      });
+    }
+  }
 };
 </script>
 

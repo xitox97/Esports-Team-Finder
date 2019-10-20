@@ -2,7 +2,8 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2">
-        <span class="italic text-sm">Home / Inbox</span>
+        <span class="italic text-sm">Home /  <a href="/messages"
+            class="no-underline hover:underline text-blue-500">Inbox</a></span>
     </section>
 
     <div class="container ml-24 mt-5">
@@ -40,8 +41,14 @@
                 @elseif(auth()->user()->id == $message->user->id)
                 <div class="flex flex-row-reverse mt-4 py-1 px-2">
                         <div class="flex flex-col items-center">
+                                @if($message->user->accounts->avatar_url == null)
+                                <img src="{{asset('img/default.png')}}"
+                                class="rounded-full w-12" >
+                                <p class="text-xs font-medium">{{ $message->user->name }}</p>
+                                @else
                                 <img src="{{ $message->user->accounts->avatar_url}}" class="rounded-full w-12">
                                 <p class="text-xs font-medium">{{ $message->user->name }}</p>
+                                @endif
 
                         </div>
                         <div class="rounded-lg bg-indigo-700 mr-4 p-2 shadow-md mb-2">

@@ -65,9 +65,9 @@ class MessagesController extends Controller
 
         $check = false;
 
-        foreach($thread->participants as $participate){
+        foreach ($thread->participants as $participate) {
 
-            if($participate->user_id == auth()->user()->id){
+            if ($participate->user_id == auth()->user()->id) {
                 $check = true;
             }
         }
@@ -75,10 +75,10 @@ class MessagesController extends Controller
         abort_unless($check, 403);
         $thread->markAsRead($userId);
 
-         $receiver = $thread->participants()->where('user_id','!=', auth()->user()->id)->firstOrFail();
+        $receiver = $thread->participants()->where('user_id', '!=', auth()->user()->id)->firstOrFail();
         $sendTo = $receiver->user;
         //dd($sendTo);
-        return view('messenger.show', compact('thread','sendTo'));
+        return view('messenger.show', compact('thread', 'sendTo'));
     }
 
     /**
@@ -98,7 +98,7 @@ class MessagesController extends Controller
         //dd('s');
         $users = User::where('id', '!=', Auth::id())->get();
 
-        return view('messenger.create2', compact('users','user'));
+        return view('messenger.create2', compact('users', 'user'));
     }
 
     /**
@@ -140,7 +140,7 @@ class MessagesController extends Controller
     {
         $input = Request::all();
 
-        $thread = Thread::create([
+        $t = $thread = Thread::create([
             'subject' => $input['subject'],
         ]);
 
@@ -161,6 +161,10 @@ class MessagesController extends Controller
         // Recipients
         if (Request::has('recipients')) {
             $thread->addParticipant($input['recipients']);
+        }
+
+        if (request()->wantsJson()) {
+            return ['message' => "/messages/$t->id"];
         }
 
         return redirect()->route('messages');

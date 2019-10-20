@@ -1851,6 +1851,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1858,30 +1860,25 @@ __webpack_require__.r(__webpack_exports__);
         subject: "",
         message: "",
         recipients: ""
-      }
+      },
+      name: String
     };
   },
-  created: function created() {
-    var _this = this;
+  created: function created() {},
+  methods: {
+    beforeOpen: function beforeOpen(event) {
+      this.form.recipients = event.params.user[0].id;
+      this.name = event.params.user[1].name;
+      console.log(event.params.user[1].name);
+    },
+    submit: function submit() {
+      axios.post("/messages", this.form).then(function (response) {
+        alert("Succesfully send"); //console.log(response.data);
 
-    // axios
-    //   .get("/tournamentss")
-    //   .then(response => (this.tournaments = response.data));
-    //this.tournament = "la";
-    window.Echo.channel("tournaments").listen("TournamentAdded", function (_ref) {
-      var tournament = _ref.tournament;
-
-      _this.$notify({
-        group: "app",
-        title: "<h1><b>Alert!</b></h1>",
-        text: "<h2>New Tournament has been added</h2>",
-        type: "success",
-        speed: 1500,
-        closeOnClick: true
+        location = response.data.message;
       });
-    });
-  },
-  methods: {}
+    }
+  }
 });
 
 /***/ }),
@@ -48195,137 +48192,148 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("modal", { attrs: { name: "hello-world", height: "auto" } }, [
-    _c("div", { staticClass: "rounded-lg py-4" }, [
-      _c("p", { staticClass: "text-left font-bold text-2xl px-4 mb-3" }, [
-        _vm._v("Sending New Message to Farhan")
-      ]),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          staticClass: "border-t-2",
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.submit($event)
+  return _c(
+    "modal",
+    {
+      attrs: { name: "hello-world", height: "auto" },
+      on: { "before-open": _vm.beforeOpen }
+    },
+    [
+      _c("div", { staticClass: "rounded-lg py-4" }, [
+        _c("p", { staticClass: "text-left font-bold text-2xl px-4 mb-3" }, [
+          _vm._v("Sending New Message to " + _vm._s(_vm.name))
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "border-t-2",
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
             }
-          }
-        },
-        [
-          _c("div", { staticClass: "p-4" }, [
-            _c("p", { staticClass: "font-medium text-lg" }, [
-              _vm._v("Subject:")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.subject,
-                  expression: "form.subject"
-                }
-              ],
-              staticClass:
-                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal",
-              attrs: { type: "text", name: "subject", placeholder: "Subject" },
-              domProps: { value: _vm.form.subject },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "subject", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("p", { staticClass: "font-medium text-lg mt-4" }, [
-              _vm._v("Message:")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.message,
-                  expression: "form.message"
-                }
-              ],
-              staticClass:
-                "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none",
-              attrs: { name: "message", placeholder: "Enter your message.." },
-              domProps: { value: _vm.form.message },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "message", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.recipients,
-                  expression: "form.recipients"
-                }
-              ],
-              attrs: {
-                type: "text",
-                name: "recipients",
-                value: "7",
-                hidden: ""
-              },
-              domProps: { value: _vm.form.recipients },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "recipients", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex justify-center mt-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2",
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.$modal.hide("hello-world")
-                    }
-                  }
-                },
-                [_vm._v("Cancel")]
-              ),
+          },
+          [
+            _c("div", { staticClass: "p-4" }, [
+              _c("p", { staticClass: "font-medium text-lg" }, [
+                _vm._v("Subject:")
+              ]),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded",
-                  attrs: { type: "submit" }
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.subject,
+                    expression: "form.subject"
+                  }
+                ],
+                staticClass:
+                  "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal",
+                attrs: {
+                  type: "text",
+                  name: "subject",
+                  placeholder: "Subject",
+                  required: ""
                 },
-                [_vm._v("Submit")]
-              )
+                domProps: { value: _vm.form.subject },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "subject", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("p", { staticClass: "font-medium text-lg mt-4" }, [
+                _vm._v("Message:")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.message,
+                    expression: "form.message"
+                  }
+                ],
+                staticClass:
+                  "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none",
+                attrs: {
+                  name: "message",
+                  placeholder: "Enter your message..",
+                  required: ""
+                },
+                domProps: { value: _vm.form.message },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "message", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.recipients,
+                    expression: "form.recipients"
+                  }
+                ],
+                attrs: { type: "text", name: "recipients", hidden: "" },
+                domProps: { value: _vm.form.recipients },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "recipients", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex justify-center mt-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2",
+                    attrs: { type: "submit" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.$modal.hide("hello-world")
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Submit")]
+                )
+              ])
             ])
-          ])
-        ]
-      )
-    ])
-  ])
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
