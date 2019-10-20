@@ -21,7 +21,9 @@ class PagesController extends Controller
     {
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->firstOrFail();
 
-        return view('users.profile', compact('fetchPlayers'));
+        $user = $fetchPlayers->user;
+
+        return view('users.profile', compact('fetchPlayers', 'user'));
     }
 
 

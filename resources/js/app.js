@@ -8,9 +8,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+
+
 import ClickOutside from "vue-click-outside";
 import Notifications from 'vue-notification';
+import VModal from 'vue-js-modal'
 
+Vue.use(VModal)
 Vue.use(ClickOutside);
 Vue.use(Notifications);
 /**
@@ -29,7 +33,8 @@ Vue.component('sidebar-component', require('./components/SidebarComponent.vue').
 Vue.component('tournament-component', require('./components/TournamentComponent.vue').default);
 Vue.component('alert-component', require('./components/AlertComponent.vue').default);
 Vue.component('noti-component', require('./components/NotiComponent.vue').default);
-
+Vue.component('chat-component', require('./components/ChatComponent.vue').default);
+Vue.component('message-component', require('./components/MessageComponent.vue').default);
 new Vue({
 
     el: '#app',
@@ -45,6 +50,10 @@ new Vue({
             notification: false,
             bell: false,
             count: 0,
+            chat: false,
+            thread: Object,
+            sendto: String,
+            account: String,
         };
     },
 
@@ -60,6 +69,12 @@ new Vue({
     },
 
     methods: {
+        getThread(data, user, acc) {
+            this.thread = data;
+            this.sendto = user.name;
+            this.account = acc.avatar_url;
+            this.chat = true;
+        },
         toggle() {
             this.isOpen = !this.isOpen;
             this.isFull = true;

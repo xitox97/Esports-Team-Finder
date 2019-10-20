@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use Messagable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','age', 'state', 'area',
+        'name', 'email', 'password', 'age', 'state', 'area',
     ];
 
     /**
@@ -37,15 +39,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime', 'is_admin' => 'boolean',
     ];
 
-    public function accounts(){
+    public function accounts()
+    {
         return $this->hasOne(LinkedSteamAccount::class);
     }
 
-    public function team(){
+    public function team()
+    {
         return $this->belongsToMany('App\Team', 'user_team')->withTimestamps();
     }
 
-    public function offers(){
+    public function offers()
+    {
         return $this->hasMany('App\Offer');
     }
 

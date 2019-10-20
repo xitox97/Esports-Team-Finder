@@ -161,6 +161,7 @@
                         <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
                                 View Statistic
                         </a>
+
                 </div>
             </div>
     </div>
@@ -209,6 +210,10 @@
                 <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
                         View Statistic
                 </a>
+                <a  @click.prevent="$modal.show('hello-world', {user: [    { id: {{$user->id}} },
+                { name: '{{$user->name}}' } ]})" href="/messages/create/{{$fetchPlayers->user_id}}" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
+                    Send Message
+            </a>
                 </div>
             </div>
         @if (session('offer'))
@@ -247,6 +252,9 @@
                 </span>
             </div>
         @endif
+
+
+        <message-component></message-component>
         </div>
 
         @endif
