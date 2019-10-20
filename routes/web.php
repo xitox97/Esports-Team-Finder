@@ -162,8 +162,3 @@ Route::group(['prefix' => 'messages'], function () {
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
-
-Route::get('/jmessage', function () {
-    $t = Thread::find(10);
-    return new AppMessage($t);
-});
