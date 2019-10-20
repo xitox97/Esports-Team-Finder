@@ -8,9 +8,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+
+
 import ClickOutside from "vue-click-outside";
 import Notifications from 'vue-notification';
+import VModal from 'vue-js-modal'
 
+Vue.use(VModal)
 Vue.use(ClickOutside);
 Vue.use(Notifications);
 /**
@@ -30,6 +34,7 @@ Vue.component('tournament-component', require('./components/TournamentComponent.
 Vue.component('alert-component', require('./components/AlertComponent.vue').default);
 Vue.component('noti-component', require('./components/NotiComponent.vue').default);
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
+Vue.component('message-component', require('./components/MessageComponent.vue').default);
 new Vue({
 
     el: '#app',
