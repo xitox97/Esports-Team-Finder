@@ -34,6 +34,7 @@
 
 
             var olview = new ol.View({
+                // projection: 'EPSG:4326',
                 center: [0, 0],
                 zoom: 3,
                 minZoom: 2,
