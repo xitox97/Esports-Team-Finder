@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/openlayers/dist/ol.css">
-    <link rel="stylesheet" href="https://unpkg.com/ol-popup@2.0.0/src/ol-popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css">
+    <link rel="stylesheet" href="https://unpkg.com/ol-popup@4.0.0/src/ol-popup.css">
     <link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
     <style type="text/css">
       html, body, #map {
@@ -26,15 +26,14 @@
   </head>
   <body>
     <div id="map" tabindex="0"></div>
-    <script src="https://unpkg.com/openlayers@4.4.2"></script>
-    <script src="https://unpkg.com/ol-popup@2.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
+    <script src="https://unpkg.com/ol-popup@4.0.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/ol-geocoder"></script>
     <script>
         (function(win, doc) {
 
 
             var olview = new ol.View({
-                projection: 'EPSG:4326',
                 center: [0, 0],
                 zoom: 3,
                 minZoom: 2,
@@ -60,7 +59,7 @@
                 placeholder: 'Search for ...',
                 countrycodes: 'my',
                 limit: 5,
-                keepOpen: false,
+                keepOpen: true,
                 autoComplete: true,
             });
 

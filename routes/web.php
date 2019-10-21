@@ -166,3 +166,6 @@ Route::group(['prefix' => 'messages'], function () {
 Route::get('/map', function () {
     return view('map');
 });
+Route::get('/map2', function () {
+    return view('map2');
+});

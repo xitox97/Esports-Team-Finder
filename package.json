@@ -13,7 +13,6 @@
         "axios": "^0.18",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.2.1",
-        "geo-coder": "^1.0.2",
         "jquery": "^3.2",
         "laravel-mix": "^4.1.4",
         "lodash": "^4.17.5",
@@ -27,7 +26,6 @@
     },
     "dependencies": {
         "laravel-echo": "^1.6.1",
-        "ol-geocoder": "^4.0.0",
         "pusher-js": "^5.0.2",
         "tailwindcss": "^1.1.2",
         "vue-click-outside": "^1.0.7",
