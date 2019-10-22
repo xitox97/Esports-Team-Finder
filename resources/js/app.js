@@ -35,9 +35,57 @@ Vue.component('alert-component', require('./components/AlertComponent.vue').defa
 Vue.component('noti-component', require('./components/NotiComponent.vue').default);
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 Vue.component('message-component', require('./components/MessageComponent.vue').default);
+Vue.component('map-component', require('./components/MapComponent.vue').default);
 new Vue({
 
     el: '#app',
+    mounted() {
+        (function (win, doc) {
+
+
+            var olview = new ol.View({
+                // projection: 'EPSG:4326',
+                center: [0, 0],
+                zoom: 3,
+                minZoom: 2,
+                maxZoom: 20,
+            }),
+                baseLayer = new ol.layer.Tile({
+                    source: new ol.source.OSM(),
+
+                }),
+                map = new ol.Map({
+                    target: doc.getElementById('map'),
+                    view: olview,
+                    layers: [baseLayer],
+
+                }),
+                popup = new ol.Overlay.Popup();
+
+            //Instantiate with some options and add the Control
+            var geocoder = new Geocoder('nominatim', {
+                provider: 'osm',
+                targetType: 'text-input',
+                lang: 'en',
+                placeholder: 'Search for ...',
+                countrycodes: 'my',
+                limit: 5,
+                keepOpen: true,
+                autoComplete: true,
+            });
+
+            map.addControl(geocoder);
+            map.addOverlay(popup);
+
+            //Listen when an address is chosen
+            geocoder.on('addresschosen', function (evt) {
+                console.info(evt);
+                window.setTimeout(function () {
+                    popup.show(evt.coordinate, evt.address.formatted);
+                }, 3000);
+            });
+        })(window, document);
+    },
 
     data() {
         return {

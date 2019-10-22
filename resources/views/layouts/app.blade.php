@@ -19,6 +19,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css">
+      <link rel="stylesheet" href="https://unpkg.com/ol-popup@4.0.0/src/ol-popup.css">
+      <link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
 
 <style>
 .fadedrop-enter-active, .fadedrop-leave-active {
@@ -251,6 +254,8 @@
 
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
+    <script src="https://unpkg.com/ol-popup@4.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ol-geocoder"></script>
 </body>
 </html>

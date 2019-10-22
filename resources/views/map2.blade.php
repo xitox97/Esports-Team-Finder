@@ -58,8 +58,8 @@ var view = new ol.View({
 var vectorSource = new ol.source.Vector({});
 var places = [
   [11309119.314336767, 355596.4074399446, 'http://maps.google.com/mapfiles/ms/micons/blue.png', ],
-  [11310070.774330724, 356207.3101690329, 'http://maps.google.com/mapfiles/ms/micons/blue.png', ],
-  [11309258.355987966, 356120.4458968876, 'http://maps.google.com/mapfiles/ms/micons/blue.png', /* [113, 140, 0]*/ ],
+  [11310070.774330724, 356207.3101690329, 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/17/17c5648c635b1a51f2457cb96bfed58d3fa3fc56_full.jpg', ],
+  [11309258.355987966, 356120.4458968876, 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/37/3798569a9d02b99ddb7d806c58d7a1413b7949fe_full.jpg', /* [113, 140, 0]*/ ],
 ];
 
 var features = [];
@@ -86,6 +86,7 @@ for (var i = 0; i < places.length; i++) {
       src: places[i][2],
       color: places[i][3],
       crossOrigin: 'anonymous',
+      scale: 0.4
     })
   });
   iconFeature.setStyle(iconStyle);

@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css">
     <link rel="stylesheet" href="https://unpkg.com/ol-popup@4.0.0/src/ol-popup.css">
     <link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
     <style type="text/css">
-      html, body, #map {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+     #map {
+        height: 50%;
+        width: 50%;
       }
       body {
         font: 1em/1.5 BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -18,13 +19,14 @@
         font-weight: 400;
       }
       #map {
-        position: absolute;
+
         z-index: 1;
         top: 0; bottom: 0;
       }
     </style>
   </head>
   <body>
+      <p>Update your location</p>
     <div id="map" tabindex="0"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
     <script src="https://unpkg.com/ol-popup@4.0.0"></script>
