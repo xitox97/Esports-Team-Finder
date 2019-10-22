@@ -169,3 +169,5 @@ Route::get('/map', function () {
 Route::get('/map2', function () {
     return view('map2');
 });
+
+Route::get('/loc', 'LocationController@index');
