@@ -9,7 +9,7 @@ class Location extends Model
 {
     use SpatialTrait;
 
-    protected $fillable = ['user_id'];
+    protected $fillable = ['user_id', 'address'];
     protected $spatialFields = [
         'coordinate',
     ];

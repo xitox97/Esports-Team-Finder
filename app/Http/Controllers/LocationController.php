@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\location;
+use App\User;
 use Illuminate\Http\Request;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 use Illuminate\Database\QueryException;
@@ -16,11 +17,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->location == null) {
-            return view('users.map');
-        } else {
-            dd('la');
-        }
+        return view('users.map');
     }
 
     /**
@@ -109,5 +106,33 @@ class LocationController extends Controller
     public function destroy(location $location)
     {
         //
+    }
+
+    public function search()
+    {
+        return view('users.map_search');
+    }
+    public function json()
+    {
+        //$locations = location::where('user_id', '!=', auth()->user()->id)->get();
+        $users = User::where('id', '!=', auth()->user()->id)->get();
+
+        $locations = \collect([]);
+        $owner = \collect([]);
+        $accounts = \collect([]);
+
+        foreach ($users as $user) {
+            if ($user->location != null) {
+                $locations->push($user->location);
+                $owner->push($user);
+                $accounts->push($user->accounts);
+            }
+        }
+        //dd($locations);
+        return response()->json([
+            'users' => $owner,
+            'locations' => $locations,
+            'accounts' => $accounts
+        ], 201);
     }
 }

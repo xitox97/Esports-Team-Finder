@@ -36,6 +36,7 @@ Vue.component('noti-component', require('./components/NotiComponent.vue').defaul
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 Vue.component('message-component', require('./components/MessageComponent.vue').default);
 Vue.component('map-component', require('./components/MapComponent.vue').default);
+Vue.component('mapsearch-component', require('./components/MapsearchComponent.vue').default);
 new Vue({
 
     el: '#app',

@@ -2,11 +2,13 @@
   <div class="flex flex-col">
     <p class="text-lg font-semibold">Update your current address</p>
     <div id="map" tabindex="0" class="max-w-5xl"></div>
-    <form @submit.prevent="submit" class="border-t-2">
-      <button
-        type="submit"
-        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
-      >Save</button>
+    <form @submit.prevent="submit">
+      <div class="flex justify-center max-w-5xl">
+        <button
+          type="submit"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mt-2"
+        >Save Location</button>
+      </div>
     </form>
   </div>
 </template>
