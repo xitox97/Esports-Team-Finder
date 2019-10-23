@@ -163,11 +163,9 @@ Route::group(['prefix' => 'messages'], function () {
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
-Route::get('/map', function () {
-    return view('users.map');
-});
+Route::get('/map', 'LocationController@index');
 Route::get('/map2', function () {
     return view('map2');
 });
 
-Route::get('/loc', 'LocationController@index');
+Route::post('/loc', 'LocationController@store');

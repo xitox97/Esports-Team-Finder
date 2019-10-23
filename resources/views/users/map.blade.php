@@ -8,7 +8,7 @@
 //xl tuk desktop 1440 x 737 --}}
 <div class="container ml-24 mt-12">
 
-    <map-component></map-component>
+    <map-component v-bind:user="{{ Auth::User()->id}}"></map-component>
 </div>
 @endsection
 

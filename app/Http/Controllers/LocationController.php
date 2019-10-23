@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\location;
 use Illuminate\Http\Request;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
+use Illuminate\Database\QueryException;
 
 class LocationController extends Controller
 {
@@ -15,11 +16,11 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $lol = new location();
-        $lol->coordinate = new Point(11401388.683593621, 255442.931216354);    // (lat, lng)
-        $lol->user_id = 1;
-        $lol->save();
-        dd($lol);
+        if (auth()->user()->location == null) {
+            return view('users.map');
+        } else {
+            dd('la');
+        }
     }
 
     /**
@@ -38,8 +39,32 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    { }
+    public function store()
+    {
+        $input = request()->all();
+        //dd($input);
+        try {
+            $loc = new location();
+            $loc->coordinate = new Point($input['latitude'], $input['longitude']);    // (lat, lng)
+            $loc->user_id = $input['user_id'];
+            $loc->address = $input['address'];
+            $loc->save();
+
+
+            return response()->json([
+                'status' => 'success',
+                'msg'    => 'Okay',
+            ], 201);
+        } catch (QueryException $exception) {
+
+            return response()->json([
+                'status' => 'error',
+                'msg'    => 'You already set your location',
+                // 'errors' => $exception->errors(),
+            ], 422);
+        }
+        //dd($lol);
+    }
 
     /**
      * Display the specified resource.

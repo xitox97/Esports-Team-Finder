@@ -1818,30 +1818,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: {
-        subject: "",
-        message: "",
-        recipients: ""
-      },
-      name: String
+      user_id: "",
+      latitude: "",
+      longitude: "",
+      address: ""
     };
   },
-  created: function created() {},
+  props: ["user"],
   methods: {
-    beforeOpen: function beforeOpen(event) {
-      this.form.recipients = event.params.user[0].id;
-      this.name = event.params.user[1].name;
-      console.log(event.params.user[1].name);
-    },
     submit: function submit() {
-      axios.post("/messages", this.form).then(function (response) {
-        alert("Succesfully send"); //console.log(response.data);
-
-        location = response.data.message;
+      axios.post("/loc", {
+        user_id: this.user,
+        latitude: this.latitude,
+        longitude: this.longitude,
+        address: this.address
+      }).then(function (response) {
+        alert("Succesfully saved"); //location = response.data.message;
+      })["catch"](function (error) {
+        console.log(error);
       });
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    geo(window, document);
+
+    function geo(win, doc) {
+      var olview = new ol.View({
+        // projection: 'EPSG:4326',
+        center: [0, 0],
+        zoom: 3,
+        minZoom: 2,
+        maxZoom: 20
+      }),
+          baseLayer = new ol.layer.Tile({
+        source: new ol.source.OSM()
+      }),
+          map = new ol.Map({
+        target: doc.getElementById("map"),
+        view: olview,
+        layers: [baseLayer]
+      }),
+          popup = new ol.Overlay.Popup(); //Instantiate with some options and add the Control
+
+      var geocoder = new Geocoder("nominatim", {
+        provider: "osm",
+        targetType: "text-input",
+        lang: "en",
+        placeholder: "Search for ...",
+        countrycodes: "my",
+        limit: 5,
+        keepOpen: false,
+        autoComplete: true
+      });
+      map.addControl(geocoder);
+      map.addOverlay(popup); //Listen when an address is chosen
+
+      geocoder.on("addresschosen", function (evt) {
+        // lng = evt.coordinate[0];
+        // this.lat = evt.coordinate[1];
+        //console.log(evt.address.details.name);
+        window.setTimeout(function () {
+          popup.show(evt.coordinate, evt.address.formatted);
+        }, 3000);
+        coor(evt.coordinate[1], evt.coordinate[0], evt.address.details.name);
+      }); //this.latitude = lat;
+    } // this.longitude = evt.coordinate[0];
+    //console.log(lat);
+
+
+    function coor(lati, longi, address) {
+      //console.log(lat);
+      _this.latitude = lati;
+      _this.longitude = longi;
+      _this.address = address;
     }
   }
 });
@@ -48239,25 +48297,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "flex flex-col" }, [
+    _c("p", { staticClass: "text-lg font-semibold" }, [
+      _vm._v("Update your current address")
+    ]),
+    _vm._v(" "),
+    _c("div", {
+      staticClass: "max-w-5xl",
+      attrs: { id: "map", tabindex: "0" }
+    }),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        staticClass: "border-t-2",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submit($event)
+          }
+        }
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Save")]
+        )
+      ]
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col" }, [
-      _c("p", { staticClass: "text-lg font-semibold" }, [
-        _vm._v("Update your current address")
-      ]),
-      _vm._v(" "),
-      _c("div", {
-        staticClass: "max-w-5xl",
-        attrs: { id: "map", tabindex: "0" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -62122,46 +62197,6 @@ Vue.component('message-component', __webpack_require__(/*! ./components/MessageC
 Vue.component('map-component', __webpack_require__(/*! ./components/MapComponent.vue */ "./resources/js/components/MapComponent.vue")["default"]);
 new Vue({
   el: '#app',
-  mounted: function mounted() {
-    (function (win, doc) {
-      var olview = new ol.View({
-        // projection: 'EPSG:4326',
-        center: [0, 0],
-        zoom: 3,
-        minZoom: 2,
-        maxZoom: 20
-      }),
-          baseLayer = new ol.layer.Tile({
-        source: new ol.source.OSM()
-      }),
-          map = new ol.Map({
-        target: doc.getElementById('map'),
-        view: olview,
-        layers: [baseLayer]
-      }),
-          popup = new ol.Overlay.Popup(); //Instantiate with some options and add the Control
-
-      var geocoder = new Geocoder('nominatim', {
-        provider: 'osm',
-        targetType: 'text-input',
-        lang: 'en',
-        placeholder: 'Search for ...',
-        countrycodes: 'my',
-        limit: 5,
-        keepOpen: true,
-        autoComplete: true
-      });
-      map.addControl(geocoder);
-      map.addOverlay(popup); //Listen when an address is chosen
-
-      geocoder.on('addresschosen', function (evt) {
-        console.info(evt);
-        window.setTimeout(function () {
-          popup.show(evt.coordinate, evt.address.formatted);
-        }, 3000);
-      });
-    })(window, document);
-  },
   data: function data() {
     return {
       isOpen: true,
