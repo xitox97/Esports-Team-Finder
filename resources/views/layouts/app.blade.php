@@ -129,6 +129,10 @@
                 <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
                 <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
+              <a href="/map/search" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">search</i>
+                <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
+              </a>
             </sidebar-component>
             <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
                 <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">

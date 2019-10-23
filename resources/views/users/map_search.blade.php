@@ -129,6 +129,10 @@
                 <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
                 <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
+              <a href="/map/search" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+                <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">search</i>
+                <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
+              </a>
             </sidebar-component>
             <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
                 <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
@@ -228,15 +232,18 @@
                         //xl tuk desktop 1440 x 737 --}}
                         <div class="container ml-24 mt-12">
 
-                            <mapsearch-component></mapsearch-component>
+                            <mapsearch-component
+                            v-bind:locations="{{ $locations}}"
+                            v-bind:users="{{ $owner}}"
+                            v-bind:accounts="{{ $accounts}}"
+                            v-bind:center="{{ $myLoc}}"
+                        v-bind:searcher="{{ auth()->user()->accounts}}"
+                            ></mapsearch-component>
                         </div>
 
                 </section>
             </section>
-
-
     </div>
-
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>

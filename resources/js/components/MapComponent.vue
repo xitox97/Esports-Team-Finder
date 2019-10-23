@@ -35,6 +35,7 @@ export default {
         })
         .then(response => {
           alert("Succesfully saved");
+          location = "/map/search";
 
           //location = response.data.message;
         })

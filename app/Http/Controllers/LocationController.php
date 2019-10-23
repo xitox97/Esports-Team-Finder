@@ -110,7 +110,26 @@ class LocationController extends Controller
 
     public function search()
     {
-        return view('users.map_search');
+
+        if (auth()->user()->location == null) {
+            return view('users.map');
+        }
+        $users = User::where('id', '!=', auth()->user()->id)->get();
+
+        $locations = \collect([]);
+        $owner = \collect([]);
+        $accounts = \collect([]);
+
+        foreach ($users as $user) {
+            if ($user->location != null) {
+                $locations->push($user->location);
+                $owner->push($user);
+                $accounts->push($user->accounts);
+            }
+        }
+
+        $myLoc = location::where('user_id', '=', auth()->user()->id)->first();
+        return view('users.map_search', compact('owner', 'locations', 'accounts', 'myLoc'));
     }
     public function json()
     {
@@ -128,8 +147,11 @@ class LocationController extends Controller
                 $accounts->push($user->accounts);
             }
         }
-        //dd($locations);
+
+        $my = location::where('user_id', '=', auth()->user()->id)->first();
+        //dd($my->coordinate->lat);
         return response()->json([
+            'center' => $my->coordinate,
             'users' => $owner,
             'locations' => $locations,
             'accounts' => $accounts

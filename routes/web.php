@@ -153,6 +153,11 @@ Route::group(['middleware' => 'auth'], function () {
         //Notification::send($user, new AppTournamentAdded($t));
         dd('la');
     });
+
+    Route::get('/map', 'LocationController@index');
+    Route::get('/map/search', 'LocationController@search');
+    Route::post('/loc', 'LocationController@store');
+    Route::get('/loc', 'LocationController@json');
 });
 
 Route::group(['prefix' => 'messages'], function () {
@@ -166,8 +171,3 @@ Route::group(['prefix' => 'messages'], function () {
 Route::get('/map2', function () {
     return view('map2');
 });
-
-Route::get('/map', 'LocationController@index');
-Route::get('/map/search', 'LocationController@search');
-Route::post('/loc', 'LocationController@store');
-Route::get('/loc', 'LocationController@json');
