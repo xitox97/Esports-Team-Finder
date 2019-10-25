@@ -58,10 +58,92 @@
             </div>
         </div>
         {{-- bottom --}}
-
-        <div class="flex max-w-6xl justify-between">
+        {{-- radiant --}}
+        <div class="flex max-w-6xl flex-col">
             <p class="text-xl tracking-wide font-medium">Radiant - Overview</p>
+            <table class="border-collapse w-full">
+                <thead class="text-gray-600">
+                    <th class="capitalize border-b border-gray-300 py-4 ">PLAYER</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">LVL</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">K</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">D</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">A</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">LH/DN</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">HD</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">TD</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">HH</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">GOLD</th>
+                    <th class="capitalize border-b border-gray-300 py-4 ">ITEMS</th>
+                </thead>
+                <tbody class="text-center">
+                @foreach ($matches->match_details['players'] as $player)
+
+                @if($player['isRadiant'] == 1)
+                    <tr class="hover:bg-gray-200">
+                        @if(array_key_exists("personaname", $player))
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['personaname']}}<br>@include('users.heroes2')@include('users.medal3') </td>
+                        @else
+                        <td>Unknown<br>@include('users.heroes2'){{$player['rank_tier']}}</td>
+                        @endif
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['level']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['kills']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['deaths']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['assists']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['last_hits']}}/{{$player['denies']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_damage']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['tower_damage']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_healing']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300">{{$player['total_gold']}}</td>
+                        <td class="py-4 px-6 border-b border-gray-300 flex">@include('users.matches.items')</td>
+                    </tr>
+                @endif
+                @endforeach
+                </tbody>
+            </table>
         </div>
+        {{-- dire --}}
+        <div class="flex max-w-6xl flex-col">
+                <p class="text-xl tracking-wide font-medium">Dire - Overview</p>
+                <table class="border-collapse w-full">
+                    <thead class="text-gray-600">
+                        <th class="capitalize border-b border-gray-300 py-4 ">PLAYER</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">LVL</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">K</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">D</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">A</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">LH/DN</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">HD</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">TD</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">HH</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">GOLD</th>
+                        <th class="capitalize border-b border-gray-300 py-4 ">ITEMS</th>
+                    </thead>
+                    <tbody class="text-center">
+                    @foreach ($matches->match_details['players'] as $player)
+
+                    @if($player['isRadiant'] == 0)
+                        <tr class="hover:bg-gray-200">
+                            @if(array_key_exists("personaname", $player))
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['personaname']}}<br>@include('users.heroes2')@include('users.medal3') </td>
+                            @else
+                            <td>Unknown<br>@include('users.heroes2'){{$player['rank_tier']}}</td>
+                            @endif
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['level']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['kills']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['deaths']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['assists']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['last_hits']}}/{{$player['denies']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_damage']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['tower_damage']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_healing']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300">{{$player['total_gold']}}</td>
+                            <td class="py-4 px-6 border-b border-gray-300 flex">@include('users.matches.items')</td>
+                        </tr>
+                    @endif
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
 
 
 
@@ -120,8 +202,6 @@
     @if($player['isRadiant'] == 1)
 
         @if(array_key_exists("personaname", $player))
-
-
                 <tr>
                 <td>{{$player['personaname']}}<br>@include('users.heroes2')@include('users.medal3') </td>
                 <td>{{$player['level']}}</td>
@@ -136,7 +216,6 @@
                 <td>{{$player['camps_stacked']}}</td>
                 <td>@include('users.matches.wards')</td>
                 <td>@include('users.matches.roles')</td>
-
                 </tr>
         @else
         <tr>

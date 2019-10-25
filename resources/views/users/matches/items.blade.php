@@ -4,17 +4,17 @@
 
     @foreach($itemsData->items as $item)
         @if($item['id'] == $player['item_0'])
-            <img src="http://cdn.dota2.com{{ $item['img'] }}" alt="">
+            <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10">
         @elseif($item['id'] == $player['item_1'])
-            <img src="http://cdn.dota2.com{{ $item['img'] }}" alt="">
+            <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10">
         @elseif($item['id'] == $player['item_2'])
-            <img src="http://cdn.dota2.com{{ $item['img'] }}" alt="">
+            <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10">
         @elseif($item['id'] == $player['item_3'])
-            <img src="http://cdn.dota2.com{{ $item['img'] }}" alt="">
+            <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10">
         @elseif($item['id'] == $player['item_4'])
-            <img src="http://cdn.dota2.com{{ $item['img'] }}" alt="">
+            <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10">
         @elseif($item['id'] == $player['item_5'])
-            <img src="http://cdn.dota2.com{{ $item['img'] }}" alt="">
+            <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10">
         @endif
     @endforeach
 
