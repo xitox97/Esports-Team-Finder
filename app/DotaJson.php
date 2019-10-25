@@ -10,5 +10,6 @@ class DotaJson extends Model
         'items' => 'array',
         'heroes' => 'array',
         'hero_roles' => 'array',
+        'region' => 'array'
     ];
 }

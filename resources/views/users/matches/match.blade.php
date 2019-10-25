@@ -1,6 +1,71 @@
 @extends('layouts.app')
 
 @section('content')
+<section id="breadcrumb" class="ml-4 pt-2">
+    <span class="italic text-sm">Home / <a href=""
+        class="no-underline hover:underline text-blue-500">Overview</a> / Farhan</span>
+    </section>
+
+    <div class="container ml-24 mt-12">
+        {{-- top --}}
+        <div class="flex max-w-6xl justify-between">
+            <div class="flex-1">
+            @if($matches->match_details['radiant_win'] == true)
+                <p class="text-3xl text-green-600 font-semibold tracking-wide">Radiant Victory</p>
+            @else
+                <p class="text-3xl text-red-600 font-semibold">Dire Victory</p>
+            @endif
+            </div>
+            <div class="flex-1">
+                <p class="text-sm font-medium text-center">RANKED MATCH</p>
+                <div class="flex justify-center items-center">
+                    <p class="text-4xl font-medium text-green-500 mr-10">{{$matches->match_details['radiant_score']}}</p>
+                    <p class="text-2xl font-medium text-center">@php
+                            $minutes=$matches->match_details['duration'];
+                            $hours = intdiv($minutes, 60).':'. ($minutes % 60);
+                            echo $hours;
+                        @endphp</p>
+                    <p class="text-4xl font-medium text-red-500 ml-10">{{$matches->match_details['dire_score']}}</p>
+                </div>
+
+
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-end">
+                    <div class="flex flex-col mr-4">
+                        <p class="font-medium text-right text-gray-600">MATCH ID</p>
+                        <p class="font-medium text-right">{{$matches->match_id}}</p>
+                    </div>
+                    <div class="flex flex-col mr-4">
+                        <p class="font-medium text-right text-gray-600">REGION</p>
+                        <p class="font-medium text-right low">{{$itemsData->region[$matches->match_details['region']]}}</p>
+                    </div>
+                    <div class="flex flex-col">
+                        <p class="font-medium text-right text-gray-600">SKILL</p>
+                        <p class="font-medium text-right">
+                            @if ($matches->match_details['skill'] == 1)
+                                Normal Skill
+                            @elseif($matches->match_details['skill'] == 2)
+                                High Skill
+                            @elseif($matches->match_details['skill'] == 3)
+                                Very High Skill
+                            @endif
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        {{-- bottom --}}
+
+        <div class="flex max-w-6xl justify-between">
+            <p class="text-xl tracking-wide font-medium">Radiant - Overview</p>
+        </div>
+
+
+
+
 <div class="container-fuild my-5 mx-5 px-5">
 
 @if($matches != null)
@@ -165,4 +230,5 @@
   <p class="font-semibold text-lg  mt-5 ">Processing Match details... Comeback back again in minutes</p>
   @endif
 </div>
+    </div>
 @endsection
