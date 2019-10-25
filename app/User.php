@@ -84,4 +84,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Achievement::class);
     }
+
+    public function location()
+    {
+        return $this->hasOne(Location::class);
+    }
 }

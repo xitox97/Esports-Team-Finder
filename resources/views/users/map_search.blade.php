@@ -19,7 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css">
 
 <style>
 .fadedrop-enter-active, .fadedrop-leave-active {
@@ -223,39 +223,33 @@
 
                 <section id="content-div" class="bg-gray-200 h-full pb-20">
 
-                                @yield('content')
-
-                            {{-- @if (count(Auth::user()->unreadNotifications))
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <span class="badge badge-pill badge-primary" style="float:right; margin-bottom:-10px; "> {{count(Auth::user()->unreadNotifications)}} </span> <i class="far fa-bell"></i>
-                                </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        @foreach(Auth::user()->unreadNotifications as $noti)
-                                            @include('notifications.' . snake_case(class_basename($noti->type)))
-                                        @endforeach
-
-                                    </div>
-
-                            </li>
-                            @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <i class="far fa-bell"></i>
-                                </a>
 
 
-                            </li>
+                        <section id="breadcrumb" class="ml-4 pt-2">
+                            <span class="italic text-sm">Home / map </span>
+                        </section>
+                        {{-- //lg untuk laptop 1278 x XXX
+                        //xl tuk desktop 1440 x 737 --}}
+                        <div class="container ml-24 mt-12">
 
+                            <mapsearch-component
+                            v-bind:locations="{{ $locations}}"
+                            v-bind:users="{{ $owner}}"
+                            v-bind:accounts="{{ $accounts}}"
+                            v-bind:center="{{ $myLoc}}"
+                        v-bind:searcher="{{ auth()->user()->accounts}}"
+                            ></mapsearch-component>
+                        </div>
 
-                            @endif --}}
                 </section>
             </section>
-
-
     </div>
-
-
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 </body>
 </html>
+
+
+
+
