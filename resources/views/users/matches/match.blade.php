@@ -61,9 +61,9 @@
         {{-- radiant --}}
         <div class="flex max-w-6xl flex-col">
             <p class="text-xl tracking-wide font-medium">Radiant - Overview</p>
-            <table class="border-collapse w-full">
+            <table class="border-collapse w-full table-fixed">
                 <thead class="text-gray-600">
-                    <th class="capitalize border-b border-gray-300 py-4 ">PLAYER</th>
+                    <th class="capitalize border-b border-gray-300 py-4 text-left w-1/6">PLAYER</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">LVL</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">K</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">D</th>
@@ -81,9 +81,25 @@
                 @if($player['isRadiant'] == 1)
                     <tr class="hover:bg-gray-200">
                         @if(array_key_exists("personaname", $player))
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['personaname']}}<br>@include('users.heroes2')@include('users.medal3') </td>
+                        <td class="py-2 border-b border-gray-300 w-2/12">
+                            <div class="flex items-center">
+                            @include('users.heroes2')
+                            <div class="flex flex-col items-start ml-2 truncate">
+                                <div class="w-11/12 truncate text-left">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdaadasdas</div>
+                                @include('users.medal_word')
+                            </div>
+                            </div>
+                        </td>
                         @else
-                        <td>Unknown<br>@include('users.heroes2'){{$player['rank_tier']}}</td>
+                        <td class="py-2 border-b border-gray-300">
+                                <div class="flex items-center">
+                                @include('users.heroes2')
+                                <div class="flex flex-col items-start ml-2">
+                                    <div>Anonymous</div>
+                                    @include('users.medal_word')
+                                </div>
+                                </div>
+                            </td>
                         @endif
                         <td class="py-4 px-6 border-b border-gray-300">{{$player['level']}}</td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$player['kills']}}</td>
@@ -102,11 +118,11 @@
             </table>
         </div>
         {{-- dire --}}
-        <div class="flex max-w-6xl flex-col">
+        <div class="flex max-w-6xl flex-col  mt-8">
                 <p class="text-xl tracking-wide font-medium">Dire - Overview</p>
-                <table class="border-collapse w-full">
+                <table class="border-collapse w-full table-fixed">
                     <thead class="text-gray-600">
-                        <th class="capitalize border-b border-gray-300 py-4 ">PLAYER</th>
+                        <th class="capitalize border-b border-gray-300 py-4 text-left w-1/6">PLAYER</th>
                         <th class="capitalize border-b border-gray-300 py-4 ">LVL</th>
                         <th class="capitalize border-b border-gray-300 py-4 ">K</th>
                         <th class="capitalize border-b border-gray-300 py-4 ">D</th>
@@ -123,11 +139,27 @@
 
                     @if($player['isRadiant'] == 0)
                         <tr class="hover:bg-gray-200">
-                            @if(array_key_exists("personaname", $player))
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['personaname']}}<br>@include('users.heroes2')@include('users.medal3') </td>
-                            @else
-                            <td>Unknown<br>@include('users.heroes2'){{$player['rank_tier']}}</td>
-                            @endif
+                                @if(array_key_exists("personaname", $player))
+                                <td class="py-2 border-b border-gray-300 w-2/12">
+                                    <div class="flex items-center">
+                                    @include('users.heroes2')
+                                    <div class="flex flex-col items-start ml-2 truncate">
+                                        <div class="truncate w-11/12 text-left">{{$player['personaname']}}</div>
+                                        @include('users.medal_word')
+                                    </div>
+                                    </div>
+                                </td>
+                                @else
+                                <td class="py-2 border-b border-gray-300">
+                                        <div class="flex  items-center">
+                                        @include('users.heroes2')
+                                        <div class="flex flex-col items-start ml-2">
+                                            <div>Anonymous</div>
+                                            @include('users.medal_word')
+                                        </div>
+                                        </div>
+                                    </td>
+                                @endif
                             <td class="py-4 px-6 border-b border-gray-300">{{$player['level']}}</td>
                             <td class="py-4 px-6 border-b border-gray-300">{{$player['kills']}}</td>
                             <td class="py-4 px-6 border-b border-gray-300">{{$player['deaths']}}</td>
