@@ -19,6 +19,7 @@ class DotaDatasTableSeeder extends Seeder
         $hero_roles = IlluminateFile::get(database_path('data/heroes-role.json'));
         $region = IlluminateFile::get(database_path('data/region.json'));
         $abilities = IlluminateFile::get(database_path('data/abilities.json'));
+        $ability_id = IlluminateFile::get(database_path('data/ability_ids.json'));
         // $jsonH = json_decode($heroes, true);
         //dd($jsonH);
         //dd($jsonH['23']);
@@ -28,7 +29,8 @@ class DotaDatasTableSeeder extends Seeder
             'heroes' => $heroes,
             'hero_roles' => $hero_roles,
             'region' => $region,
-            'abilities' => $abilities
+            'abilities' => $abilities,
+            'ability_id' => $ability_id
         ]);
     }
 }

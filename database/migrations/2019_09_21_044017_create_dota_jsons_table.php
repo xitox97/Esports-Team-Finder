@@ -20,6 +20,7 @@ class CreateDotaJsonsTable extends Migration
             $table->longText('hero_roles')->nullable();
             $table->longText('region')->nullable();
             $table->longText('abilities')->nullable();
+            $table->longText('ability_id')->nullable();
             $table->timestamps();
         });
     }
