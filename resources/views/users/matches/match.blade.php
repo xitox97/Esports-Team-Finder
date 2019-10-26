@@ -63,17 +63,17 @@
             <p class="text-xl tracking-wide font-medium">Radiant - Overview</p>
             <table class="border-collapse w-full table-fixed">
                 <thead class="text-gray-600">
-                    <th class="capitalize border-b border-gray-300 py-4 text-left w-1/6">PLAYER</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">LVL</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">K</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">D</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">A</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">LH/DN</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">HD</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">TD</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">HH</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">GOLD</th>
-                    <th class="capitalize border-b border-gray-300 py-4 ">ITEMS</th>
+                        <th class="capitalize border-b border-gray-300 py-4 text-left w-2">PLAYER</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">LVL</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">K</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1">D</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">A</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">LH/DN</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HD</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">TD</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HH</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">GOLD</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-4">ITEMS</th>
                 </thead>
                 <tbody class="text-center">
                 @foreach ($matches->match_details['players'] as $player)
@@ -85,13 +85,13 @@
                             <div class="flex items-center">
                             @include('users.heroes2')
                             <div class="flex flex-col items-start ml-2 truncate">
-                                <div class="w-11/12 truncate text-left">asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdaadasdas</div>
+                                <div class="w-11/12 truncate text-left">{{$player['personaname']}}</div>
                                 @include('users.medal_word')
                             </div>
                             </div>
                         </td>
                         @else
-                        <td class="py-2 border-b border-gray-300">
+                        <td class="border-b border-gray-300">
                                 <div class="flex items-center">
                                 @include('users.heroes2')
                                 <div class="flex flex-col items-start ml-2">
@@ -101,38 +101,83 @@
                                 </div>
                             </td>
                         @endif
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['level']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['kills']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['deaths']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['assists']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['last_hits']}}/{{$player['denies']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_damage']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['tower_damage']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_healing']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300">{{$player['total_gold']}}</td>
-                        <td class="py-4 px-6 border-b border-gray-300 flex">@include('users.matches.items')</td>
+                        <td class="border-b border-gray-300 text-right">{{$player['level']}}</td>
+                        <td class="border-b border-gray-300 text-right">{{$player['kills']}}</td>
+                        <td class="border-b border-gray-300">{{$player['deaths']}}</td>
+                        <td class="border-b border-gray-300 text-left">{{$player['assists']}}</td>
+                        <td class="border-b border-gray-300 text-left">{{$player['last_hits']}}/{{$player['denies']}}</td>
+                        <td class="border-b border-gray-300 text-left">
+                            @if($player['hero_damage'] >= 1000)
+                            {{round(((float)$player['hero_damage']/1000),1)}}k
+                            @else
+                            {{$player['hero_damage']}}
+                            @endif
+                        </td>
+                        <td class="border-b border-gray-300 text-left">
+                                @if($player['tower_damage'] >= 1000)
+                                {{round(((float)$player['tower_damage']/1000),1)}}k
+                                @else
+                                {{$player['tower_damage']}}
+                                @endif
+                        </td>
+                        <td class="border-b border-gray-300 text-left">
+                            @if($player['hero_healing'] >= 1000)
+                            {{round(((float)$player['hero_healing']/1000),1)}}k
+                            @else
+                            {{$player['hero_healing']}}
+                            @endif
+                        </td>
+                        <td class="border-b border-gray-300 text-yellow-500 text-left">
+                            @if($player['total_gold'] >= 1000)
+                            {{round(((float)$player['total_gold']/1000),1)}}k
+                            @else
+                            {{$player['total_gold']}}
+                            @endif
+                        </td>
+                        <td class="border-b border-gray-300 flex">@include('users.matches.items')</td>
                     </tr>
                 @endif
                 @endforeach
                 </tbody>
             </table>
         </div>
+        {{-- hero banned --}}
+        {{-- <div class="flex max-w-6xl mt-4 justify-center">
+            @foreach($matches->match_details['picks_bans'] as $ban)
+            @if ( $player['hero_id'] == null)
+            <img src="
+            {{  asset('img/heroes/default.png') }}" class="w-16">
+            @else
+            <div class="flex flex-col items-center">
+            <div class="border-2 border-red-600 mx-2">
+                    <img  src="
+                    {{  asset('img/heroes/' . $ban['hero_id'] . '.png') }}" class="w-16" style="filter: grayscale(100%);">
+                </div>
+                <div class="bg-black  px-3 ">
+                    <p class="text-white font-base tracking-wide">Ban {{$loop->index + 1}}</p>
+
+                </div>
+            </div>
+
+            @endif
+            @endforeach
+        </div> --}}
         {{-- dire --}}
         <div class="flex max-w-6xl flex-col  mt-8">
                 <p class="text-xl tracking-wide font-medium">Dire - Overview</p>
                 <table class="border-collapse w-full table-fixed">
                     <thead class="text-gray-600">
-                        <th class="capitalize border-b border-gray-300 py-4 text-left w-1/6">PLAYER</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">LVL</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">K</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">D</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">A</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">LH/DN</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">HD</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">TD</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">HH</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">GOLD</th>
-                        <th class="capitalize border-b border-gray-300 py-4 ">ITEMS</th>
+                            <th class="capitalize border-b border-gray-300 py-4 text-left w-2">PLAYER</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">LVL</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">K</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1">D</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">A</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">LH/DN</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HD</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">TD</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HH</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">GOLD</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-4">ITEMS</th>
                     </thead>
                     <tbody class="text-center">
                     @foreach ($matches->match_details['players'] as $player)
@@ -160,16 +205,40 @@
                                         </div>
                                     </td>
                                 @endif
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['level']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['kills']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['deaths']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['assists']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['last_hits']}}/{{$player['denies']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_damage']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['tower_damage']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['hero_healing']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300">{{$player['total_gold']}}</td>
-                            <td class="py-4 px-6 border-b border-gray-300 flex">@include('users.matches.items')</td>
+                                <td class="border-b border-gray-300 text-right">{{$player['level']}}</td>
+                                <td class="border-b border-gray-300 text-right">{{$player['kills']}}</td>
+                                <td class="border-b border-gray-300">{{$player['deaths']}}</td>
+                                <td class="border-b border-gray-300 text-left">{{$player['assists']}}</td>
+                                <td class="border-b border-gray-300 text-left">{{$player['last_hits']}}/{{$player['denies']}}</td>
+                                <td class="border-b border-gray-300 text-left">
+                                        @if($player['hero_damage'] >= 1000)
+                                        {{round(((float)$player['hero_damage']/1000),1)}}k
+                                        @else
+                                        {{$player['hero_damage']}}
+                                        @endif
+                                    </td>
+                                    <td class="border-b border-gray-300 text-left">
+                                            @if($player['tower_damage'] >= 1000)
+                                            {{round(((float)$player['tower_damage']/1000),1)}}k
+                                            @else
+                                            {{$player['tower_damage']}}
+                                            @endif
+                                    </td>
+                                    <td class="border-b border-gray-300 text-left">
+                                        @if($player['hero_healing'] >= 1000)
+                                        {{round(((float)$player['hero_healing']/1000),1)}}k
+                                        @else
+                                        {{$player['hero_healing']}}
+                                        @endif
+                                    </td>
+                                    <td class="border-b border-gray-300 text-yellow-500 text-left">
+                                        @if($player['total_gold'] >= 1000)
+                                        {{round(((float)$player['total_gold']/1000),1)}}k
+                                        @else
+                                        {{$player['total_gold']}}
+                                        @endif
+                                    </td>
+                                <td class="border-b border-gray-300 flex">@include('users.matches.items')</td>
                         </tr>
                     @endif
                     @endforeach
