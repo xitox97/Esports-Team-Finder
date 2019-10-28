@@ -181,16 +181,27 @@
                 <table class="border-collapse w-full table-fixed">
                     <thead class="text-gray-600">
                             <th class="capitalize border-b border-gray-300 py-4 text-left w-3">PLAYER</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-0 text-right">LVL</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">K</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1">D</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">A</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">LH/DN</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HD</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">TD</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HH</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">GOLD</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-4">ITEMS</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-0 text-right cursor-pointer">
+                            <span v-tooltip.top="'Level Achieved by Hero'">LVL</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-right cursor-pointer">
+                            <span v-tooltip.top="'Number of kills by hero'">K</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 cursor-pointer">
+                                <span v-tooltip.top="'Number of deaths by hero'">D</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Number of assists by hero'">A</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Number of last hits by hero'">LH</span>
+                            /<span v-tooltip.top="'Number of denied creeps'">DN</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Amount of damages dealt to heroes'">HD</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Amount of damages dealt to towers'">TD</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Amount of health restored to heroes'">HH</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Total gold farmed'">GOLD</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-4 cursor-pointer">
+                            <span v-tooltip.top="'Items Build'">ITEMS</span></th>
                     </thead>
                     <tbody class="text-center">
                     @foreach ($matches->match_details['players'] as $player)

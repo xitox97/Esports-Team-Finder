@@ -12,7 +12,7 @@
         @if($hero['id'] == $player['hero_id'])
         {{-- {{ dd($hero['img'])}} --}}
 
-        <img  src="http://cdn.dota2.com{{$hero['img']}}" class="h-10" v-tooltip.right="{ html: '{{$hero['id']}}' }">
+        <img  src="http://cdn.dota2.com{{$hero['img']}}" class="h-10 cursor-pointer" v-tooltip.right="{ html: '{{$hero['id']}}' }">
         <div id="{{$hero['id']}}" class="tooltip-content">
             <div class="p-2">
                 <div class="flex">
