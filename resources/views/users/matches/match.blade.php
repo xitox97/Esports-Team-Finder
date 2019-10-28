@@ -2,7 +2,7 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2">
-    <span class="italic text-sm">Home / <a href=""
+    <span class="italic text-sm">Home / <a href="/players/{{$matches->user->accounts->dota_id}}/stats"
         class="no-underline hover:underline text-blue-500">Overview</a> / Farhan</span>
     </section>
 
@@ -64,8 +64,8 @@
             <p class="text-xl tracking-wide font-medium">Radiant - Overview</p>
             <table class="border-collapse w-full table-fixed">
                 <thead class="text-gray-600">
-                        <th class="capitalize border-b border-gray-300 py-4 text-left w-2">PLAYER</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">LVL</th>
+                        <th class="capitalize border-b border-gray-300 py-4 text-left w-3">PLAYER</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-0 text-right">LVL</th>
                         <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">K</th>
                         <th class="capitalize border-b border-gray-300 py-4 w-1">D</th>
                         <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">A</th>
@@ -86,7 +86,7 @@
                             <div class="flex items-center">
                             @include('users.heroes2')
                             <div class="flex flex-col items-start ml-2 truncate">
-                                <div class="w-11/12 truncate text-left">{{$player['personaname']}}</div>
+                                <div class="w-11/12 truncate text-left font-medium">{{$player['personaname']}}</div>
                                 @include('users.medal_word')
                             </div>
                             </div>
@@ -96,7 +96,7 @@
                                 <div class="flex items-center">
                                 @include('users.heroes2')
                                 <div class="flex flex-col items-start ml-2">
-                                    <div>Anonymous</div>
+                                    <div class="font-medium">Anonymous</div>
                                     @include('users.medal_word')
                                 </div>
                                 </div>
@@ -169,8 +169,8 @@
                 <p class="text-xl tracking-wide font-medium">Dire - Overview</p>
                 <table class="border-collapse w-full table-fixed">
                     <thead class="text-gray-600">
-                            <th class="capitalize border-b border-gray-300 py-4 text-left w-2">PLAYER</th>
-                            <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">LVL</th>
+                            <th class="capitalize border-b border-gray-300 py-4 text-left w-3">PLAYER</th>
+                            <th class="capitalize border-b border-gray-300 py-4 w-0 text-right">LVL</th>
                             <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">K</th>
                             <th class="capitalize border-b border-gray-300 py-4 w-1">D</th>
                             <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">A</th>
@@ -191,7 +191,7 @@
                                     <div class="flex items-center">
                                     @include('users.heroes2')
                                     <div class="flex flex-col items-start ml-2 truncate">
-                                        <div class="truncate w-11/12 text-left">{{$player['personaname']}}</div>
+                                        <div class="truncate w-11/12 text-left font-medium">{{$player['personaname']}}</div>
                                         @include('users.medal_word')
                                     </div>
                                     </div>
@@ -201,7 +201,7 @@
                                         <div class="flex  items-center">
                                         @include('users.heroes2')
                                         <div class="flex flex-col items-start ml-2">
-                                            <div>Anonymous</div>
+                                            <div class="font-medium">Anonymous</div>
                                             @include('users.medal_word')
                                         </div>
                                         </div>
@@ -284,7 +284,7 @@
                                         <div class="flex items-center">
                                         @include('users.heroes2')
                                         <div class="flex flex-col items-start ml-2 truncate">
-                                            <div class="w-11/12 truncate text-left">{{$player['personaname']}}</div>
+                                            <div class="w-11/12 truncate text-left font-medium">{{$player['personaname']}}</div>
                                             @include('users.medal_word')
                                         </div>
                                         </div>
@@ -294,7 +294,7 @@
                                             <div class="flex items-center">
                                             @include('users.heroes2')
                                             <div class="flex flex-col items-start ml-2">
-                                                <div>Anonymous</div>
+                                                <div class="font-medium">Anonymous</div>
                                                 @include('users.medal_word')
                                             </div>
                                             </div>

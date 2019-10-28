@@ -19,7 +19,7 @@ class MatchController extends Controller
 
         $matches = Match::where('match_id', $match)->first();
 
-        //dd($matches);
+        //dd($matches->user->accounts);
 
         $itemsData = DotaJson::first();
         //dd($matches->match_details['chat']);
