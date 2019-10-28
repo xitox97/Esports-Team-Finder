@@ -65,16 +65,27 @@
             <table class="border-collapse w-full table-fixed">
                 <thead class="text-gray-600">
                         <th class="capitalize border-b border-gray-300 py-4 text-left w-3">PLAYER</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-0 text-right">LVL</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-right">K</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1">D</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">A</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">LH/DN</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HD</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">TD</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">HH</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left">GOLD</th>
-                        <th class="capitalize border-b border-gray-300 py-4 w-4">ITEMS</th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-0 text-right cursor-pointer">
+                            <span v-tooltip.top="'Level Achieved by Hero'">LVL</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-right cursor-pointer">
+                            <span v-tooltip.top="'Number of kills by hero'">K</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 cursor-pointer">
+                                <span v-tooltip.top="'Number of deaths by hero'">D</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Number of assists by hero'">A</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Number of last hits by hero'">LH</span>
+                            /<span v-tooltip.top="'Number of denied creeps'">DN</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Amount of damages dealt to heroes'">HD</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Amount of damages dealt to towers'">TD</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Amount of health restored to heroes'">HH</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-1 text-left cursor-pointer">
+                            <span v-tooltip.top="'Total gold farmed'">GOLD</span></th>
+                        <th class="capitalize border-b border-gray-300 py-4 w-4 cursor-pointer">
+                            <span v-tooltip.top="'Items Build'">ITEMS</span></th>
                 </thead>
                 <tbody class="text-center">
                 @foreach ($matches->match_details['players'] as $player)
@@ -282,7 +293,7 @@
                                     @if(array_key_exists("personaname", $player))
                                     <td class="py-2 border-b border-gray-300 w-2/12">
                                         <div class="flex items-center">
-                                        @include('users.heroes2')
+                                        @include('users.heroes3')
                                         <div class="flex flex-col items-start ml-2 truncate">
                                             <div class="w-11/12 truncate text-left font-medium">{{$player['personaname']}}</div>
                                             @include('users.medal_word')
@@ -292,7 +303,7 @@
                                     @else
                                     <td class="border-b border-gray-300">
                                             <div class="flex items-center">
-                                            @include('users.heroes2')
+                                            @include('users.heroes3')
                                             <div class="flex flex-col items-start ml-2">
                                                 <div class="font-medium">Anonymous</div>
                                                 @include('users.medal_word')
@@ -349,7 +360,7 @@
                                     @if(array_key_exists("personaname", $player))
                                     <td class="py-2 border-b border-gray-300 w-2/12">
                                         <div class="flex items-center">
-                                        @include('users.heroes2')
+                                        @include('users.heroes3')
                                         <div class="flex flex-col items-start ml-2 truncate">
                                             <div class="w-11/12 truncate text-left">{{$player['personaname']}}</div>
                                             @include('users.medal_word')
@@ -359,7 +370,7 @@
                                     @else
                                     <td class="border-b border-gray-300">
                                             <div class="flex items-center">
-                                            @include('users.heroes2')
+                                            @include('users.heroes3')
                                             <div class="flex flex-col items-start ml-2">
                                                 <div>Anonymous</div>
                                                 @include('users.medal_word')
