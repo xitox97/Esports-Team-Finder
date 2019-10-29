@@ -21,7 +21,20 @@
                     {{$att['header']}}
                     @endif
                     @if(array_key_exists("value",$att))
-                    <span class="font-medium">{{$att['value']}}</span>
+                        @if(is_array($att['value']))
+                        <span class="font-medium">
+                            @foreach($att['value'] as $v)
+
+                            @if($loop->last != true)
+                            {{$v}} /
+                            @else
+                            {{$v}}
+                            @endif
+                            @endforeach
+                            </span>
+                        @else
+                        <span class="font-medium">{{$att['value']}}</span>
+                        @endif
                     @endif
                     @if(array_key_exists("footer",$att))
                     {{$att['footer']}}
