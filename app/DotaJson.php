@@ -13,5 +13,6 @@ class DotaJson extends Model
         'region' => 'array',
         'abilities' => 'array',
         'ability_id' => 'array',
+        'item_id' => 'array',
     ];
 }

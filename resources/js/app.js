@@ -13,10 +13,12 @@ window.Vue = require('vue');
 import ClickOutside from "vue-click-outside";
 import Notifications from 'vue-notification';
 import VModal from 'vue-js-modal'
+import Tooltip from 'vue-directive-tooltip';
 
 Vue.use(VModal)
 Vue.use(ClickOutside);
 Vue.use(Notifications);
+Vue.use(Tooltip);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
