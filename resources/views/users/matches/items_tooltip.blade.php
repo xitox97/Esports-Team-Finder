@@ -33,8 +33,33 @@
         @if(array_key_exists("active",$item))
         <div class="flex flex-col mt-2 p-1">
             @foreach($item['active'] as $active)
-            <div class="bg-gray-700 py-1 pl-2">
-                <p class="font-semibold text-md tracking-wide">Active: {{$active['name']}}</p>
+            <div class="bg-gray-700 py-1 pl-2 flex">
+                <div>
+                    <p class="font-semibold text-md tracking-wide">Active: {{$active['name']}}</p>
+                </div>
+                <div class="flex justify-end flex-grow pr-2">
+                    @if($item['cd'] != false)
+                    <div class="mr-2 flex">
+                        <div>
+                            <img src="{{  asset('img/cd.png') }}" alt="">
+                        </div>
+                        <div class="ml-1">
+                            <p>{{$item['cd']}}</p>
+                        </div>
+                    </div>
+                    @endif
+                    @if($item['mc'] != false)
+                    <div class="mr-2 flex">
+                        <div>
+                            <img src="{{  asset('img/mana.png') }}" alt="">
+                        </div>
+                        <div class="ml-1">
+                        <p>{{$item['mc']}}</p>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+
             </div>
             <div class="p-2 bg-gray-800">
                 <p class="text-xs tracking-wide whitespace-pre-line">{{$active['desc']}}</p>
