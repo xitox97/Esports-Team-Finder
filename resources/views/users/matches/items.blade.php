@@ -10,49 +10,37 @@
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10 cursor-pointer" v-tooltip.bottom="{ html: '{{$indexKey}}{{$item['id']}}{{$random}}' }">
 
             <div id="{{$indexKey}}{{$item['id']}}{{$random}}" class="tooltip-content">
-                <div class="p-2">
-                    <p>{{$item['dname']}}</p>
-                </div>
+                @include('users.matches.items_tooltip')
             </div>
 
         @elseif($item['id'] == $player['item_1'])
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10 cursor-pointer" v-tooltip.bottom="{ html: '{{$indexKey}}{{$item['id']}}{{$random}}' }">
             <div id="{{$indexKey}}{{$item['id']}}{{$random}}" class="tooltip-content">
-                <div class="p-2">
-                    <p>{{$item['dname']}}</p>
-                </div>
+                    @include('users.matches.items_tooltip')
             </div>
 
         @elseif($item['id'] == $player['item_2'])
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10 cursor-pointer" v-tooltip.bottom="{ html: '{{$indexKey}}{{$item['id']}}{{$random}}' }">
             <div id="{{$indexKey}}{{$item['id']}}{{$random}}" class="tooltip-content">
-                <div class="p-2">
-                    <p>{{$item['dname']}}</p>
-                </div>
+                    @include('users.matches.items_tooltip')
             </div>
 
         @elseif($item['id'] == $player['item_3'])
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10 cursor-pointer" v-tooltip.bottom="{ html: '{{$indexKey}}{{$item['id']}}{{$random}}' }">
             <div id="{{$indexKey}}{{$item['id']}}{{$random}}" class="tooltip-content">
-                <div class="p-2">
-                    <p>{{$item['dname']}}</p>
-                </div>
+                    @include('users.matches.items_tooltip')
             </div>
 
         @elseif($item['id'] == $player['item_4'])
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10 cursor-pointer" v-tooltip.bottom="{ html: '{{$indexKey}}{{$item['id']}}{{$random}}' }">
             <div id="{{$indexKey}}{{$item['id']}}{{$random}}" class="tooltip-content">
-                <div class="p-2">
-                    <p>{{$item['dname']}}</p>
-                </div>
+                @include('users.matches.items_tooltip')
             </div>
 
         @elseif($item['id'] == $player['item_5'])
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10 cursor-pointer" v-tooltip.bottom="{ html: '{{$indexKey}}{{$item['id']}}{{$random}}' }">
             <div id="{{$indexKey}}{{$item['id']}}{{$random}}" class="tooltip-content">
-                <div class="p-2">
-                    <p>{{$item['dname']}}</p>
-                </div>
+                    @include('users.matches.items_tooltip')
             </div>
         @endif
 
