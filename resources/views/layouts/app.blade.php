@@ -22,6 +22,9 @@
 
 
 <style>
+    .bg-trans{
+        background: rgba(0, 0, 0, 0.6);
+    }
 .fadedrop-enter-active, .fadedrop-leave-active {
   transition: opacity .3s;
 }
