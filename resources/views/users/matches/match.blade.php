@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / <a href="/players/{{$matches->user->accounts->dota_id}}/stats"
         class="no-underline hover:underline text-blue-500">Overview</a> / Farhan</span>
     </section>
@@ -17,7 +17,7 @@
                 <p class="text-3xl text-red-600 font-semibold">Dire Victory</p>
             @endif
             </div>
-            <div class="flex-1">
+            <div class="flex-1 text-white">
                 <p class="text-sm font-medium text-center">RANKED MATCH</p>
                 <div class="flex justify-center items-center">
                     <p class="text-4xl font-medium text-green-500 mr-10">{{$matches->match_details['radiant_score']}}</p>
@@ -32,7 +32,7 @@
 
             </div>
             <div class="flex-1">
-                <div class="flex justify-end">
+                <div class="flex justify-end text-white">
                     <div class="flex flex-col mr-4">
                         <p class="font-medium text-right text-gray-600">MATCH ID</p>
                         <p class="font-medium text-right">{{$matches->match_id}}</p>

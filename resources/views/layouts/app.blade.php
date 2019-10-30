@@ -137,10 +137,10 @@
                 <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
               </a>
             </sidebar-component>
-            <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
-                <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
+            <section id="maindiv" class="flex flex-col bg-gray-900" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
+                <header class="h-24 flex justify-between">
                     <div class="w-8 flex items-center ml-12">
-                           <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer">
+                           <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer text-white">
                                     menu_open
                                     </i>
                     </div>
@@ -197,7 +197,7 @@
                             @endif
                         </div>
                         <div class="mx-3">
-                                <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="opened">
+                                <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer text-white" aria-haspopup="true" :aria-expanded="opened">
                                         more_horiz
                                         </i>
                         </div>
@@ -224,7 +224,7 @@
                 </header>
                 <alert-component></alert-component>
 
-                <section id="content-div" class="bg-gray-200 h-full pb-20">
+                <section id="content-div" class="h-full pb-20">
 
                                 @yield('content')
 
