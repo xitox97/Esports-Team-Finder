@@ -24,7 +24,7 @@ module.exports = {
             },
             colors: {
                 sidebar: '#22273F',
-                content: '#2C2F33',
+                content: '#373B46',
             },
 
         },

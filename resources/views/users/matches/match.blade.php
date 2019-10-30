@@ -7,71 +7,77 @@
     </section>
 
     <div class="container ml-24 mt-12">
-            @if($matches != null)
+        @if($matches != null)
         {{-- top --}}
-        <div class="flex max-w-6xl justify-between">
-            <div class="flex-1">
-            @if($matches->match_details['radiant_win'] == true)
-                <p class="text-3xl text-green-600 font-semibold tracking-wide">Radiant Victory</p>
-            @else
-                <p class="text-3xl text-red-600 font-semibold">Dire Victory</p>
-            @endif
-            </div>
-            <div class="flex-1 text-white">
-                <p class="text-sm font-medium text-center">RANKED MATCH</p>
-                <div class="flex justify-center items-center">
-                    <p class="text-4xl font-medium text-green-500 mr-10">{{$matches->match_details['radiant_score']}}</p>
-                    <p class="text-2xl font-medium text-center">@php
-                            $minutes=$matches->match_details['duration'];
-                            $hours = intdiv($minutes, 60).':'. ($minutes % 60);
-                            echo $hours;
-                        @endphp</p>
-                    <p class="text-4xl font-medium text-red-500 ml-10">{{$matches->match_details['dire_score']}}</p>
-                </div>
+        <div class="bg-content flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
+           <div class="flex">
+                <div class="flex-1">
+                        @if($matches->match_details['radiant_win'] == true)
+                            <p class="text-3xl text-green-600 font-semibold tracking-wide">Radiant Victory</p>
+                        @else
+                            <p class="text-3xl text-red-600 font-semibold">Dire Victory</p>
+                        @endif
+                        </div>
+                        <div class="flex-1 text-white">
+                            <p class="text-sm font-medium text-center">RANKED MATCH</p>
+                            <div class="flex justify-center items-center">
+                                <p class="text-4xl font-medium text-green-500 mr-10">{{$matches->match_details['radiant_score']}}</p>
+                                <p class="text-2xl font-medium text-center">@php
+                                        $minutes=$matches->match_details['duration'];
+                                        $hours = intdiv($minutes, 60).':'. ($minutes % 60);
+                                        echo $hours;
+                                    @endphp</p>
+                                <p class="text-4xl font-medium text-red-500 ml-10">{{$matches->match_details['dire_score']}}</p>
+                            </div>
 
 
-            </div>
-            <div class="flex-1">
-                <div class="flex justify-end text-white">
-                    <div class="flex flex-col mr-4">
-                        <p class="font-medium text-right text-gray-600">MATCH ID</p>
-                        <p class="font-medium text-right">{{$matches->match_id}}</p>
-                    </div>
-                    <div class="flex flex-col mr-4">
-                        <p class="font-medium text-right text-gray-600">REGION</p>
-                        <p class="font-medium text-right low">{{$itemsData->region[$matches->match_details['region']]}}</p>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="font-medium text-right text-gray-600">SKILL</p>
-                        <p class="font-medium text-right">
-                            @if ($matches->match_details['skill'] == 1)
-                                Normal Skill
-                            @elseif($matches->match_details['skill'] == 2)
-                                High Skill
-                            @elseif($matches->match_details['skill'] == 3)
-                                Very High Skill
-                            @endif
-                        </p>
-                    </div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-end text-white">
+                                <div class="flex flex-col mr-4">
+                                    <p class="font-medium text-right text-gray-600">MATCH ID</p>
+                                    <p class="font-medium text-right">{{$matches->match_id}}</p>
+                                </div>
+                                <div class="flex flex-col mr-4">
+                                    <p class="font-medium text-right text-gray-600">REGION</p>
+                                    <p class="font-medium text-right low">{{$itemsData->region[$matches->match_details['region']]}}</p>
+                                </div>
+                                <div class="flex flex-col">
+                                    <p class="font-medium text-right text-gray-600">SKILL</p>
+                                    <p class="font-medium text-right">
+                                        @if ($matches->match_details['skill'] == 1)
+                                            Normal Skill
+                                        @elseif($matches->match_details['skill'] == 2)
+                                            High Skill
+                                        @elseif($matches->match_details['skill'] == 3)
+                                            Very High Skill
+                                        @endif
+                                    </p>
+                                </div>
 
-                </div>
+                            </div>
 
+                        </div>
+
+           </div>
+           <div class="border-b border-gray-600 flex justify-center mt-4 pb-4">
+                <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium text-indigo-500 mr-20 hover:text-indigo-600
+                 ">Overview</a>
+                <a href="{{ url('/matches/' . $matches->match_id ) }}/skills" class="text-md font-medium text-indigo-500 mx-10 hover:text-indigo-600
+                ">Skills Build</a>
+                <a href="{{ url('/matches/' . $matches->match_id ) }}/performance" class="text-md font-medium text-indigo-500 ml-20 hover:text-indigo-600
+                ">Performance</a>
             </div>
 
         </div>
 
         {{-- bottom --}}
         {{-- radiant --}}
-        <div class="flex max-w-6xl flex-col">
-                <div class="flex justify-center border-b-2 border-gray-300 pb-4 mt-4">
-                        <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium text-indigo-500 mr-20 hover:text-indigo-600
-                         ">Overview</a>
-                        <a href="{{ url('/matches/' . $matches->match_id ) }}/skills" class="text-md font-medium text-indigo-500 mx-10 hover:text-indigo-600
-                        ">Skills Build</a>
-                        <a href="{{ url('/matches/' . $matches->match_id ) }}/performance" class="text-md font-medium text-indigo-500 ml-20 hover:text-indigo-600
-                        ">Performance</a>
-                    </div>
-            <p class="text-xl tracking-wide font-medium mt-3">Radiant - Overview</p>
+        <div class="bg-content flex flex-col max-w-6xl mt-4 p-4 rounded-lg shadow-lg">
+            <div class="flex items-start">
+                <img src=" {{  asset('img/radiant.png') }}" class="rounded-full w-12 mr-2">
+                <p class="text-xl tracking-wide font-base mt-3 text-white">Radiant - Overview</p>
+            </div>
             <table class="border-collapse w-full table-fixed">
                 <thead class="text-gray-600">
                         <th class="capitalize border-b border-gray-300 py-4 text-left w-3">PLAYER</th>
