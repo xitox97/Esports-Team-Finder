@@ -63,13 +63,13 @@
         {{-- bottom --}}
         {{-- radiant --}}
         <div class="flex max-w-6xl flex-col">
-                <div class="flex justify-center border-b-2 border-gray-300 pb-4 mt-4">
-                        <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium text-indigo-500 mr-20 hover:text-indigo-600
-                         ">Overview</a>
-                        <a href="{{ url('/matches/' . $matches->match_id ) }}/skills" class="text-md font-medium text-indigo-500 mx-10 hover:text-indigo-600
-                        ">Skills Build</a>
-                        <a href="{{ url('/matches/' . $matches->match_id ) }}/performance" class="text-md font-medium text-indigo-500 ml-20 hover:text-indigo-600
-                        ">Performance</a>
+                <div class="border-b border-gray-600 flex justify-center mt-4 pb-4">
+                        <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium  mr-20 hover:underline
+                            {{(Request::is('matches/' . $matches->match_id )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Overview</a>
+                        <a href="{{ url('/matches/' . $matches->match_id ) }}/skills" class="text-md font-medium text-white mx-10 hover:underline
+                            {{(Request::is('matches/' . $matches->match_id . '/skills' )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Skills Build</a>
+                        <a href="{{ url('/matches/' . $matches->match_id ) }}/performance" class="text-md font-medium text-white ml-20 hover:underline
+                            {{(Request::is('matches/' . $matches->match_id . '/performance' )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Performance</a>
                     </div>
 
                     <div class="flex max-w-6xl flex-col mt-8">
