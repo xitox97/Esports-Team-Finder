@@ -107,8 +107,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //match
     Route::get('/matches/{matchid}', 'MatchController@show');
-
-
+    Route::get('/matches/{matchid}/skills', 'MatchController@skills');
+    Route::get('/matches/{matchid}/performance', 'MatchController@performance');
 
     Route::get('/try-redis', function () {
 

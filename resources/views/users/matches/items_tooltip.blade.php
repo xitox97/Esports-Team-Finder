@@ -11,7 +11,7 @@
                                 <div>
                                     <img src=" {{  asset('img/gold.png') }}" class="w-4 mr-1">
                                 </div>
-                                <p class="font-medium text-yellow-500 text-md">{{$player['total_gold']}}</p>
+                                <p class="font-medium text-yellow-500 text-md">{{$item['cost']}}</p>
                             </div>
                     </div>
                 </div>

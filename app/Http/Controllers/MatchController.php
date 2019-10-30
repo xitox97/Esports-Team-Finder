@@ -19,7 +19,7 @@ class MatchController extends Controller
 
         $matches = Match::where('match_id', $match)->first();
 
-        //dd($matches->user->accounts);
+        //dd($matches->match_id);
 
         $itemsData = DotaJson::first();
         //dd($matches->match_details['chat']);
@@ -32,6 +32,21 @@ class MatchController extends Controller
         //     }
         //  }
 
+
         return view('users.matches.match', compact('matches', 'itemsData'));
+    }
+
+    public function skills($match)
+    {
+        $matches = Match::where('match_id', $match)->first();
+        $itemsData = DotaJson::first();
+        return view('users.matches.match_skills', compact('matches', 'itemsData'));
+    }
+
+    public function performance($match)
+    {
+        $matches = Match::where('match_id', $match)->first();
+        $itemsData = DotaJson::first();
+        return view('users.matches.match_performance', compact('matches', 'itemsData'));
     }
 }

@@ -57,11 +57,21 @@
                 </div>
 
             </div>
+
         </div>
+
         {{-- bottom --}}
         {{-- radiant --}}
         <div class="flex max-w-6xl flex-col">
-            <p class="text-xl tracking-wide font-medium">Radiant - Overview</p>
+                <div class="flex justify-center border-b-2 border-gray-300 pb-4 mt-4">
+                        <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium text-indigo-500 mr-20 hover:text-indigo-600
+                         ">Overview</a>
+                        <a href="{{ url('/matches/' . $matches->match_id ) }}/skills" class="text-md font-medium text-indigo-500 mx-10 hover:text-indigo-600
+                        ">Skills Build</a>
+                        <a href="{{ url('/matches/' . $matches->match_id ) }}/performance" class="text-md font-medium text-indigo-500 ml-20 hover:text-indigo-600
+                        ">Performance</a>
+                    </div>
+            <p class="text-xl tracking-wide font-medium mt-3">Radiant - Overview</p>
             <table class="border-collapse w-full table-fixed">
                 <thead class="text-gray-600">
                         <th class="capitalize border-b border-gray-300 py-4 text-left w-3">PLAYER</th>
@@ -269,148 +279,6 @@
                     </tbody>
                 </table>
             </div>
-
-
-            {{-- ability build radiant --}}
-            <div class="flex max-w-6xl flex-col mt-8">
-                    <p class="text-xl tracking-wide font-medium">Radiant - Ability Build</p>
-                    <table class="border-collapse w-full table-auto">
-                            <thead class="text-gray-600">
-                                    <th class="capitalize border-b border-gray-300 py-4 text-left w-2">PLAYER</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">1</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">2</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">3</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">4</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">5</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">6</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">7</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">8</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">9</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">10</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">11</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">12</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">13</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">14</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">15</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">16</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">18</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">20</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">25</th>
-                            </thead>
-                            <tbody class="text-center">
-                            @foreach ($matches->match_details['players'] as $player)
-                            @if($player['isRadiant'] == 1)
-                            <tr>
-                                    @if(array_key_exists("personaname", $player))
-                                    <td class="py-2 border-b border-gray-300 w-2/12">
-                                        <div class="flex items-center">
-                                        @include('users.heroes3')
-                                        <div class="flex flex-col items-start ml-2 truncate">
-                                            <div class="w-11/12 truncate text-left font-medium">{{$player['personaname']}}</div>
-                                            @include('users.medal_word')
-                                        </div>
-                                        </div>
-                                    </td>
-                                    @else
-                                    <td class="border-b border-gray-300">
-                                            <div class="flex items-center">
-                                            @include('users.heroes3')
-                                            <div class="flex flex-col items-start ml-2">
-                                                <div class="font-medium">Anonymous</div>
-                                                @include('users.medal_word')
-                                            </div>
-                                            </div>
-                                        </td>
-                                    @endif
-
-                                {{-- @if($loop->index != 16 and $loop->index != 18 and $loop->index != 20
-                                and $loop->index != 21 and $loop->index != 22 and $loop->index != 23)
-                                <td class="border-b border-gray-300 ">{{$ability}}</td>
-                                @else
-                                <td class="border-b border-gray-300 ">none</td>
-                                @endif
-                                @endforeach --}}
-                                @include('users.matches.ability')
-                            </tr>
-                            @endif
-                            @endforeach
-                            </tbody>
-                    </table>
-            </div>
-
-            {{-- ability build dire --}}
-            <div class="flex max-w-6xl flex-col mt-8">
-                    <p class="text-xl tracking-wide font-medium">Dire - Ability Build</p>
-                    <table class="border-collapse w-full table-auto">
-                            <thead class="text-gray-600">
-                                    <th class="capitalize border-b border-gray-300 py-4 text-left w-2">PLAYER</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">1</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">2</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">3</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">4</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">5</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">6</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">7</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">8</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">9</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">10</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">11</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">12</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">13</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">14</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">15</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">16</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">18</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">20</th>
-                                    <th class="capitalize border-b border-gray-300 py-4 ">25</th>
-                            </thead>
-                            <tbody class="text-center">
-                            @foreach ($matches->match_details['players'] as $player)
-                            @if($player['isRadiant'] == 0)
-                            <tr>
-                                    @if(array_key_exists("personaname", $player))
-                                    <td class="py-2 border-b border-gray-300 w-2/12">
-                                        <div class="flex items-center">
-                                        @include('users.heroes3')
-                                        <div class="flex flex-col items-start ml-2 truncate">
-                                            <div class="w-11/12 truncate text-left">{{$player['personaname']}}</div>
-                                            @include('users.medal_word')
-                                        </div>
-                                        </div>
-                                    </td>
-                                    @else
-                                    <td class="border-b border-gray-300">
-                                            <div class="flex items-center">
-                                            @include('users.heroes3')
-                                            <div class="flex flex-col items-start ml-2">
-                                                <div>Anonymous</div>
-                                                @include('users.medal_word')
-                                            </div>
-                                            </div>
-                                        </td>
-                                    @endif
-
-                                {{-- @if($loop->index != 16 and $loop->index != 18 and $loop->index != 20
-                                and $loop->index != 21 and $loop->index != 22 and $loop->index != 23)
-                                <td class="border-b border-gray-300 ">{{$ability}}</td>
-                                @else
-                                <td class="border-b border-gray-300 ">none</td>
-                                @endif
-                                @endforeach --}}
-                                @include('users.matches.ability')
-                            </tr>
-                            @endif
-                            @endforeach
-                            </tbody>
-                    </table>
-            </div>
-
-
-
-
-
-
-
 
             @else
             <p class="font-semibold text-lg mt-5">Wrong match id</p>
