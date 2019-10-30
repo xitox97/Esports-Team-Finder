@@ -56100,102 +56100,90 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("transition", { attrs: { name: "fade" } }, [
-    _c(
-      "aside",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.isOpen,
-            expression: "isOpen"
-          }
-        ],
-        staticClass: "w-2/12 bg-sidebar"
-      },
-      [
-        _c("div", { staticClass: "flex flex-col h-full" }, [
-          _c(
-            "header",
-            {
-              staticClass:
-                "h-24 flex items-center border-b border-indigo-700 py-5"
-            },
-            [
-              _c("img", {
-                staticClass: "w-7/12 mx-auto mt-3 cursor-pointer",
-                attrs: {
-                  src:
-                    "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
-                  alt: "netflix-font",
-                  border: "0"
-                },
-                on: { click: _vm.home }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "section",
-            { staticClass: "h-full flex flex-col" },
-            [_vm._t("default")],
-            2
-          ),
-          _vm._v(" "),
-          _c("div", [
+    _vm.isOpen
+      ? _c("aside", [
+          _c("div", { staticClass: "flex flex-col h-full" }, [
             _c(
-              "div",
+              "header",
               {
                 staticClass:
-                  "flex justify-center items-center py-6 pr-6 cursor-pointer border-t border-indigo-700"
+                  "h-24 flex items-center border-b border-indigo-700 py-5"
               },
               [
-                _c(
-                  "i",
-                  {
-                    staticClass:
-                      "material-icons mr-3 align-middle font-semibold text-white"
+                _c("img", {
+                  staticClass: "w-7/12 mx-auto mt-3 cursor-pointer",
+                  attrs: {
+                    src:
+                      "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
+                    alt: "netflix-font",
+                    border: "0"
                   },
-                  [_vm._v("power_settings_new")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass:
-                      "font-semibold text-white text-xl align-middle",
-                    attrs: {
-                      href: "/logout",
-                      onclick:
-                        "event.preventDefault(); document.getElementById('logout-form').submit();"
-                    }
-                  },
-                  [_vm._v("log out")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "form",
-                  {
-                    staticStyle: { display: "none" },
-                    attrs: {
-                      id: "logout-form",
-                      action: "/logout",
-                      method: "POST"
-                    }
-                  },
-                  [
-                    _c("input", {
-                      attrs: { type: "hidden", name: "_token" },
-                      domProps: { value: _vm.csrf }
-                    })
-                  ]
-                )
+                  on: { click: _vm.home }
+                })
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c(
+              "section",
+              { staticClass: "h-full flex flex-col" },
+              [_vm._t("default")],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "flex justify-center items-center py-6 pr-6 cursor-pointer border-t border-indigo-700"
+                },
+                [
+                  _c(
+                    "i",
+                    {
+                      staticClass:
+                        "material-icons mr-3 align-middle font-semibold text-white"
+                    },
+                    [_vm._v("power_settings_new")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "font-semibold text-white text-xl align-middle",
+                      attrs: {
+                        href: "/logout",
+                        onclick:
+                          "event.preventDefault(); document.getElementById('logout-form').submit();"
+                      }
+                    },
+                    [_vm._v("log out")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "form",
+                    {
+                      staticStyle: { display: "none" },
+                      attrs: {
+                        id: "logout-form",
+                        action: "/logout",
+                        method: "POST"
+                      }
+                    },
+                    [
+                      _c("input", {
+                        attrs: { type: "hidden", name: "_token" },
+                        domProps: { value: _vm.csrf }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
           ])
         ])
-      ]
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

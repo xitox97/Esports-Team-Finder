@@ -92,7 +92,7 @@
     }
 @endphp
     <div id="app" class="flex font-sans min-h-screen">
-            <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}">
+            <sidebar-component v-bind:is-open="isOpen" class="w-2/12 bg-sidebar">
                 <a href="/{{$playerUrl}}/stats"
                 class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
               >
@@ -137,7 +137,7 @@
                 <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
               </a>
             </sidebar-component>
-            <section id="maindiv" class="flex flex-col bg-gray-900" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
+            <section id="maindiv" class="flex flex-col bg-gray-900 w-screen" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
                 <header class="h-24 flex justify-between">
                     <div class="w-8 flex items-center ml-12">
                            <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer text-white">
@@ -154,7 +154,7 @@
                                     <p v-text="count"></p>
                                   </span>
                                 </div>
-                                <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
+                                <div v-if="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
                                 right-0 text-center w-auto">
 
                               @foreach(Auth::user()->unreadNotifications as $noti)
@@ -180,7 +180,7 @@
                                     <span class="absolute -mt-2 -ml-2 text-white rounded-full bg-red-500 text-sm px-1">
                                         <p v-text="count"></p></span>
                                 </div>
-                                <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                                <div v-if="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
                                 right-0 text-center w-2/12">
                                     <noti-component v-bind:realnoti="bell"></noti-component>
                                     <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
@@ -203,7 +203,7 @@
                         </div>
                         <div class="mt-16">
                             <transition name="fadedrop">
-                            <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                            <div v-if="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
                                     <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline
                                     text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a href="/messages" class="block text-default py-2 px-4 no-underline hover:underline

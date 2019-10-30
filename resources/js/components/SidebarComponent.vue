@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <aside v-show="isOpen" class="w-2/12 bg-sidebar">
+    <aside v-if="isOpen">
       <div class="flex flex-col h-full">
         <header class="h-24 flex items-center border-b border-indigo-700 py-5">
           <img
