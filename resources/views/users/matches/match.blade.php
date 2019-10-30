@@ -3,7 +3,7 @@
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / <a href="/players/{{$matches->user->accounts->dota_id}}/stats"
-        class="no-underline hover:underline text-blue-500">Overview</a> / Farhan</span>
+        class="no-underline hover:underline text-blue-500">Overview</a> / {{$matches->match_id}}</span>
     </section>
 
     <div class="container ml-24 mt-12">
@@ -64,7 +64,7 @@
                 <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium  mr-20 hover:underline
                     {{(Request::is('matches/' . $matches->match_id )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Overview</a>
                 <a href="{{ url('/matches/' . $matches->match_id ) }}/skills" class="text-md font-medium text-white mx-10 hover:underline
-                    {{(Request::is('matches/' . $matches->match_id . '/skills' )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Skills Build</a>
+                    {{(Request::is('matches/' . $matches->match_id . '/skills' )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Ability Build</a>
                 <a href="{{ url('/matches/' . $matches->match_id ) }}/performance" class="text-md font-medium text-white ml-20 hover:underline
                     {{(Request::is('matches/' . $matches->match_id . '/performance' )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Performance</a>
             </div>

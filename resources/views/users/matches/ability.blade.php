@@ -35,7 +35,7 @@
             $ab = $itemsData->abilities[$itemsData->ability_id[$ability]];
             //dd($ab);
         @endphp
-            <td class="border-b border-gray-300 "><img src="http://cdn.dota2.com{{$ab['img']}}" class="w-10 cursor-pointer"
+            <td ><img src="http://cdn.dota2.com{{$ab['img']}}" class="w-10 cursor-pointer"
                 v-tooltip.bottom="{ html: '{{$random}}' }"></td>
             <div id="{{$random}}" class="tooltip-content">
                 <div class="p-2">
@@ -146,7 +146,7 @@
 
 
     @else
-        <td class="border-b border-gray-300">
+        <td>
         <img src="{{asset('img/talent.jpg')}}" class="w-10">
         </td>
     @endif
