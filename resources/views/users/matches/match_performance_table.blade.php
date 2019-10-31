@@ -1,4 +1,4 @@
-<tr class="border-b border-gray-300 hover:bg-dark-100">
+<tr class="border-b border-gray-300 hover:bg-content">
         @if(array_key_exists("personaname", $player))
         <td class="py-2 border-b border-gray-300 w-2/12">
             <div class="flex items-center">

@@ -9,7 +9,7 @@
     <div class="container ml-24 mt-12">
             @if($matches != null)
         {{-- top --}}
-        <div class="bg-content flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
+        <div class="bg-dark-100 flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
                 <div class="flex">
                      <div class="flex-1">
                              @if($matches->match_details['radiant_win'] == true)
@@ -74,7 +74,7 @@
         {{-- bottom --}}
         {{-- radiant --}}
         <div class="flex max-w-6xl flex-col">
-                    <div class="bg-content rounded-lg px-10 py-4 mt-4">
+                    <div class="bg-dark-100 rounded-lg px-10 py-4 mt-4">
                         <div class="flex items-end">
                                 <img src=" {{  asset('img/radiant.png') }}" class="rounded-full w-10 mr-2">
                                 <p class="text-xl tracking-wide font-medium text-white">Radiant - Performances</p>
@@ -99,7 +99,7 @@
                             </table>
                     </div>
                     {{-- ability build dire --}}
-                    <div class="bg-content rounded-lg px-10 py-4 mt-4">
+                    <div class="bg-dark-100 rounded-lg px-10 py-4 mt-4">
                             <div class="flex items-end">
                                     <img src=" {{  asset('img/dire.png') }}" class="rounded-full w-10 mr-2">
                                     <p class="text-xl tracking-wide font-medium text-white">Dire - Performances</p>

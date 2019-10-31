@@ -3,10 +3,11 @@ module.exports = {
     theme: {
         pagination: theme => ({
             color: theme('colors.purple.600'),
-            linkFirst: 'mr-6 border rounded',
-            linkSecond: 'rounded-l border-l',
-            linkBeforeLast: 'rounded-r border-r',
-            linkLast: 'ml-6 border rounded',
+            link: 'bg-indigo-800 py-3 px-3 border-r border-gray-300 text-white no-underline rounded',
+            linkHover: 'bg-indigo-500',
+            linkDisabled: 'bg-indigo-900',
+            linkFirst: null,
+            linkLast: 'border-0',
         }),
 
         maxHeight: {

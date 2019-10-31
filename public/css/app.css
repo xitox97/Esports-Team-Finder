@@ -639,42 +639,24 @@ video {
 }
 
 .pagination .page-item .page-link {
-  padding: .75rem;
-  display: block;
+  background-color: #434190;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-right-width: 1px;
+  border-color: #e2e8f0;
+  color: #fff;
   text-decoration: none;
-  border-top-width: 1px;
-  border-left-width: 1px;
-  border-bottom-width: 1px;
-  background-color: #ffffff;
-  color: #805ad5;
+  border-radius: 0.25rem;
 }
 
 .pagination .page-item .page-link:hover {
-  background-color: #f1f5f8;
-}
-
-.pagination .page-item:first-child .page-link {
-  margin-right: 1.5rem;
-  border-width: 1px;
-  border-radius: 0.25rem;
-}
-
-.pagination .page-item:nth-child(2) .page-link {
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-  border-left-width: 1px;
-}
-
-.pagination .page-item:nth-last-child(2) .page-link {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-  border-right-width: 1px;
+  background-color: #667eea;
 }
 
 .pagination .page-item:last-child .page-link {
-  margin-left: 1.5rem;
-  border-width: 1px;
-  border-radius: 0.25rem;
+  border-width: 0;
 }
 
 .pagination .page-item.active .page-link {
@@ -684,8 +666,7 @@ video {
 }
 
 .pagination .page-item.disabled .page-link {
-  background-color: #f1f5f8;
-  color: #8795a1;
+  background-color: #3c366b;
 }
 
 .btn-indigo {
@@ -699,7 +680,7 @@ video {
 }
 
 .mini-card {
-  background-color: #fff;
+  background-color: #343A48;
   margin: 0.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -709,6 +690,7 @@ video {
   padding-bottom: 0.5rem;
   width: 14rem;
   text-transform: capitalize;
+  color: #fff;
 }
 
 .sr-only {

@@ -9,7 +9,7 @@
     <div class="container ml-24 mt-12">
             @if($matches != null)
         {{-- top --}}
-        <div class="bg-content flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
+        <div class="bg-dark-100 flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
                 <div class="flex">
                      <div class="flex-1">
                              @if($matches->match_details['radiant_win'] == true)
@@ -74,7 +74,7 @@
         {{-- bottom --}}
         {{-- radiant --}}
         <div class="flex max-w-6xl flex-col">
-            <div class="bg-content rounded-lg px-10 py-4 mt-4">
+            <div class="bg-dark-100 rounded-lg px-10 py-4 mt-4">
                     <div class="flex max-w-6xl flex-col">
                              <div class="flex items-end">
                 <img src=" {{  asset('img/radiant.png') }}" class="rounded-full w-10 mr-2">
@@ -106,7 +106,7 @@
                                     <tbody class="text-center">
                                     @foreach ($matches->match_details['players'] as $player)
                                     @if($player['isRadiant'] == 1)
-                                    <tr class="border-b border-gray-300 hover:bg-dark-100">
+                                    <tr class="border-b border-gray-300 hover:bg-content">
                                             @if(array_key_exists("personaname", $player))
                                             <td class="py-2 w-2/12">
                                                 <div class="flex items-center">
@@ -137,7 +137,7 @@
                     </div>
             </div>
 
-            <div class="bg-content rounded-lg px-10 py-4 mt-4">
+            <div class="bg-dark-100 rounded-lg px-10 py-4 mt-4">
                     <div class="flex max-w-6xl flex-col">
                              <div class="flex items-end">
                 <img src=" {{  asset('img/dire.png') }}" class="rounded-full w-10 mr-2">
@@ -169,7 +169,7 @@
                                     <tbody class="text-center">
                                     @foreach ($matches->match_details['players'] as $player)
                                     @if($player['isRadiant'] == 0)
-                                    <tr class="border-b border-gray-300 hover:bg-dark-100">
+                                    <tr class="border-b border-gray-300 hover:bg-content">
                                             @if(array_key_exists("personaname", $player))
                                             <td class="py-2 w-2/12">
                                                 <div class="flex items-center">
