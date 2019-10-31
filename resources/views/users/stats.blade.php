@@ -38,7 +38,7 @@
                 </div>
             <!--stats section-->
             <div class="container mt-4 mx-auto w-full font-mono">
-                <p class="text-2xl font-semibold text-indigo-700">Recent Matches</p>
+                <p class="text-2xl font-semibold text-purple-600">Recent Matches</p>
                 <div class="bg-dark-100 p-4 rounded-lg">
                     <table class="border-collapse w-full">
                             <thead class="text-white">

@@ -6,7 +6,7 @@
         class="no-underline hover:underline text-blue-500">Overview</a> / {{$matches->match_id}}</span>
     </section>
 
-    <div class="container ml-24 mt-12">
+    <div class="container ml-24 mt-12 font-mono">
         @if($matches != null)
         {{-- top --}}
         <div class="bg-dark-100 flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">

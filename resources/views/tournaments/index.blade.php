@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / Tournaments / <a href="tournaments" class="no-underline hover:underline text-blue-500">View</a></span>
     </section>
 
-    <div class="container ml-12 mt-12 pr-4">
+    <div class="container ml-12 mt-12 pr-4 font-sans">
             @if (session('interest'))
             <div v-show="alert" class="-mt-8 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
                 <strong class="font-bold">Successfully!</strong>
@@ -25,7 +25,7 @@
             @endif
         <div class="flex flex-wrap flex-row justify-center">
             @foreach ($tournament as $tour)
-                <div class="max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2  bg-white  hover:bg-gray-100 ">
+                <div class="max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2  bg-dark-100  hover:bg-gray-100 ">
                     <div>
                             <img class="max-h-1/4 object-scale-down w-full" src="{{  asset('storage/tour/' . $tour->image) }}" alt="">
 

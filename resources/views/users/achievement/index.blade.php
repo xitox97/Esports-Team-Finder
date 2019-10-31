@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
-        <span class="italic text-sm">Home / <a href="{{url('/players/' . Auth::user()->accounts->dota_id . '/achievements')}}" class="no-underline hover:underline text-blue-500">Achievements</a></span>
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
+        <span class="italic text-sm ">Home / <a href="{{url('/players/' . Auth::user()->accounts->dota_id . '/achievements')}}" class="no-underline hover:underline text-blue-500">Achievements</a></span>
    </section>
 
-<div class="container mx-auto mt-12">
+<div class="container mx-auto mt-12 font-mono">
 <div class="flex">
 <div class="w-5/6 ml-16">
-    <p class="text-2xl  ml-1 font-bold  pb-4 capitalize">past achievements</p>
-        <div class="bg-white shadow-lg text-center rounded-lg px-4 pb-6 pt-5">
+    <p class="text-2xl  ml-1 font-bold  pb-4 capitalize text-purple-600">past achievements</p>
+        <div class="bg-dark-100 shadow-lg text-center rounded-lg px-4 pb-6 pt-5">
                 {{-- <p class="text-xl  ml-4 font-bold underline pb-2 uppercase">past achievements</p> --}}
             <table class="border-collapse w-full">
-                <thead class="text-gray-600">
+                <thead class="text-white">
                     <th class="capitalize border-b border-gray-300 py-4 ">#</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">Tournament Name</th>
                     <th class="capitalize border-b border-gray-300 py-4 ">Team</th>
@@ -22,7 +22,7 @@
                 </thead>
                 <tbody class="text-center">
                     @forelse($achievements as $achievement)
-                    <tr class="hover:bg-gray-200">
+                    <tr class="hover:bg-content text-white">
                         <td class="py-4 px-6 border-b border-gray-300">{{$loop->index + 1}}</td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$achievement->tournament_name}}</td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$achievement->team}}</td>
@@ -56,7 +56,7 @@
                 </tbody>
 
             </table>
-            <div class="mt-4 -mb-1">
+            <div class="mt-4 -mb-1 p-2">
                 {{ $achievements->links() }}
 
             </div>
