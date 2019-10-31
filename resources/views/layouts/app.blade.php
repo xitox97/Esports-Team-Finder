@@ -92,12 +92,12 @@
     }
 @endphp
     <div id="app" class="flex font-sans min-h-screen">
-            <sidebar-component v-bind:is-open="isOpen" class="w-2/12 bg-sidebar">
+            <sidebar-component v-bind:is-open="isOpen" class="bg-sidebar flex flex-col w-2/12">
                 <a href="/{{$playerUrl}}/stats"
                 class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
               >
-                <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">assessment</i>
-                <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">Overview</span>
+                <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">assessment</i>
+                <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">Overview</span>
               </a>
               <a
               href="/{{$playerUrl}}/achievements"
