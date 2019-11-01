@@ -94,50 +94,50 @@
     <div id="app" class="flex font-sans min-h-screen">
             <sidebar-component v-bind:is-open="isOpen" class="bg-sidebar flex flex-col w-2/12">
                 <a href="/{{$playerUrl}}/stats"
-                class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
+                class="text-lg font-semibold mb-10 mt-12  text-purple-400 hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">assessment</i>
                 <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">Overview</span>
               </a>
               <a
               href="/{{$playerUrl}}/achievements"
-                class="text-lg font-semibold mb-10 ml-16 cursor-pointer text-purple-400"
+                class="text-lg font-semibold mb-10  cursor-pointer text-purple-400 hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">emoji_events</i>
                 <span class="align-middle ml-2 {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">Achievements</span>
               </a>
               <a
                 href="/tournaments"
-                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+                class="text-lg font-semibold mb-10  text-purple-400 hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is('tournaments') ? 'text-white' : ''}}" >videogame_asset</i>
                 <span class="align-middle ml-2 {{Request::is('tournaments') ? 'text-white' : ''}}" >Tournaments</span>
               </a>
               <a
                 href="{{ url('/teams') }}"
-                class="text-lg font-semibold mb-10 ml-16 text-purple-400"
+                class="text-lg font-semibold mb-10  text-purple-400 hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is('teams') ? 'text-white' : ''}}" >group</i>
                 <span class="align-middle ml-2 {{Request::is('teams') ? 'text-white' : ''}}" >Teams</span>
               </a>
-              <a href="/scrims" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+              <a href="/scrims" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
                 <i class="material-icons align-middle {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}">sports_kabaddi</i>
                 <span class="align-middle ml-2 {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}" >Scrims</span>
               </a>
-              <a href="/players/list" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+              <a href="/players/list" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
                 <i class="material-icons align-middle {{Request::is('players/list') ? 'text-white' : ''}}">face</i>
                 <span class="align-middle ml-2 {{Request::is('players/list') ? 'text-white' : ''}}" >Players</span>
               </a>
-              <a href="/players/recommendation" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+              <a href="/players/recommendation" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
                 <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
                 <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
-              <a href="/map/search" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
+              <a href="/map/search" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
                 <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">search</i>
                 <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
               </a>
             </sidebar-component>
-            <section id="maindiv" class="flex flex-col bg-gray-900 w-screen" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
+            <section id="maindiv" class="flex flex-col bg-gray-900" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
                 <header class="h-24 flex justify-between">
                     <div class="w-8 flex items-center ml-12">
                            <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer text-white">
@@ -224,7 +224,7 @@
                 </header>
                 <alert-component></alert-component>
 
-                <section id="content-div" class="h-full pb-20">
+                <section id="content-div" class="h-full pb-20 px-20">
 
                                 @yield('content')
 

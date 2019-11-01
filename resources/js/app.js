@@ -47,8 +47,6 @@ new Vue({
     data() {
         return {
             isOpen: true,
-            isFull: false,
-            isSmall: true,
             opened: false,
             alert: true,
             team: false,
@@ -82,8 +80,6 @@ new Vue({
         },
         toggle() {
             this.isOpen = !this.isOpen;
-            this.isFull = true;
-            this.isSmall = false;
         },
 
         onoff() {

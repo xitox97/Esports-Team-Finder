@@ -8818,7 +8818,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active,\n.fade-leave-active {\n  transition: transform 0.2s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\n", ""]);
+exports.push([module.i, ".fade-enter-active,\r\n.fade-leave-active {\n  transition: transform 0.2s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\r\n", ""]);
 
 // exports
 
@@ -56104,7 +56104,7 @@ var render = function() {
   return _c("transition", { attrs: { name: "fade" } }, [
     _vm.isOpen
       ? _c("aside", [
-          _c("div", { staticClass: "flex flex-col h-full" }, [
+          _c("div", { staticClass: "flex flex-col h-full items-center" }, [
             _c(
               "header",
               {
@@ -56127,7 +56127,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "section",
-              { staticClass: "h-full flex flex-col" },
+              { staticClass: "h-full flex flex-col items-start" },
               [_vm._t("default")],
               2
             ),
@@ -69675,8 +69675,6 @@ new Vue({
   data: function data() {
     return {
       isOpen: true,
-      isFull: false,
-      isSmall: true,
       opened: false,
       alert: true,
       team: false,
@@ -69710,8 +69708,6 @@ new Vue({
     },
     toggle: function toggle() {
       this.isOpen = !this.isOpen;
-      this.isFull = true;
-      this.isSmall = false;
     },
     onoff: function onoff() {
       this.opened = !this.opened;

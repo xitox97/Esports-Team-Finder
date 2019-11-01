@@ -4,7 +4,7 @@
 <section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / Player / List</a></span>
 </section>
-<div class="container ml-20 mt-12">
+<div class="container mt-12">
         <div class="flex">
         <div class="w-5/6 ml-16 font-mono">
             <p class="text-2xl  ml-1 font-bold  pb-6 text-purple-600 uppercase">List of registered player</p>

@@ -50,7 +50,7 @@
                     </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="py-4 px-6 border-b border-gray-300 text-center"> <b> No Pasts Achiements</b> </td>
+                            <td colspan="4" class="py-4 px-6 border-b border-gray-300 text-center text-white"> <b> No Pasts Achiements</b> </td>
                         </tr>
                     @endforelse
                 </tbody>

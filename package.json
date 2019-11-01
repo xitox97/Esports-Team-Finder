@@ -18,7 +18,7 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.16.0",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.23.1",
+        "sass": "^1.23.3",
         "sass-loader": "^7.3.1",
         "tailwindcss-plugins": "^0.3.0",
         "vue": "^2.5.17",

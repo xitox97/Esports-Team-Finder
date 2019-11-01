@@ -5,7 +5,7 @@
     <span class="italic text-sm">Home / Team / <a href="/teams/{{$myTeam->id}}"
         class="no-underline hover:underline text-blue-500">{{$myTeam->name}}</a></span>
 </section>
-<div class="container ml-20 mt-12">
+<div class="container mt-12">
     <div class="flex flex-wrap">
         <div class="w-2/5">
             <div class="flex flex-col bg-dark-100 shadow-lg rounded-lg mr-4">

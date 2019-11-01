@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <aside v-if="isOpen">
-      <div class="flex flex-col h-full">
+      <div class="flex flex-col h-full items-center">
         <header class="h-24 flex items-center border-b border-indigo-700 py-5">
           <img
             v-on:click="home"
@@ -11,7 +11,7 @@
             border="0"
           />
         </header>
-        <section class="h-full flex flex-col">
+        <section class="h-full flex flex-col items-start">
           <slot></slot>
         </section>
         <div>
