@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / <a href="/scrims" class="text-blue-500 hover:underline">Scrim</a> /  Available Team</span>
     </section>
 
@@ -9,19 +9,19 @@
         <div class="flex flex-wrap">
 
         @forelse ($teams as $team)
-                <div class="bg-white w-1/4 flex flex-col m-2 shadow-lg rounded-t-lg">
+                <div class="bg-dark-100 w-1/4 flex flex-col m-2 shadow-lg rounded-t-lg">
                     <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">
-                    <div class="flex p-4 border-b border-gray-300">
+                    <div class="flex p-4 border-b border-gray-600">
                         <img class="w-24 h-24 rounded-full" src="{{  asset('storage/pics/' . $team->image) }}" alt="">
                         <div class="ml-5">
 
-                                <p class="font-medium text-lg text-indigo-700 ml-1 capitalize">{{$team->name}}</p>
-                            <p class="text-md font-medium text-gray-800 ml-1 -mt-1 capitalize">{{$team->area}}</p>
-                            <p class="text-sm font-medium text-gray-600 ml-1  capitalize">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                <p class="font-semibold ml-1 text-lg tracking-wide uppercase">{{$team->name}}</p>
+                            <p class="-mt-1 capitalize font-medium ml-1 text-gray-400 text-md">{{$team->area}}</p>
+                            <p class="italic ml-1 text-gray-400 text-sm">{{$team->description}}</p>
                         </div>
                     </div></a>
-                    <div class="flex flex-col justify-center py-3 border-b border-gray-300">
-                        <div><p class="text-center font-medium text-orange-500 mb-1">Team Members</p></div>
+                    <div class="flex flex-col justify-center py-3 border-b border-gray-600">
+                        <div><p class="text-center font-medium text-indigo-400 mb-1">Team Members</p></div>
                         <div class="flex justify-center">
                             @foreach($team->users as $user)
                             {{-- {{dd($user->accounts->avatar_url)}} --}}
@@ -35,7 +35,7 @@
                         </div>
 
                     </div>
-                    <div class="text-center py-4  bg-indigo-700 hover:bg-indigo-800">
+                    <div class="text-center py-4  bg-purple-800 hover:bg-indigo-800">
                         <a href="/scrims/add/{{$team->id}}" class="text-white font-semibold cursor-pointer">Send Scrim Invite</a>
                     </div>
                     {{-- <div class="text-center py-4  bg-indigo-700 hover:bg-indigo-800">
