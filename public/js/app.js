@@ -8818,7 +8818,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active,\r\n.fade-leave-active {\n  transition: transform 0.2s ease;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\r\n", ""]);
+exports.push([module.i, ".slide-enter-active,\n   .slide-leave-active\n   {\n  transition: transform 0.2s ease;\n}\n.slide-enter,\n   .slide-leave-to {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s\n}\n\n", ""]);
 
 // exports
 
@@ -56101,7 +56101,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("transition", { attrs: { name: "fade" } }, [
+  return _c("transition", { attrs: { name: "slide" } }, [
     _vm.isOpen
       ? _c("aside", [
           _c("div", { staticClass: "flex flex-col h-full items-center" }, [

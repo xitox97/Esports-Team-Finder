@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="slide">
     <aside v-if="isOpen">
       <div class="flex flex-col h-full items-center">
         <header class="h-24 flex items-center border-b border-indigo-700 py-5">
@@ -59,12 +59,16 @@ export default {
 };
 </script>
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: transform 0.2s ease;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(-100%);
-  transition: all 150ms ease-in 0s;
-}
+ .slide-enter-active,
+    .slide-leave-active
+    {
+        transition: transform 0.2s ease;
+    }
+
+    .slide-enter,
+    .slide-leave-to {
+        transform: translateX(-100%);
+        transition: all 150ms ease-in 0s
+    }
+
 </style>
