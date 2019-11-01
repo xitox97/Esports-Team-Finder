@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / <a href="{{url('/players/' . $fetchPlayers->dota_id)}}"
         class="no-underline hover:underline text-blue-500">Profile</a> / {{$fetchPlayers->user->name}}</span>
 </section>
 {{-- //lg untuk laptop 1278 x XXX
 //xl tuk desktop 1440 x 737 --}}
-<div class="container ml-24 mt-12">
+<div class="container mt-12 font-mono">
     <div class="flex xl:flex-row lg:flex-col">
     {{-- edit card --}}
     @if( Auth::user()->id == $fetchPlayers->user_id )
-    <div class="w-5/12 bg-white rounded-lg shadow-xl lg:ml-32 mb-16">
-        <p class="text-gray-700 text-xl capitalize border-b-2 border-gray-200 pb-6 px-5 pt-3">edit profile</p>
+    <div class="w-5/12 bg-dark-100 rounded-lg shadow-xl mb-16 p-4">
+        <p class="text-white font-semibold text-xl uppercase border-b border-gray-600 pb-6 px-5 pt-3">edit profile</p>
         <form class="w-full max-w-lg p-4 ml-2 mb-2">
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                       Name
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700  border border-gray-200
@@ -24,7 +24,7 @@
                     id="grid-first-name" type="text" placeholder="{{$fetchPlayers->user->name}}">
                   </div>
                   <div class="w-full md:w-1/2 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                       Age
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
@@ -34,14 +34,14 @@
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-2">
                   <div class="w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-city">
                       City
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
                     py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-city" type="text" placeholder="{{$fetchPlayers->user->area}}">
                   </div>
                   <div class="w-2/3 px-3 mb-6 ">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-state">
                       State
                     </label>
                     <div class="relative">
@@ -68,7 +68,7 @@
               <form class="w-full max-w-lg pl-3 pr-5 pt-4 ml-1">
                     <div class="flex flex-wrap -mx-3  mb-2">
                             <div class="w-full px-3 mb-2">
-                                <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-password">
+                                <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-password">
                                 current password
                                 </label>
                                 <input class="appearance-none block w-full bg-gray-200 text-gray-700
@@ -82,7 +82,7 @@
                             </div>
                         <div class="flex flex-wrap -mx-3 mb-2">
                                 <div class="w-full px-3 mb-2">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-password">
+                                    <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-password">
                                     new password
                                     </label>
                                     <input class="appearance-none block w-full bg-gray-200 text-gray-700
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="flex flex-wrap -mx-3 mb-2">
                                         <div class="w-full px-3 mb-2">
-                                            <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-password">
+                                            <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-password">
                                             confirm new password
                                             </label>
                                             <input class="appearance-none block w-full bg-gray-200 text-gray-700
@@ -118,10 +118,10 @@
             </div>
 
             {{-- user card --}}
-            <div class="-mr-24 bg-white mb-40 ml-20 rounded-lg shadow-xl w-5/12 lg:ml-32 lg:mt-20">
+            <div class="-mr-24 bg-dark-100 mb-40 ml-20 rounded-lg shadow-xl w-5/12 ml-32 mt-20">
                 @if ( Auth::user()->id == $fetchPlayers->user_id )
                 <div class="flex justify-center mx-10 ">
-                    <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+                    <img src="{{  $fetchPlayers->avatar_url  }}" class="-mt-24 relative rounded-full w-48 shadow-lg border-2">
                 </div>
                 @elseif( Auth::user()->id != $fetchPlayers->user_id )
                 <div class="flex justify-between mx-10 ">
@@ -135,10 +135,10 @@
                     </div>
                 @endif
                 <div class="flex flex-col items-center border-b-2 pb-6">
-                        <p class="text-2xl font-semibold leading-loose text-indigo-900 capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
-                        <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
+                        <p class="text-2xl font-semibold leading-loose text-white capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
+                        <p class="text-md font-medium leading-loose text-white capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
 
-                        <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">Current Team:
+                        <p class="text-md font-medium leading-loose text-white capitalize -mt-2">Current Team:
                             @if($fetchPlayers->user->team()->exists() != false)
                             <a class="no-underline hover:underline text-blue-500"
                             href="/teams/{{$fetchPlayers->user->team[0]->id}}">
@@ -150,15 +150,15 @@
 
                 </div>
                 <div class="flex flex-col items-center mt-4 pb-5">
-                        <p class="text-lg font-semibold  text-indigo-900 capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
+                        <p class="text-lg font-semibold  text-white capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
                                 $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
-                        <p class="text-lg font-semibold  text-indigo-900 capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
+                        <p class="text-lg font-semibold  text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                         Lose: {{$fetchPlayers->win_lose['lose']}})</p>
-                        <p class="text-lg font-semibold  text-indigo-900 capitalize">Main Roles: *reserve</p>
+                        <p class="text-lg font-semibold  text-white capitalize">Main Roles: *reserve</p>
                         <div class="mt-4">
                                 @include('users.medal')
                         </div>
-                        <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
+                        <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-5">
                                 View Statistic
                         </a>
 
@@ -169,26 +169,27 @@
     @else
     <!-- if visit others profile !-->
     <div class="container mx-auto w-full">
-    <div class=" bg-white  rounded-lg shadow-xl mb-32 mx-96 pb-10">
+    <div class=" bg-dark-100  rounded-lg shadow-xl mb-32 mx-64 pb-10 px-10">
         @if ( Auth::user()->id == $fetchPlayers->user_id )
         <div class="flex justify-center mx-10 ">
-            <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+            <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
         </div>
         @elseif( Auth::user()->id != $fetchPlayers->user_id )
-        <div class="flex justify-between mx-10 ">
-                <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 hover:bg-purple-400 font-semibold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg">Add Friend </a>
+        <div class="flex justify-between ">
+                <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 flex-shrink-0 hover:bg-purple-400 font-semibold  
+                  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg mr-2">Add Friend </a>
                 @if($fetchPlayers->avatar_url == null)
-                <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+                <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
                 @else
-                <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+                <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg flex-shrink-0 border-2">
                 @endif
-                <a href="/offer/{{ $fetchPlayers->user_id }}" class="bg-indigo-500 hover:bg-indigo-400 font-bold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
+                <a href="/offer/{{ $fetchPlayers->user_id }}" class="ml-2 bg-indigo-500 flex-shrink-0 hover:bg-indigo-400 font-bold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
             </div>
         @endif
         <div class="flex flex-col items-center border-b-2 pb-6">
-                <p class="text-2xl font-semibold leading-loose text-indigo-900 capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
-                <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
-                <p class="text-md font-medium leading-loose text-indigo-900 capitalize -mt-2">Current Team:
+                <p class="text-2xl font-semibold leading-loose text-white capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
+                <p class="text-md font-medium leading-loose text-white capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
+                <p class="text-md font-medium leading-loose text-white capitalize -mt-2">Current Team:
                         @if($fetchPlayers->user->team()->exists() != false)
                         <a class="no-underline hover:underline text-blue-500"
                         href="/teams/{{$fetchPlayers->user->team[0]->id}}">
@@ -199,11 +200,11 @@
                     </p>
         </div>
         <div class="flex flex-col items-center mt-4">
-                <p class="text-lg font-semibold  text-indigo-900 capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
+                <p class="text-lg font-semibold  text-white capitalize ">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
                         $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
-                <p class="text-lg font-semibold  text-indigo-900 capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
+                <p class="text-lg font-semibold  text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                 Lose: {{$fetchPlayers->win_lose['lose']}})</p>
-                <p class="text-lg font-semibold  text-indigo-900 capitalize">Main Roles: *reserve</p>
+                <p class="text-lg font-semibold  text-white capitalize">Main Roles: *reserve</p>
                 <div class="mt-4">
                         @include('users.medal')
                 </div>
@@ -211,7 +212,8 @@
                         View Statistic
                 </a>
                 <a  @click.prevent="$modal.show('hello-world', {user: [    { id: {{$user->id}} },
-                { name: '{{$user->name}}' } ]})" href="/messages/create/{{$fetchPlayers->user_id}}" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
+                { name: '{{$user->name}}' } ]})" href="/messages/create/{{$fetchPlayers->user_id}}" 
+                class="border-pink-500 border-2 bg-transparent hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
                     Send Message
             </a>
                 </div>
