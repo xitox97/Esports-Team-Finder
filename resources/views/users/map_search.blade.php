@@ -89,12 +89,12 @@
     }
 @endphp
     <div id="app" class="flex font-sans min-h-screen">
-            <sidebar-component v-bind:is-open="isOpen" v-bind:user="{{ Auth::User()->accounts}}">
+            <sidebar-component v-bind:is-open="isOpen" class="bg-sidebar flex flex-col w-2/12">
                 <a href="/{{$playerUrl}}/stats"
                 class="text-lg font-semibold mb-10 mt-12 ml-16 text-purple-400"
               >
-                <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">assessment</i>
-                <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals') ? 'text-white' : ''}}">Overview</span>
+                <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">assessment</i>
+                <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">Overview</span>
               </a>
               <a
               href="/{{$playerUrl}}/achievements"
@@ -130,14 +130,14 @@
                 <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
               <a href="/map/search" class="text-lg font-semibold mb-10 ml-16 text-purple-400">
-                <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">search</i>
-                <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
+                <i class="material-icons align-middle {{Request::is('map/search') ? 'text-white' : ''}}">search</i>
+                <span class="align-middle ml-2 {{Request::is('map/search') ? 'text-white' : ''}}" >Find nearby</span>
               </a>
             </sidebar-component>
-            <section id="maindiv" class="flex flex-col" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
-                <header class="h-24 flex justify-between border-b-2 border-gray-300 shadow-xl">
+            <section id="maindiv" class="flex flex-col bg-gray-900 w-screen" v-bind:class=" { 'w-10/12': isSmall, 'w-screen': isFull }">
+                <header class="h-24 flex justify-between">
                     <div class="w-8 flex items-center ml-12">
-                           <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer">
+                           <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer text-white">
                                     menu_open
                                     </i>
                     </div>
@@ -151,7 +151,7 @@
                                     <p v-text="count"></p>
                                   </span>
                                 </div>
-                                <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
+                                <div v-if="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
                                 right-0 text-center w-auto">
 
                               @foreach(Auth::user()->unreadNotifications as $noti)
@@ -177,7 +177,7 @@
                                     <span class="absolute -mt-2 -ml-2 text-white rounded-full bg-red-500 text-sm px-1">
                                         <p v-text="count"></p></span>
                                 </div>
-                                <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                                <div v-if="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
                                 right-0 text-center w-2/12">
                                     <noti-component v-bind:realnoti="bell"></noti-component>
                                     <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
@@ -194,13 +194,13 @@
                             @endif
                         </div>
                         <div class="mx-3">
-                                <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer" aria-haspopup="true" :aria-expanded="opened">
+                                <i  v-click-outside="hide" @click="onoff" class="material-icons md-36 cursor-pointer text-white" aria-haspopup="true" :aria-expanded="opened">
                                         more_horiz
                                         </i>
                         </div>
                         <div class="mt-16">
                             <transition name="fadedrop">
-                            <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                            <div v-if="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
                                     <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline
                                     text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a href="/messages" class="block text-default py-2 px-4 no-underline hover:underline
@@ -221,11 +221,9 @@
                 </header>
                 <alert-component></alert-component>
 
-                <section id="content-div" class="bg-gray-200 h-full pb-20">
+                <section id="content-div" class="h-full pb-20">
 
-
-
-                        <section id="breadcrumb" class="ml-4 pt-2">
+                        <section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
                             <span class="italic text-sm">Home / map </span>
                         </section>
                         {{-- //lg untuk laptop 1278 x XXX

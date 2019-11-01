@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <p class="text-lg font-semibold">Update your current address</p>
+    <p class="text-lg font-semibold mb-2 text-white">Update your current address</p>
     <div id="map" tabindex="0" class="max-w-5xl"></div>
     <form @submit.prevent="submit">
       <div class="flex justify-center max-w-5xl">
