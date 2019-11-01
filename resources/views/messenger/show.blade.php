@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
         <span class="italic text-sm">Home /  <a href="/messages"
             class="no-underline hover:underline text-blue-500">Inbox</a></span>
     </section>
 
     <div class="container ml-24 mt-5">
     @include('messenger.partials.flash')
-    <p class="text-3xl font-bold text-black ml-10">Chat</p>
+    <p class="text-3xl font-bold text-white uppercase ml-10">Chat</p>
     <div class="flex pb-2">
-        <div class="border-t-2 ml-10 w-10/12" v-if="chat == false">
-            <div class="mt-4">
+        <div class="border-t border-gray-600 ml-10 w-10/12" v-if="chat == false">
+            <div class="mt-4 bg-dark-100 rounded p-6">
                 <div class="mb-2">
-                    <p class="font-bold text-xl text-gray-700 capitalize">Subject: {{$thread->subject}}</p>
+                    <p class="font-bold text-xl text-white capitalize">Subject: {{$thread->subject}}</p>
                 </div>
 
                 <div class=" overflow-auto max-h-2/4">
@@ -27,10 +27,10 @@
                             @if($message->user->accounts->avatar_url == null)
                             <img src="{{asset('img/default.png')}}"
                             class="rounded-full w-12" >
-                            <p class="text-xs font-medium">{{ $message->user->name }}</p>
+                            <p class="text-xs font-medium text-white">{{ $message->user->name }}</p>
                             @else
                             <img src="{{ $message->user->accounts->avatar_url}}" class="rounded-full w-12">
-                            <p class="text-xs font-medium">{{ $message->user->name }}</p>
+                            <p class="text-xs font-medium text-white">{{ $message->user->name }}</p>
                             @endif
                     </div>
                     <div class="rounded-lg bg-pink-500 text-white ml-4 p-2 shadow-md mb-1">
@@ -44,10 +44,10 @@
                                 @if($message->user->accounts->avatar_url == null)
                                 <img src="{{asset('img/default.png')}}"
                                 class="rounded-full w-12" >
-                                <p class="text-xs font-medium">{{ $message->user->name }}</p>
+                                <p class="text-xs font-medium text-white">{{ $message->user->name }}</p>
                                 @else
                                 <img src="{{ $message->user->accounts->avatar_url}}" class="rounded-full w-12">
-                                <p class="text-xs font-medium">{{ $message->user->name }}</p>
+                                <p class="text-xs font-medium text-white">{{ $message->user->name }}</p>
                                 @endif
 
                         </div>
@@ -63,11 +63,12 @@
             @endforeach</div>
             {{-- send message --}}
 
-                    <form action="{{ route('messages.update', $thread->id) }}" method="post" class="flex items-start bg-white rounded-lg px-3 pt-3  mt-6 hover:shadow-lg">
+                    <form action="{{ route('messages.update', $thread->id) }}" method="post" class="bg-content 
+                        flex items-start bg-white rounded-lg px-3 pt-3  mt-6 hover:shadow-lg">
                             {{ method_field('put') }}
                             {{ csrf_field() }}
                     <textarea class="
-                    outline-none resize-none w-full  focus:border-indigo-600"
+                    outline-none resize-none w-full  focus:border-indigo-600 bg-content text-white pt-2"
                     name="message" class="form-control"
                     placeholder="Type a message....">{{ old('message') }}</textarea>
                     <input type="text" name="recipients"

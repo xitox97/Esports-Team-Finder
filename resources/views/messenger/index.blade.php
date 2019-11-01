@@ -2,19 +2,19 @@
 
 @section('content')
 
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
         <span class="italic text-sm">Home / Inbox</span>
     </section>
     {{-- //lg untuk laptop 1278 x XXX
     //xl tuk desktop 1440 x 737 --}}
-    <div class="container ml-24 mt-5">
+    <div class="container mt-5">
     @include('messenger.partials.flash')
 
 
 
     <div class="flex justify-around pr-5">
-        <div class=" w-6/12">
-            <p class="text-3xl font-bold text-black  border-b-2">Inbox</p>
+        <div class="w-6/12">
+            <p class="text-3xl font-bold text-white uppercase  border-b border-gray-600">Inbox</p>
             @foreach ($threads as $thread)
                 @foreach ($thread->users as $user)
                         @if($user->id != auth()->user()->id)
@@ -51,5 +51,6 @@
 
     </div>
 
+    </div>
 
     @endsection

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\DotaJson;
 use App\LinkedSteamAccount;
 use App\Offer;
 use App\Scrimstatus;
@@ -92,7 +92,7 @@ class PagesController extends Controller
 
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
         $statistics = $fetchPlayers->user->statistic;
-
+        $itemsData = DotaJson::first();
         if ($statistics != null) {
             $items = collect($statistics->recent_match);
 
@@ -103,7 +103,7 @@ class PagesController extends Controller
             $pageStats = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
             $pageStats->setPath(url()->current());
             //dd(url()->current());
-            return view('users.stats', compact('fetchPlayers', 'pageStats'));
+            return view('users.stats', compact('fetchPlayers', 'pageStats','itemsData'));
         } else {
 
             return view('users.stats_none', compact('fetchPlayers'));
@@ -114,7 +114,7 @@ class PagesController extends Controller
     {
         $fetchPlayers =  LinkedSteamAccount::where('dota_id', $player)->first();
         $statistics = $fetchPlayers->user->statistic;
-
+        $itemsData = DotaJson::first();
         if ($statistics != null) {
             $items = collect($statistics->heroes_played);
             $page = Input::get('page', 1);
@@ -124,7 +124,7 @@ class PagesController extends Controller
             $pageHeroes->setPath(url()->current());
 
 
-            return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes'));
+            return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes','itemsData'));
         } else {
             return view('users.stats_heroes_none', compact('fetchPlayers'));
         }
