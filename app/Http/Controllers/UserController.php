@@ -44,18 +44,25 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
 
-        request()->validate([
+        //dd($request['name']);
+        // request()->validate([
 
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'age' => ['required', 'integer'],
+        //     'area' => ['required', 'string', 'max:255'],
+        //     'state' => ['required', 'string', 'max:255']
+        // ]);
+
+        $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'age' => ['required', 'integer'],
-            'area' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
             'state' => ['required', 'string', 'max:255']
         ]);
-
-
+        
         $user->name = $request['name'];
         $user->age = $request['age'];
-        $user->area = $request['area'];
+        $user->area = $request['city'];
         $user->state = $request['state'];
         $user->save();
 

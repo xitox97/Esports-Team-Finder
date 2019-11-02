@@ -67,7 +67,7 @@
     <div class="w-1/6 ml-20 mt-16">
         <a href="/players/{{$users->accounts->dota_id}}/achievements/create" class="btn-indigo
                             font-semibold py-2 px-2 border border-indigo-800 hover:border-transparent rounded-lg shadow-md text-md
-                            flex items-center leading-loose"><i class="material-icons mr-1">
+                            flex items-center leading-loose whitespace-no-wrap"><i class="material-icons mr-1">
                                 add</i>New Achievement</a>
     </div>
     @endif

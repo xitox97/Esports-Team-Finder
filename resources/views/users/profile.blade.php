@@ -13,15 +13,20 @@
     @if( Auth::user()->id == $fetchPlayers->user_id )
     <div class="w-5/12 bg-dark-100 rounded-lg shadow-xl mb-16 p-4">
         <p class="text-white font-semibold text-xl uppercase border-b border-gray-600 pb-6 px-5 pt-3">edit profile</p>
-        <form class="w-full max-w-lg p-4 ml-2 mb-2">
+    <form class="w-full max-w-lg p-4 ml-2 mb-2" method="POST" action="/users/{{$fetchPlayers->user_id }}">
+      @csrf
+      @method('PATCH')
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                       Name
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700  border border-gray-200
-                    rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700"
-                    id="grid-first-name" type="text" placeholder="{{$fetchPlayers->user->name}}">
+                    rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700 capitalize"
+                    id="grid-first-name" type="text" placeholder="{{$fetchPlayers->user->name}}" name="name">
+                    @error('name')
+                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                    @enderror
                   </div>
                   <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
@@ -29,7 +34,10 @@
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
                     py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-last-name"
-                    type="text" placeholder="{{$fetchPlayers->user->age}}">
+                    type="text" placeholder="{{$fetchPlayers->user->age}}" name="age">
+                    @error('age')
+                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                    @enderror
                   </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-2">
@@ -38,7 +46,11 @@
                       City
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
-                    py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-city" type="text" placeholder="{{$fetchPlayers->user->area}}">
+                    py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-city" 
+                    type="text" placeholder="{{$fetchPlayers->user->area}}" name="city">
+                    @error('city')
+                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                    @enderror
                   </div>
                   <div class="w-2/3 px-3 mb-6 ">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-state">
@@ -46,15 +58,33 @@
                     </label>
                     <div class="relative">
                       <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4
-                      pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-state">
-                        <option>Kuala Lumpur</option>
-                        <option>Selangor</option>
-                        <option>Melaka</option>
+                      pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-state" 
+                      name="state" required>
+                      <option value="" selected disabled hidden>{{$fetchPlayers->user->state}}</option>
+                      <option value="Johor">Johor</option>
+                      <option value="Kedah">Kedah</option>
+                      <option value="Kelantan">Kelantan</option>
+                      <option value="Melaka">Melaka</option>
+                      <option value="Negeri Sembilan">Negeri Sembilan</option>
+                      <option value="Pahang">Pahang</option>
+                      <option value="Penang">Penang</option>
+                      <option value="Perak">Perak</option>
+                      <option value="Perlis">Perlis</option>
+                      <option value="Sabah">Sabah</option>
+                      <option value="Sarawak">Sarawak</option>
+                      <option value="Selangor">Selangor</option>
+                      <option value="Terengganu">Terengganu</option>
+                      <option value="Kuala Lumpur">Kuala Lumpur</option>
+                      <option value="Labuan">Labuan</option>
+                      <option value="Putrajaya">Putrajaya</option>
                       </select>
                       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                       </div>
                     </div>
+                    @error('state')
+                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                    @enderror
                   </div>
                 </div>
                 <div class="flex justify-center items-center">
@@ -64,7 +94,7 @@
                 </div>
               </form>
 
-              <div class="border-t-2 border-gray-200 mx-3">
+              <div class="border-t border-gray-600 mx-3">
               <form class="w-full max-w-lg pl-3 pr-5 pt-4 ml-1">
                     <div class="flex flex-wrap -mx-3  mb-2">
                             <div class="w-full px-3 mb-2">

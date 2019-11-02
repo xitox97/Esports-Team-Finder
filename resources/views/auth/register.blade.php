@@ -23,10 +23,10 @@
     <div id="app" class="flex h-auto max-w-full" >
         <div class="flex  flex-col  items-start justify-start h-screen w-2/4 ">
             <div class="w-full">
-                    <form class="bg-white rounded px-32 pt-16  mb-4 antialiased" method="POST" action="{{ route('register') }}">
+                    <form class="bg-white rounded px-32 mb-4 antialiased pt-8" method="POST" action="{{ route('register') }}">
                             @csrf
-                    <p class=" text-left font-extrabold text-4xl text-black mb-5 mt-20">Let's hunt some players!</p>
-                    <p class=" text-left font-medium text-lg text-indigo-700 mb-5">Sign up now to start creating your Dream Team!</p>
+                    <p class=" text-left font-extrabold text-4xl text-black mb-2">Let's hunt some players!</p>
+                    <p class=" text-left font-medium text-lg text-indigo-700 mb-3">Sign up now to start creating your Dream Team!</p>
                     <p class=" text-left font-base text-md text-black mb-10">Already have an account?
                         <a href="/login" class="text-indigo-700 hover:text-indigo-800 cursor-pointer font-medium">
                             Log in.</a></p>
@@ -53,7 +53,7 @@
                                         <p class="text-red-500 text-md italic">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="w-full md:w-1/2 px-3 mt-5">
+                                <div class="w-full  px-3 mt-5">
                                     <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
                                         E-mail
                                     </label>
@@ -64,14 +64,14 @@
                                         <p class="text-red-500 text-md italic">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="w-full md:w-1/2 px-3 mt-5">
+                                {{-- <div class="w-full md:w-1/2 px-3 mt-5">
                                     <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
                                         Phone
                                     </label>
                                     <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
                                     py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
                                     type="text" placeholder="Enter your phone number" required>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-3">
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
