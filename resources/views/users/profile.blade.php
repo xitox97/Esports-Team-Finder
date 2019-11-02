@@ -95,8 +95,9 @@
               </form>
 
               <div class="border-t border-gray-600 mx-3">
-              <form class="w-full max-w-lg pl-3 pr-5 pt-4 ml-1">
-                    <div class="flex flex-wrap -mx-3  mb-2">
+              <form class="w-full max-w-lg pl-3 pr-5 pt-4 ml-1" method="POST" action="{{ route('change.password') }}">
+                @csrf    
+                <div class="flex flex-wrap -mx-3  mb-2">
                             <div class="w-full px-3 mb-2">
                                 <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-password">
                                 current password
@@ -104,8 +105,8 @@
                                 <input class="appearance-none block w-full bg-gray-200 text-gray-700
                                 border border-gray-200 rounded py-3 px-4 mb-0 leading-tight focus:outline-none
                                 focus:bg-white focus:shadow-outline {{$errors->has('password') ? 'border-red-500' : ''}} "
-                                id="password" type="password" name="password" value="{{ old('password')}}">
-                                @error('password')
+                                id="password" type="password" name="current_password">
+                                @error('current_password')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -118,8 +119,8 @@
                                     <input class="appearance-none block w-full bg-gray-200 text-gray-700
                                     border border-gray-200 rounded py-3 px-4 mb-0 leading-tight focus:outline-none
                                     focus:bg-white focus:shadow-outline {{$errors->has('password') ? 'border-red-500' : ''}} "
-                                    id="password1" type="password" name="password" value="{{ old('password')}}">
-                                    @error('password')
+                                    id="password1" type="password" name="new_password" >
+                                    @error('new_password')
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -132,8 +133,8 @@
                                             <input class="appearance-none block w-full bg-gray-200 text-gray-700
                                             border border-gray-200 rounded py-3 px-4 mb-0 leading-tight focus:outline-none
                                             focus:bg-white focus:shadow-outline {{$errors->has('password') ? 'border-red-500' : ''}} "
-                                            id="password2" type="password" name="password" value="{{ old('password')}}">
-                                            @error('password')
+                                            id="password2" type="password" name="new_confirm_password" value="{{ old('password')}}">
+                                            @error('new_confirm_password')
                                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                             @enderror
                                         </div>

@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('login/steam/callback', 'Auth\SocialAccountController@handleProviderCallback');
 
     Route::resource('users', 'UserController');
-
+    Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
     //search result
     Route::get('players/list', 'UserController@list');
     Route::resource('teams', 'TeamController');
