@@ -193,7 +193,7 @@
                             @if(Auth::user()->accounts()->exists() == true)
                             <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
                             @else
-                            <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
+                            <img src="{{asset('img/default.svg')}}" alt="" class="rounded-full h-12 w-12 cursor-pointer">
                             @endif
                         </div>
                         <div class="mx-3">

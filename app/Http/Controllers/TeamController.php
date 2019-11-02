@@ -127,7 +127,8 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+        //dd($team);
+        return view('teams.edit', compact('team'));
     }
 
     /**
@@ -139,7 +140,40 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        //dd($request);
+        if (auth()->user()->id == $team->captain_id) {
+            $request->validate([
+                'name' => 'required|unique:teams',
+                'area' => 'required',
+                'image' => 'required|image|max:1999',
+                'description' => 'required|max:255',
+                'state' => 'required'
+            ]);
+    
+            if ($request->hasFile('image')) {
+                $image = $request->image;
+                $ext = $image->getClientOriginalExtension();
+                $filename = uniqid() . '.' . $ext;
+                $image->storeAs('public/pics', $filename);
+                $request->image = $filename;
+            }
+    
+    
+            $team->name = $request['name'];
+            $team->area = $request['area'];
+            $team->state = $request['state'];
+            $team->description = $request['description'];
+            $team->image = $request->image;
+            $team->save();
+    
+            return redirect("teams");
+
+        } else {
+            return back()->with('cannot', 'Only Captain can edit team');
+        }
+        
+        
+        
     }
 
     /**
@@ -158,7 +192,7 @@ class TeamController extends Controller
         } else {
             return back()->with('cannot', 'Only Captain can delete team');
         }
-        return redirect('/home');
+        return redirect('/teams');
     }
 
     public function readyScrim(Team $team)

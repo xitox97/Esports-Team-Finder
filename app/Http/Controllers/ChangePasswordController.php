@@ -36,6 +36,6 @@ class ChangePasswordController extends Controller
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        dd('Password change successfully.');
+        return back()->with('pass', 'Sucessfully change password');
     }
 }

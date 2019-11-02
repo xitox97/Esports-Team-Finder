@@ -1,20 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / Notifications</span>
 </section>
-<div class="container ml-24 mt-12">
+<div class="container mt-6">
     <div class="p-4">
 
-        <p class=" text-center font-semibold text-indigo-800 text-3xl border-b-2 border-gray-300">Notifications Dashboard</p>
+        <p class=" text-center font-semibold text-indigo-500 text-3xl border-b border-gray-600">Notifications Dashboard</p>
 
         <div class="flex flex-col items-center justify-center mt-3">
         @foreach (Auth::user()->unreadNotifications as $noti)
-
             @if( class_basename($noti->type) == "OfferTeam")
 
-                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                <div class="flex flex-row justify-center bg-dark-100 text-white rounded my-2 py-2 shadow-lg w-8/12">
                         <div class="mr-12">
                                 <i class="material-icons md-48 text-indigo-700">transfer_within_a_station</i>
                         </div>
@@ -53,7 +52,7 @@
             @elseif ( class_basename($noti->type) == "AcceptOffer")
 
                 @if ($noti->data['offer_status'] == 'Accepted')
-                    <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                    <div class="flex flex-row justify-center  bg-dark-100 text-white rounded my-2 py-2 shadow-lg w-8/12">
                         <div class="mr-12">
                                 <i class="material-icons md-48 text-green-500">transfer_within_a_station</i>
                         </div>

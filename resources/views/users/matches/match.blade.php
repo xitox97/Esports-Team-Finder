@@ -2,12 +2,13 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
+        @if($matches != null)
     <span class="italic text-sm">Home / <a href="/players/{{$matches->user->accounts->dota_id}}/stats"
         class="no-underline hover:underline text-blue-500">Overview</a> / {{$matches->match_id}}</span>
     </section>
 
     <div class="container mt-12 font-mono">
-        @if($matches != null)
+        
         {{-- top --}}
         <div class="bg-dark-100 flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
            <div class="flex">
@@ -319,7 +320,14 @@
 
 
             @else
-            <p class="font-semibold text-lg mt-5">Wrong match id</p>
+            <span class="italic text-sm">Home / Overview / Match</span>
+            </section>
+        
+            <div class="container mt-12 font-mono bg-dark-100 max-w-3xl p-8 rounded">
+
+                
+            <p class="font-semibold text-lg text-white">Generating match details. Please come back again in a few minutes</p>
+            </div>
             @endif
 
 

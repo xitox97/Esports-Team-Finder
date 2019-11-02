@@ -54,7 +54,7 @@ class processMatches implements ShouldQueue
 
         }
 
-        generatePlayerRole::dispatch($this->user)->delay(now()->addMinutes(1));
+        generatePlayerRole::dispatch($this->user);
 
     }
 }
