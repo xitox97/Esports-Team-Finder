@@ -22,6 +22,8 @@ class TeamController extends Controller
         //$teams = DB::table('teams')->get();
 
         $myTeam = Auth()->user()->team->first();
+
+        $captain = User::find($myTeam->captain_id);
         //dd($myTeam->id);
         if ($myTeam != null) {
             $players = DB::table('user_team')->where('team_id', $myTeam->id)->get();
@@ -29,7 +31,7 @@ class TeamController extends Controller
             $userid = Arr::pluck($players, 'user_id');
             $teamMembers = User::find($userid);
 
-            return view('teams.myteam', compact('myTeam', 'teamMembers'));
+            return view('teams.myteam', compact('myTeam', 'teamMembers', 'captain'));
         }
 
         return view('teams.noteam');
@@ -109,14 +111,17 @@ class TeamController extends Controller
     {
 
         //$myTeam = Auth()->user()->team->first();
-        //dd($myTeam->id);
+
+        $captain = User::find($team->captain_id);
+        //dd($captain);
+
 
         $players = DB::table('user_team')->where('team_id', $team->id)->get();
         //dd($myTeam);
         $userid = Arr::pluck($players, 'user_id');
         $teamMembers = User::find($userid);
 
-        return view('teams.show', compact('team', 'teamMembers'));
+        return view('teams.show', compact('team', 'teamMembers', 'captain'));
     }
 
     /**
@@ -149,7 +154,7 @@ class TeamController extends Controller
                 'description' => 'required|max:255',
                 'state' => 'required'
             ]);
-    
+
             if ($request->hasFile('image')) {
                 $image = $request->image;
                 $ext = $image->getClientOriginalExtension();
@@ -157,23 +162,19 @@ class TeamController extends Controller
                 $image->storeAs('public/pics', $filename);
                 $request->image = $filename;
             }
-    
-    
+
+
             $team->name = $request['name'];
             $team->area = $request['area'];
             $team->state = $request['state'];
             $team->description = $request['description'];
             $team->image = $request->image;
             $team->save();
-    
-            return redirect("teams");
 
+            return redirect("teams");
         } else {
             return back()->with('cannot', 'Only Captain can edit team');
         }
-        
-        
-        
     }
 
     /**

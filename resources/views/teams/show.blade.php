@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="breadcrumb" class="ml-4 pt-2">
+<section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
     <span class="italic text-sm">Home / Team / <a href="/teams/{{$team->id}}"
         class="no-underline hover:underline text-blue-500">{{$team->name}}</a></span>
 </section>
-<div class="container ml-20 mt-12">
+<div class="container ml-20 mt-12 font-mono">
     <div class="flex flex-wrap">
         <div class="w-2/5">
-            <div class="flex flex-col bg-white shadow-lg rounded-lg mr-4">
+            <div class="flex flex-col bg-dark-100 shadow-lg rounded-lg mr-4">
                 <div class="w-full px-10 bg-purple-500   relative text-center pb-1">
                         <span class="text-white font-semibold text-2xl capitalize text-center">Team {{$team->name}}</span>
                 </div>
@@ -20,10 +20,11 @@
                 <div class="w-full px-10 bg-purple-500">
                         <p class="font-semibold text-xl capitalize text-center text-white ">Team Information</p>
                 </div>
-                <div class="flex flex-col  items-center mt-2 mx-10 mb-2">
+                <div class="flex flex-col  items-center mt-2 mx-10 mb-2 text-white">
                     <p class="text-center"><span class="font-semibold">City:</span> {{$team->area}}</p>
                     <p class="text-center"><span class="font-semibold">State:</span> {{$team->state}}</p>
-                    <p class="text-center"><span class="font-semibold">Captain:</span> {{$team->captain_id}}*</p>
+                    <p class="text-center"><span class="font-semibold">Captain:</span>
+                        <a href="/players/{{$captain->accounts->dota_id}}" class="no-underline hover:underline text-blue-500">{{$captain->name}}</a></p>
                     <p class="text-center"><span class="font-semibold">Sponsor:</span> Razer* Logitech*</p>
                     <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,
                         Temporibus minus numquam illum beatae</p>
@@ -33,42 +34,42 @@
                     <p class="text-center"><span class="font-semibold">Scrim:</span> Not Ready</p>
                     @endif
                 </div>
-                <div class="w-full px-10 bg-purple-500">
-                        <p class="font-semibold text-xl capitalize text-center text-white ">Achievements</p>
+                {{-- <div class="w-full px-10 bg-purple-500">
+                        <p class="font-semibold text-xl capitalize text-center text-white">Achievements</p>
                 </div>
-                <div class="flex flex-col  items-center mt-2 mx-10 mb-2">
+                <div class="flex flex-col  items-center mt-2 mx-10 mb-2 text-white">
                         <p class="text-left"><span class="font-semibold">Kl Major:</span> Top 3</p>
                         <p class="text-left"><span class="font-semibold">Ti 7:</span> top2*</p>
-                </div>
+                </div> --}}
 
             </div>
         </div>
         <div class="w-2/4 rounded-lg">
-            <div class="flex flex-col justify-content bg-white shadow-lg ml-4">
+            <div class="flex flex-col justify-content bg-dark-100 shadow-lg ml-4">
                     <div class="bg-purple-500 py-2">
                             <p class="text-white font-semibold text-2xl text-center">Player Roster</p>
                         </div>
                         <div>
                                 <table class="border-collapse w-full">
-                                        <thead class="text-gray-600">
-                                            <th class="capitalize border-b border-gray-300 py-4 text-center">ID</th>
-                                            <th class="capitalize border-b border-gray-300 py-4 text-center">Name</th>
-                                            <th class="capitalize border-b border-gray-300 py-4 text-center">Position</th>
-                                            <th class="capitalize border-b border-gray-300 py-4 text-center">Join Date</th>
-                                            <th class="capitalize border-b border-gray-300 py-4 "></th>
+                                        <thead class="text-white border-b border-gray-600">
+                                            <th class="capitalize  py-4 text-center">ID</th>
+                                            <th class="capitalize  py-4 text-center">Name</th>
+                                            <th class="capitalize  py-4 text-center">Position</th>
+                                            <th class="capitalize  py-4 text-center">Join Date</th>
+                                            <th class="capitalize  py-4 "></th>
                                         </thead>
                                         <tbody class="text-center">
                                         @foreach($teamMembers as $teamMember)
 
-                                        <tr class="hover:bg-gray-200">
-                                        <td class="py-4 px-6 border-b border-gray-300">{{$teamMember->accounts->steam_name}}</td>
-                                        <td class="py-4 px-6 border-b border-gray-300 capitalize">{{$teamMember->name}}</td>
-                                        <td class="py-4 px-6 border-b border-gray-300">Mid*</td>
+                                        <tr class="hover:bg-content border-b border-gray-600 text-white font-semibold">
+                                        <td class="py-4 px-6">{{$teamMember->accounts->steam_name}}</td>
+                                        <td class="py-4 px-6 capitalize">{{$teamMember->name}}</td>
+                                        <td class="py-4 px-6">Mid*</td>
                                         @foreach($teamMember->team as $t)
-                                        <td class="py-4 px-6 border-b border-gray-300">{{$t->pivot->created_at->format('d-m-Y')}}</td>
+                                        <td class="py-4 px-6">{{$t->pivot->created_at->format('d-m-Y')}}</td>
 
                                         @endforeach
-                                        <td class="py-4 px-6 border-b border-gray-300 flex">
+                                        <td class="py-4 px-6 flex">
                                             <a href="{{ url('/players/' . $teamMember->accounts->dota_id) }}">
                                                 <i class="material-icons text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
                                                 search

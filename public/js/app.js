@@ -8818,7 +8818,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".slide-enter-active,\n   .slide-leave-active\n   {\n  transition: transform 0.2s ease;\n}\n.slide-enter,\n   .slide-leave-to {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s\n}\n\n", ""]);
+exports.push([module.i, ".slide-enter-active,\n.slide-leave-active {\n  transition: transform 0.2s ease;\n}\n.slide-enter,\n.slide-leave-to {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\n", ""]);
 
 // exports
 

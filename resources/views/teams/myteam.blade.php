@@ -53,7 +53,8 @@
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2 py-2 text-white font-mono">
                     <p class="text-center"><span class="font-semibold">City:</span> {{$myTeam->area}}</p>
                     <p class="text-center"><span class="font-semibold">State:</span> {{$myTeam->state}}</p>
-                    <p class="text-center"><span class="font-semibold">Captain:</span> {{$myTeam->captain_id}}*</p>
+                    <p class="text-center"><span class="font-semibold">Captain:</span>
+                        <a href="/players/{{$captain->accounts->dota_id}}" class="no-underline hover:underline text-blue-500">{{$captain->name}}</a></p>
                     <p class="text-center"><span class="font-semibold">Main Sponsor:</span>
                         @if($myTeam->sponsor == null)
                         None
@@ -68,13 +69,13 @@
                     <p class="text-center"><span class="font-semibold">Scrim:</span> Not Ready</p>
                     @endif
                 </div>
-                <div class="w-full px-10 bg-purple-600">
+                {{-- <div class="w-full px-10 bg-purple-600">
                         <p class="font-semibold text-xl capitalize text-center text-white font-mono">Achievements</p>
                 </div>
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2 text-white font-mono  py-2">
                         <p class="text-left"><span class="font-semibold">Kl Major:</span> Top 3</p>
                         <p class="text-left"><span class="font-semibold">Ti 7:</span> top2*</p>
-                </div>
+                </div> --}}
 
             </div>
         </div>

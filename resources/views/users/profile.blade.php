@@ -46,7 +46,7 @@
                       City
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
-                    py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-city" 
+                    py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-city"
                     type="text" placeholder="{{$fetchPlayers->user->area}}" name="city">
                     @error('city')
                     <p class="text-red-500 text-md italic">{{ $message }}</p>
@@ -58,7 +58,7 @@
                     </label>
                     <div class="relative">
                       <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4
-                      pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-state" 
+                      pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-state"
                       name="state" required>
                       <option value="" selected disabled hidden>{{$fetchPlayers->user->state}}</option>
                       <option value="Johor">Johor</option>
@@ -96,7 +96,7 @@
 
               <div class="border-t border-gray-600 mx-3">
               <form class="w-full max-w-lg pl-3 pr-5 pt-4 ml-1" method="POST" action="{{ route('change.password') }}">
-                @csrf    
+                @csrf
                 <div class="flex flex-wrap -mx-3  mb-2">
                             <div class="w-full px-3 mb-2">
                                 <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-password">
@@ -206,15 +206,21 @@
             <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
         </div>
         @elseif( Auth::user()->id != $fetchPlayers->user_id )
-        <div class="flex justify-between ">
-                <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 flex-shrink-0 hover:bg-purple-400 font-semibold  
-                  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg mr-2">Add Friend </a>
+        <div class="flex justify-between items-center">
+            <div class="">
+                <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 flex-shrink-0 hover:bg-purple-400 font-semibold
+                         px-4 py-2 rounded-lg text-white text-sm shadow-lg">Add Friend </a>
+            </div>
+            <div class="">
                 @if($fetchPlayers->avatar_url == null)
-                <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
+                <img src="{{asset('img/default.svg')}}" alt="" class="relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
                 @else
-                <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg flex-shrink-0 border-2">
+                <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class=" relative rounded-full w-48 shadow-lg flex-shrink-0 border-2">
                 @endif
-                <a href="/offer/{{ $fetchPlayers->user_id }}" class="ml-2 bg-indigo-500 flex-shrink-0 hover:bg-indigo-400 font-bold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
+            </div>
+            <div class="">
+                <a href="/offer/{{ $fetchPlayers->user_id }}" class="bg-indigo-500 flex-shrink-0 hover:bg-indigo-400 font-bold  px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
+            </div>
             </div>
         @endif
         <div class="flex flex-col items-center border-b-2 pb-6">
@@ -243,7 +249,7 @@
                         View Statistic
                 </a>
                 <a  @click.prevent="$modal.show('hello-world', {user: [    { id: {{$user->id}} },
-                { name: '{{$user->name}}' } ]})" href="/messages/create/{{$fetchPlayers->user_id}}" 
+                { name: '{{$user->name}}' } ]})" href="/messages/create/{{$fetchPlayers->user_id}}"
                 class="border-pink-500 border-2 bg-transparent hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
                     Send Message
             </a>

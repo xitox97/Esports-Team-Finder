@@ -137,7 +137,7 @@
                 <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
               </a>
             </sidebar-component>
-            <section id="maindiv" class="flex flex-col bg-gray-900" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
+            <section id="maindiv" class="flex flex-col bg-gray-900 w-10/12" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
                 <header class="h-24 flex justify-between">
                     <div class="w-8 flex items-center ml-12">
                            <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer text-white">
@@ -191,9 +191,9 @@
 
                         <div class="mx-3">
                             @if(Auth::user()->accounts()->exists() == true)
-                            <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
+                            <img  class="rounded-full h-12 w-12 cursor-pointer border-2 border-purple-800" src="{{Auth::user()->accounts->avatar_url}}" alt="">
                             @else
-                            <img src="{{asset('img/default.svg')}}" alt="" class="rounded-full h-12 w-12 cursor-pointer">
+                            <img src="{{asset('img/default.svg')}}" alt="" class="rounded-full h-12 w-12 cursor-pointer border-2 border-purple-800">
                             @endif
                         </div>
                         <div class="mx-3">

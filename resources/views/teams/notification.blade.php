@@ -56,7 +56,7 @@
                         <div class="mr-12">
                                 <i class="material-icons md-48 text-green-500">transfer_within_a_station</i>
                         </div>
-                        <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                        <div class="border-r-2 border-gray-400 pr-10 mr-10 text-white">
                             <p class="text-xl font-bold">
                                     Offer Accepted!
                             </p>
@@ -84,7 +84,7 @@
 
             @elseif ( class_basename($noti->type) == "RejectOffer")
                 @if ($noti->data['offer_status'] == 'Rejected')
-                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                <div class="flex flex-row justify-center bg-dark-100 rounded-lg my-2 py-2 shadow-lg w-8/12 text-white">
                     <div class="mr-12">
                             <i class="material-icons md-48 text-red-500">transfer_within_a_station</i>
                     </div>
@@ -122,7 +122,7 @@
 
             @if( class_basename($noti->type) == "OfferScrim")
 
-                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                <div class="flex flex-row justify-center bg-dark-100 rounded-lg my-2 py-2 shadow-lg w-8/12 text-white">
                     <div class="mr-12">
                             <i class="material-icons md-48 text-indigo-700">sports_kabaddi</i>
                     </div>
@@ -161,7 +161,7 @@
             @elseif( class_basename($noti->type) == "AcceptScrim")
 
                 @if ($noti->data['offer_status'] == 'Accepted')
-                    <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                    <div class="flex flex-row justify-center bg-dark-100 text-white rounded-lg my-2 py-2 shadow-lg w-8/12">
                         <div class="mr-12">
                                 <i class="material-icons md-48 text-green-500">sports_kabaddi</i>
                         </div>
@@ -195,7 +195,7 @@
             @elseif( class_basename($noti->type) == "RejectScrim")
                 @if ($noti->data['offer_status'] == 'Rejected')
 
-                <div class="flex flex-row justify-center bg-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                <div class="flex flex-row justify-center bg-dark-100 text-white rounded-lg my-2 py-2 shadow-lg w-8/12">
                     <div class="mr-12">
                             <i class="material-icons md-48 text-red-500">sports_kabaddi</i>
                     </div>
