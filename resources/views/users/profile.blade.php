@@ -242,6 +242,7 @@
                 <p class="text-lg font-semibold  text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                 Lose: {{$fetchPlayers->win_lose['lose']}})</p>
                 <p class="text-lg font-semibold  text-white capitalize">Main Roles: *reserve</p>
+                <a href="#" class="text-lg font-semibold  text-white capitalize text-indigo-500 hover:underline" @click.prevent="$modal.show('achievement')">View Achievements</a>
                 <div class="mt-4">
                         @include('users.medal')
                 </div>
@@ -303,6 +304,7 @@
 
 
         <message-component></message-component>
+        <achievement-component></achievement-component>
         </div>
 
         @endif
