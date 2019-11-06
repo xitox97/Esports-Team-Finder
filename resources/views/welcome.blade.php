@@ -4,10 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
+        <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Fonts -->
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <!-- Styles -->
         <style>
@@ -19,7 +18,7 @@
             .mySlides {display:none;}
         </style>
     </head>
-    <body class="bg-black font-sans">
+    <body class="bg-black font-mono">
             {{-- <!-- Full width column -->
             <nav class="fixed  z-50 bg-transparent w-full ">
                 <div class="container mx-auto ">
@@ -34,8 +33,8 @@
                         <div class="flex">
 
                             <div class="w-1/4 flex items-center">
-                                <button class="bg-red-500  text-white font-bold py-2 px-4 rounded inline-flex items-center">
-                                    <span class="text-lg">DOTA HUB</span>
+                                <button class="bg-purple-800  text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                                    <span class="text-lg tracking-wider">DOTAHUNT</span>
                                 </button>
                             </div>
 
@@ -46,8 +45,11 @@
                             </div>
 
                             <div class="w-1/4 flex items-center  flex-row-reverse text-right">
-                                <a href="/register" class="bg-transparent hover:bg-red-500 text-white font-semibold hover:text-white py-3 px-3 border border-red-500 hover:border-transparent rounded inline-block ">Sign Up</a>
-                                <a href="/login" class="bg-red-500 hover:bg-red-700 font-bold text-white inline-block mr-1  py-3 px-3 rounded">Sign In</a>
+                                <a href="/register" class="bg-transparent hover:bg-purple-800 text-white
+                                font-semibold hover:text-white py-3 px-3 border-2 border-purple-800 hover:border-transparent
+                                rounded inline-block ">Sign Up</a>
+                                <a href="/login" class="bg-purple-700 hover:bg-purple-800 font-bold text-white
+                                inline-block mr-1  py-3 px-3 rounded">Sign In</a>
                             </div>
 
                         </div>
@@ -58,10 +60,10 @@
 
                     <div class="flex ">
                             <div id="section" class="w-3/6 mr-2 pt-2">
-                                <p class="text-4xl font-sans font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-sans font-bold text-white  max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
-                                <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find teammates and participate in local tournaments</p>
-                                <p class="pt-3 text-2xl font-sans font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> play practice match with another teams</p>
-                                <a href="/register" class="bg-red-600 hover:bg-red-700 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
+                                <p class="text-4xl font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-bold text-white  max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
+                                <p class="pt-3 text-2xl font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find teammates and participate in local tournaments</p>
+                                <p class="pt-3 text-2xl font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> play practice match with another teams</p>
+                                <a href="/register" class="bg-purple-700 hover:bg-purple-800 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
                             </div>
 
                             {{-- <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
