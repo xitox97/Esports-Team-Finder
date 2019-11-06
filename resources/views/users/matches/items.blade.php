@@ -39,6 +39,7 @@
                     <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10" >
                 </div>
                 <div class="bg-trans absolute bottom-0 right-0">
+                        @if(array_key_exists('first_purchase_time', $player))
                         @if(array_key_exists($itemsData->item_id[$player['item_0']],$player['first_purchase_time']))
                         @php
                             $seconds = $player['first_purchase_time'][$itemsData->item_id[$player['item_0']]];
@@ -50,6 +51,7 @@
                                 $secondsleft = "0" . $secondsleft;
                         @endphp
                     <p class="text-sm"><span class="text-white">{{$minutes}}:{{$secondsleft}}</span></p>
+                @endif
                 @endif
                 </div>
                 </div>
@@ -70,6 +72,7 @@
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10" >
         </div>
         <div class="bg-trans absolute bottom-0 right-0">
+                @if(array_key_exists('first_purchase_time', $player))
                 @if(array_key_exists($itemsData->item_id[$player['item_1']],$player['first_purchase_time']))
                 @php
                     $seconds = $player['first_purchase_time'][$itemsData->item_id[$player['item_1']]];
@@ -81,6 +84,7 @@
                         $secondsleft = "0" . $secondsleft;
                 @endphp
             <p class="text-sm"><span class="text-white">{{$minutes}}:{{$secondsleft}}</span></p>
+        @endif
         @endif
         </div>
         </div>
@@ -99,6 +103,7 @@
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10" >
         </div>
         <div class="bg-trans absolute bottom-0 right-0">
+                @if(array_key_exists('first_purchase_time', $player))
                 @if(array_key_exists($itemsData->item_id[$player['item_2']],$player['first_purchase_time']))
                 @php
                     $seconds = $player['first_purchase_time'][$itemsData->item_id[$player['item_2']]];
@@ -110,6 +115,7 @@
                         $secondsleft = "0" . $secondsleft;
                 @endphp
             <p class="text-sm"><span class="text-white">{{$minutes}}:{{$secondsleft}}</span></p>
+        @endif
         @endif
         </div>
         </div>
@@ -128,6 +134,7 @@
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10" >
         </div>
         <div class="bg-trans absolute bottom-0 right-0">
+                @if(array_key_exists('first_purchase_time', $player))
                 @if(array_key_exists($itemsData->item_id[$player['item_3']],$player['first_purchase_time']))
                 @php
                     $seconds = $player['first_purchase_time'][$itemsData->item_id[$player['item_3']]];
@@ -139,6 +146,7 @@
                         $secondsleft = "0" . $secondsleft;
                 @endphp
             <p class="text-sm"><span class="text-white">{{$minutes}}:{{$secondsleft}}</span></p>
+        @endif
         @endif
         </div>
         </div>
@@ -157,6 +165,7 @@
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10" >
         </div>
         <div class="bg-trans absolute bottom-0 right-0">
+                @if(array_key_exists('first_purchase_time', $player))
                 @if(array_key_exists($itemsData->item_id[$player['item_4']],$player['first_purchase_time']))
                 @php
                     $seconds = $player['first_purchase_time'][$itemsData->item_id[$player['item_4']]];
@@ -168,6 +177,7 @@
                         $secondsleft = "0" . $secondsleft;
                 @endphp
             <p class="text-sm"><span class="text-white">{{$minutes}}:{{$secondsleft}}</span></p>
+        @endif
         @endif
         </div>
         </div>
@@ -186,6 +196,7 @@
             <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-10" >
         </div>
         <div class="bg-trans absolute bottom-0 right-0">
+                @if(array_key_exists('first_purchase_time', $player))
                 @if(array_key_exists($itemsData->item_id[$player['item_5']],$player['first_purchase_time']))
                 @php
                     $seconds = $player['first_purchase_time'][$itemsData->item_id[$player['item_5']]];
@@ -197,6 +208,7 @@
                         $secondsleft = "0" . $secondsleft;
                 @endphp
             <p class="text-sm"><span class="text-white">{{$minutes}}:{{$secondsleft}}</span></p>
+        @endif
         @endif
         </div>
         </div>

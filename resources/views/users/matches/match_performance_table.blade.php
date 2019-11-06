@@ -40,6 +40,12 @@
         @endif
             <td>{{ (round($player['stuns'],2) == 0) ? '-' : round($player['stuns'],2)}}</td>
             <td>{{ ($player['camps_stacked'] == 0) ? '-' : $player['camps_stacked'] }}</td>
-            <td>{{(count($player['buyback_log']) != 0) ? count($player['buyback_log']) : '-'}}</td>
+            <td>
+                    @if($player['buyback_log'] != null)
+                {{(count($player['buyback_log']) != 0) ? count($player['buyback_log']) : '-'}}
+                @else
+                -
+                @endif
+            </td>
             <td>@include('users.matches.roles')</td>
 </tr>
