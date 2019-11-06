@@ -9,7 +9,7 @@
 
 @if ( $fetchPlayers->medal == null)
 
-<div class="rankTierContainer">
+    <div class="rankTierContainer">
         <div class="rankMedal">
             <img class="rankMedal-icon" src="
             {{  asset('img/medal/rank_icon_0.png') }}" alt="">
@@ -57,16 +57,23 @@
 
             </div>
         </div>
-        @endif
-    @else
-
-    <div class="rankTierContainer">
+        @else
+        <div class="rankTierContainer">
             <div class="rankMedal">
                 <img class="rankMedal-icon" src="
                 {{  asset('img/medal/rank_icon_' . $fetchPlayers->medal[0] . '.png') }}" alt="">
-                <img class="rankMedal-star" src="{{  asset('img/medal/rank_star_' . $fetchPlayers->medal[1] . '.png') }}" alt="">
-
+                <span class="text-orange-200 absolute self-center text-lg mt-10 font-semibold shadow-md">{{$fetchPlayers->leaderboard_rank}}</span>
             </div>
         </div>
+        @endif
+
+    @else
+    <div class="rankTierContainer">
+        <div class="rankMedal">
+            <img class="rankMedal-icon" src="
+            {{  asset('img/medal/rank_icon_' . $fetchPlayers->medal[0] . '.png') }}" alt="">
+            <img class="rankMedal-star" src="{{  asset('img/medal/rank_star_' . $fetchPlayers->medal[1] . '.png') }}" alt="">
+        </div>
+    </div>
     @endif
 @endif

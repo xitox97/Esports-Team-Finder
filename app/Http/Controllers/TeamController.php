@@ -23,9 +23,9 @@ class TeamController extends Controller
 
         $myTeam = Auth()->user()->team->first();
 
-        $captain = User::find($myTeam->captain_id);
         //dd($myTeam->id);
         if ($myTeam != null) {
+            $captain = User::find($myTeam->captain_id);
             $players = DB::table('user_team')->where('team_id', $myTeam->id)->get();
             //dd($myTeam);
             $userid = Arr::pluck($players, 'user_id');

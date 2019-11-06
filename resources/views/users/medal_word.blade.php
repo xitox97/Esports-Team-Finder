@@ -14,6 +14,8 @@
     @elseif(substr($player['rank_tier'], 0, 1) == 6)
     <div>Ancient[{{substr($player['rank_tier'], 1, 1)}}]</div>
     @elseif(substr($player['rank_tier'], 0, 1) == 7)
-    <div>Immortal[{{substr($player['rank_tier'], 1, 1)}}]</div>
+    <div>Divine[{{substr($player['rank_tier'], 1, 1)}}]</div>
+    @else
+    <div>Immortal</div>
     @endif
 @endif

@@ -203,7 +203,7 @@
     <div class=" bg-dark-100  rounded-lg shadow-xl mb-32 mx-64 pb-10 px-10">
         @if ( Auth::user()->id == $fetchPlayers->user_id )
         <div class="flex justify-center mx-10 ">
-            <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
+            <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-24 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
         </div>
         @elseif( Auth::user()->id != $fetchPlayers->user_id )
         <div class="flex justify-between items-center">
@@ -213,9 +213,9 @@
             </div>
             <div class="">
                 @if($fetchPlayers->avatar_url == null)
-                <img src="{{asset('img/default.svg')}}" alt="" class="relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
+                <img src="{{asset('img/default.svg')}}" alt="" class="-mt-24 relative rounded-full w-48 shadow-lg border-2 flex-shrink-0">
                 @else
-                <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class=" relative rounded-full w-48 shadow-lg flex-shrink-0 border-2">
+                <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-24 relative rounded-full w-48 shadow-lg flex-shrink-0 border-2">
                 @endif
             </div>
             <div class="">
