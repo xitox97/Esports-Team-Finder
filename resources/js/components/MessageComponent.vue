@@ -58,7 +58,7 @@ export default {
     beforeOpen(event) {
       this.form.recipients = event.params.user[0].id;
       this.name = event.params.user[1].name;
-      console.log(event.params.user[1].name);
+      //console.log(event.params.user[1].name);
     },
     submit() {
       axios.post("/messages", this.form).then(response => {

@@ -22,7 +22,11 @@
               <td class="py-4 px-6 border-b border-gray-300">{{index+1}}</td>
               <td class="py-4 px-6 border-b border-gray-300">{{achievement.tournament_name}}</td>
               <td class="py-4 px-6 border-b border-gray-300">{{achievement.team}}</td>
-              <td class="py-4 px-6 border-b border-gray-300">champion</td>
+              <td class="py-4 px-6 border-b border-gray-300" v-if="achievement.place == 1">Champion</td>
+              <td class="py-4 px-6 border-b border-gray-300" v-if="achievement.place == 2">Top 4</td>
+              <td class="py-4 px-6 border-b border-gray-300" v-if="achievement.place == 3">Top 8</td>
+              <td class="py-4 px-6 border-b border-gray-300" v-if="achievement.place == 4">Top 18</td>
+              <td class="py-4 px-6 border-b border-gray-300" v-if="achievement.place == 5">Others</td>
               <td class="py-4 px-6 border-b border-gray-300">{{achievement.date}}</td>
             </tr>
           </tbody>

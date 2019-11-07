@@ -85,6 +85,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('players/{player}/get', 'AchievementController@get');
     Route::get('players/{player}/achievements/create', 'AchievementController@create');
     Route::post('players/{player}/achievements/create', 'AchievementController@store');
+    Route::patch('/achievements/{achievement}', 'AchievementController@update');
+    Route::delete('players/{player}/achievements/{achievement}', 'AchievementController@destroy');
 
 
     Route::get('/tournaments', 'TournamentController@index');

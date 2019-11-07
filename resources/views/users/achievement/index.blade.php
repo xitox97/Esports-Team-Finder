@@ -43,21 +43,30 @@
                         </td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$achievement->date}}</td>
                         @if(Auth::user()->accounts->dota_id == $users->accounts->dota_id)
-                        <td class="py-4 px-6 border-b border-gray-300">
-                            <i class="material-icons text-indigo-600 cursor-pointer">
-                            create
-                            </i>
-                            <i class="material-icons text-red-600 cursor-pointer">
-                                delete_forever
-                                </i></td>
+                        <td class="py-4 px-6 border-b border-gray-300 flex">
+                            <a href="#" @click.prevent="$modal.show('edit-achievement',{ achievement: {{$achievement}} })"><i class="material-icons text-indigo-600 cursor-pointer">
+                                    create
+                                    </i></a>
+
+                                    <form action="/players/{{$users->accounts->dota_id}}/achievements/{{$achievement->id}}" method="post">
+                                    @csrf
+                                    @method("delete")
+                                        <button type="submit"><i class="material-icons text-red-600 cursor-pointer">
+                                                delete_forever
+                                                </i></button>
+                                    </form>
+                            </td>
+
                                 @endif
                     </tr>
+
                     @empty
                         <tr>
                             <td colspan="4" class="py-4 px-6 border-b border-gray-300 text-center text-white"> <b> No Pasts Achiements</b> </td>
                         </tr>
                     @endforelse
                 </tbody>
+                <edit-achievement></edit-achievement>
 
             </table>
             <div class="mt-4 -mb-1 p-2">

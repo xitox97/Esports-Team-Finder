@@ -1736,6 +1736,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1836,6 +1840,181 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["thread", "usersend", "acc", "chat"]
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditAchievement.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EditAchievement.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        tournament_name: "",
+        date: "",
+        place: "",
+        team: ""
+      },
+      achievement: Object
+    };
+  },
+  //   created() {
+  //     axios
+  //       .get("'/players/'+id+'/get'")
+  //       .then(response => console.log(response.data));
+  //   },
+  methods: {
+    beforeOpen: function beforeOpen(event) {
+      console.log(event.params.achievement);
+      this.achievement = event.params.achievement; //   axios
+      //     .get("/players/" + event.params.id + "/get")
+      //     .then(response => (this.achievements = response.data));
+      //.then(response => console.log(response.data));
+    },
+    submit: function submit() {
+      axios.patch("/achievements/" + this.achievement.id, this.achievement).then(function (response) {
+        alert("Succesfully Update"); //console.log(response.data);
+
+        location.reload();
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2183,8 +2362,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     beforeOpen: function beforeOpen(event) {
       this.form.recipients = event.params.user[0].id;
-      this.name = event.params.user[1].name;
-      console.log(event.params.user[1].name);
+      this.name = event.params.user[1].name; //console.log(event.params.user[1].name);
     },
     submit: function submit() {
       axios.post("/messages", this.form).then(function (response) {
@@ -55718,11 +55896,55 @@ var render = function() {
                         [_vm._v(_vm._s(achievement.team))]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "py-4 px-6 border-b border-gray-300" },
-                        [_vm._v("champion")]
-                      ),
+                      achievement.place == 1
+                        ? _c(
+                            "td",
+                            {
+                              staticClass: "py-4 px-6 border-b border-gray-300"
+                            },
+                            [_vm._v("Champion")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      achievement.place == 2
+                        ? _c(
+                            "td",
+                            {
+                              staticClass: "py-4 px-6 border-b border-gray-300"
+                            },
+                            [_vm._v("Top 4")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      achievement.place == 3
+                        ? _c(
+                            "td",
+                            {
+                              staticClass: "py-4 px-6 border-b border-gray-300"
+                            },
+                            [_vm._v("Top 8")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      achievement.place == 4
+                        ? _c(
+                            "td",
+                            {
+                              staticClass: "py-4 px-6 border-b border-gray-300"
+                            },
+                            [_vm._v("Top 18")]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      achievement.place == 5
+                        ? _c(
+                            "td",
+                            {
+                              staticClass: "py-4 px-6 border-b border-gray-300"
+                            },
+                            [_vm._v("Others")]
+                          )
+                        : _vm._e(),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -55863,6 +56085,384 @@ var render = function() {
       ])
     ],
     1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditAchievement.vue?vue&type=template&id=5becbeac&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EditAchievement.vue?vue&type=template&id=5becbeac& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    {
+      attrs: { name: "edit-achievement", height: "auto" },
+      on: { "before-open": _vm.beforeOpen }
+    },
+    [
+      _c("div", { staticClass: "p-4 bg-content" }, [
+        _c(
+          "form",
+          {
+            staticClass: "w-full p-3",
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "text-lg font-bold uppercase border-b border-gray-600 pb-4 flex justify-center text-white"
+              },
+              [_vm._v("Edit Achievement")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-wrap -mx-3 mt-10 mb-2" }, [
+              _c("div", { staticClass: "w-full px-3 mb-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-white text-md font-semibold mb-2",
+                    attrs: { for: "grid-first-name" }
+                  },
+                  [_vm._v("Tournament Name")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.achievement.tournament_name,
+                      expression: "achievement.tournament_name"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline leading-tight mb-0 px-4 py-3 rounded text-black w-full",
+                  attrs: {
+                    type: "text",
+                    name: "tournament_name",
+                    required: ""
+                  },
+                  domProps: { value: _vm.achievement.tournament_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.achievement,
+                        "tournament_name",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-wrap -mx-3 mb-2" }, [
+              _c("div", { staticClass: "w-full px-3 mb-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-white text-md font-semibold mb-2",
+                    attrs: { for: "grid-first-name" }
+                  },
+                  [_vm._v("Team Name")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.achievement.team,
+                      expression: "achievement.team"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline leading-tight mb-0 px-4 py-3 rounded text-black w-full",
+                  attrs: { name: "team", type: "text", required: "" },
+                  domProps: { value: _vm.achievement.team },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.achievement, "team", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-wrap -mx-3 mb-2" }, [
+              _c("div", { staticClass: "w-full px-3 mb-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-white text-md font-semibold mb-2",
+                    attrs: { for: "grid-first-name" }
+                  },
+                  [_vm._v("Place")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-full" }, [
+                  _c("div", { staticClass: "relative" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.achievement.place,
+                            expression: "achievement.place"
+                          }
+                        ],
+                        staticClass:
+                          "block appearance-none w-full bg-gray-400 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500 focus:shadow-outline",
+                        attrs: { name: "place", required: "" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.achievement,
+                              "place",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _vm.achievement.place == 1
+                          ? _c(
+                              "option",
+                              { attrs: { disabled: "", selected: "" } },
+                              [_vm._v("Champion")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.achievement.place == 2
+                          ? _c(
+                              "option",
+                              { attrs: { disabled: "", selected: "" } },
+                              [_vm._v("Top 4")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.achievement.place == 3
+                          ? _c(
+                              "option",
+                              { attrs: { disabled: "", selected: "" } },
+                              [_vm._v("Top 8")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.achievement.place == 4
+                          ? _c(
+                              "option",
+                              { attrs: { disabled: "", selected: "" } },
+                              [_vm._v("Top 18")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.achievement.place == 5
+                          ? _c(
+                              "option",
+                              { attrs: { disabled: "", selected: "" } },
+                              [_vm._v("Others")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v("Champion")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "2" } }, [
+                          _vm._v("Top 4")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "3" } }, [
+                          _vm._v("Top 8")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "4" } }, [
+                          _vm._v("Top 18")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "5" } }, [
+                          _vm._v("Other")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white"
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "fill-current h-4 w-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                d:
+                                  "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-wrap -mx-3" }, [
+              _c("div", { staticClass: "w-full px-3 mb-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-white text-md font-semibold mb-2",
+                    attrs: { for: "grid-first-name" }
+                  },
+                  [_vm._v("Tournament Date")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.achievement.date,
+                      expression: "achievement.date"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none block w-full bg-gray-400 text-black border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-outline",
+                  attrs: { type: "date", name: "date", required: "" },
+                  domProps: { value: _vm.achievement.date },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.achievement, "date", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white"
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "fill-current h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          viewBox: "0 0 20 20"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-center items-center" }, [
+              _c("div", [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "bg-transparent hover:bg-indigo-600 text-gray-300 font-semibold hover:text-white py-2 px-4 border-2 border-indigo-600 hover:border-transparent rounded",
+                    attrs: { href: "javascript:history.back()" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.$modal.hide("edit-achievement")
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mx-auto ml-2 border-2 border-indigo-600",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Submit")]
+                )
+              ])
+            ])
+          ]
+        )
+      ])
+    ]
   )
 }
 var staticRenderFns = []
@@ -69897,6 +70497,7 @@ Vue.component('noti-component', __webpack_require__(/*! ./components/NotiCompone
 Vue.component('chat-component', __webpack_require__(/*! ./components/ChatComponent.vue */ "./resources/js/components/ChatComponent.vue")["default"]);
 Vue.component('message-component', __webpack_require__(/*! ./components/MessageComponent.vue */ "./resources/js/components/MessageComponent.vue")["default"]);
 Vue.component('achievement-component', __webpack_require__(/*! ./components/AchievementComponent.vue */ "./resources/js/components/AchievementComponent.vue")["default"]);
+Vue.component('edit-achievement', __webpack_require__(/*! ./components/EditAchievement.vue */ "./resources/js/components/EditAchievement.vue")["default"]);
 Vue.component('map-component', __webpack_require__(/*! ./components/MapComponent.vue */ "./resources/js/components/MapComponent.vue")["default"]);
 Vue.component('mapsearch-component', __webpack_require__(/*! ./components/MapsearchComponent.vue */ "./resources/js/components/MapsearchComponent.vue")["default"]);
 new Vue({
@@ -70254,6 +70855,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatComponent_vue_vue_type_template_id_80d584ac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatComponent_vue_vue_type_template_id_80d584ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EditAchievement.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/EditAchievement.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EditAchievement_vue_vue_type_template_id_5becbeac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditAchievement.vue?vue&type=template&id=5becbeac& */ "./resources/js/components/EditAchievement.vue?vue&type=template&id=5becbeac&");
+/* harmony import */ var _EditAchievement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditAchievement.vue?vue&type=script&lang=js& */ "./resources/js/components/EditAchievement.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditAchievement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditAchievement_vue_vue_type_template_id_5becbeac___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditAchievement_vue_vue_type_template_id_5becbeac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/EditAchievement.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/EditAchievement.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/EditAchievement.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAchievement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./EditAchievement.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditAchievement.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAchievement_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/EditAchievement.vue?vue&type=template&id=5becbeac&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/EditAchievement.vue?vue&type=template&id=5becbeac& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAchievement_vue_vue_type_template_id_5becbeac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./EditAchievement.vue?vue&type=template&id=5becbeac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EditAchievement.vue?vue&type=template&id=5becbeac&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAchievement_vue_vue_type_template_id_5becbeac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditAchievement_vue_vue_type_template_id_5becbeac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

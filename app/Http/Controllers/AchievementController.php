@@ -69,4 +69,24 @@ class AchievementController extends Controller
 
         return redirect('/players/' . $id . '/achievements');
     }
+
+    public function update(Request $request, Achievement $achievement)
+    {
+        //dd($request->tournament_name);
+
+
+
+        $achievement->tournament_name = $request->tournament_name;
+        $achievement->team = $request->team;
+        $achievement->date = $request->date;
+        $achievement->place = $request->place;
+        $achievement->save();
+    }
+
+    public function destroy($player, Achievement $achievement)
+    {
+
+        $achievement->delete();
+        return redirect("/players/$player/achievements");
+    }
 }
