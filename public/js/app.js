@@ -2427,6 +2427,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56435,34 +56441,40 @@ var render = function() {
       return _c(
         "div",
         {
+          key: tournament.name,
           staticClass:
-            "max-w-xs rounded overflow-hidden shadow-lg mx-2 mb-2 mt-2 bg-white hover:bg-gray-100"
+            "max-w-xs rounded rounded-t-none overflow-hidden shadow-lg mx-2 mb-2 mt-2 bg-dark-100 hover:bg-content border-t-4 border-purple-700"
         },
         [
-          _c("div", [
+          _c("div", { staticClass: "p-4" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "font-bold text-lg text-center text-white uppercase tracking-wide"
+              },
+              [_vm._v(_vm._s(tournament.name))]
+            ),
+            _vm._v(" "),
             _c("img", {
-              staticClass: "max-h-1/4 object-scale-down w-full",
+              staticClass: "max-h-1/4 object-scale-down w-full rounded-lg mt-4",
               attrs: { src: "/storage/tour/" + tournament.image, alt: "" }
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "px-6 py-4 text-center" }, [
-            _c("div", { staticClass: "font-bold text-xl" }, [
-              _vm._v(_vm._s(tournament.name))
-            ]),
-            _vm._v(" "),
+          _c("div", { staticClass: "px-6 py-4 text-center text-gray-300" }, [
             _c("p", { staticClass: "font-medium text-md mb-2" }, [
               _vm._v("Prize Pool: RM " + _vm._s(tournament.prizepool))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
+            _c("p", { staticClass: "text-base" }, [
               _c("span", { staticClass: "font-medium capitalize" }, [
                 _vm._v("Organizer:")
               ]),
               _vm._v("\n        " + _vm._s(tournament.organizer) + "\n      ")
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
+            _c("p", { staticClass: "text-base" }, [
               _c("span", { staticClass: "font-medium capitalize" }, [
                 _vm._v("Date:")
               ]),
@@ -56475,37 +56487,37 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
+            _c("p", { staticClass: "text-base" }, [
               _c("span", { staticClass: "font-medium capitalize" }, [
                 _vm._v("venue:")
               ]),
               _vm._v("\n        " + _vm._s(tournament.venue) + "\n      ")
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
+            _c("p", { staticClass: "text-base" }, [
               _c("span", { staticClass: "font-medium capitalize" }, [
                 _vm._v("State:")
               ]),
               _vm._v("\n        " + _vm._s(tournament.state) + "\n      ")
             ]),
             _vm._v(" "),
-            tournament.status == 1
-              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
-                  _c("span", { staticClass: "font-medium capitalize" }, [
+            _c("p", { staticClass: "text-base" }, [
+              tournament.status == 1
+                ? _c("span", { staticClass: "font-medium capitalize" }, [
                     _vm._v("Status:")
-                  ]),
-                  _vm._v(" Ended\n      ")
-                ])
-              : _vm._e(),
+                  ])
+                : _vm._e(),
+              _vm._v(" Ended\n      ")
+            ]),
             _vm._v(" "),
-            tournament.status != 1
-              ? _c("p", { staticClass: "text-gray-700 text-base" }, [
-                  _c("span", { staticClass: "font-medium capitalize" }, [
+            _c("p", { staticClass: "text-base" }, [
+              tournament.status != 1
+                ? _c("span", { staticClass: "font-medium capitalize" }, [
                     _vm._v("Status:")
-                  ]),
-                  _vm._v(" Upcoming\n      ")
-                ])
-              : _vm._e()
+                  ])
+                : _vm._e(),
+              _vm._v(" Upcoming\n      ")
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "text-center pb-3 -mt-3" }, [
@@ -56513,7 +56525,7 @@ var render = function() {
               "a",
               {
                 staticClass:
-                  "inline-block bg-green-500 rounded-full px-3 py-1 text-md font-semibold text-white mt-3 text-center hover:bg-green-600",
+                  "inline-block bg-indigo-500 rounded px-3 py-1 text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500",
                 attrs: { href: "/tournaments/interested/" + tournament.id }
               },
               [_vm._v("Interested")]
@@ -70028,15 +70040,14 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*!**********************************************************!*\
   !*** ./resources/js/components/AchievementComponent.vue ***!
   \**********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AchievementComponent_vue_vue_type_template_id_156dcc79___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AchievementComponent.vue?vue&type=template&id=156dcc79& */ "./resources/js/components/AchievementComponent.vue?vue&type=template&id=156dcc79&");
 /* harmony import */ var _AchievementComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AchievementComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AchievementComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AchievementComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AchievementComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -70066,7 +70077,7 @@ component.options.__file = "resources/js/components/AchievementComponent.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/AchievementComponent.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
