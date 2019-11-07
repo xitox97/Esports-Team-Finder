@@ -2318,7 +2318,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56333,19 +56332,18 @@ var render = function() {
               "header",
               {
                 staticClass:
-                  "h-24 flex items-center border-b border-indigo-700 py-5"
+                  "h-24 flex items-center border-b border-indigo-700 py-5 w-full justify-center"
               },
               [
-                _c("img", {
-                  staticClass: "w-7/12 mx-auto mt-3 cursor-pointer",
-                  attrs: {
-                    src:
-                      "https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png",
-                    alt: "netflix-font",
-                    border: "0"
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "text-2xl font-bold text-white font-mono tracking-wider",
+                    attrs: { href: "/" }
                   },
-                  on: { click: _vm.home }
-                })
+                  [_vm._v("<DOTAHUNT/>")]
+                )
               ]
             ),
             _vm._v(" "),

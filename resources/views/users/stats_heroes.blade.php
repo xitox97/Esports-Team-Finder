@@ -11,7 +11,7 @@
             <div class="flex">
                 <div class="flex w-3/4">
                     <div class="flex">
-                        <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded-full shadow-lg w-32" alt="...">
+                        <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded-full shadow-lg w-32 border-purple-700 border-2" alt="...">
                         <div class="ml-6">
                         <p class="text-lg font-bold text-white">{{  $fetchPlayers->steam_name  }}</p>
                         <p class="text-md font-bold text-white">Wins: {{  $fetchPlayers->win_lose['win']  }}</p>

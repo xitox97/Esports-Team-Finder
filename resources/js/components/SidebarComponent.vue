@@ -2,14 +2,13 @@
   <transition name="slide">
     <aside v-if="isOpen">
       <div class="flex flex-col h-full items-center">
-        <header class="h-24 flex items-center border-b border-indigo-700 py-5">
-          <img
-            v-on:click="home"
-            class="w-7/12 mx-auto mt-3 cursor-pointer"
-            src="https://fontmeme.com/permalink/190926/504d6783995232cf36f03478b4e00769.png"
-            alt="netflix-font"
-            border="0"
-          />
+        <header
+          class="h-24 flex items-center border-b border-indigo-700 py-5 w-full justify-center"
+        >
+          <a
+            class="text-2xl font-bold text-white font-mono tracking-wider"
+            href="/"
+          >&lt;DOTAHUNT/&gt;</a>
         </header>
         <section class="h-full flex flex-col items-start">
           <slot></slot>
