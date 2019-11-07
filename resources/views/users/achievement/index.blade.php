@@ -2,7 +2,9 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
-        <span class="italic text-sm ">Home / <a href="{{url('/players/' . Auth::user()->accounts->dota_id . '/achievements')}}" class="no-underline hover:underline text-blue-500">Achievements</a></span>
+        <span class="italic text-sm ">Home / <a href="{{url('/players/' . $users->accounts->dota_id)}}"
+            class="no-underline hover:underline text-blue-500">Profile</a> / {{$users->name}} / <a href="{{url('/players/' . $users->accounts->dota_id . '/achievements')}}"
+            class="no-underline hover:underline text-blue-500">Achievements</a></span>
    </section>
 
 <div class="container mx-auto mt-12 font-mono">
@@ -40,6 +42,7 @@
                             @endif
                         </td>
                         <td class="py-4 px-6 border-b border-gray-300">{{$achievement->date}}</td>
+                        @if(Auth::user()->accounts->dota_id == $users->accounts->dota_id)
                         <td class="py-4 px-6 border-b border-gray-300">
                             <i class="material-icons text-indigo-600 cursor-pointer">
                             create
@@ -47,6 +50,7 @@
                             <i class="material-icons text-red-600 cursor-pointer">
                                 delete_forever
                                 </i></td>
+                                @endif
                     </tr>
                     @empty
                         <tr>

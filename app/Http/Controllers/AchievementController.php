@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Achievement;
 use App\LinkedSteamAccount;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,22 @@ class AchievementController extends Controller
         //$achievements = auth()->user()->achievements;
 
         return view('users.achievement.index', compact('achievements', 'users'));
+    }
+
+    public function get($player)
+    {
+
+        $steam = LinkedSteamAccount::where('dota_id', $player)->first();
+        $users = $steam->user;
+        //$achievements = $users->achievements;
+
+        $achievements = Achievement::where('user_id', $users->id)
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
+
+        //dd($achievements);
+        return response()->json($achievements);
     }
 
     public function create()

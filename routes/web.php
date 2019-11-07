@@ -82,6 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //achivement
     Route::get('players/{player}/achievements', 'AchievementController@index');
+    Route::get('players/{player}/get', 'AchievementController@get');
     Route::get('players/{player}/achievements/create', 'AchievementController@create');
     Route::post('players/{player}/achievements/create', 'AchievementController@store');
 

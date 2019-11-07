@@ -242,11 +242,13 @@
                 <p class="text-lg font-semibold  text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                 Lose: {{$fetchPlayers->win_lose['lose']}})</p>
                 <p class="text-lg font-semibold  text-white capitalize">Main Roles: *reserve</p>
-                <a href="#" class="text-lg font-semibold  text-white capitalize text-indigo-500 hover:underline" @click.prevent="$modal.show('achievement')">View Achievements</a>
+                <a href="#" class="text-lg font-semibold  text-white capitalize text-indigo-500 hover:underline"
+                @click.prevent="$modal.show('achievement' ,{ id: {{$fetchPlayers->dota_id}} })">View Latest Achievements</a>
                 <div class="mt-4">
                         @include('users.medal')
                 </div>
-                <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
+                <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg
+                    font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
                         View Statistic
                 </a>
                 <a  @click.prevent="$modal.show('hello-world', {user: [    { id: {{$user->id}} },

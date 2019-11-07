@@ -1702,30 +1702,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      form: {
-        subject: "",
-        message: "",
-        recipients: ""
-      },
-      name: String
+      achievements: [],
+      id: String
     };
   },
-  created: function created() {},
+  //   created() {
+  //     axios
+  //       .get("'/players/'+id+'/get'")
+  //       .then(response => console.log(response.data));
+  //   },
   methods: {
     beforeOpen: function beforeOpen(event) {
-      this.form.recipients = event.params.user[0].id;
-      this.name = event.params.user[1].name;
-      console.log(event.params.user[1].name);
-    },
-    submit: function submit() {
-      axios.post("/messages", this.form).then(function (response) {
-        alert("Succesfully send"); //console.log(response.data);
+      var _this = this;
 
-        location = response.data.message;
-      });
+      ///console.log(event.params.id);
+      this.id = event.params.id;
+      axios.get("/players/" + event.params.id + "/get").then(function (response) {
+        return _this.achievements = response.data;
+      }); //.then(response => console.log(response.data));
     }
   }
 });
@@ -55596,9 +55627,126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("modal", { attrs: { name: "achievement", height: "auto" } }, [
-    _c("p", [_vm._v("achievement")])
-  ])
+  return _c(
+    "modal",
+    {
+      attrs: { name: "achievement", height: "auto" },
+      on: { "before-open": _vm.beforeOpen }
+    },
+    [
+      _c("div", { staticClass: "p-4 bg-content" }, [
+        _c(
+          "p",
+          {
+            staticClass:
+              "text-2xl ml-1 font-bold pb-4 capitalize text-purple-600"
+          },
+          [_vm._v("Latest achievements")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-dark-100 shadow-lg text-center rounded-lg px-4 pb-6 pt-5"
+          },
+          [
+            _c("table", { staticClass: "border-collapse w-full" }, [
+              _c("thead", { staticClass: "text-white" }, [
+                _c(
+                  "th",
+                  { staticClass: "capitalize border-b border-gray-300 py-4" },
+                  [_vm._v("#")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "th",
+                  { staticClass: "capitalize border-b border-gray-300 py-4" },
+                  [_vm._v("Tournament Name")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "th",
+                  { staticClass: "capitalize border-b border-gray-300 py-4" },
+                  [_vm._v("Team")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "th",
+                  { staticClass: "capitalize border-b border-gray-300 py-4" },
+                  [_vm._v("Place")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "th",
+                  { staticClass: "capitalize border-b border-gray-300 py-4" },
+                  [_vm._v("Date")]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                { staticClass: "text-center" },
+                _vm._l(_vm.achievements, function(achievement, index) {
+                  return _c(
+                    "tr",
+                    {
+                      key: achievement.name,
+                      staticClass: "hover:bg-content text-white"
+                    },
+                    [
+                      _c(
+                        "td",
+                        { staticClass: "py-4 px-6 border-b border-gray-300" },
+                        [_vm._v(_vm._s(index + 1))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "py-4 px-6 border-b border-gray-300" },
+                        [_vm._v(_vm._s(achievement.tournament_name))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "py-4 px-6 border-b border-gray-300" },
+                        [_vm._v(_vm._s(achievement.team))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "py-4 px-6 border-b border-gray-300" },
+                        [_vm._v("champion")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "td",
+                        { staticClass: "py-4 px-6 border-b border-gray-300" },
+                        [_vm._v(_vm._s(achievement.date))]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-4 -mb-1 p-2" }, [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-10",
+                  attrs: { href: "/players/" + _vm.id + "/achievements" }
+                },
+                [_vm._v("View all achievements")]
+              )
+            ])
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -69880,14 +70028,15 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
 /*!**********************************************************!*\
   !*** ./resources/js/components/AchievementComponent.vue ***!
   \**********************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AchievementComponent_vue_vue_type_template_id_156dcc79___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AchievementComponent.vue?vue&type=template&id=156dcc79& */ "./resources/js/components/AchievementComponent.vue?vue&type=template&id=156dcc79&");
 /* harmony import */ var _AchievementComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AchievementComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AchievementComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AchievementComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AchievementComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -69917,7 +70066,7 @@ component.options.__file = "resources/js/components/AchievementComponent.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/AchievementComponent.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
