@@ -16,7 +16,8 @@ class Knowledge extends Model
         'carry',
         'roamer',
         'support',
-        'offlaner'
+        'offlaner',
+        'winrate'
     ];
 
     // public function mainRole()

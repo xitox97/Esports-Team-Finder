@@ -120,12 +120,14 @@ Route::group(['middleware' => 'auth'], function () {
         $stats = Statistic::first();
 
         //consumeOpendotaApi::dispatch($user);
-        processMatches::dispatch($user, $stats);
-        //generatePlayerRole::dispatch($user);
+        //processMatches::dispatch($user, $stats);
+        generatePlayerRole::dispatch($user);
 
         // $data = DotaJson::first();
 
         // dd($data->items['broadsword']);
+
+
 
         return 'Finished';
     });

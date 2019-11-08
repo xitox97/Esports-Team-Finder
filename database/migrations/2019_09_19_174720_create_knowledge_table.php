@@ -21,6 +21,7 @@ class CreateKnowledgeTable extends Migration
             $table->integer('roamer');
             $table->integer('support');
             $table->integer('offlaner');
+            $table->integer('winrate');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

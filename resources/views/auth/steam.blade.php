@@ -72,7 +72,7 @@
 </head>
 <body class="h-full">
         @php
-        
+
             if(Auth::user()->accounts()->exists() == true){
                 $playerUrl = 'players/'. Auth::user()->accounts->dota_id;
             }
@@ -126,7 +126,7 @@
                         <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
                       </a>
                     </sidebar-component>
-                    <section id="maindiv" class="flex flex-col bg-gray-900" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
+                    <section id="maindiv" class="flex flex-col bg-gray-900 w-10/12" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
                         <header class="h-24 flex justify-between">
                             <div class="w-8 flex items-center ml-12">
                                    <i v-on:click="toggle"  class="material-icons md-36 cursor-pointer text-white">
@@ -134,16 +134,16 @@
                                             </i>
                             </div>
                             <div class="flex items-center justify-around mr-12">
-                               
+
                                 <div class="mx-3">
-                                   
+
                                         <div class="mr-3 cursor-pointer" v-click-outside="hideNoti" @click="noti" v-if="bell == false">
                                                 <i class="material-icons mt-1 text-yellow-500 md-36">notifications
                                                 </i>
                                         </div>
-                                       
+
                                 </div>
-        
+
                                 <div class="mx-3">
                                     @if(Auth::user()->accounts()->exists() == true)
                                     <img  class="rounded-full h-12 w-12 cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
@@ -158,10 +158,10 @@
                                 </div>
                                 <div class="mt-16">
                                     <transition name="fadedrop">
-                                    <div v-if="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
-                                            <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline
+                                    <div v-show="opened" style="display: none;" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                                            <a href="#" class="block text-default py-2 px-4 no-underline hover:underline
                                             text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
-                                            <a href="/messages" class="block text-default py-2 px-4 no-underline hover:underline
+                                            <a href="#" class="block text-default py-2 px-4 no-underline hover:underline
                                              text-md leading-loose ml-1 my-1 hover:bg-gray-200">Inbox</a>
                                             <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200" href="/logout"
                                             onclick="event.preventDefault();
@@ -174,7 +174,7 @@
                                         </div>
                                     </transition>
                                 </div>
-        
+
                             </div>
                         </header>
                         <alert-component></alert-component>
@@ -189,11 +189,12 @@
                                     <div class="w-3/12">
                                         <img src="{{ URL::to('/') }}/img/steam-icon.png" class="">
                                     </div>
-                                    <div class="ml-6 bg-dark-100 flex flex-col items-start justify-center mb-10">
+                                    <div class="w-8/12 ml-4 bg-dark-100 flex flex-col items-start justify-center mb-10">
                                         <p class="text-2xl font-bold text-indigo-500">Steam</p>
                                         <p class=" text-xl font-semibold text-white">You need to connect to steam before you can proceed.</p>
+                                        <p class="text-md font-base text-gray-500">Please enable "Expose Public Match Data" setting in the Dota 2 game client.</p>
                                     </div>
-                                    <div class="flex  flex-col items-start justify-center pr-4">
+                                    <div class="w-auto flex flex-col items-start justify-center px-2">
                                         <div>
                                             <a href="/login/steam" class="btn-indigo text-white font-semibold py-3 px-8 rounded-full w-64
                                             shadow-md cursor-pointer flex-shrink-0">
