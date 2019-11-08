@@ -154,8 +154,8 @@
                                     <p v-text="count"></p>
                                   </span>
                                 </div>
-                                <div v-if="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
-                                right-0 text-center w-auto">
+                                <div v-show="notification" id="dropdowns" class="border rounded z-10 shadow  bg-white mt-3 absolute
+                                right-0 text-center w-auto" style="display: none;">
 
                               @foreach(Auth::user()->unreadNotifications as $noti)
                                   @include('notifications.' . snake_case(class_basename($noti->type)))
@@ -203,7 +203,7 @@
                         </div>
                         <div class="mt-16">
                             <transition name="fadedrop">
-                            <div v-if="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12">
+                            <div v-show="opened" id="dropdown" class="absolute  rounded shadow right-0  bg-white w-1/12" style="display: none;">
                                     <a href="/{{$playerUrl}}" class="block text-default py-2 px-4 no-underline hover:underline
                                     text-md leading-loose ml-1 my-1 hover:bg-gray-200">Setting</a>
                                     <a href="/messages" class="block text-default py-2 px-4 no-underline hover:underline

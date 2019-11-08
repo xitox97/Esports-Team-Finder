@@ -42,10 +42,7 @@ Vue.component('edit-achievement', require('./components/EditAchievement.vue').de
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 Vue.component('mapsearch-component', require('./components/MapsearchComponent.vue').default);
 new Vue({
-
     el: '#app',
-
-
     data() {
         return {
             isOpen: true,
