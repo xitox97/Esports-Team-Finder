@@ -180,8 +180,8 @@
                                     <span class="absolute -mt-2 -ml-2 text-white rounded-full bg-red-500 text-sm px-1">
                                         <p v-text="count"></p></span>
                                 </div>
-                                <div v-if="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
-                                right-0 text-center w-2/12">
+                                <div v-show="notification" id="dropdowns" class="rounded z-10 shadow  bg-white mt-3 absolute
+                                right-0 text-center w-2/12" style="display: none;">
                                     <noti-component v-bind:realnoti="bell"></noti-component>
                                     <a href="http://teamfinder.test/notifications" class="block font-bold hover:bg-gray-200 leading-loose ml-1 my-1 no-underline px-4 py-2 text-default text-md">
                                         See All Notifications</a>
