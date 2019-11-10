@@ -156,13 +156,13 @@
                 </div>
                 @elseif( Auth::user()->id != $fetchPlayers->user_id )
                 <div class="flex justify-between mx-10 ">
-                        <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 hover:bg-purple-400 font-semibold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg">Add Friend </a>
+                        <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 hover:bg-purple-400 font-semibold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg whitespace-no-wrap">Add Friend </a>
                         @if($fetchPlayers->avatar_url == null)
                         <img src="{{asset('img/default.svg')}}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
                         @else
                         <img src="{{  $fetchPlayers->avatar_url  }}" alt="" class="-mt-16 relative rounded-full w-48 shadow-lg">
                         @endif
-                        <a href="/offer/{{ $fetchPlayers->user_id }}" class="bg-indigo-500 hover:bg-indigo-400 font-bold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
+                        <a href="/offer/{{ $fetchPlayers->user_id }}" class="bg-indigo-500 hover:bg-indigo-400 font-bold  mb-16 mt-6 px-4 py-2 rounded-lg text-white text-sm shadow-lg whitespace-no-wrap">Invite Team</a>
                     </div>
                 @endif
                 <div class="flex flex-col items-center border-b-2 pb-6">
