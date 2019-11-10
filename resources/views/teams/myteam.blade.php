@@ -6,7 +6,7 @@
         class="no-underline hover:underline text-blue-500">{{$myTeam->name}}</a></span>
 </section>
 <div class="container mt-12">
-    <div class="flex flex-wrap">
+    <div class="flex">
         <div class="w-2/5">
             <div class="flex flex-col bg-dark-100 shadow-lg rounded-lg mr-4">
                 <div class="w-full px-10 bg-purple-600   relative text-center pb-1">
@@ -79,7 +79,7 @@
 
             </div>
         </div>
-        <div class="w-2/4 rounded-lg">
+        <div class="w-auto rounded-lg">
             <div class="flex flex-col justify-content bg-dark-100 shadow-lg ml-4 font-mono text-white">
                     <div class="bg-purple-600 py-2">
                             <p class="text-white font-semibold text-2xl text-center">Player Roster</p>
