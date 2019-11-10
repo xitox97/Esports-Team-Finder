@@ -209,7 +209,7 @@
         <div class="flex justify-between items-center">
             <div class="">
                 <a href="{{  $fetchPlayers->profile_url  }}" class="bg-purple-500 flex-shrink-0 hover:bg-purple-400 font-semibold
-                         px-4 py-2 rounded-lg text-white text-sm shadow-lg">Add Friend </a>
+                         px-4 py-2 rounded-lg text-white text-sm shadow-lg whitespace-no-wrap">Add Friend </a>
             </div>
             <div class="">
                 @if($fetchPlayers->avatar_url == null)
@@ -219,7 +219,7 @@
                 @endif
             </div>
             <div class="">
-                <a href="/offer/{{ $fetchPlayers->user_id }}" class="bg-indigo-500 flex-shrink-0 hover:bg-indigo-400 font-bold  px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
+                <a href="/offer/{{ $fetchPlayers->user_id }}" class="whitespace-no-wrap bg-indigo-500 flex-shrink-0 hover:bg-indigo-400 font-bold  px-4 py-2 rounded-lg text-white text-sm shadow-lg">Invite Team</a>
             </div>
             </div>
         @endif
