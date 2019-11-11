@@ -65,6 +65,10 @@ class generatePlayerRole implements ShouldQueue
         $winrate = 0;
         $gpm = 0;
         $counter = 0;
+        $xppm = 0; 
+        $lasthit = 0;
+        $hero_dmg = 0;
+        $tower_dmg = 0;
 
         //generate winrate
         foreach ($this->user->matches as $match) {
@@ -92,14 +96,24 @@ class generatePlayerRole implements ShouldQueue
 
                     //gpm
                     $gpm += $player['gold_per_min'];
+                    //xpm
+                    $xppm += $player['xp_per_min'];
+                    $lasthit += $player['last_hits'];
+                    $hero_dmg += $player['hero_damage'];
+                    $tower_dmg += $player['tower_damage'];
                     $counter++;
                     //dd($player['gold_per_min']);
                 }
             }
         }
 
+        //count average
         $avg_gpm = round(($gpm / $counter),0);
-        //dd($avg_gpm);
+        $avg_xppm = round(($xppm / $counter), 0);
+        $avg_lh = round(($lasthit / $counter), 0);
+        $avg_hero_damage = round(($hero_dmg / $counter), 0 );
+        //dd($avg_hero_damage);
+        $avg_tower_damage = round(($tower_dmg / $counter), 0 );
         $total = $win + $lose;
         $winrate = intval(((round(($win / $total), 2)) * 100));
 
@@ -113,6 +127,11 @@ class generatePlayerRole implements ShouldQueue
             'offlaner' => $offlaner,
             'winrate' => $winrate,
             'gpm' => $avg_gpm,
+            'xppm' => $avg_xppm,
+            'lasthit' => $avg_lh,
+            'hero_dmg' => $avg_hero_damage,
+            'tower_dmg' => $avg_tower_damage
+
         ]);
     }
 }

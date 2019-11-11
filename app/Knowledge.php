@@ -18,7 +18,11 @@ class Knowledge extends Model
         'support',
         'offlaner',
         'winrate',
-        'gpm'
+        'gpm',
+        'xppm',
+        'lasthit',
+        'hero_dmg',
+        'tower_dmg',
     ];
 
     // public function mainRole()
