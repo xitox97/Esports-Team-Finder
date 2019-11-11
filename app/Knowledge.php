@@ -17,7 +17,8 @@ class Knowledge extends Model
         'roamer',
         'support',
         'offlaner',
-        'winrate'
+        'winrate',
+        'gpm'
     ];
 
     // public function mainRole()

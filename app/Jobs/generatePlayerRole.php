@@ -63,6 +63,9 @@ class generatePlayerRole implements ShouldQueue
         $win = 0;
         $lose = 0;
         $winrate = 0;
+        $gpm = 0;
+        $counter = 0;
+
         //generate winrate
         foreach ($this->user->matches as $match) {
 
@@ -70,6 +73,7 @@ class generatePlayerRole implements ShouldQueue
 
                 if ($this->user->accounts->dota_id == $player['account_id']) {
 
+                    //winrate
                     if ($player['radiant_win'] == true and $player['isRadiant'] == true) {
                         //radian win and user is radiant = win
                         //dd($player['match_id']);
@@ -85,9 +89,17 @@ class generatePlayerRole implements ShouldQueue
                         //dd($player['match_id']);
                         $lose++;
                     }
+
+                    //gpm
+                    $gpm += $player['gold_per_min'];
+                    $counter++;
+                    //dd($player['gold_per_min']);
                 }
             }
         }
+
+        $avg_gpm = round(($gpm / $counter),0);
+        //dd($avg_gpm);
         $total = $win + $lose;
         $winrate = intval(((round(($win / $total), 2)) * 100));
 
@@ -100,6 +112,7 @@ class generatePlayerRole implements ShouldQueue
             'support' => $support,
             'offlaner' => $offlaner,
             'winrate' => $winrate,
+            'gpm' => $avg_gpm,
         ]);
     }
 }

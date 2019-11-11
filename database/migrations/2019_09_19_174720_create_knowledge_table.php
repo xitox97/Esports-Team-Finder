@@ -21,7 +21,12 @@ class CreateKnowledgeTable extends Migration
             $table->integer('roamer');
             $table->integer('support');
             $table->integer('offlaner');
-            $table->integer('winrate');
+            $table->integer('winrate')->nullable();
+            $table->integer('gpm')->nullable();
+            $table->integer('xppm')->nullable();//xp per min
+            $table->integer('lasthit')->nullable();
+            $table->decimal('hero_dmg', 5, 1)->nullable();
+            $table->decimal('tower_dmg', 5, 1)->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
