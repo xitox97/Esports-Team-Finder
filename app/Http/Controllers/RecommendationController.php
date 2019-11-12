@@ -34,11 +34,13 @@ class RecommendationController extends Controller
         $request->validate([
             'player_role' => ['required', Rule::in(['core', 'support']),],
             'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
-            'gpm' => [Rule::in([0, 200, 400, 600, 800])],
             'rank' => ['required', Rule::in(['herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
             'tournament' => 'required',
             'winrate' => 'required',
+            'gpm' => [Rule::in([0, 200, 400, 600, 800])],
+            'xppm' => [Rule::in([0, 200, 400, 600, 800])],
+            'lasthit' => [Rule::in([0, 100, 200, 300, 400])],
         ]);
 
         //Constraints (cr)
@@ -132,8 +134,12 @@ class RecommendationController extends Controller
                         //     $result->push($user);
                         // }
 
-                        //user`s winrate is more than requested winrate and user`s gpm more or equal requested gpm or requested gpm is any
-                        if ($user->knowledge['winrate'] > $request['winrate'] and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)) {
+                        //user`s winrate is more than requested winrate and user`s gpm/xppm/lasthit >= equal requested gpm/xppm/lasthit or requested gpm/xppm/lasthit = any
+
+                        if (
+                            $user->knowledge['winrate'] > $request['winrate'] and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)
+                            and ($user->knowledge['xppm'] >= $request['xppm'] or $request['xppm'] == 0) and ($user->knowledge['lasthit'] >= $request['lasthit'] or $request['lasthit'] == 0)
+                        ) {
                             if ($request['experience'] == 1 and $exp == true) {
                                 $result->push($user);
                             } elseif ($request['experience'] == 0 and $exp == false) {
