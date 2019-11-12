@@ -21,7 +21,7 @@ class RecommendationController extends Controller
     //               - player stack camp,wards -> tambah lagi supports dan maybe player tu versatile
     public function index()
     {
-        $tours = Tournament::all();
+        $tours = Tournament::where('status', '=', 0)->get();
         return view('users.recommendation', compact('tours'));
     }
 
@@ -36,7 +36,8 @@ class RecommendationController extends Controller
             'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
             'rank' => ['required', Rule::in(['herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
-            'tournament' => 'required'
+            'tournament' => 'required',
+            'winrate' => 'required',
         ]);
 
         //Constraints (cr)
@@ -116,7 +117,7 @@ class RecommendationController extends Controller
 
             //dd($exp);
 
-
+            //dd($user->knowledge['winrate']); get user winrate
 
             $tour = Tournament::find($request['tournament']);
             $exists = $tour->users->contains($user->id);    //check whether user interested to join specific tournament
@@ -125,9 +126,9 @@ class RecommendationController extends Controller
                 if ($request['rank'] ==  $medal) {
                     if ($exists == true) {
 
-                        if ($request['experience'] == 1 and $exp == true) {
+                        if ($request['experience'] == 1 and $exp == true and $user->knowledge['winrate'] > $request['winrate']) {
                             $result->push($user);
-                        } elseif ($request['experience'] == 0 and $exp == false) {
+                        } elseif ($request['experience'] == 0 and $exp == false and $user->knowledge['winrate'] > $request['winrate']) {
                             $result->push($user);
                         }
                     }

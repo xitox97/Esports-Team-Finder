@@ -143,6 +143,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="flex flex-wrap -mx-3 mb-2">
+                                    <div class="w-full px-3 mb-2">
+                                        <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                        Winrate
+                                        </label>
+                                        <input class="appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline leading-tight mb-0 px-4 py-3 rounded text-black w-full {{$errors->has('tournament_name') ? 'border-red-500' : ''}} "
+                                        id="winrate" type="text" name="winrate" value="{{ old('winrate')}}">
+                                        @error('winrate')
+                                            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    </div>
                                 <div class="flex justify-center items-center">
 
                                     <div class="mt-2">

@@ -15,7 +15,7 @@ class TournamentController extends Controller
      */
     public function index()
     {
-        $tournament = Tournament::all();
+        $tournament = Tournament::where('status', '=', 0)->get();
 
         return view('tournaments.index', compact('tournament'));
     }
