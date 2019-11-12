@@ -65,11 +65,17 @@ class generatePlayerRole implements ShouldQueue
         $winrate = 0;
         $gpm = 0;
         $counter = 0;
-        $xppm = 0; 
+        $xppm = 0;
         $lasthit = 0;
         $hero_dmg = 0;
         $tower_dmg = 0;
-
+        $warding = 0;
+        $deward = 0;
+        $cw = 0;
+        $cd = 0;
+        $k = 0;
+        $d = 0;
+        $a = 0;
         //generate winrate
         foreach ($this->user->matches as $match) {
 
@@ -101,22 +107,39 @@ class generatePlayerRole implements ShouldQueue
                     $lasthit += $player['last_hits'];
                     $hero_dmg += $player['hero_damage'];
                     $tower_dmg += $player['tower_damage'];
+                    $k += $player['kills'];
+                    $d += $player['deaths'];
+                    $a += $player['assists'];
+
+                    if ($player['obs_placed'] != 0) {
+                        $warding += $player['obs_placed'];
+                        $cw++; //count ward
+                    }
+                    if ($player['sen_placed'] != 0) {
+                        $deward += $player['sen_placed'];
+                        $cd++; //count deward
+                    }
                     $counter++;
-                    //dd($player['gold_per_min']);
                 }
             }
         }
 
         //count average
-        $avg_gpm = round(($gpm / $counter),0);
-        $avg_xppm = round(($xppm / $counter), 0);
-        $avg_lh = round(($lasthit / $counter), 0);
-        $avg_hero_damage = round(($hero_dmg / $counter), 0 );
-        //dd($avg_hero_damage);
-        $avg_tower_damage = round(($tower_dmg / $counter), 0 );
+        $avg_gpm = number_format(($gpm / $counter), 0, '.', ',');
+        $avg_xppm = number_format(($xppm / $counter), 0, '.', ',');
+        $avg_lh = number_format(($lasthit / $counter), 0, '.', ',');
+        $avg_hero_damage = round(($hero_dmg / $counter), 0);
+        $avg_ward = number_format(($warding / $cw), 1, '.', ',');
+        $avg_deward = number_format(($deward / $cd), 1, '.', ',');
+        $avg_tower_damage = round(($tower_dmg / $counter), 0);
         $total = $win + $lose;
         $winrate = intval(((round(($win / $total), 2)) * 100));
 
+        $avg_kills = number_format(($k / $counter), 0, '.', ',');
+        $avg_assists = number_format(($a / $counter), 0, '.', ',');
+        $avg_death = number_format(($d / $counter), 0, '.', ',');
+
+        //dd($avg_kills);
 
         //coding masuk dalam database data itu
         $knowledge = $this->user->knowledge()->create([
@@ -130,7 +153,12 @@ class generatePlayerRole implements ShouldQueue
             'xppm' => $avg_xppm,
             'lasthit' => $avg_lh,
             'hero_dmg' => $avg_hero_damage,
-            'tower_dmg' => $avg_tower_damage
+            'tower_dmg' => $avg_tower_damage,
+            'ward' => $avg_ward,
+            'deward' => $avg_deward,
+            'kills' => $avg_kills,
+            'assists' => $avg_assists,
+            'death' => $avg_death,
 
         ]);
     }

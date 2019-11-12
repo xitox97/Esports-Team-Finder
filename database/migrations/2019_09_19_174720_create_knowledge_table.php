@@ -23,10 +23,16 @@ class CreateKnowledgeTable extends Migration
             $table->integer('offlaner');
             $table->integer('winrate')->nullable();
             $table->integer('gpm')->nullable();
-            $table->integer('xppm')->nullable();//xp per min
+            $table->integer('xppm')->nullable(); //xp per min
             $table->integer('lasthit')->nullable();
             $table->integer('hero_dmg')->nullable();
             $table->integer('tower_dmg')->nullable();
+            $table->integer('ward')->nullable();
+            $table->integer('deward')->nullable();
+            $table->integer('kills')->nullable();
+            $table->integer('assists')->nullable();
+            $table->integer('death')->nullable();
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

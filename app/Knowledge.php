@@ -23,7 +23,14 @@ class Knowledge extends Model
         'lasthit',
         'hero_dmg',
         'tower_dmg',
+        'ward',
+        'deward',
+        'kills',
+        'assists',
+        'death',
+
     ];
+
 
     // public function mainRole()
     // {
