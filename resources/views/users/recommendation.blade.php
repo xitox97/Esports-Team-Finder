@@ -143,8 +143,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{-- advance --}}
+                                <p class="border-b border-gray-600 text-lg font-semibold text-gray-400 mb-4"> Advances Search</p>
                                 <div class="flex flex-wrap -mx-3 mb-2">
-                                    <div class="w-full px-3 mb-2">
+                                    <div class="w-1/2 px-3 mb-2">
                                         <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
                                         Winrate
                                         </label>
@@ -154,7 +156,32 @@
                                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    </div>
+                                    <div class="w-1/2 px-3 mb-2">
+                                            <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                            Gold Per Minute
+                                            </label>
+                                            <div class="w-full ">
+                                                    <div class="relative">
+                                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                    " id="gpm" name="gpm">
+                                                    <option disabled selected>Select GPM</option>
+                                                    <option value="0">Any</option>
+                                                    <option value="200">200+</option>
+                                                    <option value="400">400+</option>
+                                                    <option value="600">600+</option>
+                                                    <option value="800">800+</option>
+                                                </select>
+                                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                    </div>
+                                                </div>
+                                                @error('gpm')
+                                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                @enderror
+                                                    </div>
+                                        </div>
+                                </div>
                                 <div class="flex justify-center items-center">
 
                                     <div class="mt-2">

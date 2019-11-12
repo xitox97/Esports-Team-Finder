@@ -34,6 +34,7 @@ class RecommendationController extends Controller
         $request->validate([
             'player_role' => ['required', Rule::in(['core', 'support']),],
             'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
+            'gpm' => [Rule::in([0, 200, 400, 600, 800])],
             'rank' => ['required', Rule::in(['herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
             'tournament' => 'required',
@@ -74,8 +75,6 @@ class RecommendationController extends Controller
 
 
         //cf = Filter Conditions
-        //cf untuk check user ada past experience ke tak
-        //belum wat
 
 
 
@@ -126,10 +125,20 @@ class RecommendationController extends Controller
                 if ($request['rank'] ==  $medal) {
                     if ($exists == true) {
 
-                        if ($request['experience'] == 1 and $exp == true and $user->knowledge['winrate'] > $request['winrate']) {
-                            $result->push($user);
-                        } elseif ($request['experience'] == 0 and $exp == false and $user->knowledge['winrate'] > $request['winrate']) {
-                            $result->push($user);
+                        //if have experience, user`s winrate is more than requested winrate
+                        // if ($request['experience'] == 1 and $exp == true and $user->knowledge['winrate'] > $request['winrate']) {
+                        //     $result->push($user);
+                        // } elseif ($request['experience'] == 0 and $exp == false and $user->knowledge['winrate'] > $request['winrate']) {
+                        //     $result->push($user);
+                        // }
+
+                        //user`s winrate is more than requested winrate and user`s gpm more or equal requested gpm or requested gpm is any
+                        if ($user->knowledge['winrate'] > $request['winrate'] and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)) {
+                            if ($request['experience'] == 1 and $exp == true) {
+                                $result->push($user);
+                            } elseif ($request['experience'] == 0 and $exp == false) {
+                                $result->push($user);
+                            }
                         }
                     }
                 }
