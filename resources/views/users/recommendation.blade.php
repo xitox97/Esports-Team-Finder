@@ -18,8 +18,8 @@
                                 </label>
                                 <div class="w-full ">
                                         <div class="relative">
-                                                <select class="block appearance-none w-full bg-gray-200 border border-gray-200
-                                                py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                                <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
                                                 " id="player_role-state" name="player_role">
                                                 <option disabled selected>Select Role</option>
                                                 <option selected>Select rank</option>
@@ -43,8 +43,8 @@
                                 </label>
                                 <div class="w-full ">
                                         <div class="relative">
-                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200
-                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
                                         " id="position-state" name="position">
                                         <option disabled selected>Select Position</option>
                                         <option value="carry">Carry</option>
@@ -70,8 +70,8 @@
                                 </label>
                                 <div class="w-full ">
                                     <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200
-                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
                                     " id="rank" name="rank">
                                     <option disabled selected>Select Position</option>
                                     <option value="uncalibrated">Uncalibrated</option>
@@ -101,8 +101,8 @@
                                 </label>
                                 <div class="w-full ">
                                     <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-200 border border-gray-200
-                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
                                     " id="experience" name="experience">
                                     <option disabled selected>Select Experience</option>
                                     <option value="1">Yes</option>
@@ -125,8 +125,8 @@
                                     </label>
                                     <div class="w-full ">
                                         <div class="relative">
-                                        <select class="block appearance-none w-full bg-gray-200 border border-gray-200
-                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-white focus:border-gray-500
+                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
                                         " id="tournament" name="tournament">
                                         <option disabled selected>Select Tournament</option>
                                         @foreach($tours as $tour)
@@ -148,7 +148,7 @@
                                         <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
                                         Winrate
                                         </label>
-                                        <input class="appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline leading-tight mb-0 px-4 py-3 rounded text-black w-full {{$errors->has('tournament_name') ? 'border-red-500' : ''}} "
+                                        <input class="appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-200 leading-tight mb-0 px-4 py-3 rounded text-black w-full {{$errors->has('winrate') ? 'border-red-500' : ''}} "
                                         id="winrate" type="text" name="winrate" value="{{ old('winrate')}}">
                                         @error('winrate')
                                             <p class="text-red-500 text-xs italic">{{ $message }}</p>

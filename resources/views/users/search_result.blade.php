@@ -29,7 +29,7 @@
                                 <img src="{{  $player->accounts['avatar_url']  }}" alt="" class="rounded-full w-24 h-24">
                                 @endif
                                 {{$player->accounts['steam_name']}}</td>
-                            <td class="py-4 px-6">@include('users.medal2')</td>
+                            <td class="py-4 px-6">@include('users.medal_rec')</td>
                             <td class="py-4 px-6">Mid</td>
                             <td class="py-4 px-6">
                             @foreach($player->tournaments as $tour)
