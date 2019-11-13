@@ -29,23 +29,17 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-        if ( Auth::check() && Auth::user()->isAdmin() )
-        {
+        if (Auth::check() && Auth::user()->isAdmin()) {
 
             return '/admin';
+        } else {
 
-        }
-        else{
-
-            if(Auth::user()->accounts){
-                return '/players/' . Auth::user()->accounts->dota_id;}
-            else{
-                return '/home';
+            if (Auth::user()->accounts()->exists() == true) {
+                return '/players/' . Auth::user()->accounts->dota_id;
+            } else {
+                return '/steamconnects';
             }
-
         }
-
-
     }
 
     /**
@@ -57,6 +51,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-
 }

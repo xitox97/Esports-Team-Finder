@@ -144,11 +144,11 @@
                                     </div>
                                 </div>
                                 {{-- advance --}}
-                                <p class="border-b border-gray-600 text-lg font-semibold text-gray-400 mb-4"> Advances Search</p>
+                                <p class="border-b border-gray-600 text-lg font-semibold text-gray-400 mb-4"> Advances Search (Optional)</p>
                                 <div class="flex flex-wrap -mx-3 mb-2">
                                     <div class="w-1/2 px-3 mb-2">
                                         <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
-                                        Winrate
+                                        avg Winrate
                                         </label>
                                         <input class="appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-200 leading-tight mb-0 px-4 py-3 rounded text-black w-full {{$errors->has('winrate') ? 'border-red-500' : ''}} "
                                         id="winrate" type="text" name="winrate" value="{{ old('winrate')}}">
@@ -158,7 +158,7 @@
                                     </div>
                                     <div class="w-1/2 px-3 mb-2">
                                             <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
-                                            Gold Per Minute
+                                            avg Gold Per Minute
                                             </label>
                                             <div class="w-full ">
                                                     <div class="relative">
@@ -185,7 +185,7 @@
                                 <div class="flex flex-wrap -mx-3 mb-2">
                                         <div class="w-1/2 px-3 mb-2">
                                             <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
-                                            Xp per minute
+                                            avg Xp per minute
                                             </label>
                                             <div class="w-full ">
                                                     <div class="relative">
@@ -210,7 +210,7 @@
                                         </div>
                                         <div class="w-1/2 px-3 mb-2">
                                                 <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
-                                                last hit
+                                                avg last hit
                                                 </label>
                                                 <div class="w-full ">
                                                         <div class="relative">
@@ -219,9 +219,7 @@
                                                         " id="lasthit" name="lasthit">
                                                         <option disabled selected>Select LH</option>
                                                         <option value="0">Any</option>
-                                                        <option value="100">100+</option>
                                                         <option value="200">200+</option>
-                                                        <option value="300">300+</option>
                                                         <option value="400">400+</option>
                                                     </select>
                                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
@@ -229,6 +227,180 @@
                                                         </div>
                                                     </div>
                                                     @error('lasthit')
+                                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                    @enderror
+                                                        </div>
+                                            </div>
+                                    </div>
+                                    <div class="flex flex-wrap -mx-3 mb-2">
+                                        <div class="w-1/2 px-3 mb-2">
+                                            <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                            avg tower damage
+                                            </label>
+                                            <div class="w-full ">
+                                                    <div class="relative">
+                                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                    " id="tower_dmg" name="tower_dmg">
+                                                    <option disabled selected>Select TD</option>
+                                                    <option value="0">Any</option>
+                                                    <option value="3000">3000+</option>
+                                                    <option value="6000">6000+</option>
+                                                    <option value="9000">9000+</option>
+                                                </select>
+                                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                    </div>
+                                                </div>
+                                                @error('tower_dmg')
+                                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                @enderror
+                                                    </div>
+                                        </div>
+                                        <div class="w-1/2 px-3 mb-2">
+                                                <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                                avg hero damage
+                                                </label>
+                                                <div class="w-full ">
+                                                        <div class="relative">
+                                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                        " id="hero_dmg" name="hero_dmg">
+                                                        <option disabled selected>Select HD</option>
+                                                        <option value="0">Any</option>
+                                                        <option value="10000">10000+</option>
+                                                        <option value="20000">20000+</option>
+                                                        <option value="30000">30000+</option>
+                                                    </select>
+                                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                        </div>
+                                                    </div>
+                                                    @error('hero_dmg')
+                                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                    @enderror
+                                                        </div>
+                                            </div>
+                                    </div>
+                                    <div class="flex flex-wrap -mx-3 mb-2">
+                                        <div class="w-1/2 px-3 mb-2">
+                                            <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                            avg ward
+                                            </label>
+                                            <div class="w-full ">
+                                                    <div class="relative">
+                                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                    " id="ward" name="ward">
+                                                    <option disabled selected>Select Ward</option>
+                                                    <option value="0">Any</option>
+                                                    <option value="5">5+</option>
+                                                    <option value="10">10+</option>
+                                                    <option value="20">20+</option>
+                                                </select>
+                                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                    </div>
+                                                </div>
+                                                @error('ward')
+                                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                @enderror
+                                                    </div>
+                                        </div>
+                                        <div class="w-1/2 px-3 mb-2">
+                                                <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                                avg deward
+                                                </label>
+                                                <div class="w-full ">
+                                                        <div class="relative">
+                                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                        " id="deward" name="deward">
+                                                        <option disabled selected>Select Deward</option>
+                                                        <option value="0">Any</option>
+                                                        <option value="5">5+</option>
+                                                        <option value="10">10+</option>
+                                                        <option value="20">20+</option>
+                                                    </select>
+                                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                        </div>
+                                                    </div>
+                                                    @error('deward')
+                                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                    @enderror
+                                                        </div>
+                                            </div>
+                                    </div>
+                                    <div class="flex flex-wrap -mx-3 mb-2">
+                                        <div class="w-1/3 px-3 mb-2">
+                                            <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                            avg kill
+                                            </label>
+                                            <div class="w-full ">
+                                                    <div class="relative">
+                                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                    " id="kills" name="kills">
+                                                    <option disabled selected>Select Kill</option>
+                                                    <option value="0">Any</option>
+                                                    <option value="5">5+</option>
+                                                    <option value="10">10+</option>
+                                                    <option value="20">20+</option>
+                                                </select>
+                                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                    </div>
+                                                </div>
+                                                @error('kills')
+                                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                @enderror
+                                                    </div>
+                                        </div>
+                                        <div class="w-1/3 px-3 mb-2">
+                                                <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                                avg death
+                                                </label>
+                                                <div class="w-full ">
+                                                        <div class="relative">
+                                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                        " id="death" name="death">
+                                                        <option disabled selected>Select Death</option>
+                                                        <option value="0">Any</option>
+                                                        <option value="5">5+</option>
+                                                        <option value="10">10+</option>
+                                                        <option value="20">20+</option>
+                                                    </select>
+                                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                        </div>
+                                                    </div>
+                                                    @error('death')
+                                                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                    @enderror
+                                                        </div>
+                                            </div>
+                                            <div class="w-1/3 px-3 mb-2">
+                                                <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                                avg assist
+                                                </label>
+                                                <div class="w-full ">
+                                                        <div class="relative">
+                                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
+                                                        " id="assists" name="assists">
+                                                        <option disabled selected>Select Assist</option>
+                                                        <option value="0">Any</option>
+                                                        <option value="5">5+</option>
+                                                        <option value="10">10+</option>
+                                                        <option value="20">20+</option>
+                                                    </select>
+                                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
+                                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                        </div>
+                                                    </div>
+                                                    @error('assists')
                                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                                     @enderror
                                                         </div>

@@ -8,7 +8,7 @@
             <div class="flex">
             <div class="w-5/6 ml-16">
                 <div class="flex justify-between">
-                        <p class="text-2xl  ml-1 font-bold  pb-6 capitalize">Results</p>
+                        <p class="text-2xl  ml-1 font-bold  pb-6 capitalize text-white">Results</p>
                         <a href="/players/recommendation" class="btn-indigo
                             font-semibold py-1 px-3 border border-indigo-800 hover:border-transparent rounded-lg shadow-md text-md
                             flex items-center leading-loose my-2"><i class="material-icons mr-1">

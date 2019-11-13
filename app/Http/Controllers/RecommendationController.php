@@ -37,10 +37,17 @@ class RecommendationController extends Controller
             'rank' => ['required', Rule::in(['herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
             'tournament' => 'required',
-            'winrate' => 'required',
+            'winrate' => 'nullable|integer',
             'gpm' => [Rule::in([0, 200, 400, 600, 800])],
             'xppm' => [Rule::in([0, 200, 400, 600, 800])],
-            'lasthit' => [Rule::in([0, 100, 200, 300, 400])],
+            'lasthit' => [Rule::in([0, 200, 400])],
+            'tower_dmg' => [Rule::in([0, 3000, 6000, 9000])],
+            'hero_dmg' => [Rule::in([0, 10000, 20000, 30000])],
+            'ward' => [Rule::in([0, 5, 10, 20])],
+            'deward' => [Rule::in([0, 5, 10, 20])],
+            'kills' => [Rule::in([0, 5, 10, 20])],
+            'death' => [Rule::in([0, 5, 10, 20])],
+            'assists' => [Rule::in([0, 5, 10, 20])],
         ]);
 
         //Constraints (cr)
@@ -137,8 +144,17 @@ class RecommendationController extends Controller
                         //user`s winrate is more than requested winrate and user`s gpm/xppm/lasthit >= equal requested gpm/xppm/lasthit or requested gpm/xppm/lasthit = any
 
                         if (
-                            $user->knowledge['winrate'] > $request['winrate'] and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)
-                            and ($user->knowledge['xppm'] >= $request['xppm'] or $request['xppm'] == 0) and ($user->knowledge['lasthit'] >= $request['lasthit'] or $request['lasthit'] == 0)
+                            $user->knowledge['winrate'] >= $request['winrate']
+                            and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)
+                            and ($user->knowledge['xppm'] >= $request['xppm'] or $request['xppm'] == 0)
+                            and ($user->knowledge['lasthit'] >= $request['lasthit'] or $request['lasthit'] == 0)
+                            and ($user->knowledge['hero_dmg'] >= $request['hero_dmg'] or $request['hero_dmg'] == 0)
+                            and ($user->knowledge['tower_dmg'] >= $request['tower_dmg'] or $request['tower_dmg'] == 0)
+                            and ($user->knowledge['ward'] >= $request['ward'] or $request['ward'] == 0)
+                            and ($user->knowledge['deward'] >= $request['deward'] or $request['deward'] == 0)
+                            and ($user->knowledge['kills'] >= $request['kills'] or $request['kills'] == 0)
+                            and ($user->knowledge['assists'] >= $request['assists'] or $request['assists'] == 0)
+                            and ($user->knowledge['death'] >= $request['death'] or $request['death'] == 0)
                         ) {
                             if ($request['experience'] == 1 and $exp == true) {
                                 $result->push($user);
