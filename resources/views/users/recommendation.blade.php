@@ -234,6 +234,7 @@
                                         <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                     @enderror
                                         </div>
+
                                     </div>
                                 </div>
                                 {{-- advance --}}
@@ -249,8 +250,15 @@
                                             <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
                                             avg Winrate
                                             </label>
-                                            <input class="appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-200 leading-tight mb-0 px-4 py-3 rounded text-black w-full {{$errors->has('winrate') ? 'border-red-500' : ''}} "
-                                            id="winrate" type="text" name="winrate" value="{{ old('winrate')}}">
+                                            {{-- <input class="appearance-none bg-gray-400 block border border-gray-200 focus:outline-none focus:shadow-outline focus:bg-gray-200 leading-tight mb-0 px-4 py-3 rounded text-black w-full {{$errors->has('winrate') ? 'border-red-500' : ''}} "
+                                            id="winrate" type="text" name="winrate" value="{{ old('winrate')}}"> --}}
+                                            <knob-control v-model="winrate"
+                                            primary-color="#6b46c1"
+                                            secondary-color="#9f7aea"
+                                            :size="75"
+                                            text-color="white" class="cursor-pointer"
+                                            ></knob-control>
+                                            <input type="hidden" name="winrate" v-model="winrate">
                                             @error('winrate')
                                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                             @enderror

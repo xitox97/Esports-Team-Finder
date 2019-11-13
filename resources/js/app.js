@@ -12,15 +12,17 @@ window.Vue = require('vue');
 
 import ClickOutside from "vue-click-outside";
 import Notifications from 'vue-notification';
-import VModal from 'vue-js-modal'
+import VModal from 'vue-js-modal';
 import Tooltip from 'vue-directive-tooltip';
-import ToggleButton from 'vue-js-toggle-button'
+import ToggleButton from 'vue-js-toggle-button';
+import KnobControl from 'vue-knob-control';
 
-Vue.use(VModal)
+Vue.use(VModal);
 Vue.use(ClickOutside);
 Vue.use(Notifications);
 Vue.use(Tooltip);
-Vue.use(ToggleButton)
+Vue.use(ToggleButton);
+Vue.use(KnobControl);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -46,6 +48,9 @@ Vue.component('map-component', require('./components/MapComponent.vue').default)
 Vue.component('mapsearch-component', require('./components/MapsearchComponent.vue').default);
 new Vue({
     el: '#app',
+    components: {
+        KnobControl
+    },
     data() {
         return {
             isOpen: true,
@@ -60,6 +65,7 @@ new Vue({
             sendto: String,
             account: String,
             toggleRec: false,
+            winrate: 0,
         };
     },
 
