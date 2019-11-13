@@ -60,16 +60,31 @@
                                     {{$player->team[0]->name}}
                                     @endif
                                 </td>
-                                <td class="py-4 px-6"><a href="/players/{{$player->accounts['dota_id']}}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">View</a></td>
+                                <td class="py-4 px-2">
+                                    <div class="flex flex-col">
+                                            <div>
+                                                <a href="/players/{{$player->accounts['dota_id']}}"
+                                                    class="mt-2 bg-pink-500 font-semibold text-white hover:bg-pink-600
+                                                    py-2 px-4 border border-pink-500 hover:border-pink-600 rounded">View Profile</a>
+                                                </div>
+                                               <div class="mt-6">
+                                                    <a href="#" @click.prevent="$modal.show('stats', { knowledge: {{$player->knowledge}} })"
+                                                        class="bg-transparent hover:bg-pink-500 text-pink-400 font-semibold hover:text-white
+                                                        py-2 px-4 border border-pink-500 hover:border-transparent rounded">View AVG Stats</a>
+                                               </div>
+                                    </div>
+
+                                   </td>
                             </tr>
                                 @endforeach
 
                             </tbody>
 
                         </table>
+                        <stats-component></stats-component>
                         <div class="mt-4 -mb-1">
 
-
+                            {{-- pagination --}}
                         </div>
                     </div>
 

@@ -38,6 +38,7 @@ Vue.component('noti-component', require('./components/NotiComponent.vue').defaul
 Vue.component('chat-component', require('./components/ChatComponent.vue').default);
 Vue.component('message-component', require('./components/MessageComponent.vue').default);
 Vue.component('achievement-component', require('./components/AchievementComponent.vue').default);
+Vue.component('stats-component', require('./components/StatsComponent.vue').default);
 Vue.component('edit-achievement', require('./components/EditAchievement.vue').default);
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 Vue.component('mapsearch-component', require('./components/MapsearchComponent.vue').default);

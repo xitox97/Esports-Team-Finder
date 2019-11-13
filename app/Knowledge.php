@@ -28,6 +28,7 @@ class Knowledge extends Model
         'kills',
         'assists',
         'death',
+        'matches'
 
     ];
 

@@ -166,7 +166,7 @@ class RecommendationController extends Controller
                 }
             }
         }
-        //dd($result);
+        //dd($result[0]->knowledge);
         return view('users.recommendationResult', compact('result'));
     }
 

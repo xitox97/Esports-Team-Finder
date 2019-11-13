@@ -32,6 +32,7 @@ class CreateKnowledgeTable extends Migration
             $table->integer('kills')->nullable();
             $table->integer('assists')->nullable();
             $table->integer('death')->nullable();
+            $table->integer('matches')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

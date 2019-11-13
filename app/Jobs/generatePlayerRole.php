@@ -159,6 +159,7 @@ class generatePlayerRole implements ShouldQueue
             'kills' => $avg_kills,
             'assists' => $avg_assists,
             'death' => $avg_death,
+            'matches' => $counter,
 
         ]);
     }
