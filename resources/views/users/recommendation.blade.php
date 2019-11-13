@@ -168,7 +168,7 @@
                                                 </div>
                                             </div>
                                             @error('rank')
-                                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                <p class="text-red-500 text-xs italic">Please choose at least one of available rank</p>
                                             @enderror
 
                                     </div>
@@ -242,8 +242,8 @@
                                     <toggle-button @change="onChangeEventHandler" color="#6b46c1" :speed="300"></toggle-button>
                                 </div>
 
-
-                                <div v-if="toggleRec">
+                                <transition name="fadedrop">
+                                <div v-show="toggleRec" style="display: none;">
                                     <div class="flex flex-wrap -mx-3 mb-2">
                                         <div class="w-1/2 px-3 mb-2">
                                             <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
@@ -506,7 +506,7 @@
                                     </div>
                                 </div>
                                 </div>
-
+                                </transition>
                                 <div class="flex justify-center items-center pb-2">
 
                                     <div class="mt-2">

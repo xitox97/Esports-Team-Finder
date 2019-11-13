@@ -26,10 +26,12 @@
         background: rgba(0, 0, 0, 0.6);
     }
 .fadedrop-enter-active, .fadedrop-leave-active {
-  transition: opacity .3s;
+  transition: opacity .2s;
+  opacity: 0;
 }
 .fadedrop-enter, .fadedrop-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+  transition: opacity .3s;
 }
     .rankMedal {
     position: relative;

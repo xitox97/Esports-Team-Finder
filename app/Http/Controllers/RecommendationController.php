@@ -34,7 +34,7 @@ class RecommendationController extends Controller
         $request->validate([
             'player_role' => ['required', Rule::in(['core', 'support']),],
             'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
-            //'rank' => ['required', Rule::in(['uncalibrated', 'herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
+            'rank' => 'required',
             'experience' => 'required',
             'tournament' => 'required',
             'winrate' => 'nullable|integer',
