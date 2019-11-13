@@ -237,8 +237,13 @@
                                     </div>
                                 </div>
                                 {{-- advance --}}
-                                <p class="border-b border-gray-600 text-lg font-semibold text-gray-400 mb-4"> Advances Search (Optional)</p>
-                                <div>
+                                <div class="flex justify-between border-b border-gray-600 mb-4">
+                                    <p class="text-lg font-semibold text-gray-400"> Advances Search (Optional)</p>
+                                    <toggle-button @change="onChangeEventHandler" color="#6b46c1" :speed="300"></toggle-button>
+                                </div>
+
+
+                                <div v-if="toggleRec">
                                     <div class="flex flex-wrap -mx-3 mb-2">
                                         <div class="w-1/2 px-3 mb-2">
                                             <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">

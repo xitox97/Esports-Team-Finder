@@ -14,11 +14,13 @@ import ClickOutside from "vue-click-outside";
 import Notifications from 'vue-notification';
 import VModal from 'vue-js-modal'
 import Tooltip from 'vue-directive-tooltip';
+import ToggleButton from 'vue-js-toggle-button'
 
 Vue.use(VModal)
 Vue.use(ClickOutside);
 Vue.use(Notifications);
 Vue.use(Tooltip);
+Vue.use(ToggleButton)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -57,6 +59,7 @@ new Vue({
             thread: Object,
             sendto: String,
             account: String,
+            toggleRec: false,
         };
     },
 
@@ -104,6 +107,9 @@ new Vue({
         noti() {
             this.notification = !this.notification;
         },
+        onChangeEventHandler() {
+            this.toggleRec = !this.toggleRec;
+        }
 
     },
 
