@@ -98,7 +98,7 @@
                                 </label>
                                 <div class="w-full ">
                                     <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
+                                    {{-- <select class="block appearance-none w-full bg-gray-400 border border-gray-200
                                     py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
                                     " id="rank" name="rank">
                                     <option disabled selected>Select Position</option>
@@ -114,11 +114,80 @@
                                 </select>
                                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
                                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                                </div> --}}
+                                                <div class="block">
+                                                    <div class="mt-2 flex flex-wrap">
+                                                        <div class="w-1/3">
+                                                            <div>
+                                                                <label class="inline-flex items-center cursor-pointer">
+                                                                    <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer"  name="rank[]" value="uncalibrated">
+                                                                <span class="ml-2 text-white opacity-75">Uncalibrated</span> <img src="{{ asset('/img/rank_icons/uncalibrated.png') }}" class="w-6 ml-1">
+                                                                </label>
+                                                                </div>
+                                                                <div>
+                                                                <label class="inline-flex items-center cursor-pointer">
+                                                                    <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="herald">
+                                                                    <span class="ml-2 text-white opacity-75">Herald</span><img src="{{ asset('/img/rank_icons/herald.png') }}" class="w-6 ml-1">
+                                                                </label>
+                                                                </div>
+                                                                <div>
+                                                                <label class="inline-flex items-center cursor-pointer">
+                                                                    <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="guardian">
+                                                                    <span class="ml-2 text-white opacity-75">Guardian</span> <img src="{{ asset('/img/rank_icons/guardian.png') }}" class="w-6 ml-1">
+                                                                </label>
+                                                                </div>
+
+                                                        </div>
+
+                                                        <div class="w-1/3">
+                                                            <div>
+                                                                <label class="inline-flex items-center cursor-pointer">
+                                                                    <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="crusader">
+                                                                    <span class="ml-2 text-white opacity-75">Crusader</span><img src="{{ asset('/img/rank_icons/crusader.png') }}" class="w-6 ml-1">
+                                                                </label>
+                                                        </div>
+                                                                <div>
+                                                                    <label class="inline-flex items-center cursor-pointer">
+                                                                        <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="archon">
+                                                                        <span class="ml-2 text-white opacity-75">Archon</span><img src="{{ asset('/img/rank_icons/archon.png') }}" class="w-6 ml-1">
+                                                                    </label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="inline-flex items-center cursor-pointer">
+                                                                        <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="legend">
+                                                                        <span class="ml-2 text-white opacity-75">Legend</span><img src="{{ asset('/img/rank_icons/legend.png') }}" class="w-6 ml-1">
+                                                                    </label>
+                                                                </div>
+
+                                                        </div>
+                                                        <div class="w-1/3">
+                                                                <div>
+                                                                    <label class="inline-flex items-center cursor-pointer">
+                                                                        <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="ancient">
+                                                                        <span class="ml-2 text-white opacity-75">Ancient</span><img src="{{ asset('/img/rank_icons/ancient.png') }}" class="w-6 ml-1">
+                                                                    </label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="inline-flex items-center cursor-pointer">
+                                                                        <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="divine">
+                                                                        <span class="ml-2 text-white opacity-75">Divine</span><img src="{{ asset('/img/rank_icons/divine.png') }}" class="w-6 ml-1">
+                                                                    </label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="inline-flex items-center cursor-pointer">
+                                                                        <input type="checkbox" class="form-checkbox text-indigo-600 cursor-pointer" name="rank[]" value="immortal">
+                                                                        <span class="ml-2 text-white opacity-75">Immortal</span><img src="{{ asset('/img/rank_icons/immortal.png') }}" class="w-6 ml-1">
+                                                                    </label>
+                                                                </div>
+                                                        </div>
+
+                                                </div>
                                                 </div>
                                             </div>
                                             @error('rank')
                                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                             @enderror
+
                                     </div>
                                 </div>
                             </div>

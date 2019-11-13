@@ -28,13 +28,13 @@ class RecommendationController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request['experience']);
+        //dd($request['rank']);
 
         //validation code
         $request->validate([
             'player_role' => ['required', Rule::in(['core', 'support']),],
             'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
-            'rank' => ['required', Rule::in(['uncalibrated', 'herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
+            //'rank' => ['required', Rule::in(['uncalibrated', 'herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
             'tournament' => 'required',
             'winrate' => 'nullable|integer',
@@ -132,43 +132,48 @@ class RecommendationController extends Controller
             $exists = $tour->users->contains($user->id);    //check whether user interested to join specific tournament
             //dd($exists);
             if ($request['position'] == $role) {
-                if ($request['rank'] ==  $medal) {
-                    if ($exists == true) {
 
-                        //if have experience, user`s winrate is more than requested winrate
-                        // if ($request['experience'] == 1 and $exp == true and $user->knowledge['winrate'] > $request['winrate']) {
-                        //     $result->push($user);
-                        // } elseif ($request['experience'] == 0 and $exp == false and $user->knowledge['winrate'] > $request['winrate']) {
-                        //     $result->push($user);
-                        // }
+                foreach ($request['rank'] as $rank) {
+                    if ($rank ==  $medal) {
+                        //dd($rank);
 
-                        //user`s winrate is more than requested winrate and user`s gpm/xppm/lasthit >= equal requested gpm/xppm/lasthit or requested gpm/xppm/lasthit = any
+                        if ($exists == true) {
 
-                        if (
-                            $user->knowledge['winrate'] >= $request['winrate']
-                            and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)
-                            and ($user->knowledge['xppm'] >= $request['xppm'] or $request['xppm'] == 0)
-                            and ($user->knowledge['lasthit'] >= $request['lasthit'] or $request['lasthit'] == 0)
-                            and ($user->knowledge['hero_dmg'] >= $request['hero_dmg'] or $request['hero_dmg'] == 0)
-                            and ($user->knowledge['tower_dmg'] >= $request['tower_dmg'] or $request['tower_dmg'] == 0)
-                            and ($user->knowledge['ward'] >= $request['ward'] or $request['ward'] == 0)
-                            and ($user->knowledge['deward'] >= $request['deward'] or $request['deward'] == 0)
-                            and ($user->knowledge['kills'] >= $request['kills'] or $request['kills'] == 0)
-                            and ($user->knowledge['assists'] >= $request['assists'] or $request['assists'] == 0)
-                            and ($user->knowledge['death'] >= $request['death'] or $request['death'] == 0)
-                        ) {
-                            // if ($request['experience'] == 1 and $exp == true) {
+                            //if have experience, user`s winrate is more than requested winrate
+                            // if ($request['experience'] == 1 and $exp == true and $user->knowledge['winrate'] > $request['winrate']) {
                             //     $result->push($user);
-                            // } elseif ($request['experience'] == 0 and $exp == false) {
+                            // } elseif ($request['experience'] == 0 and $exp == false and $user->knowledge['winrate'] > $request['winrate']) {
                             //     $result->push($user);
                             // }
 
-                            if ($request['experience'] == 1 and $exp == true) {
-                                $result->push($user);
-                            } elseif ($request['experience'] == 2 and $exp == false) {
-                                $result->push($user);
-                            } elseif ($request['experience'] == 0 and ($exp == true or $exp == false)) {
-                                $result->push($user);
+                            //user`s winrate is more than requested winrate and user`s gpm/xppm/lasthit >= equal requested gpm/xppm/lasthit or requested gpm/xppm/lasthit = any
+
+                            if (
+                                $user->knowledge['winrate'] >= $request['winrate']
+                                and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)
+                                and ($user->knowledge['xppm'] >= $request['xppm'] or $request['xppm'] == 0)
+                                and ($user->knowledge['lasthit'] >= $request['lasthit'] or $request['lasthit'] == 0)
+                                and ($user->knowledge['hero_dmg'] >= $request['hero_dmg'] or $request['hero_dmg'] == 0)
+                                and ($user->knowledge['tower_dmg'] >= $request['tower_dmg'] or $request['tower_dmg'] == 0)
+                                and ($user->knowledge['ward'] >= $request['ward'] or $request['ward'] == 0)
+                                and ($user->knowledge['deward'] >= $request['deward'] or $request['deward'] == 0)
+                                and ($user->knowledge['kills'] >= $request['kills'] or $request['kills'] == 0)
+                                and ($user->knowledge['assists'] >= $request['assists'] or $request['assists'] == 0)
+                                and ($user->knowledge['death'] >= $request['death'] or $request['death'] == 0)
+                            ) {
+                                // if ($request['experience'] == 1 and $exp == true) {
+                                //     $result->push($user);
+                                // } elseif ($request['experience'] == 0 and $exp == false) {
+                                //     $result->push($user);
+                                // }
+
+                                if ($request['experience'] == 1 and $exp == true) {
+                                    $result->push($user);
+                                } elseif ($request['experience'] == 2 and $exp == false) {
+                                    $result->push($user);
+                                } elseif ($request['experience'] == 0 and ($exp == true or $exp == false)) {
+                                    $result->push($user);
+                                }
                             }
                         }
                     }
