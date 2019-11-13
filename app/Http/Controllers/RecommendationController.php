@@ -28,13 +28,13 @@ class RecommendationController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request);
+        //dd($request['experience']);
 
         //validation code
         $request->validate([
             'player_role' => ['required', Rule::in(['core', 'support']),],
             'position' => ['required', Rule::in(['carry', 'mid', 'offlaner', 'roamer', 'support']),],
-            'rank' => ['required', Rule::in(['herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
+            'rank' => ['required', Rule::in(['uncalibrated', 'herald', 'guardian', 'crusader', 'archon', 'legend', 'ancient', 'divine', 'immortal']),],
             'experience' => 'required',
             'tournament' => 'required',
             'winrate' => 'nullable|integer',
@@ -119,6 +119,7 @@ class RecommendationController extends Controller
 
             //cf
 
+            //finder user have achievements or not
             $exp = DB::table('achievements')
                 ->where('user_id', $user->id)
                 ->count() > 0;
@@ -156,9 +157,17 @@ class RecommendationController extends Controller
                             and ($user->knowledge['assists'] >= $request['assists'] or $request['assists'] == 0)
                             and ($user->knowledge['death'] >= $request['death'] or $request['death'] == 0)
                         ) {
+                            // if ($request['experience'] == 1 and $exp == true) {
+                            //     $result->push($user);
+                            // } elseif ($request['experience'] == 0 and $exp == false) {
+                            //     $result->push($user);
+                            // }
+
                             if ($request['experience'] == 1 and $exp == true) {
                                 $result->push($user);
-                            } elseif ($request['experience'] == 0 and $exp == false) {
+                            } elseif ($request['experience'] == 2 and $exp == false) {
+                                $result->push($user);
+                            } elseif ($request['experience'] == 0 and ($exp == true or $exp == false)) {
                                 $result->push($user);
                             }
                         }

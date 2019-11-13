@@ -56704,7 +56704,7 @@ var render = function() {
       on: { "before-open": _vm.beforeOpen }
     },
     [
-      _c("div", { staticClass: "rounded-lg py-4" }, [
+      _c("div", { staticClass: "rounded-lg py-4 bg-dark-100 text-white" }, [
         _c("p", { staticClass: "text-left font-bold text-2xl px-4 mb-3" }, [
           _vm._v("Sending New Message to " + _vm._s(_vm.name))
         ]),
@@ -56712,7 +56712,7 @@ var render = function() {
         _c(
           "form",
           {
-            staticClass: "border-t-2",
+            staticClass: "border-t-2 border-gray-600",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -56736,7 +56736,7 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal",
+                  "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-black",
                 attrs: {
                   type: "text",
                   name: "subject",
@@ -56768,7 +56768,7 @@ var render = function() {
                   }
                 ],
                 staticClass:
-                  "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none",
+                  "bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal resize-none text-black",
                 attrs: {
                   name: "message",
                   placeholder: "Enter your message..",

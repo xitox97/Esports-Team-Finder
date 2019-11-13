@@ -5,61 +5,89 @@
         <span class="italic text-sm">Home / Recomendation / Search</a></span>
     </section>
     <div class="container mx-auto mt-12">
-            <div class="flex">
-                    <div class="mx-auto bg-dark-100 shadow-xl mt-3 rounded p-6 w-5/12  font-sans">
-                    <form class="w-full p-3 font-mono" method="POST" action="/players/recommendation" id="achievement">
+        <div class="flex">
+            <div class="mx-auto bg-dark-100 max-w-2xl shadow-xl mt-3 rounded font-sans w-auto rounded-lg">
+                <div class="bg-purple-700 rounded-t py-4">
+                        <p class="text-xl font-bold uppercase flex
+                        justify-center text-white tracking-wide">Generate Recommendation</p>
+                </div>
+                <div>
+                    <form class="w-full px-8 py-4 font-mono" method="POST" action="/players/recommendation" id="achievement">
                         @csrf
-                        <span class="text-xl font-bold uppercase border-b-2 border-gray-600 pb-4 flex
-                        justify-center text-white tracking-wide">Generate Recommendation</span>
                         <div class="flex flex-wrap -mx-3">
                                 <div class="w-full px-3 my-2">
-                                <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
                                     Player Role
                                 </label>
                                 <div class="w-full ">
-                                        <div class="relative">
-                                                <select class="block appearance-none w-full bg-gray-400 border border-gray-200
-                                                py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
-                                                " id="player_role-state" name="player_role">
-                                                <option disabled selected>Select Role</option>
-                                                <option selected>Select rank</option>
-                                                <option value="core">Core</option>
-                                                <option value="support">Support</option>
-                                            </select>
-                                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
-                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                                </div>
-                                            </div>
+                                                <div class="block">
+                                                        <div class="mt-2 flex">
+                                                        <div>
+                                                            <label class="inline-flex items-center cursor-pointer">
+                                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="player_role" value="core">
+                                                            <span class="ml-2 text-white opacity-75">Core</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="ml-4">
+                                                            <label class="inline-flex items-center cursor-pointer">
+                                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="player_role" value="support">
+                                                            <span class="ml-2 text-white opacity-75">Support</span>
+                                                            </label>
+                                                        </div>
+                                                        </div>
+                                                    </div>
                                             @error('player_role')
-                                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                                <p class="text-red-500 text-xs italic">Please select one of these option</p>
                                             @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 ">
                                 <div class="w-full px-3 my-2">
-                                <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
+                                <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
                                     Player Position
                                 </label>
                                 <div class="w-full ">
-                                        <div class="relative">
-                                        <select class="block appearance-none w-full bg-gray-400 border border-gray-200
-                                        py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
-                                        " id="position-state" name="position">
-                                        <option disabled selected>Select Position</option>
-                                        <option value="carry">Carry</option>
-                                        <option value="mid">Mid</option>
-                                        <option value="offlaner">Offlaner</option>
-                                        <option value="roamer">Roamer</option>
-                                        <option value="support">Support</option>
-                                    </select>
-                                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
-                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                                </div>
-                                            </div>
+                                                <div class="block">
+                                                        <div class="mt-2 flex">
+                                                        <div>
+                                                            <label class="inline-flex items-center cursor-pointer">
+                                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="position" value="carry">
+                                                            <span class="ml-2 text-white  opacity-75">Carry</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="mx-4">
+                                                            <label class="inline-flex items-center cursor-pointer">
+                                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="position" value="mid">
+                                                            <span class="ml-2 text-white  opacity-75">Mid</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="mx-4">
+                                                                <label class="inline-flex items-center cursor-pointer">
+                                                                <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="position" value="offlaner">
+                                                                <span class="ml-2 text-white  opacity-75">Offlaner</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="mx-4">
+                                                                    <label class="inline-flex items-center cursor-pointer">
+                                                                    <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="position" value="roamer">
+                                                                    <span class="ml-2 text-white  opacity-75">Roamer</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="ml-4">
+                                                                        <label class="inline-flex items-center cursor-pointer">
+                                                                        <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="position" value="support">
+                                                                        <span class="ml-2 text-white  opacity-75">Support</span>
+                                                                        </label>
+                                                                    </div>
+                                                        </div>
+                                                    </div>
                                             @error('position')
                                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                             @enderror
+                                    @if (session('constraint'))
+                                    <p class="text-red-500 text-xs italic">Constraint: {{ session('constraint') }}</p>
+                                    @endif
                                     </div>
                                 </div>
                             </div>
@@ -101,21 +129,34 @@
                                 </label>
                                 <div class="w-full ">
                                     <div class="relative">
-                                    <select class="block appearance-none w-full bg-gray-400 border border-gray-200
-                                    py-3 px-4 pr-8 rounded leading-tight  focus:bg-gray-200 focus:border-gray-500
-                                    " id="experience" name="experience">
-                                    <option disabled selected>Select Experience</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 {{$errors->has('player_role') ? 'border-red-500' : ''}}">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    <div class="block">
+                                        <div class="mt-2 flex">
+                                        <div>
+                                            <label class="inline-flex items-center cursor-pointer">
+                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="experience" value="1">
+                                            <span class="ml-2 text-white opacity-75">Yes</span>
+                                            </label>
+                                        </div>
+                                        <div class="mx-4">
+                                            <label class="inline-flex items-center cursor-pointer">
+                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="experience" value="2">
+                                            <span class="ml-2 text-white opacity-75">No</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="inline-flex items-center cursor-pointer">
+                                            <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="experience" value="0"  checked>
+                                            <span class="ml-2 text-white opacity-75">Both</span>
+                                            </label>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                                 @error('experience')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                                     </div>
+
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-2">
@@ -132,7 +173,7 @@
                                         @foreach($tours as $tour)
                                         <option value="{{$tour->id}}">{{$tour->name}}</option>
                                     @endforeach
-                                  </select>
+                                    </select>
                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2  {{$errors->has('player_role') ? 'border-red-500' : ''}}">
                                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                         </div>
@@ -406,16 +447,18 @@
                                                         </div>
                                             </div>
                                     </div>
-                                <div class="flex justify-center items-center">
+                                <div class="flex justify-center items-center pb-2">
 
                                     <div class="mt-2">
-                                        <a href="javascript:;" onclick="document.getElementById('achievement').submit()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold
-                                        py-2  px-4 rounded mx-auto ml-2 ">Generate</a>
+                                        <a href="javascript:;" onclick="document.getElementById('achievement').submit()"
+                                        class="bg-purple-700 hover:bg-purple-800 text-white font-bold
+                                        py-2  px-4 rounded mx-auto ml-2 text-xl tracking-wider">Generate</a>
                                     </div>
                                 </div>
                     </form>
-                    </div>
+                </div>
             </div>
+        </div>
     </div>
 {{-- <div class="container">
     <div class="row justify-content-center">
