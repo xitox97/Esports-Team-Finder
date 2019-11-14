@@ -40,14 +40,14 @@ class RecommendationController extends Controller
             'winrate' => 'nullable|integer',
             'gpm' => [Rule::in([0, 200, 400, 600, 800])],
             'xppm' => [Rule::in([0, 200, 400, 600, 800])],
-            'lasthit' => [Rule::in([0, 200, 400])],
+            'lasthit' => [Rule::in([0, 100, 200, 300, 400])],
             'tower_dmg' => [Rule::in([0, 3000, 6000, 9000])],
             'hero_dmg' => [Rule::in([0, 10000, 20000, 30000])],
-            'ward' => [Rule::in([0, 5, 10, 20])],
-            'deward' => [Rule::in([0, 5, 10, 20])],
-            'kills' => [Rule::in([0, 5, 10, 20])],
-            'death' => [Rule::in([0, 5, 10, 20])],
-            'assists' => [Rule::in([0, 5, 10, 20])],
+            'ward' => [Rule::in([0, 5, 10, 15, 20])],
+            'deward' => [Rule::in([0, 5, 10, 15, 20])],
+            'kills' => [Rule::in([0, 5, 10, 15, 20])],
+            'death' => [Rule::in([0, 5, 10, 15, 20])],
+            'assists' => [Rule::in([0, 5, 10, 15, 20])],
         ]);
 
         //Constraints (cr)

@@ -73372,7 +73372,17 @@ new Vue({
       sendto: String,
       account: String,
       toggleRec: false,
-      winrate: 0
+      winrate: 0,
+      gpm: 0,
+      xppm: 0,
+      lasthit: 0,
+      tower_dmg: 0,
+      hero_dmg: 0,
+      ward: 0,
+      deward: 0,
+      kills: 0,
+      death: 0,
+      assists: 0
     };
   },
   created: function created() {
@@ -73420,6 +73430,54 @@ new Vue({
     },
     onChangeEventHandler: function onChangeEventHandler() {
       this.toggleRec = !this.toggleRec;
+    },
+    toWord: function toWord(val) {
+      var map = {
+        0: 'any',
+        200: '200+',
+        400: '400+',
+        600: '600+',
+        800: '800+'
+      };
+      return map[val];
+    },
+    toWord2: function toWord2(val) {
+      var map = {
+        0: 'any',
+        100: '100+',
+        200: '200+',
+        300: '300+',
+        400: '400+'
+      };
+      return map[val];
+    },
+    toWord3: function toWord3(val) {
+      var map = {
+        0: 'any',
+        3000: '3000+',
+        6000: '6000+',
+        9000: '9000+'
+      };
+      return map[val];
+    },
+    toWord4: function toWord4(val) {
+      var map = {
+        0: 'any',
+        10000: '10000+',
+        20000: '20000+',
+        30000: '30000+'
+      };
+      return map[val];
+    },
+    toWord5: function toWord5(val) {
+      var map = {
+        0: 'any',
+        5: '5+',
+        10: '10+',
+        15: '15+',
+        20: '20+'
+      };
+      return map[val];
     }
   },
   directives: {
