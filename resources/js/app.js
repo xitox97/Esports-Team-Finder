@@ -12,15 +12,17 @@ window.Vue = require('vue');
 
 import ClickOutside from "vue-click-outside";
 import Notifications from 'vue-notification';
-import VModal from 'vue-js-modal'
+import VModal from 'vue-js-modal';
 import Tooltip from 'vue-directive-tooltip';
-import ToggleButton from 'vue-js-toggle-button'
+import ToggleButton from 'vue-js-toggle-button';
+import KnobControl from 'vue-knob-control';
 
-Vue.use(VModal)
+Vue.use(VModal);
 Vue.use(ClickOutside);
 Vue.use(Notifications);
 Vue.use(Tooltip);
-Vue.use(ToggleButton)
+Vue.use(ToggleButton);
+Vue.use(KnobControl);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -46,6 +48,9 @@ Vue.component('map-component', require('./components/MapComponent.vue').default)
 Vue.component('mapsearch-component', require('./components/MapsearchComponent.vue').default);
 new Vue({
     el: '#app',
+    components: {
+        KnobControl
+    },
     data() {
         return {
             isOpen: true,
@@ -60,6 +65,17 @@ new Vue({
             sendto: String,
             account: String,
             toggleRec: false,
+            winrate: 0,
+            gpm: 0,
+            xppm: 0,
+            lasthit: 0,
+            tower_dmg: 0,
+            hero_dmg: 0,
+            ward: 0,
+            deward: 0,
+            kills: 0,
+            death: 0,
+            assists: 0,
         };
     },
 
@@ -109,6 +125,54 @@ new Vue({
         },
         onChangeEventHandler() {
             this.toggleRec = !this.toggleRec;
+        },
+        toWord(val) {
+            const map = {
+                0: 'any',
+                200: '200+',
+                400: '400+',
+                600: '600+',
+                800: '800+',
+            }
+            return map[val];
+        },
+        toWord2(val) {
+            const map = {
+                0: 'any',
+                100: '100+',
+                200: '200+',
+                300: '300+',
+                400: '400+',
+            }
+            return map[val];
+        },
+        toWord3(val) {
+            const map = {
+                0: 'any',
+                3000: '3000+',
+                6000: '6000+',
+                9000: '9000+',
+            }
+            return map[val];
+        },
+        toWord4(val) {
+            const map = {
+                0: 'any',
+                10000: '10000+',
+                20000: '20000+',
+                30000: '30000+',
+            }
+            return map[val];
+        },
+        toWord5(val) {
+            const map = {
+                0: 'any',
+                5: '5+',
+                10: '10+',
+                15: '15+',
+                20: '20+',
+            }
+            return map[val];
         }
 
     },
