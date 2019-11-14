@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\location;
+use App\Location;
 use App\User;
 use Illuminate\Http\Request;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
@@ -41,7 +41,7 @@ class LocationController extends Controller
         $input = request()->all();
         //dd($input);
         try {
-            $loc = new location();
+            $loc = new Location();
             $loc->coordinate = new Point($input['latitude'], $input['longitude']);    // (lat, lng)
             $loc->user_id = $input['user_id'];
             $loc->address = $input['address'];
@@ -149,7 +149,7 @@ class LocationController extends Controller
         }
 
         $my = location::where('user_id', '=', auth()->user()->id)->first();
-        //dd($my->coordinate->lat);
+        dd($my->coordinate->lat);
         return response()->json([
             'center' => $my->coordinate,
             'users' => $owner,

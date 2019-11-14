@@ -65,12 +65,12 @@
                                             <div>
                                                 <a href="/players/{{$player->accounts['dota_id']}}"
                                                     class="mt-2 bg-pink-500 font-semibold text-white hover:bg-pink-600
-                                                    py-2 px-4 border border-pink-500 hover:border-pink-600 rounded">View Profile</a>
+                                                    py-2 px-4 border border-pink-500 hover:border-pink-600 rounded whitespace-no-wrap">View Profile</a>
                                                 </div>
                                                <div class="mt-6">
                                                     <a href="#" @click.prevent="$modal.show('stats', { knowledge: {{$player->knowledge}} })"
                                                         class="bg-transparent hover:bg-pink-500 text-pink-400 font-semibold hover:text-white
-                                                        py-2 px-4 border border-pink-500 hover:border-transparent rounded">View AVG Stats</a>
+                                                        py-2 px-4 border border-pink-500 hover:border-transparent rounded whitespace-no-wrap">View AVG Stats</a>
                                                </div>
                                     </div>
 
