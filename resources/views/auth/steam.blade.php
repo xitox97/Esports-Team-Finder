@@ -186,8 +186,8 @@
                             <div class="container ml-20 mt-12">
 
                                 <div class="bg-dark-100 shadow-lg w-8/12 flex">
-                                    <div class="w-3/12">
-                                        <img src="{{ URL::to('/') }}/img/steam-icon.png" class="">
+                                    <div class="w-3/12 h-48">
+                                        <img src="{{ URL::to('/') }}/img/steam-icon.png" class="h-full">
                                     </div>
                                     <div class="w-8/12 ml-4 bg-dark-100 flex flex-col items-start justify-center mb-10">
                                         <p class="text-2xl font-bold text-indigo-500">Steam</p>
