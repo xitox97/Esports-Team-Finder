@@ -38,7 +38,7 @@
                                 <td class="py-4 px-6">
                                     @include('users.medal_rec')
                                 </td>
-                                <td class="py-4 px-6">Mid</td>
+                                <td class="py-4 px-6">{{$pos}}</td>
                                 <td class="py-4 px-6 text-left">
                                         <ul class="list-disc">
                                 @foreach($player->tournaments as $tour)

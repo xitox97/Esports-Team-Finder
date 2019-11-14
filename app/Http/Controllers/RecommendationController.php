@@ -115,7 +115,6 @@ class RecommendationController extends Controller
 
 
 
-            //coding masukkan user yg sesuai dengan semua dlm collection maybe?
 
             //cf
 
@@ -181,7 +180,8 @@ class RecommendationController extends Controller
             }
         }
         //dd($result[0]->knowledge);
-        return view('users.recommendationResult', compact('result'));
+        $pos = $request['position'];
+        return view('users.recommendationResult', compact('result','pos'));
     }
 
     // Vc (finder properties/requiremet) =
