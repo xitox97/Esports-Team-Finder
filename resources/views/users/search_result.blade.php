@@ -22,7 +22,7 @@
                         <tbody class="text-center text-white font-semibold">
                             @foreach($players as $player)
                             <tr class="hover:bg-content border-b border-gray-600">
-                            <td class="py-4 px-6">
+                            <td class="flex flex-col items-center px-6 py-4">
                                 @if($player->accounts['avatar_url'] == null)
                                 <img src="{{asset('img/default.svg')}}" alt="" class="rounded-full w-24 h-24">
                                 @else

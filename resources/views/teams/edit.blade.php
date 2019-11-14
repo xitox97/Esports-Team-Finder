@@ -2,7 +2,7 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2 text-white font-medium tracking-wide">
-    <span class="italic text-sm">Home / Team / Create </span>
+    <span class="italic text-sm">Home / Team / Edit </span>
 </section>
 <div class="container ml-20 mt-12 max-w-5xl mr-2 xl:ml-auto xl:mr-auto">
 
