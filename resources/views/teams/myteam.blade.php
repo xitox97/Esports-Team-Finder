@@ -111,7 +111,7 @@
                                                 </i>
                                             </a>
                                             @if(auth()->user()->id == $teamMember->id)
-                                            <a href="/leave/{{ $myTeam->id }}" v-tooltip.top="'Kick Player'"><i class="material-icons  text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
+                                            <a href="/leave/{{ $myTeam->id }}" v-tooltip.top="'Leave Team'"><i class="material-icons  text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
                                             exit_to_app
                                             </i>
                                             </a>
