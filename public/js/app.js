@@ -76013,7 +76013,7 @@ new Vue({
       kills: 0,
       death: 0,
       assists: 0,
-      birthdate: null
+      date: null
     };
   },
   created: function created() {

@@ -50,7 +50,7 @@
                                     py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" id="grid-last-name"
                                     type="date" placeholder="Enter your age" name="age" required> --}}
                                     <div class="relative">
-                                        <flat-pickr v-model="birthdate" placeholder="Select your birth day"  :config="{ dateFormat: 'Y-m-d' }" class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                                        <flat-pickr v-model="date" placeholder="Select your birth day"  :config="{ dateFormat: 'Y-m-d' }" class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
                                     py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"></flat-pickr>
                                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                             <i class="material-icons">
@@ -60,7 +60,7 @@
                                       </div>
 
 
-                                    <input type="hidden" name="birthdate" v-model="birthdate">
+                                    <input type="hidden" name="birthdate" v-model="date">
                                     @error('birthdate')
                                         <p class="text-red-500 text-md italic">{{ $message }}</p>
                                     @enderror

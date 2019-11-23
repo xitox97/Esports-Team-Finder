@@ -69,9 +69,21 @@
                             <label class="block uppercase tracking-wide text-white text-md font-semibold mb-2" for="grid-first-name">
                                 Tournament Date
                             </label>
-                            <input class="appearance-none block w-full bg-gray-400 text-black
+                            {{-- <input class="appearance-none block w-full bg-gray-400 text-black
                             border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
-                             focus:shadow-outline {{$errors->has('date') ? 'border-red-500' : ''}}" id="date" type="date" name="date" value="{{ old('date')}}">
+                             focus:shadow-outline {{$errors->has('date') ? 'border-red-500' : ''}}" id="date" type="date" name="date" value="{{ old('date')}}"> --}}
+                             <div class="relative">
+                                <flat-pickr v-model="date" :config="{ dateFormat: 'Y-m-d' }" class="appearance-none block w-full
+                                bg-gray-400 text-black
+                                border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
+                                 focus:shadow-outline"></flat-pickr>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <i class="material-icons">
+                                        date_range
+                                        </i>
+                                </div>
+                              </div>
+                             <input type="hidden" name="date" v-model="date">
                             @error('date')
                                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror
