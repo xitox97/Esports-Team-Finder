@@ -168,7 +168,7 @@
                 <div class="flex flex-col items-center border-b-2 pb-6">
                         <p class="text-2xl font-semibold leading-loose text-white capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
                         <p class="text-md font-medium leading-loose text-white capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
-
+                        <p class="text-md font-medium leading-loose text-white capitalize -mt-2">Birthday: {{$fetchPlayers->user->birthdate}}</p>
                         <p class="text-md font-medium leading-loose text-white capitalize -mt-2">Current Team:
                             @if($fetchPlayers->user->team()->exists() != false)
                             <a class="no-underline hover:underline text-blue-500"
@@ -226,6 +226,7 @@
         <div class="flex flex-col items-center border-b-2 pb-6">
                 <p class="text-2xl font-semibold leading-loose text-white capitalize">{{$fetchPlayers->user->name}}, {{$fetchPlayers->user->age}}</p>
                 <p class="text-md font-medium leading-loose text-white capitalize -mt-2">{{$fetchPlayers->user->area}}, {{$fetchPlayers->user->state}}</p>
+                <p class="text-md font-medium leading-loose text-white capitalize -mt-2">Birthday: {{$fetchPlayers->user->birthdate}}</p>
                 <p class="text-md font-medium leading-loose text-white capitalize -mt-2">Current Team:
                         @if($fetchPlayers->user->team()->exists() != false)
                         <a class="no-underline hover:underline text-blue-500"
