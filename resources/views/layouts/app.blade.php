@@ -131,7 +131,7 @@
                 <span class="align-middle ml-2 {{Request::is('players/list') ? 'text-white' : ''}}" >Players</span>
               </a>
               <a href="/players/recommendation" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
-                <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
+                <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">assignment</i>
                 <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
               <a href="/livestream" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
