@@ -62,7 +62,7 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
                             <button class="btn-indigo text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
                                     Login
                             </button>
-                            <a class="inline-block align-baseline font-bold text-sm text-gray-600 hover:text-blue-800 mt-3" href="register">
+                            <a class="inline-block align-baseline font-bold text-sm text-gray-600 hover:text-blue-800 mt-3" href="/password/reset">
                                 Forgot Password?
                               </a>
                             <a class="inline-block align-baseline font-bold text-sm text-black hover:text-blue-800 mt-3" href="register">
