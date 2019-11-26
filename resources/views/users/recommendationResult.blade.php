@@ -50,9 +50,9 @@
                                 </td>
                                 <td class="py-4 px-6">
                                     @if($player->achievements()->exists() == true)
-                                    Yes
+                                    Professional
                                     @else
-                                    No
+                                    Beginner
                                     @endif
                                 </td>
                                 <td class="py-4 px-6">

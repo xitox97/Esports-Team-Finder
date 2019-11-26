@@ -177,7 +177,7 @@
                             <div class="flex flex-wrap -mx-3 mb-2">
                                 <div class="w-full px-3 my-2">
                                 <label class="block capitalize tracking-wide text-white text-md font-semibold mb-2" for="rank">
-                                    Experience*
+                                    Skill level*
                                 </label>
                                 <div class="w-full ">
                                     <div class="relative">
@@ -186,13 +186,13 @@
                                         <div>
                                             <label class="inline-flex items-center cursor-pointer">
                                             <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="experience" value="1">
-                                            <span class="ml-2 text-white opacity-75">Yes</span>
+                                            <span class="ml-2 text-white opacity-75">Beginner</span>
                                             </label>
                                         </div>
                                         <div class="mx-4">
                                             <label class="inline-flex items-center cursor-pointer">
                                             <input type="radio" class="form-radio text-purple-600 cursor-pointer" name="experience" value="2">
-                                            <span class="ml-2 text-white opacity-75">No</span>
+                                            <span class="ml-2 text-white opacity-75">Professional</span>
                                             </label>
                                         </div>
                                         <div>
