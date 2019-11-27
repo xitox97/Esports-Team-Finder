@@ -131,13 +131,18 @@
                 <span class="align-middle ml-2 {{Request::is('players/list') ? 'text-white' : ''}}" >Players</span>
               </a>
               <a href="/players/recommendation" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
-                <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">search</i>
+                <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">assignment</i>
                 <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
               </a>
+              <a href="/livestream" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
+                <i class="material-icons align-middle {{Request::is('livestream') ? 'text-white' : ''}}">ondemand_video</i>
+                <span class="align-middle ml-2 {{Request::is('livestream') ? 'text-white' : ''}}" >Live Stream</span>
+              </a>
               <a href="/map/search" class="text-lg font-semibold mb-10  text-purple-400 hover:text-white">
-                <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">search</i>
+                <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">near_me</i>
                 <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
               </a>
+
             </sidebar-component>
             <section id="maindiv" class="flex flex-col bg-gray-900 w-10/12" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
                 <header class="h-24 flex justify-between">

@@ -103,7 +103,7 @@ class PagesController extends Controller
             $pageStats = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
             $pageStats->setPath(url()->current());
             //dd(url()->current());
-            return view('users.stats', compact('fetchPlayers', 'pageStats','itemsData'));
+            return view('users.stats', compact('fetchPlayers', 'pageStats', 'itemsData'));
         } else {
 
             return view('users.stats_none', compact('fetchPlayers'));
@@ -124,7 +124,7 @@ class PagesController extends Controller
             $pageHeroes->setPath(url()->current());
 
 
-            return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes','itemsData'));
+            return view('users.stats_heroes', compact('fetchPlayers', 'pageHeroes', 'itemsData'));
         } else {
             return view('users.stats_heroes_none', compact('fetchPlayers'));
         }
@@ -140,5 +140,24 @@ class PagesController extends Controller
         } else {
             return view('users.stats_totals_none', compact('fetchPlayers'));
         }
+    }
+    public function stream()
+    {
+        $client = new Client(['headers' => ['Client-ID' => 'h3f0ad5gvsiorouqp8c01xjnybz5en']]);
+        $response = $client->get('https://api.twitch.tv/helix/streams?game_id=29595&language=en&first=10');
+        $streams = json_decode($response->getBody(), true)['data'];
+
+        $items = collect($streams);
+        $page = Input::get('page', 1);
+        $perPage = 2;
+        $pageStream = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page);
+        $pageStream->setPath(url()->current());
+        //dd(url()->current());
+        //dd($pageStream);
+
+
+
+
+        return view('users.streams', compact('pageStream'));
     }
 }

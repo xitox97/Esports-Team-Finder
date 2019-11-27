@@ -16,6 +16,7 @@ import VModal from 'vue-js-modal';
 import Tooltip from 'vue-directive-tooltip';
 import ToggleButton from 'vue-js-toggle-button';
 import KnobControl from 'vue-knob-control';
+import flatPickr from 'vue-flatpickr-component';
 
 Vue.use(VModal);
 Vue.use(ClickOutside);
@@ -23,6 +24,7 @@ Vue.use(Notifications);
 Vue.use(Tooltip);
 Vue.use(ToggleButton);
 Vue.use(KnobControl);
+Vue.use(flatPickr);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -76,6 +78,7 @@ new Vue({
             kills: 0,
             death: 0,
             assists: 0,
+            date: null
         };
     },
 

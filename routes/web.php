@@ -79,6 +79,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('players/{player}/stats', 'PagesController@stats');
     Route::get('players/{player}/heroes', 'PagesController@heroes');
     Route::get('players/{player}/totals', 'PagesController@totals');
+    Route::get('/livestream', 'PagesController@stream');
 
     //achivement
     Route::get('players/{player}/achievements', 'AchievementController@index');
