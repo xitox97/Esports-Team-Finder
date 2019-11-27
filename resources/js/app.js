@@ -17,6 +17,7 @@ import Tooltip from 'vue-directive-tooltip';
 import ToggleButton from 'vue-js-toggle-button';
 import KnobControl from 'vue-knob-control';
 import flatPickr from 'vue-flatpickr-component';
+import VueApexCharts from 'vue-apexcharts';
 
 Vue.use(VModal);
 Vue.use(ClickOutside);
@@ -25,6 +26,8 @@ Vue.use(Tooltip);
 Vue.use(ToggleButton);
 Vue.use(KnobControl);
 Vue.use(flatPickr);
+Vue.use(VueApexCharts);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -48,10 +51,13 @@ Vue.component('stats-component', require('./components/StatsComponent.vue').defa
 Vue.component('edit-achievement', require('./components/EditAchievement.vue').default);
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 Vue.component('mapsearch-component', require('./components/MapsearchComponent.vue').default);
+Vue.component('spider-component', require('./components/SpiderComponent.vue').default);
+Vue.component('apexchart', VueApexCharts);
 new Vue({
     el: '#app',
     components: {
-        KnobControl
+        KnobControl,
+        apexchart: VueApexCharts,
     },
     data() {
         return {
@@ -78,7 +84,8 @@ new Vue({
             kills: 0,
             death: 0,
             assists: 0,
-            date: null
+            date: null,
+
         };
     },
 
