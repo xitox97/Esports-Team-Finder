@@ -185,9 +185,12 @@
                                 $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
                         <p class="text-lg font-semibold  text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                         Lose: {{$fetchPlayers->win_lose['lose']}})</p>
+                        <a href="#" @click.prevent="$modal.show('spider',{ knowledge: {{$fetchPlayers->user->knowledge}} })"
+                            class="text-lg font-semibold  text-white capitalize text-indigo-500 hover:underline">View Playstyle</a>
                         <p class="text-lg font-semibold  text-white capitalize">Main Roles: *reserve</p>
                         <div class="mt-4">
                                 @include('users.medal')
+                                <spider-component />
                         </div>
                         <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-5">
                                 View Statistic
@@ -245,8 +248,12 @@
                 <p class="text-lg font-semibold  text-white capitalize">Main Roles: *reserve</p>
                 <a href="#" class="text-lg font-semibold  text-white capitalize text-indigo-500 hover:underline"
                 @click.prevent="$modal.show('achievement' ,{ id: {{$fetchPlayers->dota_id}} })">View Latest Achievements</a>
+                <a href="#" @click.prevent="$modal.show('spider',{ knowledge: {{$fetchPlayers->user->knowledge}} })"
+                class="text-lg font-semibold  text-white capitalize text-indigo-500 hover:underline">View Playstyle</a>
                 <div class="mt-4">
                         @include('users.medal')
+
+                        <spider-component />
                 </div>
                 <a  href="{{ url('/players/' . $fetchPlayers->dota_id) }}/stats" class="bg-pink-500 hover:bg-pink-400 text-white text-lg
                     font-bold py-2 px-4 rounded-lg shadow-lg mt-10">
