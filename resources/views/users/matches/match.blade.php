@@ -8,7 +8,7 @@
     </section>
 
     <div class="container mt-12 font-mono">
-        
+
         {{-- top --}}
         <div class="bg-dark-100 flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">
            <div class="flex">
@@ -60,7 +60,16 @@
 
                         </div>
 
+
            </div>
+           <div class="flex justify-center text-white cursor-pointer">
+               <a href="{{$matches->match_details['replay_url']}}">
+                <div class="flex p-2 hover:bg-gray-700">
+                        <i class="material-icons mr-1">get_app</i>
+                        <p>REPLAY</p>
+                </div>
+                </a>
+            </div>
            <div class="border-b border-gray-600 flex justify-center mt-4 pb-4">
                 <a href="{{ url('/matches/' . $matches->match_id ) }}" class="text-md font-medium  mr-20 hover:underline
                     {{(Request::is('matches/' . $matches->match_id )) ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Overview</a>
@@ -322,10 +331,10 @@
             @else
             <span class="italic text-sm">Home / Overview / Match</span>
             </section>
-        
+
             <div class="container mt-12 font-mono bg-dark-100 max-w-3xl p-8 rounded">
 
-                
+
             <p class="font-semibold text-lg text-white">Generating match details. Please come back again in a few minutes</p>
             </div>
             @endif
