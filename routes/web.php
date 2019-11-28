@@ -27,6 +27,7 @@ use App\Tournament;
 use App\User;
 use Cmgmyr\Messenger\Models\Message;
 use Cmgmyr\Messenger\Models\Thread;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
 Route::get('/', function () {
@@ -176,4 +177,10 @@ Route::group(['prefix' => 'messages'], function () {
 
 Route::get('/map2', function () {
     return view('map2');
+});
+
+
+Route::post('/sarep', function (Request $request) {
+
+    dd($request->request);
 });

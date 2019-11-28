@@ -76485,7 +76485,10 @@ new Vue({
       kills: 0,
       death: 0,
       assists: 0,
-      date: null
+      date: null,
+      totatt: 10,
+      pass: 0,
+      def: 0
     };
   },
   created: function created() {
@@ -76581,6 +76584,22 @@ new Vue({
         20: '20+'
       };
       return map[val];
+    },
+    increment: function increment(type) {
+      if (this.totatt === 0) return;
+      if (type == "pass") this.pass += 1;else if (type == "def") this.def += 1;
+      this.totatt -= 1;
+    },
+    decrement: function decrement(type) {
+      if (type == "pass") {
+        if (this.pass === 0) return;
+        this.pass -= 1;
+      } else if (type == "def") {
+        if (this.def === 0) return;
+        this.def -= 1;
+      }
+
+      this.totatt += 1;
     }
   },
   directives: {
