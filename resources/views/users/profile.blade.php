@@ -30,14 +30,28 @@
                   </div>
                   <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
-                      Age
+                        Birth Day
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
+                    {{-- <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded
                     py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-last-name"
                     type="text" placeholder="{{$fetchPlayers->user->age}}" name="age">
                     @error('age')
                     <p class="text-red-500 text-md italic">{{ $message }}</p>
-                    @enderror
+                    @enderror --}}
+                    <div class="relative">
+                            <flat-pickr v-model="date" placeholder="{{$fetchPlayers->user->birthdate}}"  :config="{ dateFormat: 'Y-m-d' }"
+                            class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
+                        py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600 bg-gray-200"></flat-pickr>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <i class="material-icons">
+                                    date_range
+                                    </i>
+                            </div>
+                          </div>
+                        <input type="hidden" name="birthdate" v-model="date">
+                        @error('birthdate')
+                            <p class="text-red-500 text-md italic">{{ $message }}</p>
+                        @enderror
                   </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-2">

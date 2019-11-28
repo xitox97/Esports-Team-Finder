@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -55,13 +56,17 @@ class UserController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'age' => ['required', 'integer'],
+            'birthdate' => ['required', 'date', 'before:now'],
             'city' => ['required', 'string', 'max:255'],
             'state' => ['required', 'string', 'max:255']
         ]);
-        
+
+        $age = Carbon::parse($request['birthdate'])->age;
+
+
         $user->name = $request['name'];
-        $user->age = $request['age'];
+        $user->birthdate = $request['birthdate'];
+        $user->age = $age;
         $user->area = $request['city'];
         $user->state = $request['state'];
         $user->save();
