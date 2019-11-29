@@ -18,6 +18,7 @@ import ToggleButton from 'vue-js-toggle-button';
 import KnobControl from 'vue-knob-control';
 import flatPickr from 'vue-flatpickr-component';
 import VueApexCharts from 'vue-apexcharts';
+import { Slide } from 'vue-burger-menu';
 
 Vue.use(VModal);
 Vue.use(ClickOutside);
@@ -58,6 +59,7 @@ new Vue({
     components: {
         KnobControl,
         apexchart: VueApexCharts,
+        Slide,
     },
     data() {
         return {
