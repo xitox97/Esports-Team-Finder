@@ -31,7 +31,7 @@
         }
         </style>
     </head>
-    <body class="bg-gray-900">
+    <body class="bg-gray-900 debug-screens">
             <div class="relative z-10 flex flex-col min-h-full bg-primary" >
                 <div class="absolute inset-0 bg-local bg-bottom bg-cover clip" style="background-image:url({{asset('img/sniper.jpg')}})">
                 </div>
@@ -83,19 +83,19 @@
                 <div class="container z-20 mx-auto mt-48 mb-2">
                         <div id="bot-section" class="flex justify-center">
                             <div class="flex flex-col items-center mr-32">
-                                    <img src="https://img.icons8.com/dusk/128/000000/video-conference.png">
-                                            <p class="text-2xl font-semibold text-white">Statistics</p>
+                                    <img src="{{asset('img/statistic.png')}}">
+                                            <p class="mt-2 text-2xl font-semibold text-white">Statistics</p>
                                             <p class="text-lg font-medium text-center text-gray-500">Watch and read player's in game statistics</p>
                             </div>
 
                             <div class="flex flex-col items-center mx-32 ">
-                                    <img src="https://img.icons8.com/dusk/128/000000/conference.png">
-                                            <p class="text-2xl font-semibold text-white">Scrims</p>
+                                   <img src="{{asset('img/game.png')}}">
+                                            <p class="mt-2 text-2xl font-semibold text-white">Scrims</p>
                                             <p class="text-lg font-medium text-center text-gray-500">Find team to practice together</p>
                             </div>
                             <div class="flex flex-col items-center ml-32">
-                                    <img src="https://img.icons8.com/dusk/128/000000/accuracy.png">
-                                            <p class="text-2xl font-semibold text-white">Search</p>
+                                <img src="{{asset('img/search.png')}}">
+                                            <p class="mt-2 text-2xl font-semibold text-white">Search</p>
                                             <p class="text-lg font-medium text-center text-gray-500">Find player based on your preferrences</p>
                             </div>
                         </div>
