@@ -83,7 +83,7 @@
 
 
 </head>
-<body class="h-full">
+<body class="h-full debug-screens">
 @php
 
     if(Auth::user()->accounts()->exists() == true){

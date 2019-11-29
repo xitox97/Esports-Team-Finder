@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="breadcrumb" class="ml-4 pt-2">
-    <span class="italic text-sm text-white font-medium tracking-wide">Home / Overview / <a href="{{url('/players/' . $fetchPlayers->dota_id)}}"
-        class="no-underline hover:underline text-blue-500">{{$fetchPlayers->user->name}}</a></span>
+    <section id="breadcrumb" class="pt-2 ml-4">
+    <span class="text-sm italic font-medium tracking-wide text-white">Home / Overview / <a href="{{url('/players/' . $fetchPlayers->dota_id)}}"
+        class="text-blue-500 no-underline hover:underline">{{$fetchPlayers->user->name}}</a></span>
     </section>
 
     <!--topsection-->
-        <div class="bg-dark-100 container mt-4 mx-auto p-4 rounded-lg w-full font-mono">
+        <div class="container w-full p-4 mx-auto mt-4 font-mono rounded-lg bg-dark-100">
             <div class="flex">
                 <div class="flex w-3/4">
                     <div class="flex">
-                        <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded-full shadow-lg w-32 border-purple-700 border-2" alt="...">
+                        <img src="{{  $fetchPlayers->avatar_url  }}" class="w-32 border-2 border-purple-700 rounded-full shadow-lg" alt="...">
                         <div class="ml-6">
                         <p class="text-lg font-bold text-white">{{  $fetchPlayers->steam_name  }}</p>
-                        <p class="text-md font-bold text-white">Wins: {{  $fetchPlayers->win_lose['win']  }}</p>
-                        <p class="text-md font-bold text-white">Losses: {{  $fetchPlayers->win_lose['lose']  }}</p>
-                        <p class="text-md font-bold text-white">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
+                        <p class="font-bold text-white text-md">Wins: {{  $fetchPlayers->win_lose['win']  }}</p>
+                        <p class="font-bold text-white text-md">Losses: {{  $fetchPlayers->win_lose['lose']  }}</p>
+                        <p class="font-bold text-white text-md">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
                                 $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                     @include('users.medal')</div>
 
                 </div>
-                <div class="border-b border-gray-600 flex justify-center mt-4 pb-4">
+                <div class="flex justify-center pb-4 mt-4 border-b border-gray-600">
                         <a href="{{ url('/players/' . $fetchPlayers->dota_id ) }}/stats" class="text-md font-medium mr-20 hover:underline
                          {{Request::is('players/'.$fetchPlayers->dota_id.'/stats') ? 'text-white border-b-2 border-purple-500 pb-2' : 'text-gray-400'}}">Overview</a>
                         <a href="{{ url('/players/' . $fetchPlayers->dota_id ) }}/heroes" class="text-md font-medium mx-10 hover:underline
@@ -37,26 +37,32 @@
                     </div>
                 </div>
             <!--stats section-->
-            <div class="container mt-4 mx-auto w-full font-mono">
+            <div class="container w-full mx-auto mt-4 font-mono">
                 <p class="text-2xl font-semibold text-purple-600">Recent Matches</p>
-                <div class="bg-dark-100 p-4 rounded-lg">
-                    <table class="border-collapse w-full">
+                <div class="p-4 rounded-lg bg-dark-100">
+                    <table class="w-full border-collapse">
                             <thead class="text-white">
                                 <tr>
-                                    <th class="text-left capitalize border-b border-gray-300 py-4">Hero</th>
-                                    <th class="text-left capitalize border-b border-gray-300 py-4">Result</th>
-                                    <th class="text-left capitalize border-b border-gray-300 py-4">Game Mode</th>
-                                    <th class="text-left capitalize border-b border-gray-300 py-4">Score (<span class="text-green-600">K</span>/
+                                    <th class="py-4 text-left capitalize border-b border-gray-300">Hero</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-300">Date</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-300">Result</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-300">Game Mode</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-300">Score (<span class="text-green-600">K</span>/
                                         <span class="text-red-600">D</span>/<span class="text-gray-600">A</span>)</th>
-                                    <th class="text-left capitalize border-b border-gray-300 py-4">Duration</th>
-                                    <th class="text-left capitalize border-b border-gray-300 py-4"></th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-300">Duration</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-300"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                     @if ($pageStats != null)
                                     @foreach ($pageStats as $recent)
-                                              <tr  class="py-4 px-6 border-b border-gray-300 hover:bg-content text-white">
-                                                <td class="text-center"> @include('users.heroes')</td>
+                                              <tr  class="px-6 py-4 text-white border-b border-gray-300 hover:bg-content">
+                                                <td class="text-center"> @include('users.heroes') </td>
+                                                <td><span v-tooltip.bottom="'{{ date('m/d/Y',$recent['start_time']) }}'">
+                                                    {{
+                                                        \Carbon\Carbon::createFromTimeStamp($recent['start_time'])->diffForHumans()
+                                                        }}</span>
+                                                </td>
                                                 <td>
                                                     @php
                                                         if($recent['player_slot'] >= 0 && $recent['player_slot'] <= 127)
@@ -94,7 +100,7 @@
                                                     <br>
                                                    {{ $position }}
                                                 </td>
-                                                <td><a href="{{ url('matches/' . $recent['match_id']) }}"><i class="material-icons text-indigo-600 cursor-pointer md-48">
+                                                <td><a href="{{ url('matches/' . $recent['match_id']) }}"><i class="text-indigo-600 cursor-pointer material-icons md-48">
                                                         pageview
                                                         </i></a></td>
                                                 </tr>
@@ -104,7 +110,7 @@
 
                             </tbody>
                     </table>
-                    <div class="mt-4 p-2">
+                    <div class="p-2 mt-4">
                         {{ $pageStats->links() }}
                     </div>
                 </div>

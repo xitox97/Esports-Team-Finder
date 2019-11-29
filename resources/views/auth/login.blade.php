@@ -33,49 +33,48 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
 
 </style>
 </head>
-<body class="h-screen">
-    <div id="app" class="flex flex-row-reverse h-auto max-w-full" >
-        <div class="flex  flex-col  items-center justify-center h-screen w-2/4 bg-gradient">
+<body class="h-full">
+    <div id="app" class="flex flex-col h-auto max-w-full md:flex-row-reverse" >
+        <div class="flex items-center justify-center w-full h-screen md:w-2/4 bg-gradient">
             <div class="w-full max-w-md">
-                    <form class="bg-white shadow-md rounded px-8 pt-16 pb-12 mb-4 antialiased" method="POST" action="{{ route('login') }}">
+                    <form class="px-8 pt-16 pb-12 mb-4 antialiased bg-white rounded shadow-md" method="POST" action="{{ route('login') }}">
                             @csrf
-                    <p class=" text-center font-medium text-md text-gray-500 mb-1">Welcome Back!</p>
-                    <p class=" text-center font-extrabold text-2xl text-black mb-6">Login Your Account</p>
-                      <div class="mb-4 border-b-2 border-indigo-500 py-2">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    <p class="mb-1 font-medium text-center text-gray-500 text-md">Welcome Back!</p>
+                    <p class="mb-6 text-2xl font-extrabold text-center text-black ">Login Your Account</p>
+                      <div class="py-2 mb-4 border-b-2 border-indigo-500">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
                           Email
                         </label>
-                        <input name="email" placeholder="Enter your email" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" id="email" type="text" >
+                        <input name="email" placeholder="Enter your email" class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="email" type="text" >
                       </div>
 
-                      <div class="mb-4 border-b-2 border-indigo-500 py-2">
-                            <label class="block text-gray-700 text-sm font-bold  mb-2" for="password">
+                      <div class="py-2 mb-4 border-b-2 border-indigo-500">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
                                     Password
                             </label>
-                            <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2
-                            leading-tight focus:outline-none" id="password" name="password" type="password" placeholder="***************">
+                            <input class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="password" name="password" type="password" placeholder="***************">
                           </div>
                           @error('email')
-                            <p class="text-red-500 text-xs italic -mt-3 text-center">{{ $message }}</p>
+                            <p class="-mt-3 text-xs italic text-center text-red-500">{{ $message }}</p>
                     @enderror
                       <div class="flex flex-col items-center justify-center">
-                            <button class="btn-indigo text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
+                            <button class="w-64 px-4 py-2 mt-4 font-bold text-white rounded-full shadow-md btn-indigo" type="submit">
                                     Login
                             </button>
-                            <a class="inline-block align-baseline font-bold text-sm text-gray-600 hover:text-blue-800 mt-3" href="/password/reset">
+                            <a class="inline-block mt-3 text-sm font-bold text-gray-600 align-baseline hover:text-blue-800" href="/password/reset">
                                 Forgot Password?
                               </a>
-                            <a class="inline-block align-baseline font-bold text-sm text-black hover:text-blue-800 mt-3" href="register">
+                            <a class="inline-block mt-3 text-sm font-bold text-black align-baseline hover:text-blue-800" href="register">
                                     Create New Account?
                                   </a>
                       </div>
                     </form>
-                    <p class="text-center text-gray-500 text-xs">
+                    <p class="text-xs text-center text-gray-500">
                       &copy;2019 DotaHunt. All rights reserved.
                     </p>
                   </div>
         </div>
-        <div class="bg-cover bg-center h-auto max-w-full w-2/4" style="background-image: url({{asset('img/champ.jpg')}})">
+        <div class="w-2/4 h-auto max-w-full bg-center bg-cover" style="background-image: url({{asset('img/champ.jpg')}})">
         </div>
     </div>
 </body>

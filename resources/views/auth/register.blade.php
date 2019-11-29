@@ -20,39 +20,36 @@
 
 </head>
 <body class="h-screen">
-    <div id="app" class="flex h-auto max-w-full" >
-        <div class="flex  flex-col  items-start justify-start h-screen w-2/4 ">
+    <div id="app" class="flex flex-col h-auto max-w-full md:flex-row" >
+        <div class="flex flex-col items-start justify-start w-full h-screen md:w-8/12 xl:w-2/4 ">
             <div class="w-full">
-                    <form class="bg-white rounded px-32 mb-4 antialiased pt-8" method="POST" action="{{ route('register') }}">
+                    <form class="px-20 pt-8 mb-4 antialiased bg-white rounded lg:px-32" method="POST" action="{{ route('register') }}">
                             @csrf
-                    <p class=" text-left font-extrabold text-4xl text-black mb-2">Let's hunt some players!</p>
-                    <p class=" text-left font-medium text-lg text-indigo-700 mb-3">Sign up now to start creating your Dream Team!</p>
-                    <p class=" text-left font-base text-md text-black mb-10">Already have an account?
-                        <a href="/login" class="text-indigo-700 hover:text-indigo-800 cursor-pointer font-medium">
+                    <p class="mb-2 text-4xl font-extrabold text-left text-black ">Let's hunt some players!</p>
+                    <p class="mb-3 text-lg font-medium text-left text-indigo-700 ">Sign up now to start creating your Dream Team!</p>
+                    <p class="mb-10 text-left text-black font-base text-md">Already have an account?
+                        <a href="/login" class="font-medium text-indigo-700 cursor-pointer hover:text-indigo-800">
                             Log in.</a></p>
-                            <div class="flex flex-wrap -mx-3 mb-3">
-                                <div class="w-full md:w-1/2 px-3">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                            <div class="flex flex-wrap mb-3 -mx-3">
+                                <div class="w-full px-3 md:w-1/2">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
                                         Full Name
                                     </label>
-                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
-                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
+                                    <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="text" placeholder="Enter your full name" name="name" required>
                                     @error('name')
-                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="w-full md:w-1/2 px-3">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                <div class="w-full px-3 md:w-1/2">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
                                         Birth Day
                                     </label>
-                                    {{-- <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
-                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" id="grid-last-name"
+                                    {{-- <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" id="grid-last-name"
                                     type="date" placeholder="Enter your age" name="age" required> --}}
                                     <div class="relative">
-                                        <flat-pickr v-model="date" placeholder="Select your birth day"  :config="{ dateFormat: 'Y-m-d' }" class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
-                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"></flat-pickr>
-                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <flat-pickr v-model="date" placeholder="Select your birth day"  :config="{ dateFormat: 'Y-m-d' }" class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"></flat-pickr>
+                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
                                             <i class="material-icons">
                                                 date_range
                                                 </i>
@@ -62,49 +59,44 @@
 
                                     <input type="hidden" name="birthdate" v-model="date">
                                     @error('birthdate')
-                                        <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                        <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="w-full  px-3 mt-5">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                <div class="w-full px-3 mt-5">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
                                         E-mail
                                     </label>
-                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
-                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600" id="grid-last-name"
+                                    <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" id="grid-last-name"
                                     type="email" placeholder="Enter your valid email address" name="email" required>
                                     @error('email')
-                                        <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                        <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                {{-- <div class="w-full md:w-1/2 px-3 mt-5">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-last-name">
+                                {{-- <div class="w-full px-3 mt-5 md:w-1/2">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
                                         Phone
                                     </label>
-                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
-                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
+                                    <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="text" placeholder="Enter your phone number" required>
                                 </div> --}}
                             </div>
-                            <div class="flex flex-wrap -mx-3 mb-3">
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-state">
+                            <div class="flex flex-wrap mb-3 -mx-3">
+                                <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-state">
                                         City
                                     </label>
-                                    <input class="appearance-none block w-full text-gray-700 border border-gray-500 rounded
-                                    py-3 px-4 leading-tight focus:outline-none focus:border-indigo-600"
+                                    <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="text" placeholder="Enter your city" name="area" required>
                                     @error('area')
-                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2" for="grid-state">
+                                <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-state">
                                         State
                                     </label>
                                     <div class="relative">
-                                        <select class="block appearance-none w-full border border-gray-500
-                                        text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none
-                                        focus:border-indigo-600 " name="state" required>
+                                        <select class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600 " name="state" required>
                                         <option selected>Select state</option>
                                         <option value="Johor">Johor</option>
                                         <option value="Kedah">Kedah</option>
@@ -123,50 +115,48 @@
                                         <option value="Labuan">Labuan</option>
                                         <option value="Putrajaya">Putrajaya</option>
                                         </select>
-                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                         </div>
                                     </div>
                                     @error('state')
-                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
                                 </div>
                             </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full md:w-1/2 px-3">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2">
+                            <div class="flex flex-wrap mb-6 -mx-3">
+                                <div class="w-full px-3 md:w-1/2">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md">
                                     Password
                                     </label>
-                                    <input class="appearance-none block w-full  text-gray-700 border  border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none  focus:border-indigo-600"
+                                    <input class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="password" id="password" placeholder="*****" name="password" required>
                                     @error('password')
-                                    <p class="text-red-500 text-md italic">{{ $message }}</p>
+                                    <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="w-full md:w-1/2 px-3">
-                                    <label class="block capitalize tracking-wide text-gray-700 text-md font-semibold mb-2">
+                                <div class="w-full px-3 md:w-1/2">
+                                    <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md">
                                         Confirm Password
                                     </label>
-                                    <input class="appearance-none block w-full  text-gray-700 border  border-gray-500 rounded py-3 px-4 mb-3
-                                    leading-tight focus:outline-none  focus:border-indigo-600" type="password"
+                                    <input class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" type="password"
                                     placeholder="*****" name="password_confirmation" required id="password-confirm" required>
 
                                 </div>
                                 </div>
-                                <div class="flex flex-col justify-center items-center">
-                                    <button class="btn-indigo text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-4" type="submit">
+                                <div class="flex flex-col items-center justify-center">
+                                    <button class="w-64 px-4 py-2 mt-4 font-bold text-white rounded-full shadow-md btn-indigo" type="submit">
                                             Sign Up
                                     </button>
-                                    <a href="/" class=" bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-full w-64 shadow-md mt-2 text-center
-                                    ">Back</a>
+                                    <a href="/" class="w-64 px-4 py-2 mt-2 font-bold text-center text-white bg-red-700 rounded-full shadow-md hover:bg-red-800">Back</a>
                                 </div>
                     </form>
-                    <p class="text-center text-indigo-700 text-xs">
+                    <p class="text-xs text-center text-indigo-700">
                       &copy;2019 DotaHunt. All rights reserved.
                     </p>
                   </div>
         </div>
-        <div class="bg-cover bg-center h-auto max-w-full w-2/4" style="background-image: url({{asset('img/3.jpg')}})">
+        <div class="h-auto max-w-full bg-center bg-cover md:w-4/12 xl:w-2/4" style="background-image: url({{asset('img/3.jpg')}})">
         </div>
     </div>
 </body>
@@ -278,7 +268,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="mb-0 form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}

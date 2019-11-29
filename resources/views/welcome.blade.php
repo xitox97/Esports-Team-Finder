@@ -95,7 +95,7 @@
     }
         </style>
     </head>
-    <body class="bg-gray-900 debug-screens">
+    <body class="bg-gray-900">
             <div class="relative z-10 flex flex-col min-h-full bg-primary" id="app">
                 <div class="absolute inset-0 bg-local bg-bottom bg-cover clip" style="background-image:url({{asset('img/sniper.jpg')}})">
                 </div>
