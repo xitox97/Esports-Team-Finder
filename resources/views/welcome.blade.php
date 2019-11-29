@@ -7,6 +7,8 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <!-- Fonts -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
         {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <!-- Styles -->
         <style>
@@ -16,82 +18,98 @@
 
             }
             .mySlides {display:none;}
+            .clip{
+                -webkit-clip-path: polygon(48% 69%, 23% 72%, 0 66%, 0 0, 100% 0, 100% 64%, 87% 69%, 67% 72%);
+                -webkit-shape-outside: polygon(48% 69%, 23% 72%, 0 66%, 0 0, 100% 0, 100% 64%, 87% 69%, 67% 72%);
+                clip-path: polygon(48% 69%, 23% 72%, 0 66%, 0 0, 100% 0, 100% 64%, 87% 69%, 67% 72%);
+            }
+            .material-icons.md-18 { font-size: 14px; }
+        .material-icons.md-24 { font-size: 22px; }
+        .material-icons.md-big { font-size: 144px; }
+        .filter{
+            background-color: hsla(0,0%,0%, .55);
+        }
         </style>
     </head>
-    <body class="bg-black font-mono">
-            {{-- <!-- Full width column -->
-            <nav class="fixed  z-50 bg-transparent w-full ">
-                <div class="container mx-auto ">
-                    <img src="https://postbox-inc.com/assets/images/postbox-logo-white.png" alt="">
+    <body class="font-mono bg-gray-900">
+            <div class="relative z-10 flex flex-col min-h-full bg-primary" >
+                <div class="absolute inset-0 bg-local bg-bottom bg-cover clip" style="background-image:url({{asset('img/sniper.jpg')}})">
                 </div>
-                  </nav>
-                  <section class="bg-primary bg-cover bg-center min-h-full" style="background-image:url(https://postbox-inc.com/assets/images/hero/postbox-hero-night.svg);">
-                </section> --}}
-            <div class="flex flex-col bg-primary bg-fixed bg-cover bg-center min-h-full" style="background-image:url({{asset('img/dota2.jpg')}})">
-                <header>
-                    <div class="container mx-auto pt-8 ">
-                        <div class="flex">
 
-                            <div class="w-1/4 flex items-center">
-                                <button class="bg-purple-800  text-white font-bold py-2 px-4 rounded inline-flex items-center">
-                                    <span class="text-lg tracking-wider">DOTAHUNT</span>
-                                </button>
+                <header class="z-20 filter">
+                        <div class="container px-6 py-2 mx-auto ">
+                            <div class="flex">
+                                <div class="flex items-baseline w-1/2">
+                                    <a href="/" class="pt-1 mr-8 font-sans text-2xl font-bold tracking-wide text-white hover:text-pink-500">&lt;dotahunt/&gt;</a>
+                                </div>
+                                <div class="flex items-baseline w-1/4">
+                                    <a href="#" class="py-3 mr-8 text-lg font-medium text-white hover:text-gray-500">Players</a>
+                                    <a href="#" class="py-3 mr-8 text-lg font-medium text-white hover:text-gray-500">Teams</a>
+                                    <a href="#" class="py-3 text-lg font-medium text-white hover:text-gray-500">Tournaments</a>
+                                </div>
+                                <div class="flex justify-end w-1/2">
+                                    <a href="/login" class="py-3 mr-2 text-lg font-semibold">
+                                        <span class="flex items-center text-white hover:text-gray-500">
+                                        Sign in
+                                        <i class="ml-1 material-icons md-18">arrow_forward</i>
+                                        </span>
+                                        </a>
+                                </div>
                             </div>
-
-                            <div class="w-1/2 flex justify-center">
-                                <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Players</a>
-                                <a href="#" class="text-lg font-semibold mr-8 py-6 text-white">Teams</a>
-                                <a href="#" class="text-lg font-semibold py-6 text-white">Tournaments</a>
-                            </div>
-
-                            <div class="w-1/4 flex items-center  flex-row-reverse text-right">
-                                <a href="/register" class="bg-transparent hover:bg-purple-800 text-white
-                                font-semibold hover:text-white py-3 px-3 border-2 border-purple-800 hover:border-transparent
-                                rounded inline-block ">Sign Up</a>
-                                <a href="/login" class="bg-purple-700 hover:bg-purple-800 font-bold text-white
-                                inline-block mr-1  py-3 px-3 rounded">Sign In</a>
-                            </div>
-
                         </div>
-                    </div>
-                </header>
+                    </header>
 
-                <div class="container mx-auto mt-16">
-
-                    <div class="flex ">
-                            <div id="section" class="w-3/6 mr-2 pt-2">
-                                <p class="text-4xl font-bold text-black text-center bg-white max-w-md ">THE ULTIMATE PLACE TO</p><p class="pt-3 text-2xl font-bold text-white  max-w-md capitalize border-b-2 border-gray-600 pb-2"> find players that are interested in local tournament</p>
-                                <p class="pt-3 text-2xl font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> find teammates and participate in local tournaments</p>
-                                <p class="pt-3 text-2xl font-bold text-white   max-w-md capitalize border-b-2 border-gray-600 pb-2"> play practice match with another teams</p>
-                                <a href="/register" class="bg-purple-700 hover:bg-purple-800 font-bold text-white inline-block mr-1 mt-3  py-3 px-3 rounded ">LETS GET START</a>
+                    <div class="container z-20 mx-auto mt-16">
+                        <div class="flex justify-end">
+                                <div id="section" class="flex flex-col items-end w-3/6 ">
+                                    <div class="flex flex-col pt-2 mr-2 ">
+                                        <p class="max-w-md px-4 mt-4 text-3xl font-extrabold text-center bg-purple-600">WELCOME TO DOTAHUNT</p>
+                                        <p class="max-w-md pt-3 pb-2 mt-4 text-lg font-bold text-justify text-white">Dotahunt is a website for Dota 2 player to find and create team to participate tournament in Malaysia.</p>
+                                    <div class="flex justify-center mt-10">
+                                            <a href="/register" class="inline-block px-4 py-3 mt-3 mr-1 font-bold tracking-wide text-white bg-purple-800 rounded-lg shadow-lg hover:bg-purple-900">
+                                                        START NOW
+                                            </a>
+                                    </div>
+                                    </div>
+                                </div>
+                                {{-- <div id="section" class="flex flex-col items-end w-3/6 pt-2 mr-2">
+                                    <p class="max-w-md px-4 text-4xl font-bold text-center text-black bg-white">THE ULTIMATE PLACE TO</p>
+                                    <p class="max-w-md pt-3 pb-2 text-2xl font-bold text-white capitalize border-b-2 border-gray-600"> find players that are interested in local tournament</p>
+                                    <p class="max-w-md pt-3 pb-2 text-2xl font-bold text-white capitalize border-b-2 border-gray-600"> find teammates and participate in local tournaments</p>
+                                    <p class="max-w-md pt-3 pb-2 text-2xl font-bold text-white capitalize border-b-2 border-gray-600"> play practice match with another teams</p>
+                                    <a href="/register" class="inline-block px-3 py-3 mt-3 mr-1 font-bold text-white bg-purple-700 rounded hover:bg-purple-800 ">LETS GET START</a>
+                                </div> --}}
+                        </div>
+                </div>
+                <div class="container z-20 mx-auto mt-48">
+                        <div id="bot-section" class="flex justify-center">
+                            <div class="flex flex-col items-center mr-32">
+                                    <img src="https://img.icons8.com/dusk/128/000000/video-conference.png">
+                                            <p class="text-2xl font-semibold text-white">Statistics</p>
+                                            <p class="text-lg font-medium text-center text-gray-500">Watch and read player's in game statistics</p>
                             </div>
 
-                            {{-- <div id="images" class="flex flex-wrap w-3/6 pl-3 ml-4 pt-2">
-                                <div class="w3-content w3-section" >
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/og.jpg')}}" style="width:90%">
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/liquid.jpg')}}" style="width:90%">
-                                        <img class="mySlides border-2 border-indigo-600" src="{{asset('img/lgd.jpg')}}" style="width:90%">
-                                      </div>
-
-                            </div> --}}
-                    </div>
+                            <div class="flex flex-col items-center mx-32 ">
+                                    <img src="https://img.icons8.com/dusk/128/000000/conference.png">
+                                            <p class="text-2xl font-semibold text-white">Scrims</p>
+                                            <p class="text-lg font-medium text-center text-gray-500">Find team to practice together</p>
+                            </div>
+                            <div class="flex flex-col items-center ml-32">
+                                    <img src="https://img.icons8.com/dusk/128/000000/accuracy.png">
+                                            <p class="text-2xl font-semibold text-white">Search</p>
+                                            <p class="text-lg font-medium text-center text-gray-500">Find player based on your preferrences</p>
+                            </div>
+                        </div>
                 </div>
+                <footer class="absolute bottom-0 z-20 w-full bg-black">
+                        <div class="container flex justify-between py-3 mx-auto">
+                                <p class="text-sm text-gray-200">&copy;2019 DotaHunt. All rights reserved</p>
+                                <p class="flex items-center text-sm text-gray-200"><i class="mr-2 material-icons">
+                                        email
+                                        </i>farhan.abdhadi@gmail.com</p>
+                        </div>
+            </footer>
             </div>
-            <script>
-                    var myIndex = 0;
-                    carousel();
 
-                    function carousel() {
-                      var i;
-                      var x = document.getElementsByClassName("mySlides");
-                      for (i = 0; i < x.length; i++) {
-                        x[i].style.display = "none";
-                      }
-                      myIndex++;
-                      if (myIndex > x.length) {myIndex = 1}
-                      x[myIndex-1].style.display = "block";
-                      setTimeout(carousel, 2000); // Change image every 2 seconds
-                    }
-                    </script>
     </body>
 </html>
