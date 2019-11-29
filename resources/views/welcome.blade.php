@@ -9,11 +9,12 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
         <!-- Styles -->
         <style>
             html, body {
-
+                font-family: 'Roboto', sans-serif;
                 height: 100vh;
 
             }
@@ -31,7 +32,7 @@
         }
         </style>
     </head>
-    <body class="font-mono bg-gray-900">
+    <body class="bg-gray-900">
             <div class="relative z-10 flex flex-col min-h-full bg-primary" >
                 <div class="absolute inset-0 bg-local bg-bottom bg-cover clip" style="background-image:url({{asset('img/sniper.jpg')}})">
                 </div>
@@ -40,7 +41,7 @@
                         <div class="container px-6 py-2 mx-auto ">
                             <div class="flex">
                                 <div class="flex items-baseline w-1/2">
-                                    <a href="/" class="pt-1 mr-8 font-sans text-2xl font-bold tracking-wide text-white hover:text-pink-500">&lt;dotahunt/&gt;</a>
+                                    <a href="/" class="pt-1 mr-8 text-2xl font-bold tracking-wide text-white hover:text-pink-500">&lt;dotahunt/&gt;</a>
                                 </div>
                                 <div class="flex items-baseline w-1/4">
                                     <a href="#" class="py-3 mr-8 text-lg font-medium text-white hover:text-gray-500">Players</a>
@@ -64,7 +65,7 @@
                                 <div id="section" class="flex flex-col items-end w-3/6 ">
                                     <div class="flex flex-col pt-2 mr-2 ">
                                         <p class="max-w-md px-4 mt-4 text-3xl font-extrabold text-center bg-purple-600">WELCOME TO DOTAHUNT</p>
-                                        <p class="max-w-md pt-3 pb-2 mt-4 text-lg font-bold text-justify text-white">Dotahunt is a website for Dota 2 player to find and create team to participate tournament in Malaysia.</p>
+                                        <p class="max-w-md pt-3 pb-2 mt-4 text-lg font-bold tracking-wide text-justify text-white">Dotahunt is a website for Dota 2 player to find and create team to participate tournament in Malaysia.</p>
                                     <div class="flex justify-center mt-10">
                                             <a href="/register" class="inline-block px-4 py-3 mt-3 mr-1 font-bold tracking-wide text-white bg-purple-800 rounded-lg shadow-lg hover:bg-purple-900">
                                                         START NOW
