@@ -15,8 +15,7 @@
         <style>
             html, body {
                 font-family: 'Roboto', sans-serif;
-                height: 100vh;
-
+                height: 100%;
             }
             .mySlides {display:none;}
             .clip{
@@ -36,7 +35,6 @@
             <div class="relative z-10 flex flex-col min-h-full bg-primary" >
                 <div class="absolute inset-0 bg-local bg-bottom bg-cover clip" style="background-image:url({{asset('img/sniper.jpg')}})">
                 </div>
-
                 <header class="z-20 filter">
                         <div class="container px-6 py-2 mx-auto ">
                             <div class="flex">
@@ -82,7 +80,7 @@
                                 </div> --}}
                         </div>
                 </div>
-                <div class="container z-20 mx-auto mt-48">
+                <div class="container z-20 mx-auto mt-48 mb-2">
                         <div id="bot-section" class="flex justify-center">
                             <div class="flex flex-col items-center mr-32">
                                     <img src="https://img.icons8.com/dusk/128/000000/video-conference.png">
@@ -102,7 +100,7 @@
                             </div>
                         </div>
                 </div>
-                <footer class="absolute bottom-0 z-20 w-full bg-black">
+                <footer class="z-20 w-full mt-auto bg-black">
                         <div class="container flex justify-between py-3 mx-auto">
                                 <p class="text-sm text-gray-200">&copy;2019 DotaHunt. All rights reserved</p>
                                 <p class="flex items-center text-sm text-gray-200"><i class="mr-2 material-icons">
