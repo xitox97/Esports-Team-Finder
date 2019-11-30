@@ -135,11 +135,16 @@
                         <div class="flex justify-center md:justify-end">
                                 <div id="section" class="flex flex-col items-end w-4/6 md:w-3/6 ">
                                     <div class="flex flex-col pt-2 mr-2 ">
-                                        <p class="max-w-md px-4 mt-0 text-3xl font-extrabold text-center bg-purple-700 md:mt-4">WELCOME TO DOTAHUNT</p>
-                                        <p class="max-w-md pt-3 pb-2 mt-4 text-lg font-bold tracking-wide text-center text-white md:text-justify">Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p>
-                                    <div class="flex justify-center mt-10">
-                                            <a href="/register" class="inline-block px-4 py-3 mt-3 mr-1 font-bold tracking-wide text-white bg-purple-800 rounded-lg shadow-lg hover:bg-purple-900">
-                                                START NOW
+                                        {{-- <p class="max-w-md px-4 mt-0 text-3xl font-extrabold text-center bg-purple-700 md:mt-4">WELCOME TO DOTAHUNT</p>
+                                        <p class="max-w-md pt-3 pb-2 mt-4 text-lg tracking-wide text-center text-white md:text-justify">Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p> --}}
+                                        <p class="max-w-lg px-4 mt-0 text-4xl text-white text-center bg-purple-700 md:mt-4 whitespace-no-wrap">Let's hunt some players!</p>
+                                      <p class="max-w-lg pt-3 pb-2 mt-4 text-lg tracking-wide text-center text-white md:text-justify">
+                                        Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p>
+                                        <p class="max-w-lg font-semibold text-lg tracking-wide text-center text-white md:text-justify tracking-wide">Sign up now to start creating your Dream Team!</p>
+
+                                        <div class="flex justify-center mt-10">
+                                            <a href="/register" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-4 border-b-4 border-purple-900 hover:border-purple-700 rounded tracking-wider">
+                                              Sign up
                                             </a>
                                     </div>
                                     </div>
@@ -149,18 +154,18 @@
                 <div class="container z-10 mx-auto mt-56 mb-2 md:mt-48">
                         <div id="bot-section" class="flex flex-col justify-center mt-40 md:mt-0 md:flex-no-wrap md:flex-row md:justify-center">
                             <div class="flex flex-col items-center lg:mr-32 ">
-                                    <img src="{{asset('img/statistic.png')}}">
-                                            <p class="mt-2 text-2xl font-semibold text-white">Statistics</p>
+                                    <img src="{{asset('img/statistic.png')}}" class="w-32 md:w-24">
+                                            <p class="mt-2 text-2xl font-semibold tracking-wide text-white">Statistics</p>
                                             <p class="text-lg font-medium text-center text-gray-500">Watch and read player's in game statistics</p>
                             </div>
                             <div class="flex flex-col items-center mt-4 md:mt-0 lg:mx-32 ">
-                                   <img src="{{asset('img/game.png')}}">
-                                            <p class="mt-2 text-2xl font-semibold text-white">Scrims</p>
+                                   <img src="{{asset('img/game.png')}}" class="w-32 md:w-24">
+                                            <p class="mt-2 text-2xl font-semibold tracking-wide text-white">Scrims</p>
                                             <p class="text-lg font-medium text-center text-gray-500">Find team to practice together</p>
                             </div>
                             <div class="flex flex-col items-center mt-4 md:mt-0 lg:ml-32">
-                                <img src="{{asset('img/search.png')}}">
-                                            <p class="mt-2 text-2xl font-semibold text-white">Search</p>
+                                <img src="{{asset('img/search.png')}}" class="w-32 md:w-24">
+                                            <p class="mt-2 text-2xl font-semibold tracking-wide text-white">Search</p>
                                             <p class="text-lg font-medium text-center text-gray-500">Find player based on your preferrences</p>
                             </div>
                         </div>
