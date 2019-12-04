@@ -137,7 +137,7 @@
                                     <div class="flex flex-col pt-2 mr-2 ">
                                         {{-- <p class="max-w-md px-4 mt-0 text-3xl font-extrabold text-center bg-purple-700 md:mt-4">WELCOME TO DOTAHUNT</p>
                                         <p class="max-w-md pt-3 pb-2 mt-4 text-lg tracking-wide text-center text-white md:text-justify">Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p> --}}
-                                        <p class="max-w-lg px-4 mt-0 text-4xl text-white text-center bg-purple-700 md:mt-4 whitespace-no-wrap">Let's hunt some players!</p>
+                                        <p class="max-w-lg px-4 mt-0 text-4xl text-white text-center bg-purple-700 md:mt-4 whitespace-no-wrap border-b-4 border-l-4 border-purple-900">Let's hunt some players!</p>
                                       <p class="max-w-lg pt-3 pb-2 mt-4 text-lg tracking-wide text-center text-white md:text-justify">
                                         Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p>
                                         <p class="max-w-lg font-semibold text-lg tracking-wide text-center text-white md:text-justify tracking-wide">Sign up now to start creating your Dream Team!</p>

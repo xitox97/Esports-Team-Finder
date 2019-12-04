@@ -78,7 +78,68 @@
 }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+.bm-burger-button {
+      position: fixed;
+      width: 32px !important;
+      height: 24px !important;
+      left: 36px;
+    margin-top: 0.9rem;
+      top: 0 !important;
+      cursor: pointer;
+    }
+    .bm-burger-bars {
+      background-color: white !important;
+    }
+    .line-style {
+      position: absolute;
+      height: 20%;
+      left: 0;
+      right: 0;
+    }
+    .cross-style {
+      position: absolute;
+      top: 12px;
+      right: 2px;
+      cursor: pointer;
+    }
+    .bm-cross {
+      background: white;
+    }
+    .bm-cross-button {
+      height: 24px;
+      width: 24px;
+    }
+    .bm-menu {
+      height: 100%; /* 100% Full-height */
+      width: 0; /* 0 width - change this with JavaScript */
+      position: fixed; /* Stay in place */
+      z-index: 1000; /* Stay on top */
+      top: 0;
+      left: 0;
+      background-color: hsla(0,0%,0%, .55) !important; /* Black*/
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-top: 60px; /* Place content 60px from the top */
+      transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+    }
 
+    .bm-overlay {
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .bm-item-list {
+        color: #b794f4 !important;
+      margin-left: 10%;
+      font-size: 20px;
+    }
+    .bm-item-list > * {
+      display: flex;
+      text-decoration: none;
+      padding: 0.7em;
+    }
+    .bm-item-list > * > span {
+      margin-left: 10px;
+      font-weight: 700;
+      color: #b794f4 !important;
+    }
 </style>
 
 
@@ -94,7 +155,7 @@
     }
 @endphp
     <div id="app" class="flex min-h-screen font-sans">
-            <sidebar-component v-bind:is-open="isOpen" class="flex flex-col w-2/12 bg-sidebar">
+            <sidebar-component v-bind:is-open="isOpen" class="flex-col hidden w-3/12 xl:w-2/12 lg:flex bg-sidebar ">
                 <a href="/{{$playerUrl}}/stats"
                 class="mt-12 mb-10 text-lg font-semibold text-purple-400 hover:text-white"
               >
@@ -103,21 +164,19 @@
               </a>
               <a
               href="/{{$playerUrl}}/achievements"
-                class="mb-10 text-lg font-semibold text-purple-400 cursor-pointer hover:text-white"
+              class="mb-10 text-lg font-semibold text-purple-400 cursor-pointer hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">emoji_events</i>
                 <span class="align-middle ml-2 {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">Achievements</span>
               </a>
               <a
-                href="/tournaments"
-                class="mb-10 text-lg font-semibold text-purple-400 hover:text-white"
+                href="/tournaments" class="mb-10 text-lg font-semibold text-purple-400 hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is('tournaments') ? 'text-white' : ''}}" >videogame_asset</i>
                 <span class="align-middle ml-2 {{Request::is('tournaments') ? 'text-white' : ''}}" >Tournaments</span>
               </a>
               <a
-                href="{{ url('/teams') }}"
-                class="mb-10 text-lg font-semibold text-purple-400 hover:text-white"
+                href="{{ url('/teams') }}" class="mb-10 text-lg font-semibold text-purple-400 hover:text-white"
               >
                 <i class="material-icons align-middle {{Request::is('teams') ? 'text-white' : ''}}" >group</i>
                 <span class="align-middle ml-2 {{Request::is('teams') ? 'text-white' : ''}}" >Teams</span>
@@ -144,8 +203,63 @@
               </a>
 
             </sidebar-component>
-            <section id="maindiv" class="flex flex-col w-10/12 bg-gray-900" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
-                <header class="flex justify-between h-24">
+            <div class="flex items-center justify-end lg:hidden" >
+                <Slide left>
+                        <a
+                        class="font-mono text-xl font-bold tracking-wider text-white"
+                        href="/"
+                      >&lt;DOTAHUNT/&gt;</a>
+                    <a href="/{{$playerUrl}}/stats"
+                    class="mt-2 mb-10 text-base font-semibold text-purple-400 hover:text-white"
+                  >
+                    <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">assessment</i>
+                    <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">Overview</span>
+                  </a>
+                  <a
+                  href="/{{$playerUrl}}/achievements"
+                    class="mb-10 text-base font-semibold text-purple-400 cursor-pointer hover:text-white"
+                  >
+                    <i class="material-icons align-middle {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">emoji_events</i>
+                    <span class="align-middle ml-2 {{Request::is($playerUrl . '/achievements', $playerUrl . '/achievements/*') ? 'text-white' : ''}}">Achievements</span>
+                  </a>
+                  <a
+                    href="/tournaments"
+                    class="mb-10 text-base font-semibold text-purple-400 hover:text-white"
+                  >
+                    <i class="material-icons align-middle {{Request::is('tournaments') ? 'text-white' : ''}}" >videogame_asset</i>
+                    <span class="align-middle ml-2 {{Request::is('tournaments') ? 'text-white' : ''}}" >Tournaments</span>
+                  </a>
+                  <a
+                    href="{{ url('/teams') }}"
+                    class="mb-10 text-base font-semibold text-purple-400 hover:text-white"
+                  >
+                    <i class="material-icons align-middle {{Request::is('teams') ? 'text-white' : ''}}" >group</i>
+                    <span class="align-middle ml-2 {{Request::is('teams') ? 'text-white' : ''}}" >Teams</span>
+                  </a>
+                  <a href="/scrims" class="mb-10 text-base font-semibold text-purple-400 hover:text-white">
+                    <i class="material-icons align-middle {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}">sports_kabaddi</i>
+                    <span class="align-middle ml-2 {{Request::is('scrims', 'scrims-schedule') ? 'text-white' : ''}}" >Scrims</span>
+                  </a>
+                  <a href="/players/list" class="mb-10 text-base font-semibold text-purple-400 hover:text-white">
+                    <i class="material-icons align-middle {{Request::is('players/list') ? 'text-white' : ''}}">face</i>
+                    <span class="align-middle ml-2 {{Request::is('players/list') ? 'text-white' : ''}}" >Players</span>
+                  </a>
+                  <a href="/players/recommendation" class="mb-10 text-base font-semibold text-purple-400 hover:text-white">
+                    <i class="material-icons align-middle {{Request::is('players/recommendation') ? 'text-white' : ''}}">assignment</i>
+                    <span class="align-middle ml-2 {{Request::is('players/recommendation') ? 'text-white' : ''}}" >Recommendation</span>
+                  </a>
+                  <a href="/livestream" class="mb-10 text-base font-semibold text-purple-400 hover:text-white">
+                    <i class="material-icons align-middle {{Request::is('livestream') ? 'text-white' : ''}}">ondemand_video</i>
+                    <span class="align-middle ml-2 {{Request::is('livestream') ? 'text-white' : ''}}" >Live Stream</span>
+                  </a>
+                  <a href="/map/search" class="mb-10 text-base font-semibold text-purple-400 hover:text-white">
+                    <i class="material-icons align-middle {{Request::is('/map/search') ? 'text-white' : ''}}">near_me</i>
+                    <span class="align-middle ml-2 {{Request::is('/map/search') ? 'text-white' : ''}}" >Find nearby</span>
+                  </a>
+                </Slide>
+            </div>
+            <section id="maindiv" class="flex flex-col w-full bg-gray-900 " v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
+                <header class="justify-between hidden h-24 lg:flex">
                     <div class="flex items-center w-8 ml-12">
                            <i v-on:click="toggle"  class="text-white cursor-pointer material-icons md-36">
                                     menu_open
