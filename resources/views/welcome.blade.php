@@ -133,17 +133,15 @@
 
                     <div class="container z-10 mx-auto mt-12 md:mt-16">
                         <div class="flex justify-center md:justify-end">
-                                <div id="section" class="flex flex-col items-end w-4/6 md:w-3/6 ">
-                                    <div class="flex flex-col pt-2 mr-2 ">
-                                        {{-- <p class="max-w-md px-4 mt-0 text-3xl font-extrabold text-center bg-purple-700 md:mt-4">WELCOME TO DOTAHUNT</p>
-                                        <p class="max-w-md pt-3 pb-2 mt-4 text-lg tracking-wide text-center text-white md:text-justify">Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p> --}}
-                                        <p class="max-w-lg px-4 mt-0 text-4xl text-white text-center bg-purple-700 md:mt-4 whitespace-no-wrap border-b-4 border-l-4 border-purple-900">Let's hunt some players!</p>
+                                <div id="section" class="flex flex-col items-center w-3/6 md:items-end ">
+                                    <div class="flex flex-col pt-2 mr-2">
+                                    <p class="max-w-lg px-4 mt-0 text-4xl text-center text-white whitespace-no-wrap bg-purple-700 border-b-4 border-l-4 border-purple-900 md:mt-4">Let's hunt some players!</p>
                                       <p class="max-w-lg pt-3 pb-2 mt-4 text-lg tracking-wide text-center text-white md:text-justify">
                                         Dotahunt is a place for Dota 2 player to find and create dota 2 team to participate tournament in Malaysia.</p>
-                                        <p class="max-w-lg font-semibold text-lg tracking-wide text-center text-white md:text-justify tracking-wide">Sign up now to start creating your Dream Team!</p>
+                                        <p class="max-w-lg text-lg font-semibold tracking-wide text-center text-white md:text-justify">Sign up now to start creating your Dream Team!</p>
 
                                         <div class="flex justify-center mt-10">
-                                            <a href="/register" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-4 border-b-4 border-purple-900 hover:border-purple-700 rounded tracking-wider">
+                                            <a href="/register" class="px-4 py-2 font-bold tracking-wider text-white bg-purple-700 border-b-4 border-purple-900 rounded hover:bg-purple-600 hover:border-purple-700">
                                               Sign up
                                             </a>
                                     </div>
