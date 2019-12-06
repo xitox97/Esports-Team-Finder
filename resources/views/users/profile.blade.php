@@ -194,11 +194,11 @@
                         <p class="text-lg font-semibold text-center text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                         Lose: {{$fetchPlayers->win_lose['lose']}})</p>
                         @if($fetchPlayers->user->knowledge != null)
+                        <p class="text-lg font-semibold text-white capitalize">Main Roles: {{$fetchPlayers->user->knowledge->mainRole()}}</p>
                         <a href="#" @click.prevent="$modal.show('spider',{ knowledge: {{$fetchPlayers->user->knowledge}} })"
                             class="text-lg font-semibold text-white text-indigo-500 capitalize hover:underline">View Playstyle</a>
                             <spider-component></spider-component>
                         @endif
-                        <p class="text-lg font-semibold text-white capitalize">Main Roles: *reserve</p>
                         <div class="mt-4">
                                 @include('users.medal')
                         </div>
@@ -254,14 +254,15 @@
                         $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
                 <p class="text-lg font-semibold text-white capitalize">Total Games: {{  $fetchPlayers->win_lose['win'] + $fetchPlayers->win_lose['lose']  }} (Win: {{$fetchPlayers->win_lose['win']}}
                 Lose: {{$fetchPlayers->win_lose['lose']}})</p>
-                <p class="text-lg font-semibold text-white capitalize">Main Roles: *reserve</p>
-                <a href="#" class="text-lg font-semibold text-white text-indigo-500 capitalize hover:underline"
-                @click.prevent="$modal.show('achievement' ,{ id: {{$fetchPlayers->dota_id}} })">View Latest Achievements</a>
                 @if($fetchPlayers->user->knowledge != null)
+                <p class="text-lg font-semibold text-white capitalize">Main Roles: {{$fetchPlayers->user->knowledge->mainRole()}}</p>
+
                 <a href="#" @click.prevent="$modal.show('spider',{ knowledge: {{$fetchPlayers->user->knowledge}} })"
                     class="text-lg font-semibold text-white text-indigo-500 capitalize hover:underline">View Playstyle</a>
                     <spider-component></spider-component>
                 @endif
+                <a href="#" class="text-lg font-semibold text-white text-indigo-500 capitalize hover:underline"
+                @click.prevent="$modal.show('achievement' ,{ id: {{$fetchPlayers->dota_id}} })">View Latest Achievements</a>
                 <div class="mt-4">
                         @include('users.medal')
                 </div>

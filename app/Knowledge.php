@@ -33,34 +33,29 @@ class Knowledge extends Model
     ];
 
 
-    // public function mainRole()
-    // {
+    public function mainRole()
+    {
 
-    //     $current = $this->mid;
-    //     //dd($current);
-    //     $role = 'mid';
-    //     if($this->carry > $current)
-    //     {
-    //         $current = $this->carry;
-    //         $role = 'carry';
-    //     }
-    //     if($this->support > $current)
-    //     {
-    //         $current = $this->support;
-    //         $role = 'support';
-    //     }
-    //     if($this->roamer > $current)
-    //     {
-    //         $current = $this->roamer;
-    //         $role = 'roamer';
-    //     }
-    //     if($this->offlaner > $current)
-    //     {
-    //         $current = $this->offlaner;
-    //         $role = 'offlaner';
-    //     }
+        $current = $this->mid;
+        //dd($current);
+        $role = 'mid';
+        if ($this->carry > $current) {
+            $current = $this->carry;
+            $role = 'carry';
+        }
+        if ($this->support > $current) {
+            $current = $this->support;
+            $role = 'support';
+        }
+        if ($this->roamer > $current) {
+            $current = $this->roamer;
+            $role = 'roamer';
+        }
+        if ($this->offlaner > $current) {
+            $current = $this->offlaner;
+            $role = 'offlaner';
+        }
 
-
-    // }
-
+        return $role;
+    }
 }
