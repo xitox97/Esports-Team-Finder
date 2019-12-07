@@ -21,28 +21,33 @@
                         </thead>
                         <tbody class="text-center text-white font-semibold">
                             @foreach($players as $player)
-                            <tr class="hover:bg-content border-b border-gray-600">
-                            <td class="flex flex-col items-center px-6 py-4">
-                                @if($player->accounts['avatar_url'] == null)
-                                <img src="{{asset('img/default.svg')}}" alt="" class="rounded-full w-24 h-24">
+                                <tr class="hover:bg-content border-b border-gray-600">
+                                <td class="flex flex-col items-center px-6 py-4">
+                                    @if($player->accounts['avatar_url'] == null)
+                                    <img src="{{asset('img/default.svg')}}" alt="" class="rounded-full w-24 h-24">
+                                    @else
+                                    <img src="{{  $player->accounts['avatar_url']  }}" alt="" class="rounded-full w-24 h-24">
+                                    @endif
+                                    {{$player->accounts['steam_name']}}</td>
+                                <td class="py-4 px-6">@include('users.medal_rec')</td>
+                                <td class="py-4 px-6">{{$player->knowledge->mainRole()}}</td>
+                                <td class="py-4 px-6">
+                                @forelse($player->tournaments as $tour)
+                                    <p>{{$tour->name}}</p>
+                                @empty
+                                <p>None</p>
+                                @endforelse
+                                </td>
+                                @if($player->achievements()->exists() != false)
+                                <td class="py-4 px-6">Professional</td>
                                 @else
-                                <img src="{{  $player->accounts['avatar_url']  }}" alt="" class="rounded-full w-24 h-24">
+                                <td class="py-4 px-6">Beginner</td>
                                 @endif
-                                {{$player->accounts['steam_name']}}</td>
-                            <td class="py-4 px-6">@include('users.medal_rec')</td>
-                            <td class="py-4 px-6">Mid</td>
-                            <td class="py-4 px-6">
-                            @foreach($player->tournaments as $tour)
-                                <p>{{$tour->name}}</p>
+                                <td class="py-4 px-6">{{$player->team[0]->name}}</td>
+                                <td class="py-4 px-6"><a href="/players/{{$player->accounts['dota_id']}}" class="inline-block bg-indigo-500 rounded px-3 py-1
+                                    text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500">View</a></td>
+                                </tr>
                             @endforeach
-                            </td>
-                            <td class="py-4 px-6">Yes*</td>
-                            <td class="py-4 px-6">Team Liquid*</td>
-                            <td class="py-4 px-6"><a href="/players/{{$player->accounts['dota_id']}}" class="inline-block bg-indigo-500 rounded px-3 py-1
-                                text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500">View</a></td>
-                        </tr>
-                            @endforeach
-
                         </tbody>
 
                     </table>

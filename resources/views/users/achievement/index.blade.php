@@ -9,7 +9,7 @@
 
 <div class="container mt-12 font-mono">
 <div class="flex flex-wrap">
-<div class="ml-16 min-w-md ">
+<div class="ml-16 min-w-md">
     <p class="pb-4 ml-1 text-2xl font-bold text-purple-600 capitalize">past achievements</p>
         <div class="px-4 pt-5 pb-6 text-center rounded-lg shadow-lg bg-dark-100">
                 {{-- <p class="pb-2 ml-4 text-xl font-bold underline uppercase">past achievements</p> --}}
@@ -67,7 +67,7 @@
 
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-4 text-center text-white border-b border-gray-300"> <b> No Pasts Achiements</b> </td>
+                            <td colspan="6" class="px-6 py-4 text-center text-white border-b border-gray-300"> <b> No Pasts Achiements</b> </td>
                         </tr>
                     @endforelse
                 </tbody>

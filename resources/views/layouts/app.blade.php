@@ -144,7 +144,7 @@
 
 
 </head>
-<body class="h-full debug-screens">
+<body class="h-full">
 @php
 
     if(Auth::user()->accounts()->exists() == true){
