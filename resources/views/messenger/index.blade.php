@@ -23,7 +23,7 @@
                                     <div class="flex flex-col rounded-lg  hover:shadow-lg mt-4 bg-white  cursor-pointer"
                                     v-on:click="getThread({{$thread}},{{$user}},{{$user->accounts}})"
                                     >
-                                        <div class="bg-white flex py-2 px-3 {{$class}}">
+                                        <div class="bg-dark-100 flex py-2 px-3 {{$class}}">
                                             <div class="w-auto mr-4">
                                                 @if($user->accounts->avatar_url == null)
                                                     <img src="{{asset('img/default.svg')}}" class="rounded-full w-12">
@@ -32,8 +32,8 @@
                                                 @endif
                                             </div>
                                             <div class="w-2/4">
-                                                <p class="text-lg text-black font-semibold">{{ $user->name }}</p>
-                                                <p class="text-md text-gray-600"> {{ $thread->latestMessage->body }}</p>
+                                                <p class="text-lg text-white font-semibold">{{ $user->name }}</p>
+                                                <p class="text-md text-gray-400"> {{ $thread->latestMessage->body }}</p>
                                             </div>
                                             <div class="w-1/4 text-right">
                                                 <p class="text-sm text-gray-600 mb-1">1 min</p>

@@ -9240,7 +9240,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active {\n  transition: opacity 0.5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0;\n}\r\n", ""]);
+exports.push([module.i, ".fade-enter-active {\n  transition: opacity 0.5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -65009,7 +65009,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "bg-white rounded-lg shadow-lg flex flex-col items-center"
+                  "bg-dark-100 rounded-lg shadow-lg flex flex-col items-center"
               },
               [
                 _c("div", { staticClass: "p-3" }, [
@@ -65027,7 +65027,7 @@ var render = function() {
                 _c("div", { staticClass: "p-3 text-center" }, [
                   _c(
                     "p",
-                    { staticClass: "text-xl text-gray-700 font-semibold" },
+                    { staticClass: "text-xl text-gray-500 font-semibold" },
                     [_vm._v(_vm._s(_vm.usersend))]
                   ),
                   _vm._v(" "),
@@ -65035,7 +65035,7 @@ var render = function() {
                     "p",
                     {
                       staticClass:
-                        "text-md text-gray-600 font-semibold mb-6 capitalize"
+                        "text-md text-gray-400 font-semibold mb-6 capitalize"
                     },
                     [_vm._v("Subject: " + _vm._s(_vm.thread.subject))]
                   ),
