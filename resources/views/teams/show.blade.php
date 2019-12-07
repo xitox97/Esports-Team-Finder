@@ -65,7 +65,7 @@
                                         <td class="py-4 px-6">{{$teamMember->accounts->steam_name}}</td>
                                         <td class="py-4 px-6 capitalize">{{$teamMember->name}}</td>
                                         @if($teamMember->knowledge()->exists() != false)
-                                        <td class="py-4 px-6 ">{{$teamMember->knowledge->mainRole()}}</td>
+                                        <td class="py-4 px-6 capitalize">{{$teamMember->knowledge->mainRole()}}</td>
                                         @else
                                         <td class="py-4 px-6">Unknown</td>
                                         @endif

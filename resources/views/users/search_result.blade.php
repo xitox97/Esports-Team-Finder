@@ -31,7 +31,7 @@
                                     {{$player->accounts['steam_name']}}</td>
                                 <td class="py-4 px-6">@include('users.medal_rec')</td>
                                 @if($player->knowledge()->exists() != false)
-                                <td class="py-4 px-6">{{$player->knowledge->mainRole()}}</td>
+                                <td class="py-4 px-6 capitalize">{{$player->knowledge->mainRole()}}</td>
                                 @else
                                 <td class="py-4 px-6">Unknown</td>
                                 @endif
