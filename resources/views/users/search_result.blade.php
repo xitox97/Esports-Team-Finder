@@ -43,7 +43,11 @@
                                 @else
                                 <td class="py-4 px-6">Beginner</td>
                                 @endif
+                                @if($player->team()->exists() != false)
                                 <td class="py-4 px-6">{{$player->team[0]->name}}</td>
+                                @else
+                                <td class="py-4 px-6">None</td>
+                                @endif
                                 <td class="py-4 px-6"><a href="/players/{{$player->accounts['dota_id']}}" class="inline-block bg-indigo-500 rounded px-3 py-1
                                     text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500">View</a></td>
                                 </tr>
