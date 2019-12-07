@@ -99,7 +99,11 @@
                                         <tr class="hover:bg-content border-b border-gray-500 font-semibold">
                                         <td class="py-4 px-6 ">{{$teamMember->accounts->steam_name}}</td>
                                         <td class="py-4 px-6  capitalize">{{$teamMember->name}}</td>
-                                        <td class="py-4 px-6 ">Mid*</td>
+                                        @if($teamMember->knowledge()->exists() != false)
+                                        <td class="py-4 px-6 ">{{$teamMember->knowledge->mainRole()}}</td>
+                                        @else
+                                        <td class="py-4 px-6">Unknown</td>
+                                        @endif
                                         @foreach($teamMember->team as $t)
                                         <td class="py-4 px-6 ">{{$t->pivot->created_at->format('d-m-Y')}}</td>
 

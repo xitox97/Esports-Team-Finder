@@ -30,7 +30,11 @@
                                     @endif
                                     {{$player->accounts['steam_name']}}</td>
                                 <td class="py-4 px-6">@include('users.medal_rec')</td>
+                                @if($player->knowledge()->exists() != false)
                                 <td class="py-4 px-6">{{$player->knowledge->mainRole()}}</td>
+                                @else
+                                <td class="py-4 px-6">Unknown</td>
+                                @endif
                                 <td class="py-4 px-6">
                                 @forelse($player->tournaments as $tour)
                                     <p>{{$tour->name}}</p>
