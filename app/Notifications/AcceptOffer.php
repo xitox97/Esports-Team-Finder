@@ -32,7 +32,7 @@ class AcceptOffer extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast'];
+        return ['database', 'broadcast', 'mail'];
     }
 
     /**
@@ -44,9 +44,9 @@ class AcceptOffer extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->line($this->offer->user->accounts->steam_name . ' Has accepted your offer to join your team')
+            ->action('View', url('/notifications'))
+            ->line('Good luck, Have Fun!');
     }
 
     /**
