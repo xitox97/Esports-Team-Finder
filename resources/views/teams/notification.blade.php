@@ -22,7 +22,7 @@
                                     You received new offer!
                             </p>
                             <span class="text-md font-base">
-                                <span class="font-bold text-purple-600">Team {{ $noti->data['team_name'] }}</span> has sent you offer to join their team!
+                                <span class="font-bold text-purple-600"><a href="/teams/{{ $noti->data['team_id'] }}">Team {{ $noti->data['team_name'] }}</a></span> has sent you offer to join their team!
                             </span>
                         </div>
                         <div class="flex">
@@ -170,7 +170,7 @@
                                     Scrim Invitation Accepted!
                             </p>
                             <span class="text-md font-base">
-                                <span class="font-bold text-purple-600"> Team {{ $noti->data['team_name']}} </span> has aggreed to <a class="font-bold text-purple-600"
+                                <span class="font-bold text-purple-600"><a href="/teams/{{ $noti->data['team_id'] }}">Team {{ $noti->data['team_name']}}</a> </span> has aggreed to <a class="font-bold text-purple-600"
                                 href="{{url('/scrims-schedule')}}">scrim</a>
                                 with you on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
                             </span>
@@ -204,7 +204,7 @@
                                 Scrim Invitation Rejected!
                         </p>
                         <span class="text-md font-base">
-                            <span class="font-bold text-purple-600"> Team {{ $noti->data['team_name']}} </span> has rejected to <a class="font-bold text-purple-600"
+                            <span class="font-bold text-purple-600"><a href="/teams/{{ $noti->data['team_id'] }}">Team {{ $noti->data['team_name']}}</a> </span> has rejected to <a class="font-bold text-purple-600"
                             href="{{url('/scrims-schedule')}}">scrim</a>
                             with you on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
                         </span>
