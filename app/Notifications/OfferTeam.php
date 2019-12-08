@@ -38,7 +38,7 @@ class OfferTeam extends Notification
     public function via($notifiable)
     {
         //return ['mail'];
-        return ['database', 'broadcast'];
+        return ['database', 'broadcast', 'mail'];
     }
 
     /**
