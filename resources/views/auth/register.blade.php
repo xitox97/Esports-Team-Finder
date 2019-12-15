@@ -36,7 +36,7 @@
                                         Full Name
                                     </label>
                                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
-                                    type="text" placeholder="Enter your full name" name="name" required>
+                                    type="text" placeholder="Enter your full name" name="name" required value="{{old('name')}}">
                                     @error('name')
                                     <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
@@ -67,7 +67,7 @@
                                         E-mail
                                     </label>
                                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" id="grid-last-name"
-                                    type="email" placeholder="Enter your valid email address" name="email" required>
+                                    type="email" placeholder="Enter your valid email address" name="email" required value="{{old('email')}}">
                                     @error('email')
                                         <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
@@ -86,7 +86,7 @@
                                         City
                                     </label>
                                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
-                                    type="text" placeholder="Enter your city" name="area" required>
+                                    type="text" placeholder="Enter your city" name="area" required value="{{old('area')}}">
                                     @error('area')
                                     <p class="italic text-red-500 text-md">{{ $message }}</p>
                                     @enderror
@@ -97,7 +97,7 @@
                                     </label>
                                     <div class="relative">
                                         <select class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600 " name="state" required>
-                                        <option selected>Select state</option>
+                                        <option selected disabled>Select state</option>
                                         <option value="Johor">Johor</option>
                                         <option value="Kedah">Kedah</option>
                                         <option value="Kelantan">Kelantan</option>

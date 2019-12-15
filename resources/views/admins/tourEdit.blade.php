@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-secondary">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -133,7 +133,7 @@
                                     Update
                                 </button>
                                 <a href="{{ url()->previous() }}"
-                                    class="btn btn-outline-danger"
+                                    class="btn btn-outline-danger text-white"
                                     role="button">Cancel</a>
                             </div>
                         </div>
