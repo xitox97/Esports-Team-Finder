@@ -5,9 +5,9 @@
     <span class="italic text-sm">Home / Team / <a href="/teams/{{$myTeam->id}}"
         class="no-underline hover:underline text-blue-500">{{$myTeam->name}}</a></span>
 </section>
-<div class="container mt-12">
+<div class="container mt-12 ml-12">
      @if (session('leave'))
-                <div v-show="alert" class="mt-1 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+                <div v-show="alert" class="mt-1 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative mb-2" v-on:click="hideAlert" role="alert">
                         <strong class="font-bold">Hold up!</strong>
                         <span class="block sm:inline">{{ session('leave') }}</span>
                         <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
@@ -16,7 +16,7 @@
                     </div>
 
             @elseif (session('scrim'))
-            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-2" v-on:click="hideAlert" role="alert">
                 <strong class="font-bold">Ops!</strong>
                 <span class="block sm:inline">{{ session('scrim') }}</span>
                 <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
@@ -24,7 +24,7 @@
                 </span>
             </div>
             @elseif(session('kick'))
-            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-2" v-on:click="hideAlert" role="alert">
                 <strong class="font-bold">Ops!</strong>
                 <span class="block sm:inline">{{ session('kick') }}</span>
                 <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
@@ -38,7 +38,7 @@
                 <div class="w-full px-10 bg-purple-600   relative text-center pb-1">
                         <span class="text-white font-mono font-semibold text-2xl capitalize text-center">Team {{$myTeam->name}}</span>
                         @if(auth()->user()->id == $myTeam->captain_id)
-                        <i class="material-icons cursor-pointer absolute ml-16 mb-1 text-white md-48"  v-click-outside="hides" v-on:click="dropTeam">
+                        <i class="material-icons cursor-pointer absolute ml-16 mb-1 text-white md-48 right-0"  v-click-outside="hides" v-on:click="dropTeam">
                                 more_horiz
                                 </i>
 
