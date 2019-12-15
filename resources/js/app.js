@@ -20,7 +20,7 @@ import flatPickr from 'vue-flatpickr-component';
 import VueApexCharts from 'vue-apexcharts';
 import { Slide } from 'vue-burger-menu';
 
-Vue.use(VModal);
+Vue.use(VModal, { dialog: true });
 Vue.use(ClickOutside);
 Vue.use(Notifications);
 Vue.use(Tooltip);
@@ -185,6 +185,27 @@ new Vue({
                 20: '20+',
             }
             return map[val];
+        },
+        deleteTeam(id) {
+            //console.log(id);
+            this.$modal.show('dialog', {
+                title: 'Alert!',
+                text: 'Are you sure want to delete this team?',
+                buttons: [
+                    {
+                        title: 'Proceed',
+                        default: true,
+                        handler: () => {
+                            axios.delete('/teams/' + id);
+                            alert("Succesfully deleted");
+                            location.reload();
+                        }
+                    },
+                    {
+                        title: 'Close'
+                    }
+                ]
+            })
         }
 
     },

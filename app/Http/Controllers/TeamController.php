@@ -169,6 +169,7 @@ class TeamController extends Controller
             $team->state = $request['state'];
             $team->description = $request['description'];
             $team->image = $request->image;
+            $team->sponsor = $request['sponsor'];
             $team->save();
 
             return redirect("teams");
@@ -193,7 +194,7 @@ class TeamController extends Controller
         } else {
             return back()->with('cannot', 'Only Captain can delete team');
         }
-        return redirect('/teams');
+        //return redirect('/teams');
     }
 
     public function readyScrim(Team $team)

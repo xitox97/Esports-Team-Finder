@@ -79710,7 +79710,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_2___default.a);
+Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  dialog: true
+});
 Vue.use(vue_click_outside__WEBPACK_IMPORTED_MODULE_0___default.a);
 Vue.use(vue_notification__WEBPACK_IMPORTED_MODULE_1___default.a);
 Vue.use(vue_directive_tooltip__WEBPACK_IMPORTED_MODULE_3___default.a);
@@ -79870,6 +79872,24 @@ new Vue({
         20: '20+'
       };
       return map[val];
+    },
+    deleteTeam: function deleteTeam(id) {
+      //console.log(id);
+      this.$modal.show('dialog', {
+        title: 'Alert!',
+        text: 'Are you sure want to delete this team?',
+        buttons: [{
+          title: 'Proceed',
+          "default": true,
+          handler: function handler() {
+            axios["delete"]('/teams/' + id);
+            alert("Succesfully deleted");
+            location.reload();
+          }
+        }, {
+          title: 'Close'
+        }]
+      });
     }
   },
   directives: {

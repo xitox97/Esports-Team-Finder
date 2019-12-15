@@ -6,6 +6,32 @@
         class="no-underline hover:underline text-blue-500">{{$myTeam->name}}</a></span>
 </section>
 <div class="container mt-12">
+     @if (session('leave'))
+                <div v-show="alert" class="mt-1 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+                        <strong class="font-bold">Hold up!</strong>
+                        <span class="block sm:inline">{{ session('leave') }}</span>
+                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                            <svg class="fill-current h-6 w-6 text-orange-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                        </span>
+                    </div>
+
+            @elseif (session('scrim'))
+            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+                <strong class="font-bold">Ops!</strong>
+                <span class="block sm:inline">{{ session('scrim') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                </span>
+            </div>
+            @elseif(session('kick'))
+            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
+                <strong class="font-bold">Ops!</strong>
+                <span class="block sm:inline">{{ session('kick') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                </span>
+            </div>
+        @endif
     <div class="flex">
         <div class="w-2/5">
             <div class="flex flex-col bg-dark-100 shadow-lg rounded-lg mr-4">
@@ -28,17 +54,10 @@
                             @endif
                                     <a href="/teams/{{$myTeam->id}}/edit" class="block text-default py-2 px-4 no-underline hover:underline
                                         text-md leading-loose ml-1 my-1 hover:bg-gray-200">Edit team profile</a>
-                                    <a class="block text-default py-2 px-4 no-underline hover:underline text-md leading-loose ml-1 mb-1 hover:bg-gray-200 cursor-pointer"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('delete-form').submit();">
-                                        Delete
-                                    </a>
 
-                                    <form id="delete-form" action="/teams/{{ $myTeam->id }}" method="POST">
-                                        {{ method_field('DELETE') }}
-                                        {{ csrf_field() }}
+                                    <a @click.prevent="deleteTeam({{ $myTeam->id }})" class="block text-default py-2 px-4 no-underline hover:underline
+                                      text-md leading-loose ml-1 my-1 hover:bg-gray-200 cursor-pointer">Delete</a>
 
-                                        </form>
                                 </div>
                             @endif
                 </div>
@@ -137,32 +156,10 @@
                         </div>
 
             </div>
-            @if (session('leave'))
-                <div v-show="alert" class="mt-1 bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
-                        <strong class="font-bold">Hold up!</strong>
-                        <span class="block sm:inline">{{ session('leave') }}</span>
-                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                            <svg class="fill-current h-6 w-6 text-orange-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                        </span>
-                    </div>
 
-            @elseif (session('scrim'))
-            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
-                <strong class="font-bold">Ops!</strong>
-                <span class="block sm:inline">{{ session('scrim') }}</span>
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                </span>
-            </div>
-            @elseif(session('kick'))
-            <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
-                <strong class="font-bold">Ops!</strong>
-                <span class="block sm:inline">{{ session('kick') }}</span>
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                </span>
-            </div>
-        @endif
+            <v-dialog/>
+
+
         </div>
 
 

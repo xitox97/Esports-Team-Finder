@@ -25,9 +25,8 @@
                     <p class="text-center"><span class="font-semibold">State:</span> {{$team->state}}</p>
                     <p class="text-center"><span class="font-semibold">Captain:</span>
                         <a href="/players/{{$captain->accounts->dota_id}}" class="no-underline hover:underline text-blue-500">{{$captain->name}}</a></p>
-                    <p class="text-center"><span class="font-semibold">Sponsor:</span> Razer* Logitech*</p>
-                    <p class="text-center"><span class="font-semibold">Description:</span> Lorem ipsum dolor sit amet,
-                        Temporibus minus numquam illum beatae</p>
+                    <p class="text-center"><span class="font-semibold">Sponsor:</span> {{$team->sponsor}}</p>
+                    <p class="text-center"><span class="font-semibold">Description:</span>{{$team->description}}</p>
                     @if($team->scrim == true)
                     <p class="text-center"><span class="font-semibold">Scrim:</span> Ready</p>
                     @else

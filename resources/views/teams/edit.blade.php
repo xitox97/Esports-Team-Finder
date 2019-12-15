@@ -84,15 +84,26 @@
                                             Team Description
                                           </label>
                                       <textarea class="appearance-none block w-full  text-gray-800 border-2 border-gray-300 rounded
-                                      py-3 px-4 leading-tight focus:outline-none focus:border-purple-500 bg-gray-300" 
+                                      py-3 px-4 leading-tight focus:outline-none focus:border-purple-500 bg-gray-300"
                                       placeholder="{{$team->description}}"
                                       rows="4" name="description"></textarea>
                                     </div>
                                   </div>
-                                  <div class="flex -mx-3 mb-6 mt-5 justify-center items-center">
+                                  <div class="flex -mx-3 mb-6 mt-5 ">
+
+                                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                        <label class="block capitalize tracking-wide text-white text-md font-bold mb-2 mr-5" for="grid-last-sponsor">
+                                            Main Sponsor
+                                          </label>
+                                          <input class="appearance-none block w-full  text-black capitalize border-2 border-gray-300 rounded
+                                          py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-purple-500 bg-gray-300" id="sponsor" type="text"
+                                          placeholder="{{$team->sponsor}}" name="sponsor">
+                                      </div>
+
+                                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                         <label class="block capitalize tracking-wide text-white text-md font-bold mb-2 mr-5" for="grid-last-name">
-                                          Image
-                                        </label>
+                                            Image
+                                          </label>
                                         <div class="flex justify-center">
                                             <label class="w-64 flex flex-row justify-center items-center px-1 py-2 bg-white text-blue rounded-lg shadow-lg
                                             tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 hover:text-white bg-gray-300">
@@ -103,6 +114,7 @@
                                                 <input type='file' class="hidden" name="image" id="image">
                                             </label>
                                         </div>
+                                      </div>
                                   </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn-indigo text-white font-bold
