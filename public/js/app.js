@@ -65766,7 +65766,7 @@ var render = function() {
             "p",
             {
               staticClass:
-                "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200"
+                "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600"
             },
             [_vm._v("No notification")]
           )
@@ -65779,7 +65779,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200 border-b border-gray-400",
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
                   attrs: { href: "/notifications" }
                 },
                 [
@@ -65795,7 +65795,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200 border-b border-gray-400",
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
                   attrs: { href: "/notifications" }
                 },
                 [_vm._v(_vm._s(noti.steam_name) + " has accepted your offer")]
@@ -65807,7 +65807,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200 border-b border-gray-400",
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
                   attrs: { href: "/notifications" }
                 },
                 [
@@ -65825,7 +65825,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200 border-b border-gray-400",
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
                   attrs: { href: "/notifications" }
                 },
                 [
@@ -65843,7 +65843,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200 border-b border-gray-400",
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
                   attrs: { href: "/notifications" }
                 },
                 [_vm._v(_vm._s(noti.steam_name) + " has rejected your offer")]
@@ -65855,7 +65855,7 @@ var render = function() {
                 "a",
                 {
                   staticClass:
-                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-gray-200 border-b border-gray-400",
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
                   attrs: { href: "/notifications" }
                 },
                 [
@@ -79878,12 +79878,31 @@ new Vue({
       this.$modal.show('dialog', {
         title: 'Alert!',
         text: 'Are you sure want to delete this team?',
+        "class": ['bg-dark-100', 'text-white'],
         buttons: [{
           title: 'Proceed',
           "default": true,
           handler: function handler() {
             axios["delete"]('/teams/' + id);
             alert("Succesfully deleted");
+            location.reload();
+          }
+        }, {
+          title: 'Close'
+        }]
+      });
+    },
+    kickPlayer: function kickPlayer(playerId, teamId) {
+      this.$modal.show('dialog', {
+        title: 'Alert!',
+        text: 'Are you sure want to kick this player?',
+        "class": ['bg-dark-100', 'text-white'],
+        buttons: [{
+          title: 'Proceed',
+          "default": true,
+          handler: function handler() {
+            axios.get('/kick/' + playerId + '/team/' + teamId);
+            alert("The user has been kick!");
             location.reload();
           }
         }, {

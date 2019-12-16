@@ -191,6 +191,7 @@ new Vue({
             this.$modal.show('dialog', {
                 title: 'Alert!',
                 text: 'Are you sure want to delete this team?',
+                class: ['bg-dark-100', 'text-white'],
                 buttons: [
                     {
                         title: 'Proceed',
@@ -206,8 +207,28 @@ new Vue({
                     }
                 ]
             })
+        },
+        kickPlayer(playerId, teamId) {
+            this.$modal.show('dialog', {
+                title: 'Alert!',
+                text: 'Are you sure want to kick this player?',
+                class: ['bg-dark-100', 'text-white'],
+                buttons: [
+                    {
+                        title: 'Proceed',
+                        default: true,
+                        handler: () => {
+                            axios.get('/kick/' + playerId + '/team/' + teamId);
+                            alert("The user has been kick!");
+                            location.reload();
+                        }
+                    },
+                    {
+                        title: 'Close'
+                    }
+                ]
+            })
         }
-
     },
 
     directives: {

@@ -46,7 +46,7 @@
                                         <select class="block appearance-none w-full border-2 border-gray-300
                                         text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none
                                         focus:border-purple-500 bg-gray-300" name="state" required>
-                                        <option selected>Select state</option>
+                                        <option selected disabled>Select state</option>
                                         <option value="Johor">Johor</option>
                                         <option value="Kedah">Kedah</option>
                                         <option value="Kelantan">Kelantan</option>
@@ -68,6 +68,9 @@
                                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                         </div>
                                     </div>
+                                    @error('state')
+                                    <p class="text-red-500 text-xs italic ml-4">{{ $message }}</p>
+                                    @enderror
                                     </div>
                                   </div>
                                   <div class="flex flex-wrap -mx-3 mb-6 mt-5">
@@ -78,6 +81,9 @@
                                       <textarea class="appearance-none block w-full  text-gray-700 border-2 border-gray-300 rounded
                                       py-3 px-4 leading-tight focus:outline-none focus:border-purple-500 bg-gray-300" placeholder="Tell us a bit about your team..."
                                       rows="4" name="description"></textarea>
+                                      @error('description')
+                                    <p class="text-red-500 text-xs italic ml-4">{{ $message }}</p>
+                                    @enderror
                                     </div>
                                   </div>
                                   <div class="flex -mx-3 mb-6 mt-5 justify-center items-center">
@@ -93,6 +99,9 @@
                                                 <span class="ml-3 text-base leading-normal font-semibold">Select an image</span>
                                                 <input type='file' class="hidden" name="image" id="image">
                                             </label>
+                                            @error('image')
+                                    <p class="text-red-500 text-xs italic ml-4">{{ $message }}</p>
+                                    @enderror
                                         </div>
                                   </div>
                                 <div class="text-center">

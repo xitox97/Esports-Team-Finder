@@ -42,17 +42,17 @@
                             <table class="border-collapse w-full">
                                     <thead class="text-white">
                                         <tr>
-                                            <th class="text-left capitalize border-b border-gray-300 py-4">Hero</th>
-                                            <th class="text-left capitalize border-b border-gray-300 py-4">Matches Played</th>
-                                            <th class="text-left capitalize border-b border-gray-300 py-4">Win Rate %</th>
-                                            <th class="text-left capitalize border-b border-gray-300 py-4">With Win %</th>
-                                            <th class="text-left capitalize border-b border-gray-300 py-4">Win Against %</th>
+                                            <th class="text-left capitalize border-b border-gray-500 py-4">Hero</th>
+                                            <th class="text-left capitalize border-b border-gray-500 py-4">Matches Played</th>
+                                            <th class="text-left capitalize border-b border-gray-500 py-4">Win Rate %</th>
+                                            <th class="text-left capitalize border-b border-gray-500 py-4">With Win %</th>
+                                            <th class="text-left capitalize border-b border-gray-500 py-4">Win Against %</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                             @if ($pageHeroes != null)
                                             @foreach ($pageHeroes as $recent)
-                                                      <tr  class="py-4 px-6 border-b border-gray-300 hover:bg-content text-left text-white">
+                                                      <tr  class="py-4 px-6 border-b border-gray-500 hover:bg-content text-left text-white">
                                                         <td class="py-2"> @include('users.heroes')</td>
                                                         <td class="py-2"> {{$recent['games']}} ({{$recent['win']}} won)</td>
                                                         <td class="py-2"> @php

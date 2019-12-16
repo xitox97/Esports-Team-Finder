@@ -43,20 +43,20 @@
                     <table class="w-full border-collapse">
                             <thead class="text-white">
                                 <tr>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300">Hero</th>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300">Date</th>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300">Result</th>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300">Game Mode</th>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300">Score (<span class="text-green-600">K</span>/
+                                    <th class="py-4 text-left capitalize border-b border-gray-500">Hero</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-500">Date</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-500">Result</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-500">Game Mode</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-500">Score (<span class="text-green-600">K</span>/
                                         <span class="text-red-600">D</span>/<span class="text-gray-600">A</span>)</th>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300">Duration</th>
-                                    <th class="py-4 text-left capitalize border-b border-gray-300"></th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-500">Duration</th>
+                                    <th class="py-4 text-left capitalize border-b border-gray-500"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                     @if ($pageStats != null)
                                     @foreach ($pageStats as $recent)
-                                              <tr  class="px-6 py-4 text-white border-b border-gray-300 hover:bg-content">
+                                              <tr  class="px-6 py-4 text-white border-b border-gray-500 hover:bg-content">
                                                 <td class="text-center"> @include('users.heroes') </td>
                                                 <td><span v-tooltip.bottom="'{{ date('m/d/Y',$recent['start_time']) }}'">
                                                     {{

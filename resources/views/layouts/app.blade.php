@@ -275,14 +275,14 @@
                                     <p v-text="count"></p>
                                   </span>
                                 </div>
-                                <div v-show="notification" id="dropdowns" class="absolute right-0 z-10 w-auto mt-3 text-center bg-white border rounded shadow" style="display: none;">
+                                <div v-show="notification" id="dropdowns" class="absolute right-0 z-10 w-auto mt-3 text-center bg-dark-100 text-white rounded shadow" style="display: none;">
 
                               @foreach(Auth::user()->unreadNotifications as $noti)
                                   @include('notifications.' . snake_case(class_basename($noti->type)))
                               @endforeach
 
                                 <noti-component v-bind:realnoti="true"></noti-component>
-                                  <a href="/notifications" class="block px-4 py-2 my-1 ml-1 font-bold leading-loose no-underline hover:bg-gray-200 text-default text-md">See All Notifications</a>
+                                  <a href="/notifications" class="block px-4 py-2 my-1 ml-1 font-bold leading-loose no-underline hover:bg-content text-default text-md">See All Notifications</a>
                                 </div>
                             @else
                                 <div class="mr-3 cursor-pointer" v-click-outside="hideNoti" @click="noti" v-if="bell == false">
@@ -299,9 +299,9 @@
                                     <span class="absolute px-1 -mt-2 -ml-2 text-sm text-white bg-red-500 rounded-full">
                                         <p v-text="count"></p></span>
                                 </div>
-                                <div v-show="notification" id="dropdowns" class="absolute right-0 z-10 w-2/12 mt-3 text-center bg-white rounded shadow" style="display: none;">
+                                <div v-show="notification" id="dropdowns" class="absolute right-0 z-10 w-2/12 mt-3 text-center bg-dark-100 text-white rounded shadow" style="display: none;">
                                     <noti-component v-bind:realnoti="bell"></noti-component>
-                                    <a href="/notifications" class="block px-4 py-2 my-1 ml-1 font-bold leading-loose no-underline hover:bg-gray-200 text-default text-md">
+                                    <a href="/notifications" class="block px-4 py-2 my-1 ml-1 font-bold leading-loose no-underline hover:bg-content text-default text-md">
                                         See All Notifications</a>
                                     </div>
                             @endif

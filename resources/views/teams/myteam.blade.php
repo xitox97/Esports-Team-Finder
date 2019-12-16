@@ -140,7 +140,7 @@
                                             </a>
                                             @endif
                                             @if(auth()->user()->id == $myTeam->captain_id and auth()->user()->id != $teamMember->id)
-                                        <a href="/kick/{{ $teamMember->id }}/team/{{ $myTeam->id}}" v-tooltip.top="'Kick Player'"><i class="material-icons text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
+                                        <a href="/kick/{{ $teamMember->id }}/team/{{ $myTeam->id}}" @click.prevent="kickPlayer({{ $teamMember->id }},{{ $myTeam->id}})"  v-tooltip.top="'Kick Player'"><i class="material-icons text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
                                                     close
                                                     </i></a>
                                             @endif
