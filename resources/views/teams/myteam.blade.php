@@ -42,21 +42,21 @@
                                 more_horiz
                                 </i>
 
-                            <div v-show="team" id="dropdown" class="absolute rounded shadow right-0  bg-white w-4/12 font-mono">
+                            <div v-show="team" id="dropdown" class="absolute rounded shadow right-0  bg-content text-white w-4/12 font-mono">
                                 @if($myTeam->scrim == false)
                                 <a href="/teams/scrim/{{ $myTeam->id }}" class="block text-default py-2 px-4 no-underline hover:underline
-                                    text-md leading-loose ml-1 my-1 hover:bg-gray-200"
+                                    text-md leading-loose ml-1 my-1 hover:bg-dark-100"
                                 role="button" >Ready for scrim</a>
                             @else
                                 <a href="/teams/notScrim/{{ $myTeam->id }}" class="block text-default py-2 px-4 no-underline hover:underline
-                                    text-md leading-loose ml-1 my-1 hover:bg-gray-200"
+                                    text-md leading-loose ml-1 my-1 hover:bg-dark-100"
                                 role="button" >Not Ready for scrim</a>
                             @endif
                                     <a href="/teams/{{$myTeam->id}}/edit" class="block text-default py-2 px-4 no-underline hover:underline
-                                        text-md leading-loose ml-1 my-1 hover:bg-gray-200">Edit team profile</a>
+                                        text-md leading-loose ml-1 my-1 hover:bg-dark-100">Edit team profile</a>
 
                                     <a @click.prevent="deleteTeam({{ $myTeam->id }})" class="block text-default py-2 px-4 no-underline hover:underline
-                                      text-md leading-loose ml-1 my-1 hover:bg-gray-200 cursor-pointer">Delete</a>
+                                      text-md leading-loose ml-1 my-1 hover:bg-dark-100 cursor-pointer">Delete</a>
 
                                 </div>
                             @endif
