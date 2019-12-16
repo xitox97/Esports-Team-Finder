@@ -194,6 +194,9 @@ new Vue({
                 class: ['bg-dark-100', 'text-white'],
                 buttons: [
                     {
+                        title: 'Close'
+                    },
+                    {
                         title: 'Proceed',
                         default: true,
                         handler: () => {
@@ -201,10 +204,8 @@ new Vue({
                             alert("Succesfully deleted");
                             location.reload();
                         }
-                    },
-                    {
-                        title: 'Close'
                     }
+
                 ]
             })
         },
@@ -215,6 +216,9 @@ new Vue({
                 class: ['bg-dark-100', 'text-white'],
                 buttons: [
                     {
+                        title: 'Close'
+                    },
+                    {
                         title: 'Proceed',
                         default: true,
                         handler: () => {
@@ -222,10 +226,8 @@ new Vue({
                             alert("The user has been kick!");
                             location.reload();
                         }
-                    },
-                    {
-                        title: 'Close'
                     }
+
                 ]
             })
         }

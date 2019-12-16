@@ -79880,6 +79880,8 @@ new Vue({
         text: 'Are you sure want to delete this team?',
         "class": ['bg-dark-100', 'text-white'],
         buttons: [{
+          title: 'Close'
+        }, {
           title: 'Proceed',
           "default": true,
           handler: function handler() {
@@ -79887,8 +79889,6 @@ new Vue({
             alert("Succesfully deleted");
             location.reload();
           }
-        }, {
-          title: 'Close'
         }]
       });
     },
@@ -79898,6 +79898,8 @@ new Vue({
         text: 'Are you sure want to kick this player?',
         "class": ['bg-dark-100', 'text-white'],
         buttons: [{
+          title: 'Close'
+        }, {
           title: 'Proceed',
           "default": true,
           handler: function handler() {
@@ -79905,8 +79907,6 @@ new Vue({
             alert("The user has been kick!");
             location.reload();
           }
-        }, {
-          title: 'Close'
         }]
       });
     }

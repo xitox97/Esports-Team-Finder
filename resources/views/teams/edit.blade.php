@@ -117,6 +117,8 @@
                                       </div>
                                   </div>
                                 <div class="text-center">
+                                    <a  href="javascript:history.back()"  class="bg-transparent hover:bg-indigo-600 text-gray-300 font-semibold
+                                    hover:text-white py-2 px-4 border-2 border-indigo-600 hover:border-transparent rounded">Cancel</a>
                                     <button type="submit" class="btn-indigo text-white font-bold
                                     py-2  px-4 rounded mx-auto ml-2 ">Submit</button>
                                     @if (session('error'))
