@@ -23,24 +23,8 @@
                         </div>
                         <div class="w-2/3">
                             <label for="date_time" class="block text-white text-md font-bold mb-2">Date & Time</label>
-                            {{-- <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200
-                            rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            type="datetime-local" name="date_time" id="date_time" required> --}}
-
-                            <div class="relative">
-                                <flat-pickr v-model="date" :config="{ dateFormat: 'Y-m-d' }" class="appearance-none block w-full
-                                bg-gray-400 text-black
-                                border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
-                                 focus:shadow-outline"></flat-pickr>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <i class="material-icons">
-                                        date_range
-                                        </i>
-                                </div>
-                              </div>
-                              <input type="hidden" name="date_time" v-model="date">
-
-
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200
+                            rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="datetime-local" name="date_time" id="date_time" required>
                             @error('date_time')
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror

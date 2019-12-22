@@ -32,7 +32,8 @@ class AcceptOffer extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast', 'mail'];
+        //return ['database', 'broadcast', 'mail']; //close send email
+        return ['database', 'broadcast'];
     }
 
     /**

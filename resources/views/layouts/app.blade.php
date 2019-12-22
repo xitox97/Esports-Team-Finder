@@ -154,7 +154,7 @@
         $playerUrl = 0;
     }
 @endphp
-    <div id="app" class="flex min-h-screen font-sans">
+    <div id="app" class="flex min-h-screen font-sans  debug-screens">
             <sidebar-component v-bind:is-open="isOpen" class="flex-col hidden w-3/12 xl:w-2/12 lg:flex bg-sidebar ">
                 <a href="/{{$playerUrl}}/stats"
                 class="mt-12 mb-10 text-lg font-semibold text-purple-400 hover:text-white"

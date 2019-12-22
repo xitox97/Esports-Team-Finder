@@ -5,7 +5,8 @@
     <span class="italic text-sm">Home / <a href="/scrims" class="text-blue-500 hover:underline">Scrim</a> /  Available Team</span>
     </section>
 
-    <div class="container mx-auto w-full mt-4 rounded-lg pt-3 pl-3">
+    <div class="container ml-18 w-full mt-4 rounded-lg pt-3 pl-3 flex">
+
             @if (session('captain'))
             <div v-show="alert" class="mt-1 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" v-on:click="hideAlert" role="alert">
                 <strong class="font-bold">Ops!</strong>
@@ -15,10 +16,10 @@
                 </span>
             </div>
             @endif
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap w-10/12">
 
         @forelse ($teams as $team)
-                <div class="bg-dark-100 w-1/4 flex flex-col m-2 shadow-lg rounded-t-lg">
+                <div class="bg-dark-100 w-64 flex flex-col m-2 shadow-lg rounded-t-lg">
                     <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">
                     <div class="flex p-4 border-b border-gray-600">
                         <img class="w-24 h-24 rounded-full" src="{{  asset('storage/pics/' . $team->image) }}" alt="">
@@ -51,6 +52,7 @@
                         <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">View Details</a>
                     </div> --}}
                 </div>
+
                 @empty
                 <div class="container ml-20 mt-12 max-w-6xl mr-2">
                     <div class="bg-purple-100 border-t border-b border-purple-500 text-purple-500 px-4 py-3 text-center bg-dark-100" role="alert">
@@ -60,6 +62,11 @@
 
                 </div>
         @endforelse
+
+        </div>
+        <div class="w-1/4 mt-2">
+            <a href="/scrims-schedule" v-tooltip.bottom="'View Scrim list Schedule'" class="w-40 flex items-center px-2 py-2 font-semibold leading-loose whitespace-no-wrap border border-indigo-800 rounded-lg shadow-md btn-indigo hover:border-transparent text-md"><i class="mr-1 material-icons">
+                date_range</i>Scrim Schedule</a>
         </div>
     </div>
 

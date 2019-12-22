@@ -133,8 +133,8 @@
                                                 search
                                                 </i>
                                             </a>
-                                            @if(auth()->user()->id == $teamMember->id)
-                                            <a href="/leave/{{ $myTeam->id }}" v-tooltip.top="'Leave Team'"><i class="material-icons  text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
+                                            @if(auth()->user()->id == $teamMember->id and auth()->user()->id != $myTeam->captain_id)
+                                            <a href="/leave/{{ $myTeam->id }}" @click.prevent="leaveTeam({{ $myTeam->id }})" v-tooltip.top="'Leave Team'"><i class="material-icons  text-indigo-600 cursor-pointer md-48 hover:text-indigo-800">
                                             exit_to_app
                                             </i>
                                             </a>

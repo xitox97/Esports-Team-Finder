@@ -15,20 +15,20 @@
                 {{-- <p class="pb-2 ml-4 text-xl font-bold underline uppercase">past achievements</p> --}}
             <table class="w-full border-collapse">
                 <thead class="text-white">
-                    <th class="py-4 capitalize border-b border-gray-300 ">#</th>
-                    <th class="py-4 capitalize border-b border-gray-300 ">Tournament Name</th>
-                    <th class="py-4 capitalize border-b border-gray-300 ">Team</th>
-                    <th class="py-4 capitalize border-b border-gray-300 ">Place</th>
-                    <th class="py-4 capitalize border-b border-gray-300 ">Date</th>
-                    <th class="py-4 capitalize border-b border-gray-300 "></th>
+                    <th class="py-4 capitalize border-b border-gray-600 ">#</th>
+                    <th class="py-4 capitalize border-b border-gray-600 ">Tournament Name</th>
+                    <th class="py-4 capitalize border-b border-gray-600 ">Team</th>
+                    <th class="py-4 capitalize border-b border-gray-600 ">Place</th>
+                    <th class="py-4 capitalize border-b border-gray-600 ">Date</th>
+                    <th class="py-4 capitalize border-b border-gray-600 "></th>
                 </thead>
                 <tbody class="text-center">
                     @forelse($achievements as $achievement)
                     <tr class="text-white hover:bg-content">
-                        <td class="px-6 py-4 border-b border-gray-300">{{$loop->index + 1}}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{$achievement->tournament_name}}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{$achievement->team}}</td>
-                        <td class="px-6 py-4 border-b border-gray-300">
+                        <td class="px-6 py-4 border-b border-gray-600">{{$loop->index + 1}}</td>
+                        <td class="px-6 py-4 border-b border-gray-600 capitalize">{{$achievement->tournament_name}}</td>
+                        <td class="px-6 py-4 border-b border-gray-600 capitalize">{{$achievement->team}}</td>
+                        <td class="px-6 py-4 border-b border-gray-600">
                             @if($achievement->place == 1)
                             Champion
                             @elseif($achievement->place == 2)
@@ -41,9 +41,9 @@
                             Others
                             @endif
                         </td>
-                        <td class="px-6 py-4 border-b border-gray-300">{{$achievement->date}}</td>
+                        <td class="px-6 py-4 border-b border-gray-600">{{$achievement->date}}</td>
                         @if(Auth::user()->accounts->dota_id == $users->accounts->dota_id)
-                        <td class="px-6 py-4 border-b border-gray-300">
+                        <td class="px-6 py-4 border-b border-gray-600">
                             <div class="flex">
                                     <a href="#" @click.prevent="$modal.show('edit-achievement',{ achievement: {{$achievement}} })">
                                             <span v-tooltip.top="'Edit this achievement'">
@@ -67,7 +67,7 @@
 
                     @empty
                         <tr>
-                            <td colspan="6" class="px-6 py-4 text-center text-white border-b border-gray-300"> <b> No Pasts Achiements</b> </td>
+                            <td colspan="6" class="px-6 py-4 text-center text-gray-500 border-b border-gray-600"> <b> No Pasts Achiements</b> </td>
                         </tr>
                     @endforelse
                 </tbody>

@@ -104,10 +104,12 @@ class OfferController extends Controller
         $user = auth()->user();
 
         if ($user->id == $team->captain_id) {
-            return back()->with('leave', 'Captain can only delete team!');
+            //return back()->with('leave', 'Captain can only delete team!');
         } else {
             $user->team()->detach($team->id);
-            return back()->with('leave', 'Successfully left!');
+            $team->qtty_member = $team->qtty_member - 1;
+            $team->save();
+            //return back()->with('leave', 'Successfully left!');
         }
     }
 

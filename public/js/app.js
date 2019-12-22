@@ -79909,6 +79909,24 @@ new Vue({
           }
         }]
       });
+    },
+    leaveTeam: function leaveTeam(teamId) {
+      this.$modal.show('dialog', {
+        title: 'Alert!',
+        text: 'Are you sure want to leave this team?',
+        "class": ['bg-dark-100', 'text-white'],
+        buttons: [{
+          title: 'Close'
+        }, {
+          title: 'Proceed',
+          "default": true,
+          handler: function handler() {
+            axios.get('/leave/' + teamId);
+            alert("Succesfully left");
+            window.location.replace = '/teams';
+          }
+        }]
+      });
     }
   },
   directives: {
