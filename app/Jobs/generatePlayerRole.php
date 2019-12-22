@@ -125,19 +125,19 @@ class generatePlayerRole implements ShouldQueue
         }
 
         //count average
-        $avg_gpm = number_format(($gpm / $counter), 0, '.', ',');
-        $avg_xppm = number_format(($xppm / $counter), 0, '.', ',');
-        $avg_lh = number_format(($lasthit / $counter), 0, '.', ',');
-        $avg_hero_damage = round(($hero_dmg / $counter), 0);
-        $avg_ward = number_format(($warding / $cw), 1, '.', ',');
-        $avg_deward = number_format(($deward / $cd), 1, '.', ',');
-        $avg_tower_damage = round(($tower_dmg / $counter), 0);
+        $avg_gpm = number_format(($gpm == 0 ? 0 : ($gpm / $counter)), 0, '.', ',');
+        $avg_xppm = number_format(($xppm == 0 ? 0 : ($xppm / $counter)), 0, '.', ',');
+        $avg_lh = number_format(($lasthit == 0 ? 0 : ($lasthit / $counter)), 0, '.', ',');
+        $avg_hero_damage = round(($hero_dmg == 0 ? 0 : ($hero_dmg / $counter)), 0);
+        $avg_ward = number_format(($warding == 0 ? 0 : ($warding / $cw)), 1, '.', ',');
+        $avg_deward = number_format(($deward == 0 ? 0 : ($deward / $cd)), 1, '.', ',');
+        $avg_tower_damage = round(($tower_dmg == 0 ? 0 : ($tower_dmg / $counter)), 0);
         $total = $win + $lose;
         $winrate = intval(((round(($win / $total), 2)) * 100));
 
-        $avg_kills = number_format(($k / $counter), 0, '.', ',');
-        $avg_assists = number_format(($a / $counter), 0, '.', ',');
-        $avg_death = number_format(($d / $counter), 0, '.', ',');
+        $avg_kills = number_format(($k == 0 ? 0 : ($k / $counter)), 0, '.', ',');
+        $avg_assists = number_format(($a == 0 ? 0 : ($a / $counter)), 0, '.', ',');
+        $avg_death = number_format(($d == 0 ? 0 : ($d / $counter)), 0, '.', ',');
 
         //dd($avg_kills);
 

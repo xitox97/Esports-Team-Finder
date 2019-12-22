@@ -116,9 +116,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/try-redis', function () {
 
-        $user = User::where('id', auth()->id())->first();
-        // dd($user);
-        $stats = Statistic::first();
+        $user = auth()->user();
+        //dd($user);
+        //$stats = Statistic::first();
 
         //consumeOpendotaApi::dispatch($user);
         //processMatches::dispatch($user, $stats);
