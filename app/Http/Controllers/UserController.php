@@ -72,7 +72,7 @@ class UserController extends Controller
         $user->save();
 
         $url = $user->accounts->dota_id;
-        return redirect("players/$url");
+        return back()->with('profile', 'Sucessfully update profile');
     }
 
     public function list()

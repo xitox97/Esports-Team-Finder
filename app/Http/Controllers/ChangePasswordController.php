@@ -18,9 +18,9 @@ class ChangePasswordController extends Controller
     {
         $this->middleware('auth');
     }
-   
-    
-   
+
+
+
     /**
      * Show the application dashboard.
      *
@@ -30,12 +30,12 @@ class ChangePasswordController extends Controller
     {
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required','different:current_password'],
+            'new_password' => ['required', 'different:current_password', 'min:8'],
             'new_confirm_password' => ['same:new_password'],
         ]);
-   
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-   
+
+        User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+
         return back()->with('pass', 'Sucessfully change password');
     }
 }
