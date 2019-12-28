@@ -48,6 +48,9 @@ class ScrimController extends Controller
         if ($myTeam == null) {
             return back()->with('captain', 'Only Captain can request for scrims!');
         }
+        if ($myTeam->scrim != 1) {
+            return back()->with('scrim', 'You need to ready for scrim before can send invitation!');
+        }
         return view('scrims.add', compact('team', 'myTeam'));
     }
 

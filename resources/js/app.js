@@ -246,7 +246,7 @@ new Vue({
                         handler: () => {
                             axios.get('/leave/' + teamId);
                             alert("Succesfully left");
-                            window.location.replace = '/teams';
+                            window.location.href = '/teams';
                         }
                     }
 
