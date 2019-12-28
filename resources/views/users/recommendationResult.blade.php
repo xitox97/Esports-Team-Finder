@@ -35,7 +35,7 @@
                                     <img src="{{  $player->accounts['avatar_url']  }}" alt="" class="rounded-full w-24 h-auto">
                                     @endif
                                     {{$player->accounts['steam_name']}}</td>
-                                <td class="py-4 px-6">
+                                <td class="py-4">
                                     @include('users.medal_rec')
                                 </td>
                                 <td class="py-4 px-6">{{$pos}}</td>
