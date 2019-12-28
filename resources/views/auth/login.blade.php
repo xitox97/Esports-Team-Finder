@@ -45,17 +45,20 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
                         <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
                           Email
                         </label>
-                        <input name="email" placeholder="Enter your email" class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="email" type="text" >
-                      </div>
+                        <input name="email" placeholder="Enter your email" class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="email" type="email" >
 
+                    </div>
+                    @error('email')
+                            <p class="-mt-3 text-xs italic text-center text-red-500">{{ $message }}</p>
+                        @enderror
                       <div class="py-2 mb-4 border-b-2 border-indigo-500">
                             <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
                                     Password
                             </label>
                             <input class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="password" name="password" type="password" placeholder="***************">
-                          </div>
-                          @error('email')
-                            <p class="-mt-3 text-xs italic text-center text-red-500">{{ $message }}</p>
+                        </div>
+                        @error('password')
+                        <p class="-mt-3 text-xs italic text-center text-red-500">{{ $message }}</p>
                     @enderror
                       <div class="flex flex-col items-center justify-center">
                             <button class="w-64 px-4 py-2 mt-4 font-bold text-white rounded-full shadow-md btn-indigo" type="submit">

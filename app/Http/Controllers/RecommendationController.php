@@ -112,20 +112,11 @@ class RecommendationController extends Controller
             }
 
             $medal = $user->accounts->getMedal();
-
-
-
-
             //cf
-
             //finder user have achievements or not
             $exp = DB::table('achievements')
                 ->where('user_id', $user->id)
                 ->count() > 0;
-
-            //dd($exp);
-
-            //dd($user->knowledge['winrate']); get user winrate
 
             $tour = Tournament::find($request['tournament']);
             $exists = $tour->users->contains($user->id);    //check whether user interested to join specific tournament
@@ -134,19 +125,10 @@ class RecommendationController extends Controller
 
                 foreach ($request['rank'] as $rank) {
                     if ($rank ==  $medal) {
-                        //dd($rank);
 
                         if ($exists == true) {
 
-                            //if have experience, user`s winrate is more than requested winrate
-                            // if ($request['experience'] == 1 and $exp == true and $user->knowledge['winrate'] > $request['winrate']) {
-                            //     $result->push($user);
-                            // } elseif ($request['experience'] == 0 and $exp == false and $user->knowledge['winrate'] > $request['winrate']) {
-                            //     $result->push($user);
-                            // }
-
                             //user`s winrate is more than requested winrate and user`s gpm/xppm/lasthit >= equal requested gpm/xppm/lasthit or requested gpm/xppm/lasthit = any
-
                             if (
                                 $user->knowledge['winrate'] >= $request['winrate']
                                 and ($user->knowledge['gpm'] >= $request['gpm'] or $request['gpm'] == 0)
@@ -160,11 +142,6 @@ class RecommendationController extends Controller
                                 and ($user->knowledge['assists'] >= $request['assists'] or $request['assists'] == 0)
                                 and ($user->knowledge['death'] >= $request['death'] or $request['death'] == 0)
                             ) {
-                                // if ($request['experience'] == 1 and $exp == true) {
-                                //     $result->push($user);
-                                // } elseif ($request['experience'] == 0 and $exp == false) {
-                                //     $result->push($user);
-                                // }
 
                                 if ($request['experience'] == 1 and $exp == true) {
                                     $result->push($user);
@@ -181,7 +158,7 @@ class RecommendationController extends Controller
         }
         //dd($result[0]->knowledge);
         $pos = $request['position'];
-        return view('users.recommendationResult', compact('result','pos'));
+        return view('users.recommendationResult', compact('result', 'pos'));
     }
 
     // Vc (finder properties/requiremet) =
