@@ -43,7 +43,7 @@
                                         <ul class="list-disc">
                                 @foreach($player->tournaments as $tour)
                                     @if($tour->status != 1)
-                                    <li class="capitalize">{{$tour->name}}</li>
+                                    <li class="capitalize capitalize whitespace-no-wrap">{{$tour->name}}</li>
                                     @endif
                                 @endforeach
                             </ul>
