@@ -87,6 +87,7 @@
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Seconds of disable on heroes'">STUNS</span></th>
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Camps stacked'">STACKED</span></th>
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Number of buybacks'">BUYBACKS</span></th>
+                                            <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Observer and Sentry purchased'">Observer/Sentry</span></th>
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Lane based on early game position'">LANE</span></th>
                                     </thead>
                                     <tbody class="text-center text-white">
@@ -113,6 +114,7 @@
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Seconds of disable on heroes'">STUNS</span></th>
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Camps stacked'">STACKED</span></th>
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Number of buybacks'">BUYBACKS</span></th>
+                                            <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Ward placed'">Ward/Deward</span></th>
                                             <th class="capitalize border-b border-gray-300 py-4 "><span v-tooltip.top="'Lane based on early game position'">LANE</span></th>
                                     </thead>
                                     <tbody class="text-center text-white">

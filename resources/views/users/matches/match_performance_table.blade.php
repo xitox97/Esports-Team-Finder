@@ -47,5 +47,17 @@
                 -
                 @endif
             </td>
+            <td>@if(array_key_exists("purchase_ward_observer", $player))
+                {{$player['purchase_ward_observer']}}
+                @else
+                0
+                @endif
+                /
+                @if(array_key_exists("purchase_ward_sentry", $player))
+                {{$player['purchase_ward_sentry']}}
+                @else
+                0
+                @endif
+            </td>
             <td>@include('users.matches.roles')</td>
 </tr>
