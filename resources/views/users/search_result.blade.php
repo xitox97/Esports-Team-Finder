@@ -37,7 +37,9 @@
                                 @endif
                                 <td class="py-4 px-6">
                                 @forelse($player->tournaments as $tour)
-                                    <p>{{$tour->name}}</p>
+                                    @if($tour->status != 1)
+                                    <li class="capitalize">{{$tour->name}}</li>
+                                    @endif
                                 @empty
                                 <p>None</p>
                                 @endforelse
