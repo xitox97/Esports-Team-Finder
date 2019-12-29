@@ -6,7 +6,7 @@
         class="no-underline hover:underline text-blue-500">Overview</a> / {{$matches->match_id}} / Ability</span>
     </section>
 
-    <div class="container mt-12 font-mono">
+    <div class="container w-full p-4 mx-auto mt-4 font-mono">
             @if($matches != null)
         {{-- top --}}
         <div class="bg-dark-100 flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg">

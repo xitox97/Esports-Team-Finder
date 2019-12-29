@@ -7,7 +7,7 @@
         class="text-blue-500 no-underline hover:underline">Overview</a> / {{$matches->match_id}}</span>
     </section>
 
-    <div class="container mt-12 font-mono">
+    <div class="container w-full p-4 mx-auto mt-4 font-mono">
 
         {{-- top --}}
         <div class="flex flex-col justify-between max-w-6xl p-4 rounded-lg shadow-lg bg-dark-100">
