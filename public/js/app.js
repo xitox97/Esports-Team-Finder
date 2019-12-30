@@ -2567,7 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       chartOptions: {
         title: {
-          text: "Most Recent 20 Game(s)"
+          text: "Most Played Roles"
         },
         chart: {
           foreColor: "#ed64a6"

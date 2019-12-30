@@ -22,7 +22,7 @@ export default {
       ],
       chartOptions: {
         title: {
-          text: "Most Recent 20 Game(s)"
+          text: "Most Played Roles"
         },
         chart: {
           foreColor: "#ed64a6"
