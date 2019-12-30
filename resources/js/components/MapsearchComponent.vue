@@ -78,7 +78,7 @@ export default {
           fill: new ol.style.Fill({
             color: "red"
           }),
-          font: "25px sans-serif",
+          font: "15px sans-serif",
           stroke: "true",
           backgroundStroke: "true"
         })
@@ -122,7 +122,7 @@ export default {
             fill: new ol.style.Fill({
               color: "red"
             }),
-            font: "25px sans-serif",
+            font: "15px sans-serif",
             stroke: "true",
             backgroundStroke: "true"
           })

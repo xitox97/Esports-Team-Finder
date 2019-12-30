@@ -2234,7 +2234,7 @@ __webpack_require__.r(__webpack_exports__);
         fill: new ol.style.Fill({
           color: "red"
         }),
-        font: "25px sans-serif",
+        font: "15px sans-serif",
         stroke: "true",
         backgroundStroke: "true"
       })
@@ -2262,7 +2262,7 @@ __webpack_require__.r(__webpack_exports__);
           fill: new ol.style.Fill({
             color: "red"
           }),
-          font: "25px sans-serif",
+          font: "15px sans-serif",
           stroke: "true",
           backgroundStroke: "true"
         })
