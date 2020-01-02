@@ -34,7 +34,7 @@
                             <div class="flex flex-wrap mb-3 -mx-3">
                                 <div class="w-full px-3 md:w-1/2">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
-                                        Full Name
+                                        Full Name*
                                     </label>
                                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="text" placeholder="Enter your full name" name="name" required value="{{old('name')}}">
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="w-full px-3 md:w-1/2">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
-                                        Birth Day
+                                        Birth Day*
                                     </label>
                                     {{-- <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" id="grid-last-name"
                                     type="date" placeholder="Enter your age" name="age" required> --}}
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="w-full px-3 mt-5">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-last-name">
-                                        E-mail
+                                        E-mail*
                                     </label>
                                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" id="grid-last-name"
                                     type="email" placeholder="Enter your valid email address" name="email" required value="{{old('email')}}">
@@ -84,7 +84,7 @@
                             <div class="flex flex-wrap mb-3 -mx-3">
                                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-state">
-                                        City
+                                        City*
                                     </label>
                                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="text" placeholder="Enter your city" name="area" required value="{{old('area')}}">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md" for="grid-state">
-                                        State
+                                        State*
                                     </label>
                                     <div class="relative">
                                         <select class="block w-full px-4 py-3 pr-8 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600 " name="state" required>
@@ -128,7 +128,7 @@
                             <div class="flex flex-wrap mb-6 -mx-3">
                                 <div class="w-full px-3 md:w-1/2">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md">
-                                    Password
+                                    Password*
                                     </label>
                                     <input class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600"
                                     type="password" id="password" placeholder="*****" name="password" required>
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="w-full px-3 md:w-1/2">
                                     <label class="block mb-2 font-semibold tracking-wide text-gray-700 capitalize text-md">
-                                        Confirm Password
+                                        Confirm Password*
                                     </label>
                                     <input class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 border border-gray-500 rounded appearance-none focus:outline-none focus:border-indigo-600" type="password"
                                     placeholder="*****" name="password_confirmation" required id="password-confirm" required>
