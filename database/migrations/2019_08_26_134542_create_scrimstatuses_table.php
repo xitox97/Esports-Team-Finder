@@ -19,6 +19,7 @@ class CreateScrimstatusesTable extends Migration
             $table->unsignedBigInteger('opponent_id');
             $table->string('status');
             $table->dateTime('date_time');
+            $table->text('notes')->nullable();
             $table->timestamps();
 
 

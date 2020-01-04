@@ -17,15 +17,24 @@
                         <input name="opponent_id" type="hidden" value="{{ $team->id }}">
                         <div class="flex  flex-col justify-center items-center">
                         <div class="w-2/3 mb-3">
-                            <label for="opponent" class="block text-white text-md font-bold mb-2">Opponent Team</label>
+                            <label for="opponent" class="block text-white text-md font-bold mb-2">Opponent Team*</label>
                             <input class="cursor-not-allowed appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200
                             rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" id="name" value="{{$team->name}}" required disabled>
                         </div>
-                        <div class="w-2/3">
-                            <label for="date_time" class="block text-white text-md font-bold mb-2">Date & Time</label>
+                        <div class="w-2/3 mb-3">
+                            <label for="date_time" class="block text-white text-md font-bold mb-2">Date & Time*</label>
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200
                             rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="datetime-local" name="date_time" id="date_time" required>
                             @error('date_time')
+                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="w-2/3">
+                            <label for="date_time" class="block text-white text-md font-bold mb-2">Notes</label>
+                            <textarea class="appearance-none block w-full  text-gray-700 border-2 border-gray-300 rounded
+                                      py-3 px-4 leading-tight focus:outline-none focus:border-purple-500 bg-gray-300"
+                                      rows="4" name="notes"></textarea>
+                            @error('notes')
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror
                         </div>

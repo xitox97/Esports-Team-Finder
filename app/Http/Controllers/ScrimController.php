@@ -61,6 +61,7 @@ class ScrimController extends Controller
             'team_id' => 'required',
             'opponent_id' => 'required',
             'date_time' => 'required|after_or_equal:now',
+            'notes' => 'required',
         ]);
 
 
@@ -69,7 +70,8 @@ class ScrimController extends Controller
             'team_id' => $request['team_id'],
             'opponent_id' => $request['opponent_id'],
             'status' => 'pending',
-            'date_time' => $request['date_time']
+            'date_time' => $request['date_time'],
+            'notes' => $request['notes']
         ]);
 
         $team = Team::where('id', $request['opponent_id'])->first();
@@ -137,10 +139,6 @@ class ScrimController extends Controller
             $teamid = $t->id;
         }
         $myTeam = Team::find($teamid);
-
-
-
-
 
         //dd($myTeam->scrims->pivot);
 
