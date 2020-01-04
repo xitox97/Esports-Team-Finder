@@ -16,7 +16,7 @@
                     <th class="capitalize py-4 ">Team</th>
                     <th class="capitalize py-4 ">Date</th>
                     <th class="capitalize py-4 ">Time</th>
-                    <th class="capitalize py-4 ">Status</th>
+                    <th class="capitalize py-4 "></th>
                     {{-- <th class="capitalize py-4 "></th> --}}
                 </tr>
 
@@ -28,13 +28,16 @@
                         <td  class="py-4"> <a href="{{ url('/teams/' . $scrim->id) }}" class="no-underline hover:underline text-blue-500">{{$scrim->name}}</a> </td>
                         <td  class="py-4">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('h:i:s a') }}</td>
                         <td  class="py-4">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('d/m/Y') }}</td>
+                        <td class="py-4"> <a href="/teams/{{$scrim->id}}" class="inline-block bg-indigo-500 rounded px-3
+                            text-md font-semibold text-white text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500">View</a></td>
+
                         {{-- <td  class="py-4">
                         <a href="{{  url('/scrims/'. $scrim->pivot->id . '/details')  }}" class="bg-pink-500 font-semibold text-white hover:bg-pink-600
                             py-2 px-4 border border-pink-500 hover:border-pink-600 rounded">View Details</a></td> --}}
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="py-4 px-6 border-b border-gray-300 text-center text-white"> <b> No Scheduled Scrims</b> </td>
+                        <td colspan="5" class="py-4 px-6 border-b border-gray-300 text-center text-white"> <b> No Scheduled Scrims</b> </td>
                     </tr>
                 @endforelse
             </tbody>

@@ -68,6 +68,7 @@ class OfferScrim extends Notification
             'offer_status' => $this->scrim->status,
             'offer_time' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('h:i:s a'),
             'offer_date' => Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y'),
+            'notes' => $this->scrim->notes,
         ];
     }
 

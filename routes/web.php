@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //scrims
     Route::get('/scrims', 'ScrimController@index');
+    Route::get('/scrims/status', 'ScrimController@status');
     Route::get('/scrims/add/{team}', 'ScrimController@add');
     Route::post('/scrims', 'ScrimController@invite');
     Route::get('/scrims/accept/{status}/notifications/{noti}', 'ScrimController@acceptScrim');

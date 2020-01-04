@@ -51,6 +51,9 @@
                                 <a href="/teams/notScrim/{{ $myTeam->id }}" class="block text-default py-2 px-4 no-underline hover:underline
                                     text-md leading-loose ml-1 my-1 hover:bg-dark-100"
                                 role="button" >Not Ready for scrim</a>
+                                <a href="/scrim/status" class="block text-default py-2 px-4 no-underline hover:underline
+                                    text-md leading-loose ml-1 my-1 hover:bg-dark-100"
+                                role="button" >Scrim status</a>
                             @endif
                                     <a href="/teams/{{$myTeam->id}}/edit" class="block text-default py-2 px-4 no-underline hover:underline
                                         text-md leading-loose ml-1 my-1 hover:bg-dark-100">Edit team profile</a>

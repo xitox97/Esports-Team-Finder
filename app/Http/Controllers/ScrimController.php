@@ -159,4 +159,11 @@ class ScrimController extends Controller
         //dd($oppTeam);
         return view('scrims.scrimDetails', compact('myTeam', 'oppTeam'));
     }
+
+    public function status()
+    {
+        //buat nanti
+
+        return view('scrims.status', compact('myTeam', 'oppTeam'));
+    }
 }

@@ -133,6 +133,7 @@
                         <span class="text-md font-base">
                             <span class="font-bold text-purple-600"><a href="/teams/{{$noti->data['team_id']}}"> Team {{ $noti->data['team_name'] }}</a>
                             </span> schedule a scrim on {{ $noti->data['offer_date'] }} at {{ $noti->data['offer_time'] }}
+                            <p class=" text-sm"><span class="text-gray-500 font-semibold">Notes: </span> <span class="font-medium italic">{{ $noti->data['notes'] }}</span></p>
                         </span>
                     </div>
                     <div class="flex">

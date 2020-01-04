@@ -9,7 +9,7 @@
     <div class="flex flex-wrap">
         <div class="w-2/5">
             <div class="flex flex-col bg-dark-100 shadow-lg rounded-lg mr-4">
-                <div class="w-full px-10 bg-purple-500   relative text-center pb-1">
+                <div class="w-full px-10 bg-purple-600   relative text-center pb-1">
                         <span class="text-white font-semibold text-2xl capitalize text-center">Team {{$team->name}}</span>
                 </div>
 
@@ -17,14 +17,14 @@
                         <img src="{{  asset('storage/pics/' . $team->image) }}" alt="" class=" rounded-sm w-3/5">
                 </div>
 
-                <div class="w-full px-10 bg-purple-500">
+                <div class="w-full px-10 bg-purple-600">
                         <p class="font-semibold text-xl capitalize text-center text-white ">Team Information</p>
                 </div>
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2 text-white">
                     <p class="text-center"><span class="font-semibold">City:</span> {{$team->area}}</p>
                     <p class="text-center"><span class="font-semibold">State:</span> {{$team->state}}</p>
                     <p class="text-center"><span class="font-semibold">Captain:</span>
-                        <a href="/players/{{$captain->accounts->dota_id}}" class="no-underline hover:underline text-blue-500">{{$captain->name}}</a></p>
+                        <a href="/players/{{$captain->accounts->dota_id}}" class="no-underline hover:underline text-blue-600">{{$captain->name}}</a></p>
                     <p class="text-center"><span class="font-semibold">Sponsor:</span> {{$team->sponsor}}</p>
                     <p class="text-center"><span class="font-semibold">Description:</span>{{$team->description}}</p>
                     @if($team->scrim == true)
@@ -33,7 +33,7 @@
                     <p class="text-center"><span class="font-semibold">Scrim:</span> Not Ready</p>
                     @endif
                 </div>
-                {{-- <div class="w-full px-10 bg-purple-500">
+                {{-- <div class="w-full px-10 bg-purple-600">
                         <p class="font-semibold text-xl capitalize text-center text-white">Achievements</p>
                 </div>
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2 text-white">
@@ -45,7 +45,7 @@
         </div>
         <div class="w-2/4 rounded-lg">
             <div class="flex flex-col justify-content bg-dark-100 shadow-lg ml-4">
-                    <div class="bg-purple-500 py-2">
+                    <div class="bg-purple-600 py-2">
                             <p class="text-white font-semibold text-2xl text-center">Player Roster</p>
                         </div>
                         <div>
