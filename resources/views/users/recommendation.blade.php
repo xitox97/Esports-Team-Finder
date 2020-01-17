@@ -10,6 +10,8 @@
                 <div class="bg-purple-700 rounded-t py-4">
                         <p class="text-2xl font-bold uppercase flex
                         justify-center text-white tracking-wider font-mono">Search Players</p>
+                        <p class="text-md font-bold italic flex
+                        justify-center text-white tracking-wider font-mono text-purple-300 mt-1">Find Dota 2 player based on your preferences</p>
                 </div>
                 <div>
                     <form class="w-full px-8 py-4 font-mono" method="POST" action="/players/recommendation" id="achievement">

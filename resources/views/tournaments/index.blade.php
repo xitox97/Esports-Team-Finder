@@ -23,6 +23,8 @@
                     </span>
                 </div>
             @endif
+            <p class="ml-10 text-2xl font-bold text-purple-600 uppercase">UPCOMING TOURNAMENT</p>
+            <p class="pb-2 ml-10 text-md font-normal text-gray-600 italic">Find tournament that you wish to parcipate</p>
         <div class="flex flex-wrap flex-row justify-center">
             @foreach ($tournament as $tour)
                 <div class="max-w-xs rounded rounded-t-none overflow-hidden shadow-lg mx-2 mb-2 mt-2  bg-dark-100  hover:bg-content border-t-4 border-purple-700">

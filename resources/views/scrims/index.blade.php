@@ -65,7 +65,7 @@
                 @empty
                 <div class="container ml-20 mt-12 max-w-6xl mr-2">
                     <div class="bg-purple-100 border-t border-b border-purple-500 text-purple-500 px-4 py-3 text-center bg-dark-100" role="alert">
-                        <p class="font-bold text-lg">Currently there is no team wanted to scrim</p>
+                        <p class="font-bold text-lg">Currently there is no team available to scrim</p>
                         <p class="text-md">Please come back later.</p>
                     </div>
 
