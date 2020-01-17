@@ -6,7 +6,9 @@ use App\User;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -90,6 +92,13 @@ class UserController extends Controller
             $user = $users->find($f->id);
             $players->push($user);
         }
-        return view('users.search_result', compact('players'));
+
+        $page = Input::get('page', 1);
+
+        $perPage = 6;
+        $pagePlayers = new LengthAwarePaginator($players->forPage($page, $perPage), $players->count(), $perPage, $page);
+        $pagePlayers->setPath(url()->current());
+
+        return view('users.search_result', compact('players', 'pagePlayers'));
     }
 }

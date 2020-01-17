@@ -20,7 +20,7 @@
                             <th class="capitalize py-4 "></th>
                         </thead>
                         <tbody class="text-center text-white font-semibold">
-                            @foreach($players as $player)
+                            @foreach($pagePlayers as $player)
                                 <tr class="hover:bg-content border-b border-gray-600">
                                 <td class="flex flex-col items-center px-6 py-4">
                                     @if($player->accounts['avatar_url'] == null)
@@ -62,7 +62,8 @@
 
                     </table>
                     <div class="mt-4 -mb-1">
-
+                            {{ $pagePlayers->links() }}
+                       
 
                     </div>
                 </div>

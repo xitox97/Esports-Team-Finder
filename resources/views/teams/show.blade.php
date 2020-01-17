@@ -69,7 +69,7 @@
                                         <td class="py-4 px-6">Unknown</td>
                                         @endif
                                         @foreach($teamMember->team as $t)
-                                        <td class="py-4 px-6">{{$t->pivot->created_at->format('d-m-Y')}}</td>
+                                        <td class="py-4 px-6 whitespace-no-wrap">{{$t->pivot->created_at->format('d-m-Y')}}</td>
 
                                         @endforeach
                                         <td class="py-4 px-6 flex">

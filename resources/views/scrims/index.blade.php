@@ -22,24 +22,23 @@
                 </span>
             </div>
             @endif
-    <div class="container ml-18 w-full mt-4 rounded-lg pt-3 pl-3 flex">
-
-
-        <div class="flex flex-wrap w-10/12">
-
+    <div class="container ml-18 w-full mt-4 pt-3 pl-3">
+        <p class="ml-10 text-2xl font-bold text-purple-600 uppercase">SCRIMS</p>
+        <p class="pb-4 ml-10 text-md font-normal text-gray-600 italic">Find Dota 2 teams to practice together</p>
+        <div class="flex">
+        <div class="flex justify-center flex-wrap w-10/12">
         @forelse ($teams as $team)
                 <div class="bg-dark-100 w-64 flex flex-col m-2 shadow-lg rounded-t-lg">
-                    <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer">
-                    <div class="flex p-4 border-b border-gray-600">
+                    <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer h-48">
+                    <div class="flex p-4">
                         <img class="w-24 h-24 rounded-full" src="{{  asset('storage/pics/' . $team->image) }}" alt="">
                         <div class="ml-5">
-
-                                <p class="font-semibold ml-1 text-lg tracking-wide uppercase">{{$team->name}}</p>
+                            <p class="font-semibold ml-1 text-lg tracking-wide uppercase">{{$team->name}}</p>
                             <p class="-mt-1 capitalize font-medium ml-1 text-gray-400 text-md">{{$team->area}}</p>
                             <p class="italic ml-1 text-gray-400 text-sm">{{$team->description}}</p>
                         </div>
                     </div></a>
-                    <div class="flex flex-col justify-center py-3 border-b border-gray-600">
+                    <div class="flex flex-col justify-center py-3 border-b border-t border-gray-600">
                         <div><p class="text-center font-medium text-indigo-400 mb-1">Team Members</p></div>
                         <div class="flex justify-center">
                             @foreach($team->users as $user)
@@ -73,11 +72,12 @@
         @endforelse
 
         </div>
+    
         <div class="w-1/4 mt-12 ml-4">
 
             <a href="/scrims-schedule" v-tooltip.bottom="'View Scrim list Schedule'" class="w-40 flex items-center px-2 py-2 font-semibold leading-loose whitespace-no-wrap border border-indigo-800 rounded-lg shadow-md btn-indigo hover:border-transparent text-md"><i class="mr-1 material-icons">
                 date_range</i>Scrim Schedule</a>
         </div>
     </div>
-
+</div>
 @endsection
