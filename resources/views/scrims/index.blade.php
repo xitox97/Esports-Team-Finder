@@ -23,10 +23,10 @@
             </div>
             @endif
     <div class="container ml-18 w-full mt-4 pt-3 pl-3">
-        <p class="ml-10 text-2xl font-bold text-purple-600 uppercase">SCRIMS</p>
-        <p class="pb-4 ml-10 text-md font-normal text-gray-600 italic">Find Dota 2 teams to practice together</p>
+        <p class="ml-3 text-2xl font-bold text-purple-600 uppercase">SCRIMS</p>
+        <p class="pb-4 ml-3 text-md font-normal text-gray-600 italic">Find Dota 2 teams to practice together</p>
         <div class="flex">
-        <div class="flex justify-center flex-wrap w-10/12">
+        <div class="flex flex-wrap w-10/12">
         @forelse ($teams as $team)
                 <div class="bg-dark-100 w-64 flex flex-col m-2 shadow-lg rounded-t-lg">
                     <a href="/teams/{{$team->id}}" class="text-white font-semibold cursor-pointer h-48">
@@ -72,7 +72,7 @@
         @endforelse
 
         </div>
-    
+
         <div class="w-1/4 mt-12 ml-4">
 
             <a href="/scrims-schedule" v-tooltip.bottom="'View Scrim list Schedule'" class="w-40 flex items-center px-2 py-2 font-semibold leading-loose whitespace-no-wrap border border-indigo-800 rounded-lg shadow-md btn-indigo hover:border-transparent text-md"><i class="mr-1 material-icons">
