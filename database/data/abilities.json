@@ -39,10 +39,10 @@
         "key": "mana_per_hit_pct",
         "header": "MAX MANA BURNED PER HIT:",
         "value": [
+          "1%",
           "2%",
           "3%",
-          "4%",
-          "5%"
+          "4%"
         ]
       },
       {
@@ -617,9 +617,9 @@
         "key": "health_bonus_pct",
         "header": "KILL HEAL PERCENTAGE:",
         "value": [
-          "16%",
-          "19%",
-          "22%",
+          "13%",
+          "17%",
+          "21%",
           "25%"
         ]
       },
@@ -627,9 +627,9 @@
         "key": "health_bonus_creep_pct",
         "header": "HEALTH BONUS CREEP PCT:",
         "value": [
-          "16",
-          "19",
-          "22",
+          "13",
+          "17",
+          "21",
           "25"
         ],
         "generated": true
@@ -821,7 +821,7 @@
       "225",
       "250"
     ],
-    "cd": "60",
+    "cd": "70",
     "img": "/apps/dota2/images/abilities/bloodseeker_rupture_md.png"
   },
   "drow_ranger_frost_arrows": {
@@ -831,6 +831,7 @@
       "Autocast",
       "Attack Modifier"
     ],
+    "dmg_type": "Physical",
     "bkbpierce": "No",
     "desc": "Adds a freezing effect to Drow's attacks, slowing enemy movement and dealing bonus damage.  Slow lasts %abilityduration% seconds.",
     "dmg": "0",
@@ -879,20 +880,20 @@
         "key": "arrow_damage_pct",
         "header": "ARROW BASE DAMAGE BONUS:",
         "value": [
-          "95%",
-          "125%",
-          "155%",
-          "185%"
+          "90%",
+          "115%",
+          "140%",
+          "165%"
         ]
       },
       {
         "key": "arrow_slow_duration",
         "header": "ARROW SLOW DURATION:",
         "value": [
-          "1",
+          "1.25",
           "2",
-          "3",
-          "4"
+          "2.75",
+          "3.5"
         ]
       },
       {
@@ -921,14 +922,14 @@
     ],
     "mc": [
       "50",
-      "60",
       "70",
-      "80"
+      "90",
+      "110"
     ],
     "cd": [
-      "32",
-      "28",
+      "26",
       "24",
+      "22",
       "20"
     ],
     "img": "/apps/dota2/images/abilities/drow_ranger_multishot_md.png"
@@ -1048,7 +1049,7 @@
     "behavior": "Passive",
     "dmg_type": "Physical",
     "bkbpierce": "Yes",
-    "desc": "Drow's experiences in battle grant her a chance to launch arrows with incredible accuracy and effectiveness. Pierces through the enemy's defenses, ignoring their base armor. Grants Drow and nearby ranged heroes with bonus agility based on your current agility. This ability is disabled if there is an enemy hero within 400 range.",
+    "desc": "Drow's experiences in battle grant her a chance to launch arrows with incredible accuracy and effectiveness. Pierces through the enemy's defenses, ignoring their base armor. Grants Drow and nearby ranged heroes with bonus agility based on Drow's current agility. This ability is disabled if there is an enemy hero within 400 range.",
     "attrib": [
       {
         "key": "chance",
@@ -1063,18 +1064,18 @@
         "key": "bonus_damage",
         "header": "BONUS PROC DAMAGE:",
         "value": [
-          "40",
-          "50",
-          "60"
+          "70",
+          "80",
+          "90"
         ]
       },
       {
         "key": "agility_multiplier",
         "header": "AGILITY BONUS:",
         "value": [
-          "25%",
-          "30%",
-          "35%"
+          "28%",
+          "36%",
+          "44%"
         ]
       },
       {
@@ -1164,7 +1165,7 @@
   "earthshaker_enchant_totem": {
     "dname": "Enchant Totem",
     "behavior": "No Target",
-    "desc": "Empowers Earthshaker's totem, causing it to deal extra damage on the next attack.",
+    "desc": "Empowers Earthshaker's totem, causing it to deal extra damage and have 75 bonus attack range on the next attack.",
     "dmg": "0",
     "attrib": [
       {
@@ -1221,7 +1222,8 @@
       {
         "key": "bonus_attack_range",
         "header": "BONUS ATTACK RANGE:",
-        "value": "75"
+        "value": "75",
+        "generated": true
       }
     ],
     "mc": [
@@ -1501,9 +1503,9 @@
         "key": "slow_duration",
         "header": "SLOW DURATION:",
         "value": [
-          "1.75",
-          "2.5",
-          "3.25",
+          "1",
+          "2",
+          "3",
           "4"
         ]
       },
@@ -2552,10 +2554,10 @@
         "key": "bonus_attributes",
         "header": "BONUS ATTRIBUTES:",
         "value": [
-          "1",
           "3",
           "5",
-          "7"
+          "7",
+          "9"
         ],
         "generated": true
       }
@@ -2588,10 +2590,10 @@
         "key": "bonus_attributes",
         "header": "BONUS AGILITY:",
         "value": [
-          "1",
           "3",
           "5",
-          "7"
+          "7",
+          "9"
         ]
       },
       {
@@ -2634,10 +2636,10 @@
         "key": "bonus_attributes",
         "header": "BONUS STRENGTH:",
         "value": [
-          "1",
           "3",
           "5",
-          "7"
+          "7",
+          "9"
         ]
       },
       {
@@ -2658,7 +2660,7 @@
     "dname": "Morph",
     "behavior": "Unit Target",
     "bkbpierce": "Yes",
-    "desc": "Morphling changes his form to match the targeted enemy, gaining their basic abilities. Can be toggled for the duration of the ability.",
+    "desc": "Morphling changes his form to match the targeted enemy, gaining their basic abilities with reduced mana cost. Can be toggled for the duration of the ability.",
     "attrib": [
       {
         "key": "duration",
@@ -2987,7 +2989,7 @@
     ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Shadow Fiend gathers his captured souls to release them as lines of demonic energy. Units near Shadow Fiend when the souls are released can be damaged by several lines of energy. Any unit damaged by Requiem of Souls will be feared and have its movement speed reduced for 0.6 seconds for each line hit. Lines of energy are created for every 2,2,2 souls captured through Necromastery.  Requiem of Souls is automatically cast whenever Shadow Fiend dies, regardless of its cooldown.",
+    "desc": "Shadow Fiend gathers his captured souls to release them as lines of demonic energy. Units near Shadow Fiend when the souls are released can be damaged by several lines of energy. Any unit damaged by Requiem of Souls will be feared and have its movement speed reduced for 0.8 seconds for each line hit. Lines of energy are created for every 2,2,2 souls captured through Necromastery.  Requiem of Souls is automatically cast whenever Shadow Fiend dies, regardless of its cooldown.",
     "dmg": [
       "80",
       "120",
@@ -3008,13 +3010,13 @@
       {
         "key": "requiem_slow_duration",
         "header": "REQUIEM SLOW DURATION:",
-        "value": "0.6",
+        "value": "0.8",
         "generated": true
       },
       {
         "key": "requiem_slow_duration_max",
         "header": "REQUIEM SLOW DURATION MAX:",
-        "value": "2.2",
+        "value": "2.4",
         "generated": true
       },
       {
@@ -3423,7 +3425,7 @@
     ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Puck releases a burst of faerie dust that deals damage and silences enemy units nearby.",
+    "desc": "Puck teleports to the target location and releases a burst of faerie dust that deals damage and silences enemy units nearby.",
     "attrib": [
       {
         "key": "radius",
@@ -3444,11 +3446,16 @@
         "key": "damage",
         "header": "DAMAGE:",
         "value": [
-          "100",
-          "160",
-          "220",
+          "70",
+          "140",
+          "210",
           "280"
         ]
+      },
+      {
+        "key": "max_distance",
+        "header": "MAX DISTANCE:",
+        "value": "350"
       }
     ],
     "mc": [
@@ -3565,7 +3572,7 @@
         "key": "coil_stun_duration_scepter",
         "header": "SCEPTER BREAK STUN DURATION:",
         "value": [
-          "1.5",
+          "1.8",
           "3",
           "4.5"
         ]
@@ -3722,7 +3729,8 @@
     "behavior": [
       "No Target",
       "Instant Cast",
-      "Hidden"
+      "Hidden",
+      null
     ],
     "bkbpierce": "No",
     "desc": "Ejects the swallowed allied hero inside of you.",
@@ -4164,20 +4172,20 @@
         "key": "movement_speed_pct",
         "header": "BONUS SPEED:",
         "value": [
-          "4%",
-          "6%",
-          "8%",
-          "10%"
+          "3%",
+          "5%",
+          "7%",
+          "9%"
         ]
       },
       {
         "key": "self_movement_speed_pct",
         "header": "SELF BONUS SPEED:",
         "value": [
-          "8%",
-          "12%",
-          "16%",
-          "20%"
+          "6%",
+          "10%",
+          "14%",
+          "18%"
         ]
       },
       {
@@ -4207,8 +4215,8 @@
         "key": "passive_area_damage",
         "header": "PASSIVE DAMAGE:",
         "value": [
-          "80",
-          "110",
+          "60",
+          "100",
           "140"
         ]
       },
@@ -5665,7 +5673,7 @@
     "behavior": "Unit Target",
     "dmg_type": "Physical",
     "bkbpierce": "Yes",
-    "desc": "Grabs a tree to whack enemies on the head. Grants bonus attack range but Tiny is slowed by 25. Attacks deal more damage and fully splash on units along the way. The tree can be thrown, expending all the charges, to deal your attack to a unit at a distance.",
+    "desc": "Grabs a tree to whack enemies on the head. Grants bonus attack range but Tiny is slowed by 30. Attacks deal more damage and fully splash on units along the way. The tree can be thrown, to deal your attack to a unit at a distance.",
     "attrib": [
       {
         "key": "bonus_damage",
@@ -5681,10 +5689,10 @@
         "key": "bonus_damage_buildings",
         "header": "BONUS BUILDING DAMAGE:",
         "value": [
+          "20%",
           "50%",
           "80%",
-          "110%",
-          "140%"
+          "110%"
         ]
       },
       {
@@ -5728,7 +5736,7 @@
       {
         "key": "speed_reduction",
         "header": "SPEED REDUCTION:",
-        "value": "25",
+        "value": "30",
         "generated": true
       }
     ],
@@ -5751,7 +5759,7 @@
     ],
     "dmg_type": "Physical",
     "bkbpierce": "No",
-    "desc": "Consume the remaining Tree Grab charges and throws the tree at the target unit, proccing your attack on it and splashing damage around the target.",
+    "desc": "Throws the tree at the target unit, proccing your attack on it and splashing damage around the target.",
     "attrib": [
       {
         "key": "speed",
@@ -6375,10 +6383,10 @@
         "key": "damage_reduction",
         "header": "DAMAGE BLOCK:",
         "value": [
-          "5",
-          "10",
-          "20",
-          "40"
+          "12",
+          "24",
+          "36",
+          "48"
         ]
       },
       {
@@ -6509,10 +6517,10 @@
         "key": "magic_missile_stun",
         "header": "STUN DURATION:",
         "value": [
+          "1.4",
           "1.5",
           "1.6",
-          "1.7",
-          "1.8"
+          "1.7"
         ]
       },
       {
@@ -6532,7 +6540,12 @@
       "120",
       "130"
     ],
-    "cd": "9",
+    "cd": [
+      "12",
+      "11",
+      "10",
+      "9"
+    ],
     "img": "/apps/dota2/images/abilities/vengefulspirit_magic_missile_md.png"
   },
   "vengefulspirit_command_aura": {
@@ -6541,26 +6554,26 @@
       "Passive",
       null
     ],
-    "desc": "Vengeful Spirit's presence increases the attack range and primary attribute of nearby friendly units. Spawns a Vengeance Illusion when you die that lasts until Vengeful Spirit revives.",
+    "desc": "Vengeful Spirit's presence increases the ranged attack range and primary attribute of nearby friendly units. Spawns a Strong Illusion of Vengeful Spirit when she dies that lasts until it is killed or Vengeful Spirit revives.",
     "attrib": [
       {
         "key": "bonus_attributes",
         "header": "BONUS PRIMARY ATTRIBUTE:",
         "value": [
           "4",
-          "8",
-          "12",
-          "16"
+          "7",
+          "10",
+          "13"
         ]
       },
       {
         "key": "bonus_attack_range",
         "header": "BONUS ATTACK RANGE:",
         "value": [
-          "60",
+          "50",
+          "75",
           "100",
-          "140",
-          "180"
+          "125"
         ]
       },
       {
@@ -6571,7 +6584,12 @@
       {
         "key": "illusion_damage_out_pct",
         "header": "ILLUSION DAMAGE DEALT:",
-        "value": "100%"
+        "value": [
+          "70%",
+          "80%",
+          "90%",
+          "100%"
+        ]
       },
       {
         "key": "illusion_damage_in_pct",
@@ -6813,32 +6831,22 @@
   "crystal_maiden_brilliance_aura": {
     "dname": "Arcane Aura",
     "behavior": "Passive",
-    "desc": "Gives additional mana regeneration and magic resistance to all friendly units on the map. This bonus is increased for Crystal Maiden.",
+    "desc": "Gives additional mana regeneration to all friendly units on the map. This bonus is increased for Crystal Maiden.",
     "attrib": [
       {
         "key": "mana_regen",
         "header": "MANA REGEN:",
         "value": [
+          "0.5",
           "1",
           "1.5",
-          "2",
-          "2.5"
-        ]
-      },
-      {
-        "key": "magic_resistance",
-        "header": "MAGIC RESISTANCE:",
-        "value": [
-          "4%",
-          "6%",
-          "8%",
-          "10%"
+          "2"
         ]
       },
       {
         "key": "self_factor",
         "header": "SELF BONUS FACTOR:",
-        "value": "2"
+        "value": "3"
       }
     ],
     "img": "/apps/dota2/images/abilities/crystal_maiden_brilliance_aura_md.png"
@@ -7914,9 +7922,9 @@
         "key": "damage_multiplier",
         "header": "AGI DAMAGE MULT:",
         "value": [
-          "1",
-          "1.5",
-          "2"
+          "1.4",
+          "1.8",
+          "2.2"
         ]
       },
       {
@@ -7972,6 +7980,7 @@
       "AOE",
       "Channeled"
     ],
+    "bkbpierce": "Yes",
     "desc": "Riki phases out of the world while striking randomy enemy units from behind in an area around him.",
     "attrib": [
       {
@@ -7988,9 +7997,9 @@
         "key": "damage_pct",
         "header": "ATTACK DAMAGE:",
         "value": [
-          "55%",
           "70%",
-          "85%",
+          "80%",
+          "90%",
           "100%"
         ]
       },
@@ -8585,7 +8594,7 @@
       "No Target",
       "Instant Cast"
     ],
-    "desc": "Extends the attack range of Sniper's rifle. Can be activated to double the attack range bonus for 1 attack.",
+    "desc": "Extends the attack range of Sniper's rifle. Can be activated to double the attack range bonus for 1 attack. Goes on cooldown after the attack is used.",
     "attrib": [
       {
         "key": "bonus_attack_range",
@@ -9904,7 +9913,7 @@
     "behavior": "Passive",
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Adds poison damage to Venomancer's normal attacks, slowing movement speed.",
+    "desc": "Adds poison damage to Venomancer's normal attacks, slowing movement speed and reducing the target's HP regeneration.",
     "attrib": [
       {
         "key": "duration",
@@ -9921,9 +9930,9 @@
         "header": "DAMAGE PER SECOND:",
         "value": [
           "6",
-          "14",
-          "22",
-          "30"
+          "12",
+          "18",
+          "24"
         ]
       },
       {
@@ -9939,7 +9948,12 @@
       {
         "key": "hp_regen_reduction",
         "header": "HP REGEN REDUCTION:",
-        "value": "30%"
+        "value": [
+          "15%",
+          "20%",
+          "25%",
+          "30%"
+        ]
       }
     ],
     "img": "/apps/dota2/images/abilities/venomancer_poison_sting_md.png"
@@ -10103,9 +10117,8 @@
       },
       {
         "key": "radius_scepter",
-        "header": "RADIUS SCEPTER:",
-        "value": "250",
-        "generated": true
+        "header": "SCEPTER TIMELOCK RADIUS:",
+        "value": "250"
       }
     ],
     "mc": "40",
@@ -10419,9 +10432,9 @@
         "key": "health_drain",
         "header": "DRAIN PER SECOND:",
         "value": [
-          "150",
-          "250",
-          "350"
+          "175",
+          "275",
+          "375"
         ]
       },
       {
@@ -10854,6 +10867,7 @@
       "Point Target",
       "Hidden",
       null,
+      "Channeled",
       null
     ],
     "desc": "Allows Templar Assassin to teleport to any Psionic Trap after a brief channel. Does not break meld. Detonates the Psionic Trap on arrival.",
@@ -11031,7 +11045,7 @@
         "generated": true
       }
     ],
-    "mc": "20",
+    "mc": "25",
     "cd": "0",
     "img": "/apps/dota2/images/abilities/viper_poison_attack_md.png"
   },
@@ -12730,7 +12744,7 @@
       "No Target",
       "Instant Cast"
     ],
-    "desc": "Launch into a maddened rage, becoming Spell Immune, 100% resistant to magic damage, and gaining increased movement speed.\n\nDISPEL TYPE: Basic Dispel",
+    "desc": "Launch into a maddened rage, becoming Spell Immune, and gaining increased movement speed.\n\nDISPEL TYPE: Basic Dispel",
     "attrib": [
       {
         "key": "movement_speed_bonus",
@@ -12831,7 +12845,7 @@
     "dname": "Infest",
     "behavior": "Unit Target",
     "dmg_type": "Magical",
-    "desc": "Lifestealer infests the body of a target unit, becoming undetectable inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and when consumed the creep will heal Lifestealer's health equal to the creep's current health.  Does not work on enemy heroes.\n\nDISPEL TYPE: Basic Dispel",
+    "desc": "Lifestealer infests the body of a target unit, becoming undetectable, and healing for a portion of his max hitpoints every second while inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack. Does not work on enemy heroes.\n\nDISPEL TYPE: Basic Dispel",
     "attrib": [
       {
         "key": "radius",
@@ -12854,17 +12868,8 @@
         "generated": true
       },
       {
-        "key": "bonus_movement_speed_hero",
-        "header": "HERO MOVEMENT SPEED:",
-        "value": [
-          "30%",
-          "40%",
-          "50%"
-        ]
-      },
-      {
-        "key": "bonus_movement_speed_creep",
-        "header": "CREEP MOVEMENT SPEED:",
+        "key": "bonus_movement_speed",
+        "header": "MOVEMENT SPEED:",
         "value": [
           "15%",
           "20%",
@@ -12875,15 +12880,15 @@
         "key": "bonus_health",
         "header": "HEALTH BONUS:",
         "value": [
-          "750",
-          "1000",
-          "1250"
+          "400",
+          "800",
+          "1200"
         ]
       },
       {
         "key": "cooldown_scepter",
         "header": "SCEPTER COOLDOWN:",
-        "value": "20"
+        "value": "25"
       },
       {
         "key": "cast_range_scepter",
@@ -13173,7 +13178,10 @@
   },
   "dark_seer_wall_of_replica": {
     "dname": "Wall of Replica",
-    "behavior": "Point Target",
+    "behavior": [
+      "Point Target",
+      null
+    ],
     "dmg_type": "Magical",
     "bkbpierce": "Yes",
     "desc": "Raises a wall of warping light that slows and creates replicas of any enemy hero who crosses it. Enemy replicas serve at the Dark Seer's will. Replicas last until they are destroyed, or until the wall's duration ends.",
@@ -13406,7 +13414,10 @@
   },
   "clinkz_burning_army": {
     "dname": "Burning Army",
-    "behavior": "Point Target",
+    "behavior": [
+      "Point Target",
+      null
+    ],
     "dmg_type": "Physical",
     "desc": "Clinkz summons an army of fiery ranged skeleton archers. Archers are immobile and die with 2 attacks from a hero. Skeletons use your current Searing Arrows ability and attack only heroes. Base damage is %base_damage_percent%% of your hero's base damage. Attack range is equal to your hero's attack range. ",
     "attrib": [
@@ -13484,10 +13495,10 @@
         "key": "health_gain",
         "header": "HEALTH GAIN:",
         "value": [
-          "200",
-          "300",
-          "400",
-          "500"
+          "250",
+          "350",
+          "450",
+          "550"
         ]
       },
       {
@@ -13787,7 +13798,7 @@
       {
         "key": "hop_distance",
         "header": "DISTANCE:",
-        "value": "400"
+        "value": "450"
       },
       {
         "key": "hop_duration",
@@ -13810,7 +13821,7 @@
     "dname": "Enchant",
     "behavior": "Unit Target",
     "bkbpierce": "No",
-    "desc": "Enchantress charms an enemy. If the enemy is a hero, they are slowed. If the enemy is a creep, she brings it under her control. If cast on a creep already under her control, she refreshes its enchant duration.\n\nDISPEL TYPE: Basic Dispel",
+    "desc": "Enchantress charms an enemy. If the enemy is a hero, they are slowed. If the enemy is a creep, she brings it under her control.\n\nDISPEL TYPE: Basic Dispel",
     "attrib": [
       {
         "key": "dominate_duration",
@@ -16198,10 +16209,10 @@
         "key": "damage_per_second",
         "header": "DAMAGE:",
         "value": [
-          "20",
-          "35",
-          "50",
-          "65"
+          "15",
+          "30",
+          "45",
+          "60"
         ]
       },
       {
@@ -16227,9 +16238,9 @@
     ],
     "mc": [
       "60",
-      "65",
       "70",
-      "75"
+      "80",
+      "90"
     ],
     "cd": [
       "50",
@@ -16248,7 +16259,7 @@
     ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Doom swings his burning sword, igniting the enemy. Stuns for 0.6 seconds and applies a 4 second burn that deals 16,20,24,28 + 1.25,2.5,3.75,5% of the target's Max HP as damage per second.",
+    "desc": "Doom swings his burning sword, igniting the enemy. Stuns for 0.6 seconds and applies a 4 second burn that deals a base damage plus a percentage of the target's Max HP as damage per second.",
     "attrib": [
       {
         "key": "burn_damage",
@@ -16910,7 +16921,7 @@
     ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Ursa slams the earth, causing a powerful shock to damage and slow all enemy units in a nearby area for 4 seconds.",
+    "desc": "Ursa leaps forward 250 units and slams the earth, causing a powerful shock to damage and slow all enemy units in a nearby area for %abilityduration% seconds.",
     "dmg": [
       "75",
       "125",
@@ -16927,9 +16938,9 @@
         "key": "movement_slow",
         "header": "SLOW:",
         "value": [
+          "-10%",
           "-25%",
-          "-35%",
-          "-45%",
+          "-40%",
           "-55%"
         ]
       },
@@ -16952,7 +16963,7 @@
         "generated": true
       }
     ],
-    "mc": "75",
+    "mc": "85",
     "cd": [
       "9",
       "8",
@@ -17066,8 +17077,8 @@
     ],
     "mc": "0",
     "cd": [
+      "70",
       "50",
-      "40",
       "30"
     ],
     "img": "/apps/dota2/images/abilities/ursa_enrage_md.png"
@@ -17799,7 +17810,7 @@
       "Instant Cast",
       null
     ],
-    "desc": "Combines the properties of the elements currently being manipulated to create a new spell for Invoker to use.  Click the help button to see the list of possible spells.",
+    "desc": "Combines the properties of the elements currently being manipulated to create a new spell for Invoker to use. Invoke cooldown is reduced by 0.3 seconds for each orb level.  Click the help button to see the list of possible spells.",
     "attrib": [
       {
         "key": "max_invoked_spells",
@@ -18733,7 +18744,7 @@
     "behavior": "Unit Target",
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Enchants a target, causing them to be damaged and silenced if they cast a spell or if the enchantment timer expires. Deals extra damage based on the difference in intelligence between Silencer and the target.",
+    "desc": "Enchants a target, providing vision of them and causing them to be damaged and silenced if they cast a spell or if the enchantment timer expires. Deals extra damage based on the difference in intelligence between Silencer and the target.",
     "attrib": [
       {
         "key": "damage",
@@ -18814,7 +18825,7 @@
     ],
     "dmg_type": "Pure",
     "bkbpierce": "No",
-    "desc": "Adds extra pure damage to Outworld Devourer's attacks, based on his remaining mana pool. Costs a percentage of his current mana to cast.",
+    "desc": "Adds extra pure damage to Outworld Devourer's attacks, based on his remaining mana pool.",
     "attrib": [
       {
         "key": "mana_pool_damage_pct",
@@ -19057,19 +19068,15 @@
       {
         "key": "damage_multiplier",
         "header": "MANA DIFFERENCE MULTIPLIER:",
-        "value": [
-          "0.4",
-          "0.5",
-          "0.6"
-        ]
+        "value": "0.4"
       },
       {
         "key": "stack_mana",
         "header": "MAX MANA PER CHARGE:",
         "value": [
-          "30",
           "40",
-          "50"
+          "50",
+          "60"
         ]
       },
       {
@@ -19163,7 +19170,8 @@
     "dname": "Wolf Bite",
     "behavior": [
       "Unit Target",
-      "Hidden"
+      "Hidden",
+      null
     ],
     "desc": "Lycan bites an ally, granting them Shapeshift properties. Lycan and the bitten target gain 30% Lifesteal and share %lifesteal%% Lifesteal with each other as long as they are within 1200 range of each other.",
     "attrib": [
@@ -19513,7 +19521,7 @@
     "dname": "Savage Roar",
     "behavior": "No Target",
     "bkbpierce": "No",
-    "desc": "Lone Druid roars fiercely causing nearby enemies to flee towards their base in terror. Their movement speed is increased by 20%.",
+    "desc": "Lone Druid and the Spirit Bear roar fiercely causing nearby enemies to flee towards their base in terror. Their movement speed is increased by 20%.",
     "attrib": [
       {
         "key": "radius",
@@ -19558,7 +19566,7 @@
       "Hidden"
     ],
     "bkbpierce": "No",
-    "desc": "Spirit Bear roars fiercely causing nearby enemies to flee towards their base in terror. Their movement speed is increased by 20%.",
+    "desc": "Lone Druid and the Spirit Bear roar fiercely causing nearby enemies to flee towards their base in terror. Their movement speed is increased by 20%.",
     "attrib": [
       {
         "key": "radius",
@@ -19937,7 +19945,7 @@
     ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Drenches an area in alcohol, causing enemy units to be move slower and ignited once they take any spell damage. Duration is increased by 3 seconds when ignited.",
+    "desc": "Drenches an area in alcohol, causing enemy units to move slower and ignited once they take any spell damage. Duration is increased by 3 seconds when ignited.",
     "attrib": [
       {
         "key": "duration",
@@ -20676,9 +20684,9 @@
         "header": "CRITICAL MAX:",
         "value": [
           "140%",
-          "165%",
-          "190%",
-          "215%"
+          "170%",
+          "200%",
+          "230%"
         ]
       },
       {
@@ -20948,14 +20956,18 @@
   },
   "treant_natures_guise": {
     "dname": "Nature's Guise",
-    "behavior": "No Target",
-    "dmg_type": "Magical",
-    "desc": "Turns Treant invisible after a %abilitycastpoint% second cast time when he is within close radius of a tree. Increases movement speed while invisible, and causes a disarming root when attacking out of invisibility.",
+    "behavior": [
+      "Passive",
+      null,
+      null
+    ],
+    "desc": "Provides Treant with Tree Walking whenever he hasn't taken damage for 3 seconds. While active, Treant gains movement speed bonus and amplified healing and regeneration on himself.",
     "attrib": [
       {
         "key": "radius",
-        "header": "TREE RADIUS:",
-        "value": "265"
+        "header": "RADIUS:",
+        "value": "150",
+        "generated": true
       },
       {
         "key": "grace_time",
@@ -20964,63 +20976,29 @@
         "generated": true
       },
       {
-        "key": "movement_speed",
-        "header": "MOVEMENT SPEED:",
-        "value": [
-          "20%",
-          "22%",
-          "24%",
-          "26%"
-        ]
-      },
-      {
-        "key": "bash_duration",
-        "header": "ROOT DURATION:",
-        "value": [
-          "0.4",
-          "1",
-          "1.6",
-          "2.2"
-        ]
-      },
-      {
-        "key": "total_damage",
-        "header": "TOTAL DAMAGE:",
-        "value": [
-          "60",
-          "110",
-          "160",
-          "210"
-        ]
-      },
-      {
-        "key": "tick_count",
-        "header": "TICK COUNT:",
+        "key": "cooldown_time",
+        "header": "COOLDOWN TIME:",
         "value": "3",
         "generated": true
+      },
+      {
+        "key": "regen_amp",
+        "header": "SELF HEAL AND REGEN AMP:",
+        "value": "25%"
+      },
+      {
+        "key": "movement_bonus",
+        "header": "MOVEMENT SPEED:",
+        "value": "15%"
       }
-    ],
-    "mc": [
-      "30",
-      "40",
-      "50",
-      "60"
-    ],
-    "cd": [
-      "10",
-      "8",
-      "6",
-      "4"
     ],
     "img": "/apps/dota2/images/abilities/treant_natures_guise_md.png"
   },
   "treant_natures_grasp": {
     "dname": "Nature's Grasp",
-    "behavior": [
-      "Unit Target",
-      "Point Target"
-    ],
+    "behavior": "Point Target",
     "dmg_type": "Magical",
+    "bkbpierce": "No",
     "desc": "Creates vines towards the target location. Vines slow down and deal damage to enemies that walk through. Vines deal 50% more damage if they touch a tree. Does half damage to creeps.",
     "attrib": [
       {
@@ -21086,7 +21064,12 @@
       "80",
       "90"
     ],
-    "cd": "20",
+    "cd": [
+      "20",
+      "19",
+      "18",
+      "17"
+    ],
     "img": "/apps/dota2/images/abilities/treant_natures_grasp_md.png"
   },
   "treant_leech_seed": {
@@ -21116,10 +21099,10 @@
         "key": "movement_slow",
         "header": "MOVEMENT SLOW:",
         "value": [
-          "-26%",
-          "-34%",
-          "-42%",
-          "-50%"
+          "-18%",
+          "-24%",
+          "-30%",
+          "-36%"
         ]
       },
       {
@@ -21144,8 +21127,13 @@
         "generated": true
       }
     ],
-    "mc": "80",
-    "cd": "16",
+    "mc": "110",
+    "cd": [
+      "22",
+      "19",
+      "16",
+      "13"
+    ],
     "img": "/apps/dota2/images/abilities/treant_leech_seed_md.png"
   },
   "treant_living_armor": {
@@ -21161,25 +21149,25 @@
         "header": "TOTAL HEAL:",
         "value": [
           "60",
-          "120",
-          "180",
-          "240"
+          "100",
+          "140",
+          "180"
         ]
       },
       {
         "key": "bonus_armor",
         "header": "BONUS ARMOR:",
         "value": [
-          "7",
-          "10",
-          "13",
-          "16"
+          "4",
+          "6",
+          "8",
+          "10"
         ]
       },
       {
         "key": "duration",
         "header": "DURATION:",
-        "value": "8"
+        "value": "12"
       }
     ],
     "mc": "50",
@@ -21196,7 +21184,7 @@
     "behavior": "No Target",
     "dmg_type": "Magical",
     "bkbpierce": "Yes",
-    "desc": "Summons an overgrowth of vines and branches around Treant that prevent afflicted enemies from moving, blinking, going invisible, or attacking.",
+    "desc": "Summons an overgrowth of vines and branches around Treant that deal damage to afflicted enemies and prevent them from moving, blinking, going invisible, or attacking.",
     "attrib": [
       {
         "key": "duration",
@@ -21221,23 +21209,15 @@
       {
         "key": "damage",
         "header": "DAMAGE PER SECOND:",
-        "value": [
-          "50",
-          "75",
-          "100"
-        ]
+        "value": "75"
       }
     ],
     "mc": [
-      "150",
-      "175",
-      "200"
+      "200",
+      "250",
+      "300"
     ],
-    "cd": [
-      "100",
-      "85",
-      "70"
-    ],
+    "cd": "100",
     "img": "/apps/dota2/images/abilities/treant_overgrowth_md.png"
   },
   "treant_eyes_in_the_forest": {
@@ -21259,6 +21239,12 @@
         "key": "overgrowth_aoe",
         "header": "TREE OVERGROWTH RADIUS:",
         "value": "800"
+      },
+      {
+        "key": "tree_respawn_seconds",
+        "header": "TREE RESPAWN SECONDS:",
+        "value": "10",
+        "generated": true
       }
     ],
     "mc": "100",
@@ -21310,7 +21296,11 @@
   },
   "ogre_magi_unrefined_fireblast": {
     "dname": "Unrefined Fireblast",
-    "behavior": "Unit Target",
+    "behavior": [
+      "Unit Target",
+      "Hidden",
+      null
+    ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
     "desc": "Blasts an enemy unit with a wave of fire, dealing damage and stunning the target. Its mana cost is 60% of Ogre Magi's current mana.",
@@ -21803,18 +21793,18 @@
         "key": "slow",
         "header": "SLOW:",
         "value": [
-          "30%",
-          "35%",
-          "40%"
+          "40%",
+          "45%",
+          "50%"
         ]
       },
       {
         "key": "damage",
         "header": "DAMAGE PER SECOND:",
         "value": [
-          "15",
           "25",
-          "35"
+          "35",
+          "45"
         ]
       },
       {
@@ -21826,9 +21816,9 @@
         "key": "str_percentage",
         "header": "STRENGTH MULTIPLIER:",
         "value": [
-          "30%",
           "40%",
-          "50%"
+          "50%",
+          "60%"
         ]
       },
       {
@@ -22152,7 +22142,7 @@
     "behavior": "Unit Target",
     "dmg_type": "Magical",
     "bkbpierce": "No",
-    "desc": "Repeatedly strikes the targeted unit with lightning.  Each strike damages nearby enemy units in a small radius and applies an extremely short high duration slow.  Provides vision of its target.",
+    "desc": "Repeatedly strikes the targeted unit with lightning.  Each strike damages nearby enemy units in a small radius and slows enemy movement and attack speed by 100% for 0.1 seconds.  Provides vision of its target.",
     "attrib": [
       {
         "key": "radius",
@@ -23574,12 +23564,12 @@
     "dname": "Stone Form",
     "behavior": [
       null,
-      "Point Target",
-      "AOE",
+      "No Target",
+      "Instant Cast",
       null
     ],
     "bkbpierce": "No",
-    "desc": "The closest familiar to the target location moves and casts Stone Form at that location.After a short delay, the Familiar turns into stone and smashes into the ground, stunning and damaging all targets in the area.  The Familiar becomes invulnerable, and will regain its health very rapidly.  After 6 seconds, the Familiar will automatically leave Stone Form.",
+    "desc": "After a short delay, the nearest Familiar turns into stone and smashes into the ground, stunning and damaging all targets in the area.  The Familiar becomes invulnerable, and will regain its health very rapidly.  After 6 seconds, the Familiar will automatically leave Stone Form.",
     "attrib": [
       {
         "key": "stun_radius",
@@ -23852,7 +23842,7 @@
       "No Target",
       "Instant Cast"
     ],
-    "desc": "Io gains bonus attack speed and damage reduction.  If Io is Tethered to an ally, that unit also gains the bonuses.",
+    "desc": "Io gains bonus attack speed and HP Regen based on max health.  If Io is Tethered to an ally, that unit also gains the bonuses.",
     "attrib": [
       {
         "key": "bonus_attack_speed",
@@ -24014,7 +24004,6 @@
   "slark_pounce": {
     "dname": "Pounce",
     "behavior": "No Target",
-    "dmg_type": "Magical",
     "bkbpierce": "No",
     "desc": "Slark leaps forward, grabbing the first hero he connects with.  That unit is leashed, and can only move a limited distance away from Slark's landing position.",
     "attrib": [
@@ -24326,7 +24315,7 @@
       "No Target",
       "Instant Cast"
     ],
-    "desc": "Creates a shield that absorbs 60% of incoming damage in exchange for Medusa's mana.",
+    "desc": "Creates a shield that absorbs 70% of incoming damage in exchange for Medusa's mana.",
     "attrib": [
       {
         "key": "damage_per_mana",
@@ -24339,10 +24328,9 @@
         ]
       },
       {
-        "key": "absorption_tooltip",
-        "header": "ABSORPTION TOOLTIP:",
-        "value": "60",
-        "generated": true
+        "key": "absorption_pct",
+        "header": "DAMAGE ABSORBED:",
+        "value": "70%"
       }
     ],
     "img": "/apps/dota2/images/abilities/medusa_mana_shield_md.png"
@@ -24401,7 +24389,7 @@
       {
         "key": "speed_boost",
         "header": "SPEED BOOST:",
-        "value": "25%"
+        "value": "35%"
       }
     ],
     "mc": "200",
@@ -24957,13 +24945,15 @@
       },
       {
         "key": "slow_duration",
-        "header": "SCEPTER SLOW DURATION:",
-        "value": "2"
+        "header": "SLOW DURATION:",
+        "value": "2",
+        "generated": true
       },
       {
         "key": "scepter_distance",
-        "header": "SCEPTER RANGE:",
-        "value": "2000"
+        "header": "SCEPTER DISTANCE:",
+        "value": "2000",
+        "generated": true
       },
       {
         "key": "scepter_speed",
@@ -25001,7 +24991,7 @@
   "magnataur_empower": {
     "dname": "Empower",
     "behavior": "Unit Target",
-    "desc": "Gives an allied unit bonus damage and cleave on attack. Magnataur receives 2 times the bonus.",
+    "desc": "Gives an allied unit bonus damage and cleave on attack. Magnus receives 2 times the bonus.",
     "attrib": [
       {
         "key": "empower_duration",
@@ -25162,7 +25152,12 @@
       {
         "key": "skewer_cooldown",
         "header": "SCEPTER COOLDOWN:",
-        "value": "4"
+        "value": "6"
+      },
+      {
+        "key": "skewer_manacost",
+        "header": "SCEPTER MANACOST:",
+        "value": "40"
       }
     ],
     "mc": "80",
@@ -29444,7 +29439,10 @@
   },
   "pangolier_swashbuckle": {
     "dname": "Swashbuckle",
-    "behavior": "Point Target",
+    "behavior": [
+      "Point Target",
+      null
+    ],
     "dmg_type": "Physical",
     "bkbpierce": "Yes",
     "desc": "Vector Targeted. Pangolier dashes along the target line, then slashes all enemies in the drawn direction with several quick swipes.\n\nLucky Shot has a chance to activate from this damage.",
@@ -30664,9 +30662,9 @@
         "key": "physical_damage_reduction",
         "header": "FRONT REDUCTION:",
         "value": [
-          "25%",
           "40%",
-          "55%",
+          "50%",
+          "60%",
           "70%"
         ]
       },
@@ -30680,9 +30678,9 @@
         "key": "physical_damage_reduction_side",
         "header": "SIDE REDUCTION:",
         "value": [
-          "12%",
           "20%",
-          "27%",
+          "25%",
+          "30%",
           "35%"
         ]
       },
@@ -30802,20 +30800,23 @@
     "img": "/apps/dota2/images/abilities/mars_arena_of_blood_md.png"
   },
   "special_bonus_unique_mars_spear_bonus_damage": {
-    "dname": "Spear Of Mars +{s:value} Damage"
+    "dname": "Spear Of Mars +200 Damage"
   },
   "special_bonus_unique_mars_gods_rebuke_extra_crit": {
-    "dname": "God's Rebuke +{s:value}% Crit"
+    "dname": "God's Rebuke +80% Crit"
   },
   "special_bonus_unique_mars_spear_stun_duration": {
-    "dname": "+{s:value}s Spear Stun"
+    "dname": "+1s Spear Stun"
   },
   "special_bonus_unique_mars_arena_of_blood_hp_regen": {
-    "dname": "Arena Of Blood Grants Team +{s:value} HP Regen"
+    "dname": "Arena Of Blood Grants Team +100 HP Regen"
   },
   "void_spirit_aether_remnant": {
     "dname": "Aether Remnant",
-    "behavior": "Point Target",
+    "behavior": [
+      "Point Target",
+      null
+    ],
     "dmg_type": "Magical",
     "bkbpierce": "No",
     "desc": "Vector targeted. Void Spirit dispatches a remnant to the target location. The remnant stands watch over the region, facing the direction of his vector. When a unit crosses its gaze, the remnant pulls it in and damages it.",
@@ -30871,10 +30872,10 @@
         "key": "impact_damage",
         "header": "DAMAGE:",
         "value": [
-          "90",
-          "150",
-          "210",
-          "270"
+          "80",
+          "130",
+          "180",
+          "230"
         ]
       },
       {
@@ -30931,10 +30932,10 @@
     "bkbpierce": "No",
     "desc": "Void Spirit temporarily fades into the aether, creating a number of portals through which he can reassemble himself. Upon exiting a portal, he damages all enemies in the area.",
     "dmg": [
-      "140",
-      "220",
-      "300",
-      "380"
+      "100",
+      "180",
+      "260",
+      "340"
     ],
     "attrib": [
       {
@@ -31008,9 +31009,9 @@
         "key": "charge_restore_time",
         "header": "CHARGE RESTORE TIME:",
         "value": [
+          "30",
           "25",
-          "20",
-          "15"
+          "20"
         ]
       },
       {
@@ -31023,9 +31024,9 @@
         "key": "max_travel_distance",
         "header": "RANGE:",
         "value": [
-          "600",
-          "800",
-          "1000"
+          "700",
+          "900",
+          "1100"
         ]
       },
       {
@@ -31053,11 +31054,7 @@
         ]
       }
     ],
-    "mc": [
-      "80",
-      "90",
-      "100"
-    ],
+    "mc": "100",
     "cd": "0",
     "img": "/apps/dota2/images/abilities/void_spirit_astral_step_md.png"
   },
@@ -31084,9 +31081,9 @@
         "header": "DAMAGE:",
         "value": [
           "70",
-          "130",
-          "190",
-          "250"
+          "120",
+          "170",
+          "220"
         ]
       },
       {
@@ -31098,10 +31095,10 @@
         "key": "base_absorb_amount",
         "header": "BASE SHIELD ABSORB:",
         "value": [
-          "50",
-          "100",
-          "150",
-          "200"
+          "40",
+          "80",
+          "120",
+          "160"
         ]
       },
       {
@@ -31122,40 +31119,40 @@
       }
     ],
     "mc": [
-      "90",
       "100",
       "110",
-      "120"
+      "120",
+      "130"
     ],
-    "cd": "14",
+    "cd": "16",
     "img": "/apps/dota2/images/abilities/void_spirit_resonant_pulse_md.png"
   },
   "special_bonus_unique_void_spirit_1": {
-    "dname": "{s:value} Astral Step Charge Restore Time"
+    "dname": "-7 Astral Step Charge Restore Time"
   },
   "special_bonus_unique_void_spirit_2": {
     "dname": "Resonant Pulse Disjoints Projectiles"
   },
   "special_bonus_unique_void_spirit_3": {
-    "dname": "Dissimilate Stuns for {s:value}s"
+    "dname": "Dissimilate Stuns for 3s"
   },
   "special_bonus_unique_void_spirit_4": {
-    "dname": "+{s:value} Resonant Pulse Damage"
+    "dname": "+100 Resonant Pulse Damage"
   },
   "special_bonus_unique_void_spirit_5": {
-    "dname": "{s:value}% Larger Dissimilate Portals"
+    "dname": "50% Larger Dissimilate Portals"
   },
   "special_bonus_unique_void_spirit_6": {
-    "dname": "Dissimilate Grants {s:value}s Invisibility"
+    "dname": "Dissimilate Grants 3s Invisibility"
   },
   "special_bonus_unique_void_spirit_7": {
-    "dname": "Remnant Provides {s:value} Truesight"
+    "dname": "Remnant Provides 600 Truesight"
   },
   "special_bonus_unique_void_spirit_8": {
-    "dname": "Astral Step {s:value}% Crit"
+    "dname": "Astral Step 200% Crit"
   },
   "special_bonus_unique_void_spirit_9": {
-    "dname": "+{s:value} Astral Step Charges"
+    "dname": "+2 Astral Step Charges"
   },
   "snapfire_scatterblast": {
     "dname": "Scatterblast",
@@ -31230,6 +31227,7 @@
       "AOE"
     ],
     "dmg_type": "Magical",
+    "bkbpierce": "No",
     "desc": "Snapfire's friend launches a barrage of firespit globs over 6 seconds. Globs cause impact damage and create pools of firespit, which slow and apply damage over time. Snapfire has a reduced turn rate for the duration and a minimum launch range of 600. Each glob can be targeted with a right click.",
     "attrib": [
       {
@@ -31258,9 +31256,9 @@
         "key": "damage_per_impact",
         "header": "DAMAGE PER GLOB:",
         "value": [
-          "175",
-          "250",
-          "325"
+          "200",
+          "300",
+          "400"
         ]
       },
       {
@@ -31299,7 +31297,11 @@
       {
         "key": "move_slow_pct",
         "header": "ENEMY MOVEMENT SLOW:",
-        "value": "15%"
+        "value": [
+          "15%",
+          "20%",
+          "25%"
+        ]
       },
       {
         "key": "burn_ground_duration",
@@ -31321,13 +31323,13 @@
       {
         "key": "min_lob_travel_time",
         "header": "MIN LOB TRAVEL TIME:",
-        "value": "1",
+        "value": "0.8",
         "generated": true
       },
       {
         "key": "max_lob_travel_time",
         "header": "MAX LOB TRAVEL TIME:",
-        "value": "2.5",
+        "value": "2",
         "generated": true
       },
       {
@@ -31348,7 +31350,7 @@
       "150",
       "175"
     ],
-    "cd": "90",
+    "cd": "110",
     "img": "/apps/dota2/images/abilities/snapfire_mortimer_kisses_md.png"
   },
   "snapfire_firesnap_cookie": {
@@ -31360,7 +31362,7 @@
       {
         "key": "projectile_speed",
         "header": "PROJECTILE SPEED:",
-        "value": "800",
+        "value": "1000",
         "generated": true
       },
       {
@@ -31417,25 +31419,25 @@
         "key": "impact_stun_duration",
         "header": "IMPACT STUN DURATION:",
         "value": [
-          "1.4",
           "1.6",
-          "1.8",
-          "2"
+          "1.9",
+          "2.2",
+          "2.5"
         ]
       },
       {
         "key": "self_cast_delay",
         "header": "SELF CAST DELAY:",
-        "value": "0.4",
+        "value": "0.3",
         "generated": true
       }
     ],
     "mc": "100",
     "cd": [
       "24",
-      "22",
-      "20",
-      "18"
+      "21",
+      "18",
+      "15"
     ],
     "img": "/apps/dota2/images/abilities/snapfire_firesnap_cookie_md.png"
   },
@@ -31449,10 +31451,10 @@
         "key": "damage",
         "header": "FIXED DAMAGE PER SHOT:",
         "value": [
-          "30",
-          "45",
-          "60",
-          "75"
+          "35",
+          "50",
+          "65",
+          "80"
         ]
       },
       {
@@ -31493,10 +31495,10 @@
         "key": "attack_speed_slow_per_stack",
         "header": "ATTACK SLOW PER STACK:",
         "value": [
+          "15",
           "20",
           "25",
-          "30",
-          "35"
+          "30"
         ]
       },
       {
@@ -31505,7 +31507,7 @@
         "value": "3"
       }
     ],
-    "mc": "75",
+    "mc": "90",
     "cd": [
       "24",
       "20",
@@ -31515,23 +31517,23 @@
     "img": "/apps/dota2/images/abilities/snapfire_lil_shredder_md.png"
   },
   "special_bonus_unique_snapfire_1": {
-    "dname": "+{s:value} Mortimer Kisses Launched"
+    "dname": "+8 Mortimer Kisses Launched"
   },
   "special_bonus_unique_snapfire_2": {},
   "special_bonus_unique_snapfire_3": {
-    "dname": "Scatterblast Applies {s:value}s Disarm"
+    "dname": "Scatterblast Applies 3s Disarm"
   },
   "special_bonus_unique_snapfire_4": {
-    "dname": "+{s:value}% Mortimer Kisses Movement Slow"
+    "dname": "+25% Mortimer Kisses Movement Slow"
   },
   "special_bonus_unique_snapfire_5": {
-    "dname": "Firesnap Cookie Restores {s:value} Health"
+    "dname": "Firesnap Cookie Restores 250 Health"
   },
   "special_bonus_unique_snapfire_6": {
     "dname": "Lil' Shredder Uses Your Attack Damage"
   },
   "special_bonus_unique_snapfire_7": {
-    "dname": "+{s:value} Scatterblast Damage"
+    "dname": "+60 Scatterblast Damage"
   },
   "backdoor_protection": {
     "dname": "Backdoor Protection",
@@ -31633,9 +31635,15 @@
         "key": "radius",
         "header": "RADIUS:",
         "value": "500"
+      },
+      {
+        "key": "initial_cooldown",
+        "header": "INITIAL COOLDOWN:",
+        "value": "420",
+        "generated": true
       }
     ],
-    "cd": "300",
+    "cd": "240",
     "img": "/apps/dota2/images/abilities/filler_ability_md.png"
   },
   "necronomicon_warrior_last_will": {
@@ -31798,12 +31806,6 @@
         "key": "handoff_distance",
         "header": "HANDOFF DISTANCE:",
         "value": "400",
-        "generated": true
-      },
-      {
-        "key": "stash_pickup_distance",
-        "header": "STASH PICKUP DISTANCE:",
-        "value": "250",
         "generated": true
       }
     ],
@@ -35071,12 +35073,12 @@
       {
         "key": "charge_restore_time",
         "header": "CHARGE RESTORE TIME:",
-        "value": "15"
+        "value": "23"
       },
       {
         "key": "cast_range_scepter_bonus",
         "header": "BONUS SCEPTER CAST RANGE:",
-        "value": "400"
+        "value": "300"
       }
     ],
     "mc": [
@@ -35144,7 +35146,7 @@
       {
         "key": "cast_range_scepter_bonus",
         "header": "BONUS SCEPTER CAST RANGE:",
-        "value": "400"
+        "value": "300"
       }
     ],
     "mc": [
@@ -35276,7 +35278,7 @@
       {
         "key": "cast_range_scepter_bonus",
         "header": "BONUS SCEPTER CAST RANGE:",
-        "value": "400"
+        "value": "300"
       },
       {
         "key": "vision_radius",
@@ -36135,196 +36137,196 @@
     "dname": "Undefined"
   },
   "special_bonus_hp_100": {
-    "dname": "+{s:value} Health"
+    "dname": "+100 Health"
   },
   "special_bonus_hp_125": {
-    "dname": "+{s:value} Health"
+    "dname": "+125 Health"
   },
   "special_bonus_hp_150": {
-    "dname": "+{s:value} Health"
+    "dname": "+150 Health"
   },
   "special_bonus_hp_175": {
-    "dname": "+{s:value} Health"
+    "dname": "+175 Health"
   },
   "special_bonus_hp_200": {
-    "dname": "+{s:value} Health"
+    "dname": "+200 Health"
   },
   "special_bonus_hp_225": {
-    "dname": "+{s:value} Health"
+    "dname": "+225 Health"
   },
   "special_bonus_hp_250": {
-    "dname": "+{s:value} Health"
+    "dname": "+250 Health"
   },
   "special_bonus_hp_275": {
-    "dname": "+{s:value} Health"
+    "dname": "+275 Health"
   },
   "special_bonus_hp_300": {
-    "dname": "+{s:value} Health"
+    "dname": "+300 Health"
   },
   "special_bonus_hp_325": {
-    "dname": "+{s:value} Health"
+    "dname": "+325 Health"
   },
   "special_bonus_hp_350": {
-    "dname": "+{s:value} Health"
+    "dname": "+350 Health"
   },
   "special_bonus_hp_400": {
-    "dname": "+{s:value} Health"
+    "dname": "+400 Health"
   },
   "special_bonus_hp_500": {
-    "dname": "+{s:value} Health"
+    "dname": "+500 Health"
   },
   "special_bonus_hp_600": {
-    "dname": "+{s:value} Health"
+    "dname": "+600 Health"
   },
   "special_bonus_hp_700": {
-    "dname": "+{s:value} Health"
+    "dname": "+700 Health"
   },
   "special_bonus_hp_800": {
-    "dname": "+{s:value} Health"
+    "dname": "+800 Health"
   },
   "special_bonus_mp_100": {
-    "dname": "+{s:value} Mana"
+    "dname": "+100 Mana"
   },
   "special_bonus_mp_125": {
-    "dname": "+{s:value} Mana"
+    "dname": "+125 Mana"
   },
   "special_bonus_mp_150": {
-    "dname": "+{s:value} Mana"
+    "dname": "+150 Mana"
   },
   "special_bonus_mp_175": {
-    "dname": "+{s:value} Mana"
+    "dname": "+175 Mana"
   },
   "special_bonus_mp_200": {
-    "dname": "+{s:value} Mana"
+    "dname": "+200 Mana"
   },
   "special_bonus_mp_225": {
-    "dname": "+{s:value} Mana"
+    "dname": "+225 Mana"
   },
   "special_bonus_mp_250": {
-    "dname": "+{s:value} Mana"
+    "dname": "+250 Mana"
   },
   "special_bonus_mp_300": {
-    "dname": "+{s:value} Mana"
+    "dname": "+300 Mana"
   },
   "special_bonus_mp_350": {
-    "dname": "+{s:value} Mana"
+    "dname": "+350 Mana"
   },
   "special_bonus_mp_400": {
-    "dname": "+{s:value} Mana"
+    "dname": "+400 Mana"
   },
   "special_bonus_mp_500": {
-    "dname": "+{s:value} Mana"
+    "dname": "+500 Mana"
   },
   "special_bonus_mp_600": {
-    "dname": "+{s:value} Mana"
+    "dname": "+600 Mana"
   },
   "special_bonus_mp_700": {
-    "dname": "+{s:value} Mana"
+    "dname": "+700 Mana"
   },
   "special_bonus_mp_800": {
-    "dname": "+{s:value} Mana"
+    "dname": "+800 Mana"
   },
   "special_bonus_mp_1000": {
-    "dname": "+{s:value} Mana"
+    "dname": "+1000 Mana"
   },
   "special_bonus_attack_speed_10": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+10 Attack Speed"
   },
   "special_bonus_attack_speed_15": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+15 Attack Speed"
   },
   "special_bonus_attack_speed_20": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+20 Attack Speed"
   },
   "special_bonus_attack_speed_25": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+25 Attack Speed"
   },
   "special_bonus_attack_speed_30": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+30 Attack Speed"
   },
   "special_bonus_attack_speed_35": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+35 Attack Speed"
   },
   "special_bonus_attack_speed_40": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+40 Attack Speed"
   },
   "special_bonus_attack_speed_45": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+45 Attack Speed"
   },
   "special_bonus_attack_speed_50": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+50 Attack Speed"
   },
   "special_bonus_attack_speed_60": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+60 Attack Speed"
   },
   "special_bonus_attack_speed_70": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+70 Attack Speed"
   },
   "special_bonus_attack_speed_80": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+80 Attack Speed"
   },
   "special_bonus_attack_speed_100": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+100 Attack Speed"
   },
   "special_bonus_attack_speed_120": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+120 Attack Speed"
   },
   "special_bonus_attack_speed_140": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+140 Attack Speed"
   },
   "special_bonus_attack_speed_160": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+160 Attack Speed"
   },
   "special_bonus_attack_speed_175": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+175 Attack Speed"
   },
   "special_bonus_attack_speed_200": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+200 Attack Speed"
   },
   "special_bonus_attack_speed_250": {
-    "dname": "+{s:value} Attack Speed"
+    "dname": "+250 Attack Speed"
   },
   "special_bonus_corruption_3": {
-    "dname": "-{s:value} Armor Corruption"
+    "dname": "-3 Armor Corruption"
   },
   "special_bonus_corruption_4": {
-    "dname": "-{s:value} Armor Corruption"
+    "dname": "-4 Armor Corruption"
   },
   "special_bonus_corruption_5": {
-    "dname": "-{s:value} Armor Corruption"
+    "dname": "-5 Armor Corruption"
   },
   "special_bonus_cleave_15": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+15% Cleave"
   },
   "special_bonus_cleave_20": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+20% Cleave"
   },
   "special_bonus_cleave_25": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+25% Cleave"
   },
   "special_bonus_cleave_30": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+30% Cleave"
   },
   "special_bonus_cleave_35": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+35% Cleave"
   },
   "special_bonus_cleave_40": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+40% Cleave"
   },
   "special_bonus_cleave_60": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+60% Cleave"
   },
   "special_bonus_cleave_100": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+100% Cleave"
   },
   "special_bonus_cleave_130": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+130% Cleave"
   },
   "special_bonus_cleave_150": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+150% Cleave"
   },
   "special_bonus_cleave_175": {
-    "dname": "+{s:value}% Cleave"
+    "dname": "+175% Cleave"
   },
   "special_bonus_haste": {
     "dname": "Haste Movement"
@@ -36333,1144 +36335,1144 @@
     "dname": "True Strike"
   },
   "special_bonus_spell_block_15": {
-    "dname": "{s:block_cooldown}s Spell Block"
+    "dname": "15s Spell Block"
   },
   "special_bonus_spell_block_20": {
-    "dname": "{s:block_cooldown}s Spell Block"
+    "dname": "20s Spell Block"
   },
   "special_bonus_mana_break_20": {
-    "dname": "+{s:value} Mana Break"
+    "dname": "+20 Mana Break"
   },
   "special_bonus_mana_break_25": {
-    "dname": "+{s:value} Mana Break"
+    "dname": "+25 Mana Break"
   },
   "special_bonus_mana_break_35": {
-    "dname": "+{s:value} Mana Break"
+    "dname": "+35 Mana Break"
   },
   "special_bonus_mana_break_40": {
-    "dname": "+{s:value} Mana Break"
+    "dname": "+40 Mana Break"
   },
   "special_bonus_spell_immunity": {
     "dname": "Permanent Spell Immunity"
   },
   "special_bonus_hp_regen_4": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+4 Health Regen"
   },
   "special_bonus_hp_regen_5": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+5 Health Regen"
   },
   "special_bonus_hp_regen_6": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+6 Health Regen"
   },
   "special_bonus_hp_regen_7": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+7 Health Regen"
   },
   "special_bonus_hp_regen_8": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+8 Health Regen"
   },
   "special_bonus_hp_regen_10": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+10 Health Regen"
   },
   "special_bonus_hp_regen_12": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+12 Health Regen"
   },
   "special_bonus_hp_regen_14": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+14 Health Regen"
   },
   "special_bonus_hp_regen_15": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+15 Health Regen"
   },
   "special_bonus_hp_regen_16": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+16 Health Regen"
   },
   "special_bonus_hp_regen_20": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+20 Health Regen"
   },
   "special_bonus_hp_regen_25": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+25 Health Regen"
   },
   "special_bonus_hp_regen_30": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+30 Health Regen"
   },
   "special_bonus_hp_regen_35": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+35 Health Regen"
   },
   "special_bonus_hp_regen_40": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+40 Health Regen"
   },
   "special_bonus_hp_regen_50": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+50 Health Regen"
   },
   "special_bonus_hp_regen_80": {
-    "dname": "+{s:value} Health Regen"
+    "dname": "+80 Health Regen"
   },
   "special_bonus_mana_reduction_11": {
-    "dname": "+{s:value}% Manacost/Manaloss Reduction"
+    "dname": "+11% Manacost/Manaloss Reduction"
   },
   "special_bonus_mp_regen_1": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+1 Mana Regen"
   },
   "special_bonus_mp_regen_150": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+1.5 Mana Regen"
   },
   "special_bonus_mp_regen_175": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+1.75 Mana Regen"
   },
   "special_bonus_mp_regen_2": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+2 Mana Regen"
   },
   "special_bonus_mp_regen_250": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+2.5 Mana Regen"
   },
   "special_bonus_mp_regen_4": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+4 Mana Regen"
   },
   "special_bonus_mp_regen_5": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+5 Mana Regen"
   },
   "special_bonus_mp_regen_3": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+3 Mana Regen"
   },
   "special_bonus_mp_regen_6": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+6 Mana Regen"
   },
   "special_bonus_mp_regen_8": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+8 Mana Regen"
   },
   "special_bonus_mp_regen_10": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+10 Mana Regen"
   },
   "special_bonus_mp_regen_14": {
-    "dname": "+{s:value} Mana Regen"
+    "dname": "+14 Mana Regen"
   },
   "special_bonus_movement_speed_10": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+10 Movement Speed"
   },
   "special_bonus_movement_speed_15": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+15 Movement Speed"
   },
   "special_bonus_movement_speed_20": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+20 Movement Speed"
   },
   "special_bonus_movement_speed_25": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+25 Movement Speed"
   },
   "special_bonus_movement_speed_30": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+30 Movement Speed"
   },
   "special_bonus_movement_speed_35": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+35 Movement Speed"
   },
   "special_bonus_movement_speed_40": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+40 Movement Speed"
   },
   "special_bonus_movement_speed_45": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+45 Movement Speed"
   },
   "special_bonus_movement_speed_50": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+50 Movement Speed"
   },
   "special_bonus_movement_speed_60": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+60 Movement Speed"
   },
   "special_bonus_movement_speed_65": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+65 Movement Speed"
   },
   "special_bonus_movement_speed_75": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+75 Movement Speed"
   },
   "special_bonus_movement_speed_90": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+90 Movement Speed"
   },
   "special_bonus_movement_speed_100": {
-    "dname": "+{s:value} Movement Speed"
+    "dname": "+100 Movement Speed"
   },
   "special_bonus_lifesteal_10": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "10% Lifesteal"
   },
   "special_bonus_lifesteal_15": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "15% Lifesteal"
   },
   "special_bonus_lifesteal_20": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "20% Lifesteal"
   },
   "special_bonus_lifesteal_25": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "25% Lifesteal"
   },
   "special_bonus_lifesteal_30": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "30% Lifesteal"
   },
   "special_bonus_lifesteal_35": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "35% Lifesteal"
   },
   "special_bonus_lifesteal_40": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "40% Lifesteal"
   },
   "special_bonus_lifesteal_100": {
-    "dname": "{s:value}% Lifesteal"
+    "dname": "100% Lifesteal"
   },
   "special_bonus_all_stats_4": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+4 All Stats"
   },
   "special_bonus_all_stats_5": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+5 All Stats"
   },
   "special_bonus_all_stats_6": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+6 All Stats"
   },
   "special_bonus_all_stats_7": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+7 All Stats"
   },
   "special_bonus_all_stats_8": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+8 All Stats"
   },
   "special_bonus_all_stats_10": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+10 All Stats"
   },
   "special_bonus_all_stats_12": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+12 All Stats"
   },
   "special_bonus_all_stats_14": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+14 All Stats"
   },
   "special_bonus_all_stats_15": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+15 All Stats"
   },
   "special_bonus_all_stats_20": {
-    "dname": "+{s:value} All Stats"
+    "dname": "+20 All Stats"
   },
   "special_bonus_intelligence_6": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+6 Intelligence"
   },
   "special_bonus_intelligence_7": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+7 Intelligence"
   },
   "special_bonus_intelligence_8": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+8 Intelligence"
   },
   "special_bonus_intelligence_10": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+10 Intelligence"
   },
   "special_bonus_intelligence_12": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+12 Intelligence"
   },
   "special_bonus_intelligence_13": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+13 Intelligence"
   },
   "special_bonus_intelligence_14": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+14 Intelligence"
   },
   "special_bonus_intelligence_15": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+15 Intelligence"
   },
   "special_bonus_intelligence_16": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+16 Intelligence"
   },
   "special_bonus_intelligence_20": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+20 Intelligence"
   },
   "special_bonus_intelligence_25": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+25 Intelligence"
   },
   "special_bonus_intelligence_30": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+30 Intelligence"
   },
   "special_bonus_intelligence_35": {
-    "dname": "+{s:value} Intelligence"
+    "dname": "+35 Intelligence"
   },
   "special_bonus_spell_lifesteal_6": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "6% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_8": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "8% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_10": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "10% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_13": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "13% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_15": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "15% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_20": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "20% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_30": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "30% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_60": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "60% Spell Lifesteal"
   },
   "special_bonus_spell_lifesteal_70": {
-    "dname": "{s:value}% Spell Lifesteal"
+    "dname": "70% Spell Lifesteal"
   },
   "special_bonus_strength_3": {
-    "dname": "+{s:value} Strength"
+    "dname": "+3 Strength"
   },
   "special_bonus_strength_4": {
-    "dname": "+{s:value} Strength"
+    "dname": "+4 Strength"
   },
   "special_bonus_strength_5": {
-    "dname": "+{s:value} Strength"
+    "dname": "+5 Strength"
   },
   "special_bonus_strength_6": {
-    "dname": "+{s:value} Strength"
+    "dname": "+6 Strength"
   },
   "special_bonus_strength_7": {
-    "dname": "+{s:value} Strength"
+    "dname": "+7 Strength"
   },
   "special_bonus_strength_8": {
-    "dname": "+{s:value} Strength"
+    "dname": "+8 Strength"
   },
   "special_bonus_strength_9": {
-    "dname": "+{s:value} Strength"
+    "dname": "+9 Strength"
   },
   "special_bonus_strength_10": {
-    "dname": "+{s:value} Strength"
+    "dname": "+10 Strength"
   },
   "special_bonus_strength_12": {
-    "dname": "+{s:value} Strength"
+    "dname": "+12 Strength"
   },
   "special_bonus_strength_13": {
-    "dname": "+{s:value} Strength"
+    "dname": "+13 Strength"
   },
   "special_bonus_strength_14": {
-    "dname": "+{s:value} Strength"
+    "dname": "+14 Strength"
   },
   "special_bonus_strength_15": {
-    "dname": "+{s:value} Strength"
+    "dname": "+15 Strength"
   },
   "special_bonus_strength_20": {
-    "dname": "+{s:value} Strength"
+    "dname": "+20 Strength"
   },
   "special_bonus_strength_25": {
-    "dname": "+{s:value} Strength"
+    "dname": "+25 Strength"
   },
   "special_bonus_strength_30": {
-    "dname": "+{s:value} Strength"
+    "dname": "+30 Strength"
   },
   "special_bonus_strength_40": {
-    "dname": "+{s:value} Strength"
+    "dname": "+40 Strength"
   },
   "special_bonus_agility_6": {
-    "dname": "+{s:value} Agility"
+    "dname": "+6 Agility"
   },
   "special_bonus_agility_8": {
-    "dname": "+{s:value} Agility"
+    "dname": "+8 Agility"
   },
   "special_bonus_agility_10": {
-    "dname": "+{s:value} Agility"
+    "dname": "+10 Agility"
   },
   "special_bonus_agility_12": {
-    "dname": "+{s:value} Agility"
+    "dname": "+12 Agility"
   },
   "special_bonus_agility_13": {
-    "dname": "+{s:value} Agility"
+    "dname": "+13 Agility"
   },
   "special_bonus_agility_14": {
-    "dname": "+{s:value} Agility"
+    "dname": "+14 Agility"
   },
   "special_bonus_agility_15": {
-    "dname": "+{s:value} Agility"
+    "dname": "+15 Agility"
   },
   "special_bonus_agility_16": {
-    "dname": "+{s:value} Agility"
+    "dname": "+16 Agility"
   },
   "special_bonus_agility_20": {
-    "dname": "+{s:value} Agility"
+    "dname": "+20 Agility"
   },
   "special_bonus_agility_25": {
-    "dname": "+{s:value} Agility"
+    "dname": "+25 Agility"
   },
   "special_bonus_agility_30": {
-    "dname": "+{s:value} Agility"
+    "dname": "+30 Agility"
   },
   "special_bonus_agility_40": {
-    "dname": "+{s:value} Agility"
+    "dname": "+40 Agility"
   },
   "special_bonus_agility_100": {
-    "dname": "+{s:value} Agility"
+    "dname": "+100 Agility"
   },
   "special_bonus_armor_2": {
-    "dname": "+{s:value} Armor"
+    "dname": "+2 Armor"
   },
   "special_bonus_armor_3": {
-    "dname": "+{s:value} Armor"
+    "dname": "+3 Armor"
   },
   "special_bonus_armor_4": {
-    "dname": "+{s:value} Armor"
+    "dname": "+4 Armor"
   },
   "special_bonus_armor_5": {
-    "dname": "+{s:value} Armor"
+    "dname": "+5 Armor"
   },
   "special_bonus_armor_6": {
-    "dname": "+{s:value} Armor"
+    "dname": "+6 Armor"
   },
   "special_bonus_armor_7": {
-    "dname": "+{s:value} Armor"
+    "dname": "+7 Armor"
   },
   "special_bonus_armor_8": {
-    "dname": "+{s:value} Armor"
+    "dname": "+8 Armor"
   },
   "special_bonus_armor_9": {
-    "dname": "+{s:value} Armor"
+    "dname": "+9 Armor"
   },
   "special_bonus_armor_10": {
-    "dname": "+{s:value} Armor"
+    "dname": "+10 Armor"
   },
   "special_bonus_armor_12": {
-    "dname": "+{s:value} Armor"
+    "dname": "+12 Armor"
   },
   "special_bonus_armor_15": {
-    "dname": "+{s:value} Armor"
+    "dname": "+15 Armor"
   },
   "special_bonus_armor_20": {
-    "dname": "+{s:value} Armor"
+    "dname": "+20 Armor"
   },
   "special_bonus_armor_30": {
-    "dname": "+{s:value} Armor"
+    "dname": "+30 Armor"
   },
   "special_bonus_magic_resistance_5": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+5% Magic Resistance"
   },
   "special_bonus_magic_resistance_6": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+6% Magic Resistance"
   },
   "special_bonus_magic_resistance_8": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+8% Magic Resistance"
   },
   "special_bonus_magic_resistance_10": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+10% Magic Resistance"
   },
   "special_bonus_magic_resistance_12": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+12% Magic Resistance"
   },
   "special_bonus_magic_resistance_15": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+15% Magic Resistance"
   },
   "special_bonus_magic_resistance_20": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+20% Magic Resistance"
   },
   "special_bonus_magic_resistance_25": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+25% Magic Resistance"
   },
   "special_bonus_magic_resistance_30": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+30% Magic Resistance"
   },
   "special_bonus_magic_resistance_35": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+35% Magic Resistance"
   },
   "special_bonus_magic_resistance_40": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+40% Magic Resistance"
   },
   "special_bonus_magic_resistance_50": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+50% Magic Resistance"
   },
   "special_bonus_magic_resistance_80": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+80% Magic Resistance"
   },
   "special_bonus_magic_resistance_100": {
-    "dname": "+{s:value}% Magic Resistance"
+    "dname": "+100% Magic Resistance"
   },
   "special_bonus_day_vision_400": {
-    "dname": "+{s:value} Day Vision"
+    "dname": "+400 Day Vision"
   },
   "special_bonus_night_vision_400": {
-    "dname": "+{s:value} Night Vision"
+    "dname": "+400 Night Vision"
   },
   "special_bonus_night_vision_500": {
-    "dname": "+{s:value} Night Vision"
+    "dname": "+500 Night Vision"
   },
   "special_bonus_night_vision_600": {
-    "dname": "+{s:value} Night Vision"
+    "dname": "+600 Night Vision"
   },
   "special_bonus_night_vision_1000": {
-    "dname": "+{s:value} Night Vision"
+    "dname": "+1000 Night Vision"
   },
   "special_bonus_vision_200": {
-    "dname": "+{s:value} Vision"
+    "dname": "+200 Vision"
   },
   "special_bonus_attack_damage_10": {
-    "dname": "+{s:value} Damage"
+    "dname": "+10 Damage"
   },
   "special_bonus_attack_damage_12": {
-    "dname": "+{s:value} Damage"
+    "dname": "+12 Damage"
   },
   "special_bonus_attack_damage_15": {
-    "dname": "+{s:value} Damage"
+    "dname": "+15 Damage"
   },
   "special_bonus_attack_damage_20": {
-    "dname": "+{s:value} Damage"
+    "dname": "+20 Damage"
   },
   "special_bonus_attack_damage_25": {
-    "dname": "+{s:value} Damage"
+    "dname": "+25 Damage"
   },
   "special_bonus_attack_damage_30": {
-    "dname": "+{s:value} Damage"
+    "dname": "+30 Damage"
   },
   "special_bonus_attack_damage_35": {
-    "dname": "+{s:value} Damage"
+    "dname": "+35 Damage"
   },
   "special_bonus_attack_damage_40": {
-    "dname": "+{s:value} Damage"
+    "dname": "+40 Damage"
   },
   "special_bonus_attack_damage_45": {
-    "dname": "+{s:value} Damage"
+    "dname": "+45 Damage"
   },
   "special_bonus_attack_damage_50": {
-    "dname": "+{s:value} Damage"
+    "dname": "+50 Damage"
   },
   "special_bonus_attack_damage_55": {
-    "dname": "+{s:value} Damage"
+    "dname": "+55 Damage"
   },
   "special_bonus_attack_damage_60": {
-    "dname": "+{s:value} Damage"
+    "dname": "+60 Damage"
   },
   "special_bonus_attack_damage_65": {
-    "dname": "+{s:value} Damage"
+    "dname": "+65 Damage"
   },
   "special_bonus_attack_damage_75": {
-    "dname": "+{s:value} Damage"
+    "dname": "+75 Damage"
   },
   "special_bonus_attack_damage_90": {
-    "dname": "+{s:value} Damage"
+    "dname": "+90 Damage"
   },
   "special_bonus_attack_damage_100": {
-    "dname": "+{s:value} Damage"
+    "dname": "+100 Damage"
   },
   "special_bonus_attack_damage_120": {
-    "dname": "+{s:value} Damage"
+    "dname": "+120 Damage"
   },
   "special_bonus_attack_damage_150": {
-    "dname": "+{s:value} Damage"
+    "dname": "+150 Damage"
   },
   "special_bonus_attack_damage_160": {
-    "dname": "+{s:value} Damage"
+    "dname": "+160 Damage"
   },
   "special_bonus_attack_damage_250": {
-    "dname": "+{s:value} Damage"
+    "dname": "+250 Damage"
   },
   "special_bonus_attack_damage_251": {
-    "dname": "+{s:value} Damage"
+    "dname": "+251 Damage"
   },
   "special_bonus_attack_damage_400": {
-    "dname": "+{s:value} Damage"
+    "dname": "+400 Damage"
   },
   "special_bonus_attack_base_damage_30": {
-    "dname": "+{s:value} Base Damage"
+    "dname": "+30 Base Damage"
   },
   "special_bonus_attack_base_damage_45": {
-    "dname": "+{s:value} Base Damage"
+    "dname": "+45 Base Damage"
   },
   "special_bonus_attack_range_50": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+50 Attack Range"
   },
   "special_bonus_attack_range_75": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+75 Attack Range"
   },
   "special_bonus_attack_range_100": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+100 Attack Range"
   },
   "special_bonus_attack_range_125": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+125 Attack Range"
   },
   "special_bonus_attack_range_150": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+150 Attack Range"
   },
   "special_bonus_attack_range_175": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+175 Attack Range"
   },
   "special_bonus_attack_range_200": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+200 Attack Range"
   },
   "special_bonus_attack_range_250": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+250 Attack Range"
   },
   "special_bonus_attack_range_300": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+300 Attack Range"
   },
   "special_bonus_attack_range_400": {
-    "dname": "+{s:value} Attack Range"
+    "dname": "+400 Attack Range"
   },
   "special_bonus_cast_range_50": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+50 Cast Range"
   },
   "special_bonus_cast_range_60": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+60 Cast Range"
   },
   "special_bonus_cast_range_75": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+75 Cast Range"
   },
   "special_bonus_cast_range_100": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+100 Cast Range"
   },
   "special_bonus_cast_range_125": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+125 Cast Range"
   },
   "special_bonus_cast_range_150": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+150 Cast Range"
   },
   "special_bonus_cast_range_175": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+175 Cast Range"
   },
   "special_bonus_cast_range_200": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+200 Cast Range"
   },
   "special_bonus_cast_range_250": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+250 Cast Range"
   },
   "special_bonus_cast_range_275": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+275 Cast Range"
   },
   "special_bonus_cast_range_300": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+300 Cast Range"
   },
   "special_bonus_cast_range_350": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+350 Cast Range"
   },
   "special_bonus_cast_range_400": {
-    "dname": "+{s:value} Cast Range"
+    "dname": "+400 Cast Range"
   },
   "special_bonus_spell_amplify_3": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+3% Spell Amplification"
   },
   "special_bonus_spell_amplify_4": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+4% Spell Amplification"
   },
   "special_bonus_spell_amplify_5": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+5% Spell Amplification"
   },
   "special_bonus_spell_amplify_6": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+6% Spell Amplification"
   },
   "special_bonus_spell_amplify_8": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+8% Spell Amplification"
   },
   "special_bonus_spell_amplify_10": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+10% Spell Amplification"
   },
   "special_bonus_spell_amplify_12": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+12% Spell Amplification"
   },
   "special_bonus_spell_amplify_14": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+14% Spell Amplification"
   },
   "special_bonus_spell_amplify_15": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+15% Spell Amplification"
   },
   "special_bonus_spell_amplify_20": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+20% Spell Amplification"
   },
   "special_bonus_spell_amplify_25": {
-    "dname": "+{s:value}% Spell Amplification"
+    "dname": "+25% Spell Amplification"
   },
   "special_bonus_cooldown_reduction_8": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "8% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_10": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "10% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_12": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "12% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_15": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "15% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_20": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "20% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_25": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "25% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_30": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "30% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_40": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "40% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_50": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "50% Cooldown Reduction"
   },
   "special_bonus_cooldown_reduction_65": {
-    "dname": "{s:value}% Cooldown Reduction"
+    "dname": "65% Cooldown Reduction"
   },
   "special_bonus_respawn_reduction_15": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-15s Respawn Time"
   },
   "special_bonus_respawn_reduction_20": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-20s Respawn Time"
   },
   "special_bonus_respawn_reduction_25": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-25s Respawn Time"
   },
   "special_bonus_respawn_reduction_30": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-30s Respawn Time"
   },
   "special_bonus_respawn_reduction_35": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-35s Respawn Time"
   },
   "special_bonus_respawn_reduction_40": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-40s Respawn Time"
   },
   "special_bonus_respawn_reduction_45": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-45s Respawn Time"
   },
   "special_bonus_respawn_reduction_50": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-50s Respawn Time"
   },
   "special_bonus_respawn_reduction_60": {
-    "dname": "-{s:value}s Respawn Time"
+    "dname": "-60s Respawn Time"
   },
   "special_bonus_gold_income_30": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+30 Gold/Min"
   },
   "special_bonus_gold_income_60": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+60 Gold/Min"
   },
   "special_bonus_gold_income_90": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+90 Gold/Min"
   },
   "special_bonus_gold_income_120": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+120 Gold/Min"
   },
   "special_bonus_gold_income_150": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+150 Gold/Min"
   },
   "special_bonus_gold_income_180": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+180 Gold/Min"
   },
   "special_bonus_gold_income_210": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+210 Gold/Min"
   },
   "special_bonus_gold_income_240": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+240 Gold/Min"
   },
   "special_bonus_gold_income_300": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+300 Gold/Min"
   },
   "special_bonus_gold_income_420": {
-    "dname": "+{s:value} Gold/Min"
+    "dname": "+420 Gold/Min"
   },
   "special_bonus_evasion_10": {
-    "dname": "{s:value}% Evasion"
+    "dname": "10% Evasion"
   },
   "special_bonus_evasion_12": {
-    "dname": "{s:value}% Evasion"
+    "dname": "12% Evasion"
   },
   "special_bonus_evasion_15": {
-    "dname": "{s:value}% Evasion"
+    "dname": "15% Evasion"
   },
   "special_bonus_evasion_20": {
-    "dname": "{s:value}% Evasion"
+    "dname": "20% Evasion"
   },
   "special_bonus_evasion_25": {
-    "dname": "{s:value}% Evasion"
+    "dname": "25% Evasion"
   },
   "special_bonus_evasion_30": {
-    "dname": "{s:value}% Evasion"
+    "dname": "30% Evasion"
   },
   "special_bonus_evasion_50": {
-    "dname": "{s:value}% Evasion"
+    "dname": "50% Evasion"
   },
   "special_bonus_evasion_75": {
-    "dname": "{s:value}% Evasion"
+    "dname": "75% Evasion"
   },
   "special_bonus_20_bash_2": {
-    "dname": "+{s:value2}% {s:value}s Bash"
+    "dname": "+20% 2s Bash"
   },
   "special_bonus_30_crit_2": {
-    "dname": "+{s:crit_chance}% Critical Strike ({s:crit_multiplier}%)"
+    "dname": "+30% Critical Strike (200%)"
   },
   "special_bonus_20_crit_15": {
-    "dname": "+{s:crit_chance}% Critical Strike ({s:crit_multiplier}%)"
+    "dname": "+20% Critical Strike (150%)"
   },
   "special_bonus_50_crit_40": {
-    "dname": "+{s:crit_chance}% Critical Strike ({s:crit_multiplier}%)"
+    "dname": "+50% Critical Strike (140%)"
   },
   "special_bonus_exp_boost_5": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+5% XP Gain"
   },
   "special_bonus_exp_boost_10": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+10% XP Gain"
   },
   "special_bonus_exp_boost_15": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+15% XP Gain"
   },
   "special_bonus_exp_boost_20": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+20% XP Gain"
   },
   "special_bonus_exp_boost_25": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+25% XP Gain"
   },
   "special_bonus_exp_boost_30": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+30% XP Gain"
   },
   "special_bonus_exp_boost_35": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+35% XP Gain"
   },
   "special_bonus_exp_boost_40": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+40% XP Gain"
   },
   "special_bonus_exp_boost_50": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+50% XP Gain"
   },
   "special_bonus_exp_boost_60": {
-    "dname": "+{s:value}% XP Gain"
+    "dname": "+60% XP Gain"
   },
   "special_bonus_unique_clockwerk": {
-    "dname": "{s:value}s Battery Assault Interval"
+    "dname": "0.3s Battery Assault Interval"
   },
   "special_bonus_unique_clockwerk_2": {
-    "dname": "+{s:value} Rocket Flare Damage"
+    "dname": "+125 Rocket Flare Damage"
   },
   "special_bonus_unique_clockwerk_3": {
-    "dname": "+{s:value} Battery Assault Damage"
+    "dname": "+30 Battery Assault Damage"
   },
   "special_bonus_unique_clockwerk_4": {
     "dname": "Rocket Flare True Sight"
   },
   "special_bonus_unique_omniknight_1": {
-    "dname": "+{s:value} Purification Damage/Heal"
+    "dname": "+200 Purification Damage/Heal"
   },
   "special_bonus_unique_omniknight_2": {
-    "dname": "{s:value}% Degen Aura"
+    "dname": "-12% Degen Aura"
   },
   "special_bonus_unique_omniknight_3": {
-    "dname": "-{s:value}s Heavenly Grace Cooldown"
+    "dname": "-8s Heavenly Grace Cooldown"
   },
   "special_bonus_unique_omniknight_4": {
-    "dname": "+{s:value} Purification AoE"
+    "dname": "+100 Purification AoE"
   },
   "special_bonus_unique_centaur_1": {
     "dname": "Gains Retaliate Aura"
   },
   "special_bonus_unique_centaur_2": {
-    "dname": "+{s:value}s Hoof Stomp Duration"
+    "dname": "+1.5s Hoof Stomp Duration"
   },
   "special_bonus_unique_centaur_3": {
-    "dname": "+{s:value} Retaliate Damage"
+    "dname": "+90 Retaliate Damage"
   },
   "special_bonus_unique_centaur_4": {
-    "dname": "+{s:value}% Double Edge Strength Damage"
+    "dname": "+50% Double Edge Strength Damage"
   },
   "special_bonus_unique_witch_doctor_1": {
-    "dname": "+{s:value} Death Ward Attack Range"
+    "dname": "+125 Death Ward Attack Range"
   },
   "special_bonus_unique_witch_doctor_2": {
-    "dname": "+{s:value}% Max Health Voodoo Restoration"
+    "dname": "+1.5% Max Health Voodoo Restoration"
   },
   "special_bonus_unique_witch_doctor_3": {
-    "dname": "+{s:value} Cask Bounces"
+    "dname": "+2 Cask Bounces"
   },
   "special_bonus_unique_witch_doctor_4": {
-    "dname": "+{s:value2} Maledict Tick"
+    "dname": "+1 Maledict Tick"
   },
   "special_bonus_unique_witch_doctor_5": {
-    "dname": "+{s:value} Death Ward Damage"
+    "dname": "+75 Death Ward Damage"
   },
   "special_bonus_unique_necrophos": {
-    "dname": "-{s:value}s Death Pulse Cooldown"
+    "dname": "-2.5s Death Pulse Cooldown"
   },
   "special_bonus_unique_necrophos_2": {
-    "dname": "+{s:value}  Heartstopper Aura"
+    "dname": "+0.6  Heartstopper Aura"
   },
   "special_bonus_unique_necrophos_3": {
-    "dname": "+{s:value}% Ghost Shroud Slow"
+    "dname": "+30% Ghost Shroud Slow"
   },
   "special_bonus_unique_necrophos_4": {
-    "dname": "+{s:value} Death Pulse Heal"
+    "dname": "+40 Death Pulse Heal"
   },
   "special_bonus_unique_necrophos_5": {
-    "dname": "+{s:value} Heartstopper Regen Reduction"
+    "dname": "+40 Heartstopper Regen Reduction"
   },
   "special_bonus_unique_antimage": {
-    "dname": "-{s:value}s Blink Cooldown"
+    "dname": "-2.5s Blink Cooldown"
   },
   "special_bonus_unique_antimage_2": {
-    "dname": "-{s:value}s Mana Void Cooldown"
+    "dname": "-50s Mana Void Cooldown"
   },
   "special_bonus_unique_antimage_3": {
-    "dname": "+{s:value} Blink Cast Range"
+    "dname": "+400 Blink Cast Range"
   },
   "special_bonus_unique_antimage_4": {
-    "dname": "+{s:value}% Counterspell Magic Resistance"
+    "dname": "+25% Counterspell Magic Resistance"
   },
   "special_bonus_unique_antimage_5": {
     "dname": "Blink Uncontrollable Illusion"
   },
   "special_bonus_unique_mirana_1": {
-    "dname": "+{s:value} Leap Attack Speed"
+    "dname": "+80 Leap Attack Speed"
   },
   "special_bonus_unique_mirana_2": {
-    "dname": "+{s:value} Multishot Sacred Arrows"
+    "dname": "+2 Multishot Sacred Arrows"
   },
   "special_bonus_unique_mirana_3": {
-    "dname": "-{s:value}s Sacred Arrow cooldown"
+    "dname": "-5s Sacred Arrow cooldown"
   },
   "special_bonus_unique_mirana_4": {
-    "dname": "-{s:value} Moonlight Shadow Cooldown"
+    "dname": "-70 Moonlight Shadow Cooldown"
   },
   "special_bonus_unique_bounty_hunter": {
-    "dname": "+{s:value} Jinada Gold Steal"
+    "dname": "+90 Jinada Gold Steal"
   },
   "special_bonus_unique_bounty_hunter_2": {
-    "dname": "+{s:value} Shuriken Toss Damage"
+    "dname": "+125 Shuriken Toss Damage"
   },
   "special_bonus_unique_bounty_hunter_3": {
-    "dname": "+{s:value} Track Gold"
+    "dname": "+300 Track Gold"
   },
   "special_bonus_unique_queen_of_pain": {
-    "dname": "{s:value} AoE Shadow Strike"
+    "dname": "650 AoE Shadow Strike"
   },
   "special_bonus_unique_queen_of_pain_2": {
-    "dname": "Scream of Pain {s:value}s Fear"
+    "dname": "Scream of Pain 1.5s Fear"
   },
   "special_bonus_unique_underlord": {
-    "dname": "+{s:value} s Pit of Malice Root"
+    "dname": "+0.8 s Pit of Malice Root"
   },
   "special_bonus_unique_underlord_2": {
-    "dname": "+{s:value} Firestorm Wave Damage"
+    "dname": "+18 Firestorm Wave Damage"
   },
   "special_bonus_unique_underlord_3": {
-    "dname": "+{s:value} Atrophy Permanent Bonus Damage "
+    "dname": "+7 Atrophy Permanent Bonus Damage "
   },
   "special_bonus_unique_underlord_4": {
-    "dname": "{s:value}% Firestorm Building Damage"
+    "dname": "25% Firestorm Building Damage"
   },
   "special_bonus_unique_pudge_1": {
-    "dname": "+{s:value} Flesh Heap Stack Str"
+    "dname": "+2 Flesh Heap Stack Str"
   },
   "special_bonus_unique_pudge_2": {
-    "dname": "+{s:value} Rot Damage"
+    "dname": "+35 Rot Damage"
   },
   "special_bonus_unique_pudge_3": {
     "dname": "Dismember Double Damage/Heal"
   },
   "special_bonus_unique_pudge_4": {
-    "dname": "{s:value}% Rot Slow"
+    "dname": "-20% Rot Slow"
   },
   "special_bonus_unique_pudge_5": {
-    "dname": "-{s:value} Meat Hook Cooldown"
+    "dname": "-5 Meat Hook Cooldown"
   },
   "special_bonus_unique_treant": {
-    "dname": "+{s:value} Living Armor Block Instances"
+    "dname": "+2 Living Armor Block Instances"
   },
   "special_bonus_unique_treant_2": {
-    "dname": "+{s:value} Leech Seed Damage/Heal"
+    "dname": "+40 Leech Seed Damage/Heal"
   },
   "special_bonus_unique_treant_3": {
-    "dname": "{s:value}s Tree Respawn Time"
+    "dname": "2s Tree Respawn Time"
   },
   "special_bonus_unique_treant_4": {
-    "dname": "+{s:value}s Nature's Guise Root"
+    "dname": "Nature's Guise Invisibility"
   },
   "special_bonus_unique_treant_5": {
-    "dname": "+{s:value} Eyes and Overgrowth AoE"
+    "dname": "+350 Eyes and Overgrowth AoE"
   },
   "special_bonus_unique_treant_6": {
     "dname": "Global Living Armor"
   },
   "special_bonus_unique_treant_7": {
-    "dname": "{s:value} AoE Living Armor"
+    "dname": "550 AoE Living Armor"
   },
   "special_bonus_unique_treant_8": {
-    "dname": "+{s:value} Living Armor Heal"
+    "dname": "+60 Living Armor Heal"
   },
   "special_bonus_unique_treant_9": {
-    "dname": "+{s:value} Nature's Grasp Damage"
+    "dname": "+30 Nature's Grasp Damage"
   },
   "special_bonus_unique_treant_10": {
     "dname": "Gains Tree Walking"
   },
   "special_bonus_unique_treant_11": {
-    "dname": "{s:value} DPS Overgrowth"
+    "dname": "100 DPS Overgrowth"
   },
   "special_bonus_unique_razor": {
-    "dname": "+{s:value} Static Link Damage Steal"
+    "dname": "+6 Static Link Damage Steal"
   },
   "special_bonus_unique_razor_2": {
-    "dname": "{s:value} Eye of the Storm Strike Interval"
+    "dname": "0.1 Eye of the Storm Strike Interval"
   },
   "special_bonus_unique_razor_3": {
-    "dname": "+{s:value}% Unstable Current Movement Speed"
+    "dname": "+4% Unstable Current Movement Speed"
   },
   "special_bonus_unique_razor_4": {
-    "dname": "+{s:value} Eye of the Storm Passive Damage"
+    "dname": "+200 Eye of the Storm Passive Damage"
   },
   "special_bonus_unique_visage_1": {
-    "dname": "+{s:value} Familiar Attack Per Charge"
+    "dname": "+18 Familiar Attack Per Charge"
   },
   "special_bonus_unique_visage_2": {
-    "dname": "+{s:value} Familiars Movement Speed"
+    "dname": "+50 Familiars Movement Speed"
   },
   "special_bonus_unique_visage_3": {
-    "dname": "Soul Assumption Hits {s:value} Targets"
+    "dname": "Soul Assumption Hits 2 Targets"
   },
   "special_bonus_unique_visage_4": {
-    "dname": "+{s:value} Soul Assumption Damage Per Charge"
+    "dname": "+25 Soul Assumption Damage Per Charge"
   },
   "special_bonus_unique_visage_5": {
-    "dname": "{s:value}s Gravekeeper's Cloak"
+    "dname": "-2s Gravekeeper's Cloak"
   },
   "special_bonus_unique_visage_6": {
-    "dname": "+{s:value} Familiar"
+    "dname": "+1 Familiar"
   },
   "special_bonus_unique_earthshaker": {
-    "dname": "-{s:value}s Enchant Totem Cooldown"
+    "dname": "-2s Enchant Totem Cooldown"
   },
   "special_bonus_unique_earthshaker_2": {
-    "dname": "+{s:value} Echo Damage"
+    "dname": "+50 Echo Damage"
   },
   "special_bonus_unique_earthshaker_3": {
-    "dname": "+{s:value} Fissure Range"
+    "dname": "+400 Fissure Range"
   },
   "special_bonus_unique_lich_1": {
-    "dname": "Frost Shield Provides +{s:value} HP Regen"
+    "dname": "Frost Shield Provides +60 HP Regen"
   },
   "special_bonus_unique_lich_2": {
-    "dname": "Attacks Apply {s:value}% MS and AS Slow"
+    "dname": "Attacks Apply 60% MS and AS Slow"
   },
   "special_bonus_unique_lich_3": {
-    "dname": "-{s:value}s Frost Blast Cooldown"
+    "dname": "-4s Frost Blast Cooldown"
   },
   "special_bonus_unique_lich_4": {
-    "dname": "+{s:value}s Frost Shield Duration"
+    "dname": "+3s Frost Shield Duration"
   },
   "special_bonus_unique_lich_5": {
     "dname": "Chain Frost Unlimited Bounces"
   },
   "special_bonus_unique_rubick": {
-    "dname": "+{s:value} Telekinesis Land Distance"
+    "dname": "+300 Telekinesis Land Distance"
   },
   "special_bonus_unique_rubick_2": {
-    "dname": "-{s:value} Fade Bolt Hero Attack"
+    "dname": "-75 Fade Bolt Hero Attack"
   },
   "special_bonus_unique_rubick_3": {
-    "dname": "-{s:value}s Fade Bolt Cooldown"
+    "dname": "-5s Fade Bolt Cooldown"
   },
   "special_bonus_unique_rubick_4": {
-    "dname": "-{s:value}s Telekinesis Cooldown"
+    "dname": "-15s Telekinesis Cooldown"
   },
   "special_bonus_unique_rubick_5": {
-    "dname": "+{s:value}% Spell Amp For Stolen Spells"
+    "dname": "+50% Spell Amp For Stolen Spells"
   },
   "special_bonus_unique_sven": {
-    "dname": "-{s:value}s Storm Hammer Cooldown"
+    "dname": "-6s Storm Hammer Cooldown"
   },
   "special_bonus_unique_sven_2": {
-    "dname": "+{s:value} STR God's Strength"
+    "dname": "+40 STR God's Strength"
   },
   "special_bonus_unique_sven_3": {
     "dname": "Storm Hammer Dispels Enemies"
   },
   "special_bonus_unique_sven_4": {
-    "dname": "+{s:value}s Storm Hammer Stun Duration"
+    "dname": "+1.25s Storm Hammer Stun Duration"
   },
   "special_bonus_unique_dark_seer": {
-    "dname": "+{s:value} Ion Shell Damage"
+    "dname": "+80 Ion Shell Damage"
   },
   "special_bonus_unique_dark_seer_2": {
-    "dname": "+{s:value} Vacuum AoE"
+    "dname": "+75 Vacuum AoE"
   },
   "special_bonus_unique_dark_seer_3": {
-    "dname": "{s:value} AoE Surge"
+    "dname": "400 AoE Surge"
   },
   "special_bonus_unique_dark_seer_4": {
     "dname": "Parallel Wall"
   },
   "special_bonus_unique_dazzle_1": {
-    "dname": "{s:value}% Poison Touch Slow"
+    "dname": "-40% Poison Touch Slow"
   },
   "special_bonus_unique_dazzle_2": {
-    "dname": "+{s:value} Shadow Wave Heal / Damage"
+    "dname": "+30 Shadow Wave Heal / Damage"
   },
   "special_bonus_unique_dazzle_3": {
-    "dname": "+{s:value} Poison Touch DPS"
+    "dname": "+45 Poison Touch DPS"
   },
   "special_bonus_unique_dazzle_4": {
-    "dname": "+{s:value} Bad Juju Armor Reduction"
+    "dname": "+0.5 Bad Juju Armor Reduction"
   },
   "special_bonus_unique_shadow_shaman_1": {
-    "dname": "+{s:value} Serpent Wards Max HP"
+    "dname": "+1 Serpent Wards Max HP"
   },
   "special_bonus_unique_shadow_shaman_2": {
-    "dname": "+{s:value}s Shackles Duration"
+    "dname": "+2.5s Shackles Duration"
   },
   "special_bonus_unique_shadow_shaman_3": {
-    "dname": "+{s:value} Ether Shock Damage"
+    "dname": "+400 Ether Shock Damage"
   },
   "special_bonus_unique_shadow_shaman_4": {
-    "dname": "+{s:value} Wards Attack Damage"
+    "dname": "+40 Wards Attack Damage"
   },
   "special_bonus_unique_shadow_shaman_5": {
-    "dname": "-{s:value}s Hex Cooldown"
+    "dname": "-5s Hex Cooldown"
   },
   "special_bonus_unique_warlock_1": {
     "dname": "100% Magic Resistance for Chaotic Offering Golems"
   },
   "special_bonus_unique_warlock_2": {
-    "dname": "+{s:value} Chaotic Offering Golems Armor"
+    "dname": "+25 Chaotic Offering Golems Armor"
   },
   "special_bonus_unique_warlock_3": {
-    "dname": "-{s:value}s Shadow Word Cooldown"
+    "dname": "-7s Shadow Word Cooldown"
   },
   "special_bonus_unique_warlock_4": {
     "dname": "Summons a Golem on death"
   },
   "special_bonus_unique_warlock_5": {
-    "dname": "+{s:value}% Fatal Bonds Damage"
+    "dname": "+4% Fatal Bonds Damage"
   },
   "special_bonus_unique_warlock_6": {
-    "dname": "{s:value} Shadow Word AoE"
+    "dname": "300 Shadow Word AoE"
   },
   "special_bonus_unique_vengeful_spirit_1": {
-    "dname": "+{s:value} Magic Missile Damage"
+    "dname": "+200 Magic Missile Damage"
   },
   "special_bonus_unique_vengeful_spirit_2": {
-    "dname": "+{s:value} Vengeance Aura Attributes"
+    "dname": "+8 Vengeance Aura Attributes"
   },
   "special_bonus_unique_vengeful_spirit_3": {
     "dname": "Magic Missile Pierces Spell Immunity"
   },
   "special_bonus_unique_vengeful_spirit_4": {
-    "dname": "{s:value} Wave of Terror Armor"
+    "dname": "-1 Wave of Terror Armor"
   },
   "special_bonus_unique_vengeful_spirit_5": {
-    "dname": "-{s:value}s Magic Missile Cooldown"
+    "dname": "-3.5s Magic Missile Cooldown"
   },
   "special_bonus_unique_vengeful_spirit_6": {
-    "dname": "-{s:value}s Wave of Terror Cooldown"
+    "dname": "-6s Wave of Terror Cooldown"
   },
   "special_bonus_unique_vengeful_spirit_7": {
     "dname": "Vengeance Aura Illusion Casts Spells"
   },
   "special_bonus_unique_venomancer": {
-    "dname": "{s:value}x Plague Ward HP/Damage"
+    "dname": "3x Plague Ward HP/Damage"
   },
   "special_bonus_unique_venomancer_2": {
-    "dname": "{s:value}% Poison Sting Slow"
+    "dname": "-12% Poison Sting Slow"
   },
   "special_bonus_unique_venomancer_3": {
-    "dname": "-{s:value} Venomous Gale CD"
+    "dname": "-8 Venomous Gale CD"
   },
   "special_bonus_unique_venomancer_4": {
-    "dname": "+{s:value}s Poison Nova Duration"
+    "dname": "+7s Poison Nova Duration"
   },
   "special_bonus_unique_venomancer_5": {
-    "dname": "Gale Hero Impact Summons {s:value} Wards"
+    "dname": "Gale Hero Impact Summons 2 Wards"
   },
   "special_bonus_unique_venomancer_6": {
-    "dname": "+{s:value} Poison Nova AoE"
+    "dname": "+800 Poison Nova AoE"
   },
   "special_bonus_unique_morphling_1": {
-    "dname": "+{s:value} Waveform Range"
+    "dname": "+350 Waveform Range"
   },
   "special_bonus_unique_morphling_2": {
-    "dname": "-{s:value} Morph Cooldown"
+    "dname": "-50 Morph Cooldown"
   },
   "special_bonus_unique_morphling_3": {
-    "dname": "+{s:value} Multishot Adaptive Strike"
+    "dname": "+3 Multishot Adaptive Strike"
   },
   "special_bonus_unique_morphling_4": {
     "dname": "Waveform Attacks Targets"
@@ -37479,85 +37481,85 @@
     "dname": "Morph Targets Allies"
   },
   "special_bonus_unique_morphling_6": {
-    "dname": "{s:value} Waveform Charges"
+    "dname": "2 Waveform Charges"
   },
   "special_bonus_unique_morphling_7": {
-    "dname": "-{s:value}s Adaptive Strike Cooldown"
+    "dname": "-5s Adaptive Strike Cooldown"
   },
   "special_bonus_unique_morphling_8": {
-    "dname": "+{s:value}s Morph Duration"
+    "dname": "+20s Morph Duration"
   },
   "special_bonus_unique_leshrac_1": {
-    "dname": "+{s:value} Diabolic Edict Explosions"
+    "dname": "+40 Diabolic Edict Explosions"
   },
   "special_bonus_unique_leshrac_2": {
-    "dname": "+{s:value}s Lightning Storm Slow Duration"
+    "dname": "+3s Lightning Storm Slow Duration"
   },
   "special_bonus_unique_leshrac_3": {
-    "dname": "+{s:value} Pulse Nova Damage"
+    "dname": "+50 Pulse Nova Damage"
   },
   "special_bonus_unique_leshrac_4": {
     "dname": "Diabolic Edict Gains Ethereal"
   },
   "special_bonus_unique_jakiro": {
-    "dname": "+{s:value}s Ice Path Duration"
+    "dname": "+1.25s Ice Path Duration"
   },
   "special_bonus_unique_jakiro_2": {
-    "dname": "+{s:value} Dual Breath Burn Damage"
+    "dname": "+40 Dual Breath Burn Damage"
   },
   "special_bonus_unique_jakiro_3": {
     "dname": "Macropyre Pure and Pierces Immunity"
   },
   "special_bonus_unique_jakiro_4": {
-    "dname": "{s:value} Liquid Fire Attack Speed"
+    "dname": "-60 Liquid Fire Attack Speed"
   },
   "special_bonus_unique_enigma": {
-    "dname": "+{s:value} Demonic Conversion Eidolons"
+    "dname": "+7 Demonic Conversion Eidolons"
   },
   "special_bonus_unique_enigma_2": {
-    "dname": "+{s:value2} Malefice Instances"
+    "dname": "+5 Malefice Instances"
   },
   "special_bonus_unique_enigma_3": {
-    "dname": "+{s:value} Eidolon Damage"
+    "dname": "+60 Eidolon Damage"
   },
   "special_bonus_unique_enigma_4": {
-    "dname": "+{s:value} Eidolon Attack Range"
+    "dname": "+200 Eidolon Attack Range"
   },
   "special_bonus_unique_bane_1": {
-    "dname": "+{s:value} Enfeeble Attack Speed Reduction"
+    "dname": "+125 Enfeeble Attack Speed Reduction"
   },
   "special_bonus_unique_bane_2": {
-    "dname": "+{s:value} Brain Sap Damage/Heal"
+    "dname": "+250 Brain Sap Damage/Heal"
   },
   "special_bonus_unique_bane_3": {
-    "dname": "+{s:value}s Fiend's Grip Duration"
+    "dname": "+7s Fiend's Grip Duration"
   },
   "special_bonus_unique_bane_4": {
     "dname": "Enfeeble Steals Attack Speed"
   },
   "special_bonus_unique_nevermore_1": {
-    "dname": "+{s:value} Damage Per Soul"
+    "dname": "+2 Damage Per Soul"
   },
   "special_bonus_unique_nevermore_2": {
-    "dname": "+{s:value} Shadowraze Damage"
+    "dname": "+150 Shadowraze Damage"
   },
   "special_bonus_unique_nevermore_3": {
     "dname": "Presence Aura Affects Building"
   },
   "special_bonus_unique_nevermore_4": {
-    "dname": "+{s:value} Max Souls"
+    "dname": "+20 Max Souls"
   },
   "special_bonus_unique_nevermore_5": {
-    "dname": "{s:value} Presence Aura Armor"
+    "dname": "-5 Presence Aura Armor"
   },
   "special_bonus_unique_templar_assassin": {
-    "dname": "+{s:value} Refraction Instances"
+    "dname": "+4 Refraction Instances"
   },
   "special_bonus_unique_templar_assassin_2": {
-    "dname": "{s:value} Meld Armor Reduction"
+    "dname": "-4 Meld Armor Reduction"
   },
   "special_bonus_unique_templar_assassin_3": {
-    "dname": "+{s:value} Psionic Trap Damage"
+    "dname": "+200 Psionic Trap Damage"
   },
   "special_bonus_unique_templar_assassin_4": {
     "dname": "Meld Dispels"
@@ -37566,265 +37568,265 @@
     "dname": "Psi Blades Spill Paralyzes"
   },
   "special_bonus_unique_templar_assassin_6": {
-    "dname": "+{s:value} Psionic Traps"
+    "dname": "+3 Psionic Traps"
   },
   "special_bonus_unique_templar_assassin_7": {
-    "dname": "{s:value}s Meld Hit Bash"
+    "dname": "1.25s Meld Hit Bash"
   },
   "special_bonus_unique_crystal_maiden_1": {
-    "dname": "+{s:value}s Frostbite Duration"
+    "dname": "+1.5s Frostbite Duration"
   },
   "special_bonus_unique_crystal_maiden_2": {
-    "dname": "+{s:value} Crystal Nova Damage"
+    "dname": "+300 Crystal Nova Damage"
   },
   "special_bonus_unique_crystal_maiden_3": {
-    "dname": "+{s:value} Freezing Field Damage"
+    "dname": "+60 Freezing Field Damage"
   },
   "special_bonus_unique_crystal_maiden_4": {
-    "dname": "+{s:value}% Manacost/Manaloss Reduction Aura"
+    "dname": "+10% Magic Resistance Arcane Aura"
   },
   "special_bonus_unique_doom_1": {
-    "dname": "+{s:value}% Infernal Blade Damage"
+    "dname": "+3% Infernal Blade Damage"
   },
   "special_bonus_unique_doom_2": {
     "dname": "Devour Can Target Ancients"
   },
   "special_bonus_unique_doom_3": {
-    "dname": "+{s:value} Devour Bonus Gold"
+    "dname": "+150 Devour Bonus Gold"
   },
   "special_bonus_unique_doom_4": {
-    "dname": "+{s:value} Scorched Earth Damage"
+    "dname": "+20 Scorched Earth Damage"
   },
   "special_bonus_unique_doom_5": {
-    "dname": "+{s:value} Doom DPS"
+    "dname": "+40 Doom DPS"
   },
   "special_bonus_unique_doom_6": {
-    "dname": "+{s:value}% Scorched Earth Movement Speed"
+    "dname": "+16% Scorched Earth Movement Speed"
   },
   "special_bonus_unique_brewmaster": {
-    "dname": "+{s:value} Health to Primal Split Units"
+    "dname": "+1500 Health to Primal Split Units"
   },
   "special_bonus_unique_brewmaster_2": {
     "dname": "-65s Primal Split Cooldown"
   },
   "special_bonus_unique_brewmaster_3": {
-    "dname": "+{s:value}s Thunder Clap Slow"
+    "dname": "+3s Thunder Clap Slow"
   },
   "special_bonus_unique_brewmaster_4": {
-    "dname": "+{s:value}% Drunken Brawler Critical Strike Damage"
+    "dname": "+175% Drunken Brawler Critical Strike Damage"
   },
   "special_bonus_unique_bristleback": {
-    "dname": "+{s:value} Max Goo Stacks"
+    "dname": "+6 Max Goo Stacks"
   },
   "special_bonus_unique_bristleback_2": {
-    "dname": "+{s:value} Quill Stack Damage"
+    "dname": "+25 Quill Stack Damage"
   },
   "special_bonus_unique_bristleback_3": {
-    "dname": "+{s:value} Warpath Damage Per Stack"
+    "dname": "+30 Warpath Damage Per Stack"
   },
   "special_bonus_unique_furion": {
-    "dname": "{s:value}x Treant HP/Damage"
+    "dname": "2x Treant HP/Damage"
   },
   "special_bonus_unique_furion_2": {
-    "dname": "+{s:value} Treants Summoned"
+    "dname": "+4 Treants Summoned"
   },
   "special_bonus_unique_furion_3": {
     "dname": "Removed Teleportation Cooldown"
   },
   "special_bonus_unique_furion_4": {
-    "dname": "-{s:value}s Sprout Cooldown"
+    "dname": "-4s Sprout Cooldown"
   },
   "special_bonus_unique_phoenix_1": {
-    "dname": "+{s:value} Supernova Hit Count"
+    "dname": "+3 Supernova Hit Count"
   },
   "special_bonus_unique_phoenix_2": {
-    "dname": "+{s:value}s Supernova Stun Duration"
+    "dname": "+1.25s Supernova Stun Duration"
   },
   "special_bonus_unique_phoenix_3": {
-    "dname": "+{s:value} Fire Spirits DPS"
+    "dname": "+40 Fire Spirits DPS"
   },
   "special_bonus_unique_phoenix_4": {
-    "dname": "+{s:value} Icarus Dive Cast Range"
+    "dname": "+1400 Icarus Dive Cast Range"
   },
   "special_bonus_unique_phoenix_5": {
-    "dname": "+{s:value}% Max Health Sun Ray Damage"
+    "dname": "+2% Max Health Sun Ray Damage"
   },
   "special_bonus_unique_enchantress_1": {
     "dname": "Enchant Affects Ancients"
   },
   "special_bonus_unique_enchantress_2": {
-    "dname": "+{s:value} Nature's Attendants Wisps"
+    "dname": "+8 Nature's Attendants Wisps"
   },
   "special_bonus_unique_enchantress_3": {
-    "dname": "{s:value} Untouchable Slow"
+    "dname": "-80 Untouchable Slow"
   },
   "special_bonus_unique_enchantress_4": {
-    "dname": "+{s:value}% Impetus Damage"
+    "dname": "+8% Impetus Damage"
   },
   "special_bonus_unique_enchantress_5": {
-    "dname": "+{s:value} Nature's Attendants Heal"
+    "dname": "+25 Nature's Attendants Heal"
   },
   "special_bonus_unique_batrider_1": {
-    "dname": "+{s:value}s Firefly Duration"
+    "dname": "+8s Firefly Duration"
   },
   "special_bonus_unique_batrider_2": {
-    "dname": "-{s:value}s Flamebreak Cooldown"
+    "dname": "-9s Flamebreak Cooldown"
   },
   "special_bonus_unique_batrider_3": {
-    "dname": "+{s:value}s Flamebreak Burn Duration"
+    "dname": "+3s Flamebreak Burn Duration"
   },
   "special_bonus_unique_wraith_king_1": {
     "dname": "No Reincarnation Manacost"
   },
   "special_bonus_unique_wraith_king_2": {
-    "dname": "+{s:value}% Vampiric Aura Lifesteal"
+    "dname": "+25% Vampiric Aura Lifesteal"
   },
   "special_bonus_unique_wraith_king_3": {
-    "dname": "+{s:value} Wraithfire Blast DPS"
+    "dname": "+40 Wraithfire Blast DPS"
   },
   "special_bonus_unique_wraith_king_4": {
     "dname": "Reincarnation Casts Wraithfire Blast"
   },
   "special_bonus_unique_wraith_king_5": {
-    "dname": "+{s:value} Max Skeletons"
+    "dname": "+5 Max Skeletons"
   },
   "special_bonus_unique_wraith_king_6": {
-    "dname": "+{s:value} Skeletons Attack Damage"
+    "dname": "+30 Skeletons Attack Damage"
   },
   "special_bonus_unique_wraith_king_7": {
-    "dname": "+{s:value}s Wraithfire Blast Slow Duration"
+    "dname": "+1.5s Wraithfire Blast Slow Duration"
   },
   "special_bonus_unique_wraith_king_8": {
-    "dname": "{s:value}x Skeletons Spawned"
+    "dname": "2x Skeletons Spawned"
   },
   "special_bonus_unique_kunkka": {
-    "dname": "+{s:value} Torrent AoE"
+    "dname": "+100 Torrent AoE"
   },
   "special_bonus_unique_kunkka_2": {
-    "dname": "+{s:value} Torrent Damage"
+    "dname": "+120 Torrent Damage"
   },
   "special_bonus_unique_kunkka_3": {
     "dname": "Ghostship Fleet"
   },
   "special_bonus_unique_kunkka_4": {
-    "dname": "+{s:value}% Tidebringer Cleave"
+    "dname": "+60% Tidebringer Cleave"
   },
   "special_bonus_unique_kunkka_5": {
-    "dname": "-{s:value}s Tidebringer Cooldown"
+    "dname": "-1.5s Tidebringer Cooldown"
   },
   "special_bonus_unique_dragon_knight": {
-    "dname": "{s:value}x Dragon Blood HP Regen/Armor"
+    "dname": "2x Dragon Blood HP Regen/Armor"
   },
   "special_bonus_unique_dragon_knight_2": {
-    "dname": "+{s:value}s Dragon Tail"
+    "dname": "+2s Dragon Tail"
   },
   "special_bonus_unique_dragon_knight_3": {
-    "dname": "{s:value}% Breathe Fire Damage Reduction"
+    "dname": "-30% Breathe Fire Damage Reduction"
   },
   "special_bonus_unique_dragon_knight_4": {
     "dname": "Dragon Blood Aura"
   },
   "special_bonus_unique_dragon_knight_5": {
-    "dname": "+{s:value}% Frost Breath Slow"
+    "dname": "+-30% Frost Breath Slow"
   },
   "special_bonus_unique_dragon_knight_6": {
-    "dname": "+{s:value}% Splash Attack Damage"
+    "dname": "+60% Splash Attack Damage"
   },
   "special_bonus_unique_invoker_1": {
-    "dname": "{s:value} Forged Spirits Summoned"
+    "dname": "2 Forged Spirits Summoned"
   },
   "special_bonus_unique_invoker_2": {
     "dname": "Radial Deafening Blast"
   },
   "special_bonus_unique_invoker_3": {
-    "dname": "-{s:value}s Tornado Cooldown"
+    "dname": "-10s Tornado Cooldown"
   },
   "special_bonus_unique_invoker_4": {
     "dname": "Cataclysm"
   },
   "special_bonus_unique_invoker_5": {
-    "dname": "+{s:value} Alacrity Damage/Speed"
+    "dname": "+50 Alacrity Damage/Speed"
   },
   "special_bonus_unique_invoker_6": {
-    "dname": "+{s:value} Chaos Meteor Contact Damage"
+    "dname": "+40 Chaos Meteor Contact Damage"
   },
   "special_bonus_unique_invoker_7": {
-    "dname": "+{s:value}s Cold Snap Duration"
+    "dname": "+2.5s Cold Snap Duration"
   },
   "special_bonus_unique_invoker_8": {
-    "dname": "+{s:value}s Tornado Lift Time"
+    "dname": "+1.25s Tornado Lift Time"
   },
   "special_bonus_unique_invoker_9": {
-    "dname": "-{s:value}s Cold Snap Cooldown"
+    "dname": "-10s Cold Snap Cooldown"
   },
   "special_bonus_unique_invoker_10": {
-    "dname": "-{s:value}s Ghost Walk Cooldown"
+    "dname": "-30s Ghost Walk Cooldown"
   },
   "special_bonus_unique_invoker_11": {
-    "dname": "+{s:value} Forged Spirit Armor Reduction"
+    "dname": "+2 Forged Spirit Armor Reduction"
   },
   "special_bonus_unique_abaddon": {
-    "dname": "+{s:value} Aphotic Shield Health"
+    "dname": "+225 Aphotic Shield Health"
   },
   "special_bonus_unique_abaddon_2": {
-    "dname": "+{s:value} Mist Coil Heal/Damage"
+    "dname": "+60 Mist Coil Heal/Damage"
   },
   "special_bonus_unique_abaddon_3": {
-    "dname": "+{s:value} Curse of Avernus Attack Speed"
+    "dname": "+60 Curse of Avernus Attack Speed"
   },
   "special_bonus_unique_abaddon_4": {
-    "dname": "{s:value} AoE Mist Coil"
+    "dname": "375 AoE Mist Coil"
   },
   "special_bonus_unique_abaddon_5": {
     "dname": "Curse of Avernus Affects Towers"
   },
   "special_bonus_unique_alchemist": {
-    "dname": "-{s:value}s Unstable Concoction Cooldown"
+    "dname": "-7s Unstable Concoction Cooldown"
   },
   "special_bonus_unique_alchemist_2": {
-    "dname": "+{s:value} Unstable Concoction Damage"
+    "dname": "+400 Unstable Concoction Damage"
   },
   "special_bonus_unique_alchemist_3": {
-    "dname": "{s:value} Chemical Rage Base Attack Time"
+    "dname": "0.15 Chemical Rage Base Attack Time"
   },
   "special_bonus_unique_alchemist_4": {
-    "dname": "+{s:value} Chemical Rage Regeneration"
+    "dname": "+50 Chemical Rage Regeneration"
   },
   "special_bonus_unique_alchemist_5": {
-    "dname": "-{s:value} Acid Spray Armor Reduction"
+    "dname": "-3 Acid Spray Armor Reduction"
   },
   "special_bonus_unique_alchemist_6": {
-    "dname": "+{s:value} Chemical Rage Movement Speed"
+    "dname": "+60 Chemical Rage Movement Speed"
   },
   "special_bonus_unique_axe": {
-    "dname": "+{s:value} Battle Hunger DPS"
+    "dname": "+120 Battle Hunger DPS"
   },
   "special_bonus_unique_axe_2": {
-    "dname": "+{s:value} Berserker's Call AoE"
+    "dname": "+100 Berserker's Call AoE"
   },
   "special_bonus_unique_axe_3": {
     "dname": "Attacking Procs Counter Helix"
   },
   "special_bonus_unique_axe_4": {
-    "dname": "+{s:value} Counter Helix Damage"
+    "dname": "+15 Counter Helix Damage"
   },
   "special_bonus_unique_beastmaster": {
-    "dname": "+{s:value} Wild Axes Damage"
+    "dname": "+75 Wild Axes Damage"
   },
   "special_bonus_unique_beastmaster_2": {
-    "dname": "+{s:value} Boar Damage"
+    "dname": "+35 Boar Damage"
   },
   "special_bonus_unique_beastmaster_3": {
-    "dname": "-{s:value}s Hawks Cooldown"
+    "dname": "-20s Hawks Cooldown"
   },
   "special_bonus_unique_beastmaster_4": {
-    "dname": "+{s:value} Inner Beast Attack Speed"
+    "dname": "+25 Inner Beast Attack Speed"
   },
   "special_bonus_unique_clinkz_1": {
-    "dname": "+{s:value} Searing Arrows Damage"
+    "dname": "+15 Searing Arrows Damage"
   },
   "special_bonus_unique_clinkz_2": {
-    "dname": "+{s:value}s Skeleton Walk Attack Speed Duration"
+    "dname": "+4s Skeleton Walk Attack Speed Duration"
   },
   "special_bonus_unique_clinkz_3": {
     "dname": "Searing Arrows Multishot"
@@ -37833,316 +37835,316 @@
     "dname": "Burning Army Truestrike"
   },
   "special_bonus_unique_clinkz_5": {
-    "dname": "-{s:value}s Burning Army Cooldown"
+    "dname": "-30s Burning Army Cooldown"
   },
   "special_bonus_unique_clinkz_6": {
-    "dname": "+{s:value} Death Pact Health"
+    "dname": "+350 Death Pact Health"
   },
   "special_bonus_unique_juggernaut": {
-    "dname": "+{s:value}s Blade Fury"
+    "dname": "+1s Blade Fury"
   },
   "special_bonus_unique_juggernaut_2": {
-    "dname": "+{s:value}s Omnislash Duration"
+    "dname": "+1s Omnislash Duration"
   },
   "special_bonus_unique_juggernaut_3": {
-    "dname": "+{s:value} Blade Fury DPS"
+    "dname": "+130 Blade Fury DPS"
   },
   "special_bonus_unique_juggernaut_4": {
-    "dname": "+{s:value} Blade Fury Movement Speed"
+    "dname": "+75 Blade Fury Movement Speed"
   },
   "special_bonus_unique_winter_wyvern_1": {
-    "dname": "+{s:value}% Arctic Burn Slow"
+    "dname": "+15% Arctic Burn Slow"
   },
   "special_bonus_unique_winter_wyvern_2": {
-    "dname": "-{s:value}s Cold Embrace Cooldown"
+    "dname": "-5s Cold Embrace Cooldown"
   },
   "special_bonus_unique_winter_wyvern_3": {
-    "dname": "+{s:value}s Winter's Curse Duration"
+    "dname": "+1.5s Winter's Curse Duration"
   },
   "special_bonus_unique_winter_wyvern_4": {
-    "dname": "Splinter Blast {s:value}s Stun"
+    "dname": "Splinter Blast 2s Stun"
   },
   "special_bonus_unique_terrorblade": {
-    "dname": "-{s:value}s Sunder Cooldown"
+    "dname": "-35s Sunder Cooldown"
   },
   "special_bonus_unique_terrorblade_2": {
-    "dname": "-{s:value}s Reflection Cooldown"
+    "dname": "-8s Reflection Cooldown"
   },
   "special_bonus_unique_terrorblade_3": {
-    "dname": "+{s:value} Metamorphosis Attack Range"
+    "dname": "+300 Metamorphosis Attack Range"
   },
   "special_bonus_unique_terrorblade_4": {
-    "dname": "+{s:value}% Reflection Illusion Damage"
+    "dname": "+30% Reflection Illusion Damage"
   },
   "special_bonus_unique_luna_1": {
-    "dname": "+{s:value} Lucent Beam Damage"
+    "dname": "+125 Lucent Beam Damage"
   },
   "special_bonus_unique_luna_2": {
-    "dname": "-{s:value}s Lucent Beam Cooldown"
+    "dname": "-4s Lucent Beam Cooldown"
   },
   "special_bonus_unique_luna_3": {
-    "dname": "+{s:value} Lunar Blessing Attributes"
+    "dname": "+14 Lunar Blessing Attributes"
   },
   "special_bonus_unique_luna_4": {
-    "dname": "+{s:value}s Lucent Beam Ministun"
+    "dname": "+0.25s Lucent Beam Ministun"
   },
   "special_bonus_unique_luna_5": {
-    "dname": "+{s:value}s Eclipse Lucent Ministun"
+    "dname": "+0.25s Eclipse Lucent Ministun"
   },
   "special_bonus_unique_faceless_void": {
-    "dname": "+{s:value} Timewalk Cast Range"
+    "dname": "+450 Timewalk Cast Range"
   },
   "special_bonus_unique_faceless_void_2": {
-    "dname": "+{s:value} Chronosphere AoE"
+    "dname": "+175 Chronosphere AoE"
   },
   "special_bonus_unique_faceless_void_3": {
-    "dname": "+{s:value} Time Lock Damage"
+    "dname": "+70 Time Lock Damage"
   },
   "special_bonus_unique_faceless_void_4": {
-    "dname": "+{s:dodge_chance_pct}% Backtrack"
+    "dname": "+25% Backtrack"
   },
   "special_bonus_unique_faceless_void_5": {
-    "dname": "-{s:value}s Time Walk"
+    "dname": "-1.5s Time Walk"
   },
   "special_bonus_unique_night_stalker": {
-    "dname": "-{s:value}s Dark Ascension Cooldown"
+    "dname": "-40s Dark Ascension Cooldown"
   },
   "special_bonus_unique_night_stalker_2": {
-    "dname": "+{s:value} Hunter In The Night Attack Speed"
+    "dname": "+110 Hunter In The Night Attack Speed"
   },
   "special_bonus_unique_nyx": {
-    "dname": "+{s:value}% Spiked Carapace Damage"
+    "dname": "+75% Spiked Carapace Damage"
   },
   "special_bonus_unique_nyx_2": {
-    "dname": "+{s:value} Impale Damage"
+    "dname": "+175 Impale Damage"
   },
   "special_bonus_unique_nyx_3": {
     "dname": "Vendetta Unobstructed Pathing"
   },
   "special_bonus_unique_weaver_1": {
-    "dname": "+{s:value} Shukuchi Damage"
+    "dname": "+75 Shukuchi Damage"
   },
   "special_bonus_unique_weaver_2": {
-    "dname": "+{s:value} Shukuchi Movement Speed"
+    "dname": "+200 Shukuchi Movement Speed"
   },
   "special_bonus_unique_weaver_3": {
-    "dname": "+{s:value} Swarm Armor Reduction"
+    "dname": "+0.5 Swarm Armor Reduction"
   },
   "special_bonus_unique_weaver_4": {
-    "dname": "+{s:value} Swarm Attacks to Kill"
+    "dname": "+4 Swarm Attacks to Kill"
   },
   "special_bonus_unique_weaver_5": {
-    "dname": "+{s:value} Geminate Attack"
+    "dname": "+1 Geminate Attack"
   },
   "special_bonus_unique_ursa": {
-    "dname": "+{s:value} Fury Swipes Damage"
+    "dname": "+16 Fury Swipes Damage"
   },
   "special_bonus_unique_ursa_2": {
-    "dname": "-{s:value}s Earthshock Cooldown"
+    "dname": "-1s Earthshock Cooldown"
   },
   "special_bonus_unique_ursa_3": {
-    "dname": "+{s:value}s Enrage Duration"
+    "dname": "+1.5s Enrage Duration"
   },
   "special_bonus_unique_ursa_4": {
-    "dname": "+{s:value}s Fury Swipes Reset Time"
+    "dname": "+25s Fury Swipes Reset Time"
   },
   "special_bonus_unique_ursa_5": {
-    "dname": "+{s:value} AoE Earthshock"
+    "dname": "+600 AoE Earthshock"
   },
   "special_bonus_unique_ursa_6": {
-    "dname": "Enrage gains {s:value}% Status Resistance"
+    "dname": "Enrage gains 80% Status Resistance"
   },
   "special_bonus_unique_chaos_knight": {
     "dname": "Reality Rift Pierces Spell Immune"
   },
   "special_bonus_unique_chaos_knight_2": {
-    "dname": "-{s:value}s Chaos Strike Cooldown"
+    "dname": "-2s Chaos Strike Cooldown"
   },
   "special_bonus_unique_chaos_knight_3": {
-    "dname": "+{s:value} Max Chaos Bolt Duration"
+    "dname": "+2 Max Chaos Bolt Duration"
   },
   "special_bonus_unique_lycan_1": {
-    "dname": "+{s:value}s Shapeshift Duration"
+    "dname": "+8s Shapeshift Duration"
   },
   "special_bonus_unique_lycan_2": {
-    "dname": "+{s:value} Wolves Summoned"
+    "dname": "+3 Wolves Summoned"
   },
   "special_bonus_unique_lycan_3": {
-    "dname": "+{s:value} Feral HP Regen"
+    "dname": "+13 Feral HP Regen"
   },
   "special_bonus_unique_lycan_4": {
-    "dname": "+{s:value}% Feral Impulse Damage"
+    "dname": "+18% Feral Impulse Damage"
   },
   "special_bonus_unique_lycan_5": {
-    "dname": "+{s:value}% Chance Shapeshift Critical Strike"
+    "dname": "+40% Chance Shapeshift Critical Strike"
   },
   "special_bonus_unique_windranger": {
     "dname": "Windrun Grants Invisibility"
   },
   "special_bonus_unique_windranger_2": {
-    "dname": "+{s:value}% Windrun Slow"
+    "dname": "+-30% Windrun Slow"
   },
   "special_bonus_unique_windranger_3": {
-    "dname": "+{s:value} Powershot Damage"
+    "dname": "+125 Powershot Damage"
   },
   "special_bonus_unique_windranger_4": {
-    "dname": "+{s:value}% Ministun Focus Fire"
+    "dname": "+35% Ministun Focus Fire"
   },
   "special_bonus_unique_windranger_5": {
-    "dname": "+{s:value} Shackleshot Target"
+    "dname": "+2 Shackleshot Target"
   },
   "special_bonus_unique_windranger_6": {
-    "dname": "+{s:value}s Shackleshot Duration"
+    "dname": "+1s Shackleshot Duration"
   },
   "special_bonus_unique_windranger_7": {
-    "dname": "-{s:value}s Focus Fire Cooldown"
+    "dname": "-60s Focus Fire Cooldown"
   },
   "special_bonus_unique_windranger_8": {
-    "dname": "-{s:value}% Focus Fire Damage Reduction"
+    "dname": "-20% Focus Fire Damage Reduction"
   },
   "special_bonus_unique_windranger_9": {
-    "dname": "-{s:value}s Shackleshot Cooldown"
+    "dname": "-2s Shackleshot Cooldown"
   },
   "special_bonus_unique_windranger_10": {
-    "dname": "+{s:value} Windrun HP Regen"
+    "dname": "+20 Windrun HP Regen"
   },
   "special_bonus_unique_phantom_lancer": {
-    "dname": "+{s:value} Phantom Rush Range"
+    "dname": "+500 Phantom Rush Range"
   },
   "special_bonus_unique_phantom_lancer_2": {
-    "dname": "+{s:value} Spirit Lance Damage"
+    "dname": "+125 Spirit Lance Damage"
   },
   "special_bonus_unique_phantom_lancer_3": {
-    "dname": "+{s:value} Max Juxtapose Illusions"
+    "dname": "+5 Max Juxtapose Illusions"
   },
   "special_bonus_unique_phantom_lancer_4": {
-    "dname": "-{s:value}s Doppelganger CD"
+    "dname": "-6s Doppelganger CD"
   },
   "special_bonus_unique_slark": {
-    "dname": "+{s:value}s Pounce Leash"
+    "dname": "+1s Pounce Leash"
   },
   "special_bonus_unique_slark_2": {
-    "dname": "+{s:value} Dark Pact Damage"
+    "dname": "+150 Dark Pact Damage"
   },
   "special_bonus_unique_slark_3": {
-    "dname": "+{s:value}s Shadow Dance Duration"
+    "dname": "+1s Shadow Dance Duration"
   },
   "special_bonus_unique_slark_4": {
-    "dname": "+{s:value} Essence Shift Duration"
+    "dname": "+80 Essence Shift Duration"
   },
   "special_bonus_unique_spectre": {
-    "dname": "-{s:value}s Spectral Dagger Cooldown"
+    "dname": "-10s Spectral Dagger Cooldown"
   },
   "special_bonus_unique_spectre_2": {
-    "dname": "+{s:value} Desolate Damage"
+    "dname": "+15 Desolate Damage"
   },
   "special_bonus_unique_spectre_3": {
-    "dname": "+{s:value}% Spectral Dagger Slow/Bonus"
+    "dname": "+18% Spectral Dagger Slow/Bonus"
   },
   "special_bonus_unique_spectre_4": {
-    "dname": "+{s:value}% Haunt Illusion Damage"
+    "dname": "+40% Haunt Illusion Damage"
   },
   "special_bonus_unique_spectre_5": {
-    "dname": "+{s:value}% Dispersion"
+    "dname": "+6% Dispersion"
   },
   "special_bonus_unique_spirit_breaker_1": {
-    "dname": "+{s:value}% Greater Bash Chance"
+    "dname": "+25% Greater Bash Chance"
   },
   "special_bonus_unique_spirit_breaker_2": {
-    "dname": "-{s:value}s Bulldoze Cooldown"
+    "dname": "-7s Bulldoze Cooldown"
   },
   "special_bonus_unique_spirit_breaker_3": {
-    "dname": "+{s:value}% Greater Bash Damage"
+    "dname": "+15% Greater Bash Damage"
   },
   "special_bonus_unique_storm_spirit": {
-    "dname": "+{s:value}s Electric Vortex"
+    "dname": "+0.5s Electric Vortex"
   },
   "special_bonus_unique_storm_spirit_2": {
-    "dname": "+{s:value} Ball Lightning Damage"
+    "dname": "+6 Ball Lightning Damage"
   },
   "special_bonus_unique_storm_spirit_3": {
     "dname": "Overload Pierces Immunity"
   },
   "special_bonus_unique_storm_spirit_4": {
-    "dname": "{s:value} Distance Auto Remnant in Ball Lightning"
+    "dname": "500 Distance Auto Remnant in Ball Lightning"
   },
   "special_bonus_unique_storm_spirit_5": {
-    "dname": "+{s:value} Static Remnant Damage"
+    "dname": "+80 Static Remnant Damage"
   },
   "special_bonus_unique_storm_spirit_6": {
-    "dname": "+{s:value} Overload Damage"
+    "dname": "+30 Overload Damage"
   },
   "special_bonus_unique_tidehunter": {
-    "dname": "-{s:value} Gush Armor"
+    "dname": "-5 Gush Armor"
   },
   "special_bonus_unique_tidehunter_2": {
-    "dname": "+{s:value} Gush Damage"
+    "dname": "+100 Gush Damage"
   },
   "special_bonus_unique_tidehunter_3": {
-    "dname": "{s:value}% Anchor Smash Damage Reduction"
+    "dname": "-25% Anchor Smash Damage Reduction"
   },
   "special_bonus_unique_tidehunter_4": {
-    "dname": "+{s:value} Kraken Shell Damage Block"
+    "dname": "+30 Kraken Shell Damage Block"
   },
   "special_bonus_unique_tinker": {
-    "dname": "+{s:value} Laser Damage"
+    "dname": "+100 Laser Damage"
   },
   "special_bonus_unique_tinker_2": {
-    "dname": "+{s:value} March of the Machines Damage"
+    "dname": "+10 March of the Machines Damage"
   },
   "special_bonus_unique_tinker_3": {
-    "dname": "+{s:value}s Heat-Seeking Missile Ministun"
+    "dname": "+0.3s Heat-Seeking Missile Ministun"
   },
   "special_bonus_unique_tinker_4": {
-    "dname": "+{s:value}s Laser Blind Duration"
+    "dname": "+1.5s Laser Blind Duration"
   },
   "special_bonus_unique_tiny": {
-    "dname": "+{s:value} Avalanche Damage"
+    "dname": "+100 Avalanche Damage"
   },
   "special_bonus_unique_tiny_2": {
-    "dname": "{s:value} Toss Charges"
+    "dname": "3 Toss Charges"
   },
   "special_bonus_unique_tiny_3": {
-    "dname": "-{s:value}s Avalanche Cooldown"
+    "dname": "-9s Avalanche Cooldown"
   },
   "special_bonus_unique_tiny_4": {
-    "dname": "-{s:value}s Tree Grab CD"
+    "dname": "-7s Tree Grab CD"
   },
   "special_bonus_unique_tiny_5": {
     "dname": "Toss Requires No Target"
   },
   "special_bonus_unique_troll_warlord": {
-    "dname": "-{s:value}s Whirling Axes Cooldown"
+    "dname": "-6s Whirling Axes Cooldown"
   },
   "special_bonus_unique_troll_warlord_2": {
-    "dname": "+{s:value} Max Fervor Stacks"
+    "dname": "+3 Max Fervor Stacks"
   },
   "special_bonus_unique_troll_warlord_3": {
-    "dname": "+{s:value} Whirling Axes Damage"
+    "dname": "+90 Whirling Axes Damage"
   },
   "special_bonus_unique_troll_warlord_4": {
     "dname": "Battle Trance Strong Dispels"
   },
   "special_bonus_unique_undying": {
-    "dname": "+{s:value} Tombstone Zombie Damage"
+    "dname": "+30 Tombstone Zombie Damage"
   },
   "special_bonus_unique_undying_2": {
-    "dname": "-{s:value}s Decay Cooldown"
+    "dname": "-2s Decay Cooldown"
   },
   "special_bonus_unique_undying_3": {
     "dname": "Tombstone On Death"
   },
   "special_bonus_unique_undying_4": {
-    "dname": "+{s:value} Decay Duration"
+    "dname": "+50 Decay Duration"
   },
   "special_bonus_unique_undying_5": {
-    "dname": "+{s:value} Tombstone Attacks to Destroy"
+    "dname": "+5 Tombstone Attacks to Destroy"
   },
   "special_bonus_unique_viper_1": {
-    "dname": "+{s:value} Corrosive Skin Stats"
+    "dname": "+6 Corrosive Skin Stats"
   },
   "special_bonus_unique_viper_2": {
-    "dname": "+{s:value} Viper Strike DPS"
+    "dname": "+100 Viper Strike DPS"
   },
   "special_bonus_unique_viper_3": {
     "dname": "Nethertoxin Silences"
@@ -38151,131 +38153,131 @@
     "dname": "Poison Attack Affects Buildings"
   },
   "special_bonus_unique_zeus": {
-    "dname": "+{s:value}% Static Field Damage"
+    "dname": "+1.5% Static Field Damage"
   },
   "special_bonus_unique_zeus_2": {
-    "dname": "+{s:value} Arc Lightning Damage"
+    "dname": "+145 Arc Lightning Damage"
   },
   "special_bonus_unique_zeus_3": {
-    "dname": "+{s:value}s Lightning Bolt Ministun"
+    "dname": "+0.5s Lightning Bolt Ministun"
   },
   "special_bonus_unique_elder_titan": {
-    "dname": "+{s:value} Astral Spirit Hero Attack"
+    "dname": "+30 Astral Spirit Hero Attack"
   },
   "special_bonus_unique_elder_titan_2": {
-    "dname": "+{s:value} Echo Stomp Damage"
+    "dname": "+100 Echo Stomp Damage"
   },
   "special_bonus_unique_elder_titan_3": {
-    "dname": "-{s:value} Earth Splitter Cooldown"
+    "dname": "-75 Earth Splitter Cooldown"
   },
   "special_bonus_unique_elder_titan_4": {
-    "dname": "+{s:value} Echo Stomp Wake Damage"
+    "dname": "+600 Echo Stomp Wake Damage"
   },
   "special_bonus_unique_ember_spirit_1": {
-    "dname": "+{s:value} Flame Guard Absorption"
+    "dname": "+275 Flame Guard Absorption"
   },
   "special_bonus_unique_ember_spirit_2": {
-    "dname": "+{s:value}s Searing Chains"
+    "dname": "+1s Searing Chains"
   },
   "special_bonus_unique_ember_spirit_3": {
-    "dname": "+{s:value} Flame Guard DPS"
+    "dname": "+60 Flame Guard DPS"
   },
   "special_bonus_unique_ember_spirit_4": {
-    "dname": "{s:value} Sleight of Fist Charges"
+    "dname": "2 Sleight of Fist Charges"
   },
   "special_bonus_unique_ember_spirit_5": {
-    "dname": "-{s:value} Remnant Charge Restore Time"
+    "dname": "-16 Remnant Charge Restore Time"
   },
   "special_bonus_unique_ember_spirit_6": {
-    "dname": "+{s:value} Sleight of Fist Hero Damage"
+    "dname": "+60 Sleight of Fist Hero Damage"
   },
   "special_bonus_unique_lifestealer": {
-    "dname": "+{s:value}s Rage Duration"
+    "dname": "+2s Rage Duration"
   },
   "special_bonus_unique_lifestealer_2": {
-    "dname": "+{s:value}% Open Wounds Lifesteal"
+    "dname": "+50% Open Wounds Lifesteal"
   },
   "special_bonus_unique_lifestealer_3": {
-    "dname": "+{s:value}% Feast Lifesteal"
+    "dname": "+1.5% Feast Lifesteal"
   },
   "special_bonus_reincarnation_200": {
-    "dname": "Gains Reincarnation {s:value} CD"
+    "dname": "Gains Reincarnation 200 CD"
   },
   "special_bonus_reincarnation_250": {
-    "dname": "Gains Reincarnation {s:value} CD"
+    "dname": "Gains Reincarnation 250 CD"
   },
   "special_bonus_unique_lion": {
-    "dname": "+{s:value} Mana Drain Multi Target"
+    "dname": "+2 Mana Drain Multi Target"
   },
   "special_bonus_unique_lion_2": {
-    "dname": "+{s:value} Earth Spike Range"
+    "dname": "+1000 Earth Spike Range"
   },
   "special_bonus_unique_lion_3": {
-    "dname": "+{s:value} Finger of Death Damage"
+    "dname": "+200 Finger of Death Damage"
   },
   "special_bonus_unique_lion_4": {
-    "dname": "+{s:value} AoE Hex"
+    "dname": "+325 AoE Hex"
   },
   "special_bonus_unique_skywrath": {
-    "dname": "-{s:value}s Ancient Seal Cooldown"
+    "dname": "-9s Ancient Seal Cooldown"
   },
   "special_bonus_unique_skywrath_2": {
-    "dname": "+{s:value} Arcane Bolt Per Cast"
+    "dname": "+1 Arcane Bolt Per Cast"
   },
   "special_bonus_unique_skywrath_3": {
-    "dname": "{s:value}% Ancient Seal Magic Resistance Reduction"
+    "dname": "-15% Ancient Seal Magic Resistance Reduction"
   },
   "special_bonus_unique_skywrath_4": {
     "dname": "Global Concussive Shot"
   },
   "special_bonus_unique_skywrath_5": {
-    "dname": "+{s:value} Mystic Flare Damage"
+    "dname": "+600 Mystic Flare Damage"
   },
   "special_bonus_unique_medusa": {
-    "dname": "+{s:value}s Stone Gaze Duration"
+    "dname": "+2.5s Stone Gaze Duration"
   },
   "special_bonus_unique_medusa_2": {
-    "dname": "+{s:value} Split Shot Targets"
+    "dname": "+7 Split Shot Targets"
   },
   "special_bonus_unique_medusa_3": {
-    "dname": "+{s:value}% Mystic Snake Mana Gain"
+    "dname": "+25% Mystic Snake Mana Gain"
   },
   "special_bonus_unique_medusa_4": {
     "dname": "Split Shot Uses Modifiers"
   },
   "special_bonus_unique_medusa_5": {
-    "dname": "-{s:value}s Mystic Snake Cooldown"
+    "dname": "-4s Mystic Snake Cooldown"
   },
   "special_bonus_unique_ogre_magi": {
-    "dname": "+{s:value} Bloodlust AS"
+    "dname": "+60 Bloodlust AS"
   },
   "special_bonus_unique_ogre_magi_2": {
-    "dname": "+{s:value} Fireblast Damage"
+    "dname": "+300 Fireblast Damage"
   },
   "special_bonus_unique_ogre_magi_3": {},
   "special_bonus_unique_silencer": {
-    "dname": "+{s:value} Arcane Curse Damage"
+    "dname": "+30 Arcane Curse Damage"
   },
   "special_bonus_unique_silencer_2": {
-    "dname": "+{s:value} Permanent Intelligence Steal"
+    "dname": "+2 Permanent Intelligence Steal"
   },
   "special_bonus_unique_silencer_3": {
-    "dname": "+{s:value}% Glaives of Wisdom Damage"
+    "dname": "+20% Glaives of Wisdom Damage"
   },
   "special_bonus_unique_silencer_4": {
-    "dname": "+{s:value}s Global Silence"
+    "dname": "+2s Global Silence"
   },
   "special_bonus_unique_silencer_5": {
-    "dname": "+{s:value}s Glaives Silence"
+    "dname": "+1s Glaives Silence"
   },
   "special_bonus_unique_death_prophet": {
-    "dname": "+{s:value} Exorcism Spirits"
+    "dname": "+8 Exorcism Spirits"
   },
   "special_bonus_unique_death_prophet_2": {
-    "dname": "-{s:value}s Crypt Swarm Cooldown"
+    "dname": "-3s Crypt Swarm Cooldown"
   },
   "special_bonus_unique_death_prophet_3": {
-    "dname": "+{s:value}% Max Health Spirit Siphon"
+    "dname": "+1% Max Health Spirit Siphon"
   },
   "special_bonus_unique_death_prophet_4": {
     "dname": "Exorcism Grants Haste"
@@ -38284,169 +38286,169 @@
     "dname": "Triple Strike Stifling Dagger"
   },
   "special_bonus_unique_phantom_assassin_2": {
-    "dname": "+{s:value}% Coup de Grace chance"
+    "dname": "+10% Coup de Grace chance"
   },
   "special_bonus_unique_phantom_assassin_3": {
-    "dname": "+{s:value}% Blur Evasion"
+    "dname": "+30% Blur Evasion"
   },
   "special_bonus_unique_riki_1": {
-    "dname": "+{s:value} Backstab Multiplier"
+    "dname": "+0.8 Backstab Multiplier"
   },
   "special_bonus_unique_riki_2": {
-    "dname": "-{s:value}s Smoke Screen Cooldown"
+    "dname": "-5s Smoke Screen Cooldown"
   },
   "special_bonus_unique_riki_3": {
-    "dname": "+{s:value} Blink Strike Cast Range"
+    "dname": "+600 Blink Strike Cast Range"
   },
   "special_bonus_unique_riki_4": {
-    "dname": "+{s:value} Tricks of the Trade AoE"
+    "dname": "+300 Tricks of the Trade AoE"
   },
   "special_bonus_unique_riki_5": {
     "dname": "Cloak and Dagger Doesn't Reveal"
   },
   "special_bonus_unique_riki_6": {
-    "dname": "-{s:value} Tricks of the Trade Cooldown"
+    "dname": "-7 Tricks of the Trade Cooldown"
   },
   "special_bonus_unique_tusk": {
-    "dname": "+{s:value}% Walrus Punch Crit"
+    "dname": "+100% Walrus Punch Crit"
   },
   "special_bonus_unique_tusk_2": {
-    "dname": "+{s:value} Snowball Damage"
+    "dname": "+150 Snowball Damage"
   },
   "special_bonus_unique_tusk_3": {
-    "dname": "+{s:value} Snowball Speed"
+    "dname": "+300 Snowball Speed"
   },
   "special_bonus_unique_tusk_4": {
-    "dname": "{s:value}% Chance Walrus Punch"
+    "dname": "15% Chance Walrus Punch"
   },
   "special_bonus_unique_tusk_5": {
-    "dname": "-{s:value}s Ice Shards Cooldown"
+    "dname": "-8s Ice Shards Cooldown"
   },
   "special_bonus_unique_tusk_6": {
-    "dname": "-{s:value}s Snowball Cooldown"
+    "dname": "-7s Snowball Cooldown"
   },
   "special_bonus_unique_sniper_1": {
-    "dname": "+{s:value} Shrapnel DPS"
+    "dname": "+30 Shrapnel DPS"
   },
   "special_bonus_unique_sniper_2": {
-    "dname": "+{s:value} Shrapnel Charges"
+    "dname": "+6 Shrapnel Charges"
   },
   "special_bonus_unique_sniper_3": {
-    "dname": "+{s:value} Knockback Distance Headshot"
+    "dname": "+35 Knockback Distance Headshot"
   },
   "special_bonus_unique_sniper_4": {
-    "dname": "-{s:value}s Assassinate Cast Time"
+    "dname": "-1.5s Assassinate Cast Time"
   },
   "special_bonus_unique_sniper_5": {
-    "dname": "{s:value}% Shrapnel Slow"
+    "dname": "-20% Shrapnel Slow"
   },
   "special_bonus_unique_sniper_6": {
-    "dname": "+{s:value} Take Aim Range"
+    "dname": "+125 Take Aim Range"
   },
   "special_bonus_unique_magnus": {
-    "dname": "-{s:value}s Shockwave Cooldown"
+    "dname": "-4s Shockwave Cooldown"
   },
   "special_bonus_unique_magnus_2": {
-    "dname": "+{s:value}% Empower Damage/Cleave"
+    "dname": "+15% Empower Damage/Cleave"
   },
   "special_bonus_unique_magnus_3": {
-    "dname": "+{s:value} Skewer Range"
+    "dname": "+500 Skewer Range"
   },
   "special_bonus_unique_magnus_4": {
-    "dname": "+{s:value} Shockwave Damage"
+    "dname": "+75 Shockwave Damage"
   },
   "special_bonus_unique_magnus_5": {
-    "dname": "+{s:value}s Reverse Polarity Stun Duration"
+    "dname": "+1s Reverse Polarity Stun Duration"
   },
   "special_bonus_unique_drow_ranger_1": {
-    "dname": "+{s:value}% Multishot Damage"
+    "dname": "+35% Multishot Damage"
   },
   "special_bonus_unique_drow_ranger_2": {
-    "dname": "+{s:value} Gust Distance/Knockback"
+    "dname": "+550 Gust Distance/Knockback"
   },
   "special_bonus_unique_drow_ranger_3": {
-    "dname": "+{s:value} Marksmanship Chance"
+    "dname": "+15 Marksmanship Chance"
   },
   "special_bonus_unique_drow_ranger_4": {
-    "dname": "+{s:value}s Gust Silence Duration"
+    "dname": "+3s Gust Silence Duration"
   },
   "special_bonus_unique_drow_ranger_5": {
-    "dname": "+{s:value}% Gust Blind"
+    "dname": "+50% Gust Blind"
   },
   "special_bonus_unique_earth_spirit": {
-    "dname": "+{s:value} Rolling Boulder Damage"
+    "dname": "+150 Rolling Boulder Damage"
   },
   "special_bonus_unique_earth_spirit_2": {
     "dname": "Geomagnetic Grip Targets Allies"
   },
   "special_bonus_unique_earth_spirit_3": {
-    "dname": "+{s:value}s Rolling Boulder Stun Duration"
+    "dname": "+0.75s Rolling Boulder Stun Duration"
   },
   "special_bonus_unique_earth_spirit_4": {
-    "dname": "+{s:value} Rolling Boulder Distance"
+    "dname": "+300 Rolling Boulder Distance"
   },
   "special_bonus_unique_huskar": {
-    "dname": "+{s:value} Life Break Cast Range"
+    "dname": "+400 Life Break Cast Range"
   },
   "special_bonus_unique_huskar_2": {
-    "dname": "+{s:value} Burning Spears DPS"
+    "dname": "+10 Burning Spears DPS"
   },
   "special_bonus_unique_huskar_3": {
-    "dname": "{s:value} Inner Vitality Cooldown"
+    "dname": "0 Inner Vitality Cooldown"
   },
   "special_bonus_unique_huskar_4": {
-    "dname": "+{s:value} Max Damage Berserker's Blood"
+    "dname": "+120 Max Damage Berserker's Blood"
   },
   "special_bonus_unique_huskar_5": {
     "dname": "Burning Spears Pure Damage"
   },
   "special_bonus_unique_naga_siren": {
-    "dname": "+{s:value} Mirror Image Illusion"
+    "dname": "+1 Mirror Image Illusion"
   },
   "special_bonus_unique_naga_siren_2": {
-    "dname": "-{s:value}s Ensnare Cooldown"
+    "dname": "-9s Ensnare Cooldown"
   },
   "special_bonus_unique_naga_siren_3": {
-    "dname": "{s:value} Rip Tide Armor"
+    "dname": "-6 Rip Tide Armor"
   },
   "special_bonus_unique_naga_siren_4": {
-    "dname": "+{s:value}% Mirror Image Damage"
+    "dname": "+10% Mirror Image Damage"
   },
   "special_bonus_unique_oracle": {
-    "dname": "+{s:value} False Promise Duration"
+    "dname": "+2 False Promise Duration"
   },
   "special_bonus_unique_oracle_2": {
-    "dname": "+{s:value}s Fortune's End Max Duration"
+    "dname": "+1s Fortune's End Max Duration"
   },
   "special_bonus_unique_oracle_3": {
-    "dname": "-{s:value}s Fate's Edict Cooldown"
+    "dname": "-5s Fate's Edict Cooldown"
   },
   "special_bonus_unique_oracle_4": {
     "dname": "False Promise Invisibility"
   },
   "special_bonus_unique_sand_king": {
-    "dname": "+{s:value} Epicenter Pulses"
+    "dname": "+4 Epicenter Pulses"
   },
   "special_bonus_unique_sand_king_2": {
-    "dname": "+{s:value} Sand Storm DPS"
+    "dname": "+40 Sand Storm DPS"
   },
   "special_bonus_unique_sand_king_3": {
-    "dname": "{s:value} Epicenter Attack Slow"
+    "dname": "-50 Epicenter Attack Slow"
   },
   "special_bonus_unique_sand_king_4": {
-    "dname": "{s:value}% Sand Storm Slow and Blind"
+    "dname": "50% Sand Storm Slow and Blind"
   },
   "special_bonus_unique_shadow_demon_1": {
-    "dname": "+{s:value} Demonic Purge Damage"
+    "dname": "+500 Demonic Purge Damage"
   },
   "special_bonus_unique_shadow_demon_2": {
-    "dname": "-{s:value}s Soul Catcher Cooldown"
+    "dname": "-6s Soul Catcher Cooldown"
   },
   "special_bonus_unique_shadow_demon_3": {
-    "dname": "-{s:value}s Shadow Poison Cooldown"
+    "dname": "-1.5s Shadow Poison Cooldown"
   },
   "special_bonus_unique_shadow_demon_4": {
-    "dname": "+{s:value}% Shadow Poison Damage"
+    "dname": "+25% Shadow Poison Damage"
   },
   "special_bonus_unique_shadow_demon_5": {
     "dname": "+5s Disruption Banish Duration"
@@ -38455,244 +38457,244 @@
     "dname": "Soul Catcher Creates Illusion On Death"
   },
   "special_bonus_unique_shadow_demon_7": {
-    "dname": "{s:value} Charges of Disruption"
+    "dname": "2 Charges of Disruption"
   },
   "special_bonus_unique_slardar": {
-    "dname": "+{s:value}s Slithereen Crush Stun"
+    "dname": "+1.25s Slithereen Crush Stun"
   },
   "special_bonus_unique_slardar_2": {
-    "dname": "+{s:value} Bash Damage"
+    "dname": "+75 Bash Damage"
   },
   "special_bonus_unique_slardar_3": {
     "dname": "Corrosive Haze Undispellable"
   },
   "special_bonus_unique_slardar_4": {
-    "dname": "-{s:value}s Slithereen Crush Cooldown"
+    "dname": "-4.5s Slithereen Crush Cooldown"
   },
   "special_bonus_unique_lina_1": {
-    "dname": "-{s:value}s Dragon Slave Cooldown"
+    "dname": "-6s Dragon Slave Cooldown"
   },
   "special_bonus_unique_lina_2": {
-    "dname": "+{s:value}/{s:value2}% Fiery Soul Per Stack"
+    "dname": "+30/2% Fiery Soul Per Stack"
   },
   "special_bonus_unique_lina_3": {
-    "dname": "+{s:value} Light Strike Array Damage"
+    "dname": "+140 Light Strike Array Damage"
   },
   "special_bonus_unique_lina_4": {
-    "dname": "+{s:value} Light Strike AoE"
+    "dname": "+75 Light Strike AoE"
   },
   "special_bonus_unique_ancient_apparition_1": {
-    "dname": "{s:value} Charges of Cold Feet"
+    "dname": "4 Charges of Cold Feet"
   },
   "special_bonus_unique_ancient_apparition_2": {
-    "dname": "+{s:value} Chilling Touch Damage"
+    "dname": "+80 Chilling Touch Damage"
   },
   "special_bonus_unique_ancient_apparition_3": {
-    "dname": "-{s:value}s Ice Vortex Cooldown"
+    "dname": "-2.5s Ice Vortex Cooldown"
   },
   "special_bonus_unique_ancient_apparition_4": {
-    "dname": "{s:value}% Ice Vortex Slow/Resistance"
+    "dname": "-8% Ice Vortex Slow/Resistance"
   },
   "special_bonus_unique_ancient_apparition_5": {
-    "dname": "+{s:value}% Ice Blast Kill Threshold"
+    "dname": "+5% Ice Blast Kill Threshold"
   },
   "special_bonus_unique_ancient_apparition_6": {
-    "dname": "{s:value} AoE Cold Feet"
+    "dname": "625 AoE Cold Feet"
   },
   "special_bonus_unique_disruptor": {
-    "dname": "+{s:value} Thunder Strike Hits"
+    "dname": "+4 Thunder Strike Hits"
   },
   "special_bonus_unique_disruptor_2": {
-    "dname": "-{s:value}s Kinetic Field Cooldown"
+    "dname": "-4s Kinetic Field Cooldown"
   },
   "special_bonus_unique_disruptor_3": {
-    "dname": "+{s:value} Thunder Strike Damage"
+    "dname": "+40 Thunder Strike Damage"
   },
   "special_bonus_unique_disruptor_4": {
-    "dname": "-{s:value}s Glimpse Cooldown"
+    "dname": "-10s Glimpse Cooldown"
   },
   "special_bonus_unique_disruptor_5": {
-    "dname": "+{s:value}s Kinetic Field Duration"
+    "dname": "+4s Kinetic Field Duration"
   },
   "special_bonus_unique_gyrocopter_1": {
-    "dname": "{s:value} Homing Missile Charges"
+    "dname": "3 Homing Missile Charges"
   },
   "special_bonus_unique_gyrocopter_2": {
-    "dname": "+{s:value} Flak Cannon Attacks"
+    "dname": "+3 Flak Cannon Attacks"
   },
   "special_bonus_unique_gyrocopter_3": {
-    "dname": "+{s:value} Rocket Barrage Damage"
+    "dname": "+11 Rocket Barrage Damage"
   },
   "special_bonus_unique_gyrocopter_4": {
-    "dname": "-{s:value}s Call Down Cooldown"
+    "dname": "-25s Call Down Cooldown"
   },
   "special_bonus_unique_gyrocopter_5": {
     "dname": "Global Call Down"
   },
   "special_bonus_unique_gyrocopter_6": {
-    "dname": "+{s:value}s Homing Missile Stun Duration"
+    "dname": "+0.5s Homing Missile Stun Duration"
   },
   "special_bonus_unique_outworld_devourer": {
-    "dname": "+{s:value}% Arcane Orb Damage"
+    "dname": "+2% Arcane Orb Damage"
   },
   "special_bonus_unique_outworld_devourer_2": {
-    "dname": "+{s:value}% Mind Over Matter Slow"
+    "dname": "+30% Mind Over Matter Slow"
   },
   "special_bonus_unique_outworld_devourer_3": {
-    "dname": "+{s:value} Astral Imprisonment Damage"
+    "dname": "+150 Astral Imprisonment Damage"
   },
   "special_bonus_unique_outworld_devourer_4": {
-    "dname": "+{s:value} Sanity's Eclipse Mana Difference Multiplier"
+    "dname": "+0.1 Sanity's Eclipse Mana Difference Multiplier"
   },
   "special_bonus_unique_keeper_of_the_light": {
-    "dname": "+{s:value} Illuminate Damage/Heal"
+    "dname": "+200 Illuminate Damage/Heal"
   },
   "special_bonus_unique_keeper_of_the_light_2": {
-    "dname": "+{s:value} Chakra Magic Mana"
+    "dname": "+300 Chakra Magic Mana"
   },
   "special_bonus_unique_keeper_of_the_light_3": {
-    "dname": "+{s:value} Will-O-Wisp Flicker"
+    "dname": "+3 Will-O-Wisp Flicker"
   },
   "special_bonus_unique_keeper_of_the_light_4": {
-    "dname": "+{s:value} Will-O-Wisp Health Count"
+    "dname": "+1 Will-O-Wisp Health Count"
   },
   "special_bonus_unique_legion_commander": {
-    "dname": "+{s:value} Duel Damage Bonus"
+    "dname": "+40 Duel Damage Bonus"
   },
   "special_bonus_unique_legion_commander_2": {
-    "dname": "-{s:value}s Press The Attack Cooldown"
+    "dname": "-10s Press The Attack Cooldown"
   },
   "special_bonus_unique_legion_commander_3": {
-    "dname": "+{s:value}% Moment Proc Chance"
+    "dname": "+10% Moment Proc Chance"
   },
   "special_bonus_unique_legion_commander_4": {
-    "dname": "+{s:value} Overwhelming Odds Hero Damage"
+    "dname": "+65 Overwhelming Odds Hero Damage"
   },
   "special_bonus_unique_legion_commander_5": {
-    "dname": "{s:value} AoE Press The Attack"
+    "dname": "350 AoE Press The Attack"
   },
   "special_bonus_unique_puck": {
-    "dname": "+{s:value}% Illusory Orb Distance/Speed"
+    "dname": "+50% Illusory Orb Distance/Speed"
   },
   "special_bonus_unique_puck_2": {
-    "dname": "-{s:value}s Waning Rift Cooldown"
+    "dname": "-9s Waning Rift Cooldown"
   },
   "special_bonus_unique_puck_3": {
     "dname": "Dream Coil Rapid Fire"
   },
   "special_bonus_unique_puck_4": {
-    "dname": "+{s:value} Waning Rift Damage"
+    "dname": "+40 Waning Rift Damage"
   },
   "special_bonus_unique_puck_5": {
     "dname": "Phase Shift Attack"
   },
   "special_bonus_unique_pugna_1": {
-    "dname": "+{s:value}% Life Drain Heal"
+    "dname": "+25% Life Drain Heal"
   },
   "special_bonus_unique_pugna_2": {
-    "dname": "+{s:value} Nether Blast Damage"
+    "dname": "+200 Nether Blast Damage"
   },
   "special_bonus_unique_pugna_3": {
     "dname": "+1.75 Netherward Damage Per Mana"
   },
   "special_bonus_unique_pugna_4": {
-    "dname": "-{s:value}s Netherblast Cooldown"
+    "dname": "-1s Netherblast Cooldown"
   },
   "special_bonus_unique_pugna_5": {
-    "dname": "+{s:value}s Decrepify Duration"
+    "dname": "+2s Decrepify Duration"
   },
   "special_bonus_unique_pugna_6": {
-    "dname": "+{s:value} Nether Ward Health"
+    "dname": "+3 Nether Ward Health"
   },
   "special_bonus_unique_timbersaw": {
-    "dname": "+{s:value}% Whirling Death Attribute Reduction"
+    "dname": "+12% Whirling Death Attribute Reduction"
   },
   "special_bonus_unique_timbersaw_2": {
-    "dname": "+{s:value} Reactive Armor Stacks"
+    "dname": "+8 Reactive Armor Stacks"
   },
   "special_bonus_unique_timbersaw_3": {
-    "dname": "+{s:value} Timber Chain Range"
+    "dname": "+1400 Timber Chain Range"
   },
   "special_bonus_unique_bloodseeker": {
-    "dname": "-{s:value}s Blood Rite Cooldown"
+    "dname": "-6s Blood Rite Cooldown"
   },
   "special_bonus_unique_bloodseeker_2": {
-    "dname": "+{s:value} Blood Rite Damage"
+    "dname": "+75 Blood Rite Damage"
   },
   "special_bonus_unique_bloodseeker_3": {
-    "dname": "+{s:value} Rupture Cast Range"
+    "dname": "+600 Rupture Cast Range"
   },
   "special_bonus_unique_bloodseeker_4": {
-    "dname": "+{s:value} Max Thirst MS"
+    "dname": "+18 Max Thirst MS"
   },
   "special_bonus_unique_broodmother_1": {
-    "dname": "+{s:value} Insatiable Hunger Damage/Lifesteal"
+    "dname": "+60 Insatiable Hunger Damage/Lifesteal"
   },
   "special_bonus_unique_broodmother_2": {
-    "dname": "+{s:value} Spiders Health"
+    "dname": "+450 Spiders Health"
   },
   "special_bonus_unique_broodmother_3": {
-    "dname": "+{s:value} Spawn Spiderlings Damage"
+    "dname": "+125 Spawn Spiderlings Damage"
   },
   "special_bonus_unique_broodmother_4": {
-    "dname": "+{s:value} Spiders Attack Damage"
+    "dname": "+30 Spiders Attack Damage"
   },
   "special_bonus_unique_chen_1": {
-    "dname": "+{s:value} Holy Persuasion Max Units"
+    "dname": "+5 Holy Persuasion Max Units"
   },
   "special_bonus_unique_chen_2": {
-    "dname": "+{s:value} Hand of God Heal"
+    "dname": "+350 Hand of God Heal"
   },
   "special_bonus_unique_chen_3": {
-    "dname": "-{s:value}s Divine Favor Cooldown"
+    "dname": "-7s Divine Favor Cooldown"
   },
   "special_bonus_unique_chen_4": {
-    "dname": "+{s:value} Holy Persuasion Minimum Health"
+    "dname": "+1000 Holy Persuasion Minimum Health"
   },
   "special_bonus_unique_chen_5": {
-    "dname": "+{s:value} Holy Persuasion Damage"
+    "dname": "+20 Holy Persuasion Damage"
   },
   "special_bonus_unique_chen_6": {
-    "dname": "-{s:value}s Divine Favor Cooldown"
+    "dname": "-40s Divine Favor Cooldown"
   },
   "special_bonus_unique_lone_druid_1": {
-    "dname": "+{s:value} Spirit Bear Damage"
+    "dname": "+200 Spirit Bear Damage"
   },
   "special_bonus_unique_lone_druid_2": {
-    "dname": "+{s:value} Spirit Bear Armor"
+    "dname": "+10 Spirit Bear Armor"
   },
   "special_bonus_unique_lone_druid_3": {
-    "dname": "+{s:value}s Entangle Duration"
+    "dname": "+1.5s Entangle Duration"
   },
   "special_bonus_unique_lone_druid_4": {
-    "dname": "-{s:value} Savage Roar Cooldown"
+    "dname": "-12 Savage Roar Cooldown"
   },
   "special_bonus_unique_lone_druid_5": {
-    "dname": "+{s:value}% Spirit Bear Magic Resistance"
+    "dname": "+50% Spirit Bear Magic Resistance"
   },
   "special_bonus_unique_lone_druid_6": {
-    "dname": "+{s:value} Spirit Link Attack Speed"
+    "dname": "+40 Spirit Link Attack Speed"
   },
   "special_bonus_unique_lone_druid_7": {
-    "dname": "+{s:value} True Form Health"
+    "dname": "+1000 True Form Health"
   },
   "special_bonus_unique_lone_druid_8": {
-    "dname": "-{s:value}s True Form Cooldown"
+    "dname": "-40s True Form Cooldown"
   },
   "special_bonus_unique_wisp": {
-    "dname": "+{s:value} Spirits Hero Damage"
+    "dname": "+75 Spirits Hero Damage"
   },
   "special_bonus_unique_lone_druid_9": {
     "dname": "0 Entangle Cooldown"
   },
   "special_bonus_unique_lone_druid_10": {
-    "dname": "{s:value} Spirit Bear Attack Time"
+    "dname": "0.25 Spirit Bear Attack Time"
   },
   "special_bonus_unique_wisp_2": {
     "dname": "Tether Stuns"
   },
   "special_bonus_unique_wisp_3": {
-    "dname": "+{s:value} Spirits Max Range"
+    "dname": "+400 Spirits Max Range"
   },
   "special_bonus_unique_wisp_4": {
     "dname": "Attack Tethered Ally's Target"
@@ -38701,109 +38703,109 @@
     "dname": "Tether Grants Scepter Bonus"
   },
   "special_bonus_unique_wisp_6": {
-    "dname": "-{s:value}s Relocate Cooldown"
+    "dname": "-30s Relocate Cooldown"
   },
   "special_bonus_unique_wisp_7": {
     "dname": "Spirits Apply Slow"
   },
   "special_bonus_unique_techies": {
-    "dname": "+{s:value} Blast Off Damage"
+    "dname": "+300 Blast Off Damage"
   },
   "special_bonus_unique_techies_2": {
-    "dname": "+{s:value} Extra Minefield Sign"
+    "dname": "+1 Extra Minefield Sign"
   },
   "special_bonus_unique_techies_3": {
-    "dname": "-{s:value}s Proximity Mines Cooldown"
+    "dname": "-4s Proximity Mines Cooldown"
   },
   "special_bonus_unique_techies_4": {
-    "dname": "+{s:value} Mines Movement Speed"
+    "dname": "+25 Mines Movement Speed"
   },
   "special_bonus_unique_arc_warden": {
-    "dname": "+{s:value} Spark Wraith Damage"
+    "dname": "+300 Spark Wraith Damage"
   },
   "special_bonus_unique_arc_warden_2": {
-    "dname": "+{s:value}s Flux Duration"
+    "dname": "+3s Flux Duration"
   },
   "special_bonus_unique_arc_warden_3": {
-    "dname": "-{s:value}s Spark Wraith Cooldown"
+    "dname": "-2s Spark Wraith Cooldown"
   },
   "special_bonus_unique_arc_warden_4": {
     "dname": "Global Flux"
   },
   "special_bonus_unique_arc_warden_5": {
-    "dname": "+{s:value} Flux Cast Range"
+    "dname": "+400 Flux Cast Range"
   },
   "special_bonus_unique_meepo": {
-    "dname": "-{s:value}s Poof Cooldown"
+    "dname": "-5s Poof Cooldown"
   },
   "special_bonus_unique_meepo_2": {
-    "dname": "+{s:value} Poof Damage"
+    "dname": "+40 Poof Damage"
   },
   "special_bonus_unique_meepo_3": {
-    "dname": "-{s:value}s Earthbind Cooldown"
+    "dname": "-4s Earthbind Cooldown"
   },
   "special_bonus_unique_meepo_4": {
-    "dname": "+{s:value} Earthbind Cast Range"
+    "dname": "+750 Earthbind Cast Range"
   },
   "special_bonus_unique_monkey_king": {
-    "dname": "+{s:value}% Boundless Strike Crit"
+    "dname": "+50% Boundless Strike Crit"
   },
   "special_bonus_unique_monkey_king_2": {
-    "dname": "+{s:value} Jingu Mastery Damage"
+    "dname": "+100 Jingu Mastery Damage"
   },
   "special_bonus_unique_monkey_king_3": {
-    "dname": "+{s:value} Primal Spring Damage"
+    "dname": "+400 Primal Spring Damage"
   },
   "special_bonus_unique_monkey_king_4": {
-    "dname": "+{s:value} Armor Wukong's Command"
+    "dname": "+100 Armor Wukong's Command"
   },
   "special_bonus_unique_monkey_king_5": {
-    "dname": "+{s:value} Tree Dance Vision AoE"
+    "dname": "+400 Tree Dance Vision AoE"
   },
   "special_bonus_unique_monkey_king_6": {
     "dname": "Additional Wukong's Command Ring"
   },
   "special_bonus_unique_monkey_king_7": {
-    "dname": "+{s:value} Tree Dance Cast Range"
+    "dname": "+600 Tree Dance Cast Range"
   },
   "special_bonus_unique_pangolier_2": {
-    "dname": "{s:value}s Shield Crash CD in Ball"
+    "dname": "2s Shield Crash CD in Ball"
   },
   "special_bonus_unique_pangolier_3": {
-    "dname": "+{s:value} Swashbuckle Damage"
+    "dname": "+40 Swashbuckle Damage"
   },
   "special_bonus_unique_pangolier_4": {
-    "dname": "{s:value}s Swashbuckle Cooldown"
+    "dname": "3s Swashbuckle Cooldown"
   },
   "special_bonus_unique_pangolier_5": {
-    "dname": "-{s:value}s Rolling Thunder Cooldown"
+    "dname": "-35s Rolling Thunder Cooldown"
   },
   "special_bonus_unique_pangolier_6": {
-    "dname": "+{s:value}s Rolling Thunder Duration"
+    "dname": "+4s Rolling Thunder Duration"
   },
   "special_bonus_unique_pangolier_7": {
-    "dname": "+{s:value} Swashbuckle Slash Range"
+    "dname": "+400 Swashbuckle Slash Range"
   },
   "special_bonus_unique_dark_willow_1": {
-    "dname": "+{s:value} Shadow Realm Max Damage"
+    "dname": "+300 Shadow Realm Max Damage"
   },
   "special_bonus_unique_dark_willow_2": {
-    "dname": "+{s:value} Terrorize Duration"
+    "dname": "+1.5 Terrorize Duration"
   },
   "special_bonus_unique_dark_willow_3": {
-    "dname": "-{s:value}s Bramble Maze CD"
+    "dname": "-12s Bramble Maze CD"
   },
   "special_bonus_unique_grimstroke_1": {
-    "dname": "+{s:value} Ink Swell Radius"
+    "dname": "+200 Ink Swell Radius"
   },
   "special_bonus_unique_grimstroke_2": {
-    "dname": "{s:value}x Stroke of Fate Damage"
+    "dname": "+50% Stroke of Fate Damage"
   },
   "special_bonus_unique_grimstroke_3": {
-    "dname": "+{s:value} Stroke of Fate Cast Range"
+    "dname": "+600 Stroke of Fate Cast Range"
   },
   "special_bonus_unique_grimstroke_4": {
-    "dname": "+{s:value} Hits to Kill Phantom"
+    "dname": "+3 Hits to Kill Phantom"
   },
   "generic_hidden": {
     "behavior": [
@@ -38862,13 +38864,13 @@
     "img": "/apps/dota2/images/abilities/seasonal_throw_snowball_md.png"
   },
   "seasonal_summon_snowman": {
-    "dname": "Summon Snowman",
+    "dname": "Build Snowman",
     "behavior": [
       "Point Target",
       null,
       null
     ],
-    "desc": "Summons a jolly snowman.",
+    "desc": "Construct a jolly snowman.",
     "dmg": "0",
     "attrib": [
       {
@@ -38899,6 +38901,123 @@
     "mc": "0",
     "cd": "10",
     "img": "/apps/dota2/images/abilities/seasonal_summon_snowman_md.png"
+  },
+  "seasonal_summon_penguin": {
+    "dname": "Summon Penguin",
+    "behavior": [
+      "Point Target",
+      null,
+      null
+    ],
+    "desc": "Summon a friendly penguin who slides around. Each time a hero bumps the penguin, it gains speed and lasts a bit longer.",
+    "dmg": "0",
+    "attrib": [
+      {
+        "key": "initial_lifetime",
+        "header": "INITIAL LIFETIME:",
+        "value": "20",
+        "generated": true
+      },
+      {
+        "key": "initial_speed",
+        "header": "INITIAL SPEED:",
+        "value": "100",
+        "generated": true
+      },
+      {
+        "key": "speed_step",
+        "header": "SPEED STEP:",
+        "value": "1",
+        "generated": true
+      },
+      {
+        "key": "max_speed",
+        "header": "MAX SPEED:",
+        "value": "1000",
+        "generated": true
+      },
+      {
+        "key": "impaired_duration",
+        "header": "IMPAIRED DURATION:",
+        "value": "3",
+        "generated": true
+      },
+      {
+        "key": "bump_delay",
+        "header": "BUMP DELAY:",
+        "value": "1.5",
+        "generated": true
+      },
+      {
+        "key": "bump_collision_radius",
+        "header": "BUMP COLLISION RADIUS:",
+        "value": "120",
+        "generated": true
+      },
+      {
+        "key": "spawn_offset",
+        "header": "SPAWN OFFSET:",
+        "value": "150",
+        "generated": true
+      },
+      {
+        "key": "run_distance",
+        "header": "RUN DISTANCE:",
+        "value": "200",
+        "generated": true
+      },
+      {
+        "key": "jump_distance",
+        "header": "JUMP DISTANCE:",
+        "value": "150",
+        "generated": true
+      },
+      {
+        "key": "speed_after_crash",
+        "header": "SPEED AFTER CRASH:",
+        "value": "125",
+        "generated": true
+      },
+      {
+        "key": "speed_gain_per_hero_bump",
+        "header": "SPEED GAIN PER HERO BUMP:",
+        "value": "60",
+        "generated": true
+      },
+      {
+        "key": "speed_step_interval",
+        "header": "SPEED STEP INTERVAL:",
+        "value": "0.05",
+        "generated": true
+      },
+      {
+        "key": "max_gainable_lifetime",
+        "header": "MAX GAINABLE LIFETIME:",
+        "value": "20",
+        "generated": true
+      },
+      {
+        "key": "lifetime_gain_per_hero_bump",
+        "header": "LIFETIME GAIN PER HERO BUMP:",
+        "value": "5",
+        "generated": true
+      },
+      {
+        "key": "min_speech_repeat_time",
+        "header": "MIN SPEECH REPEAT TIME:",
+        "value": "0.5",
+        "generated": true
+      },
+      {
+        "key": "bump_delay_absolute",
+        "header": "BUMP DELAY ABSOLUTE:",
+        "value": "0.25",
+        "generated": true
+      }
+    ],
+    "mc": "0",
+    "cd": "30",
+    "img": "/apps/dota2/images/abilities/seasonal_summon_penguin_md.png"
   },
   "seasonal_decorate_tree": {
     "dname": "Decorate Tree",

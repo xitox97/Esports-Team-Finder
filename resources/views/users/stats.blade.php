@@ -7,7 +7,7 @@
     </section>
 
     <!--topsection-->
-        <div class="container w-full p-4 mx-auto mt-4 font-mono rounded-lg bg-dark-100">
+        <div class="container w-full p-8 mx-auto mt-4 font-mono rounded-lg bg-dark-100">
             <div class="flex">
                 <div class="flex w-3/4">
                     <div class="flex">
