@@ -2097,6 +2097,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -65489,9 +65490,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col" }, [
-    _c("p", { staticClass: "text-lg font-semibold mb-2 text-white" }, [
-      _vm._v("Update your current address")
-    ]),
+    _c(
+      "p",
+      { staticClass: "ml-1 text-2xl font-bold text-purple-600 uppercase" },
+      [_vm._v("Display nearby player")]
+    ),
+    _vm._v(" "),
+    _c(
+      "p",
+      { staticClass: "pb-4 ml-1 text-md font-normal text-gray-600 italic" },
+      [_vm._v("Update your current address")]
+    ),
     _vm._v(" "),
     _c("div", {
       staticClass: "max-w-5xl",
@@ -65561,8 +65570,10 @@ var staticRenderFns = [
     return _c("div", { staticClass: "flex flex-col" }, [
       _c(
         "p",
-        { staticClass: "text-lg font-semibold text-white uppercase mb-2" },
-        [_vm._v("Nearby player")]
+        {
+          staticClass: "ml-1 text-2xl font-bold text-purple-600 uppercase mb-2"
+        },
+        [_vm._v("Display nearby player")]
       ),
       _vm._v(" "),
       _c("div", {

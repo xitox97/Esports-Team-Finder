@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <p class="text-lg font-semibold mb-2 text-white">Update your current address</p>
+    <p class="ml-1 text-2xl font-bold text-purple-600 uppercase">Display nearby player</p>
+    <p class="pb-4 ml-1 text-md font-normal text-gray-600 italic">Update your current address</p>
     <div id="map" tabindex="0" class="max-w-5xl"></div>
     <form @submit.prevent="submit">
       <div class="flex justify-center max-w-5xl">

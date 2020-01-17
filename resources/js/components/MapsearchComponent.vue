@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <p class="text-lg font-semibold text-white uppercase mb-2">Nearby player</p>
+    <p class="ml-1 text-2xl font-bold text-purple-600 uppercase mb-2">Display nearby player</p>
     <div id="map" tabindex="0" class="max-w-6xl"></div>
   </div>
 </template>

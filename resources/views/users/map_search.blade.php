@@ -220,7 +220,7 @@
                   </header>
                   <alert-component></alert-component>
 
-                <section id="content-div" class="h-full pb-20">
+                <section id="content-div" class="h-full px-20 pb-20">
 
                         <section id="breadcrumb" class="pt-2 ml-4 font-medium tracking-wide text-white">
                             <span class="text-sm italic">Home / map </span>
