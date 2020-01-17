@@ -42,7 +42,7 @@ class consumeOpendotaApi implements ShouldQueue
 
 
 
-           $response = $client->get("players/$dotaId/matches?game_mode=22&limit=30");
+           $response = $client->get("players/$dotaId/matches?game_mode=22&limit=30&lobby_type=7");
            $fetchRM = json_decode($response->getBody(), true);
 
            $response1 = $client->get("players/$dotaId/heroes");
