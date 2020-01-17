@@ -16,7 +16,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-32x32.png') }}" sizes="32x32" />
+<link rel="icon" type="image/png" href="{{ asset('favicon-16x16.png" sizes="16x16') }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -141,11 +142,14 @@
       font-weight: 700;
       color: #b794f4 !important;
     }
+    .bg-grape{
+        background-color: #4b2f8b;
+    }
 </style>
 
 
 </head>
-<body class="h-full">
+<body class="h-full bg-gray-900 ">
 @php
 
     if(Auth::user()->accounts()->exists() == true){
@@ -259,8 +263,10 @@
                   </a>
                 </Slide>
             </div>
-            <section id="maindiv" class="flex flex-col w-full bg-gray-900 " v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
-                <header class="justify-between hidden h-24 lg:flex">
+
+
+            <section id="maindiv" class="flex flex-col w-full bg-contain bg-no-repeat bg-top top-bg" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
+                <header class="justify-between hidden h-24 lg:flex bg-grape">
                     <div class="flex items-center w-8 ml-12">
                            <i v-on:click="toggle"  class="text-white cursor-pointer material-icons md-36">
                                     menu_open
@@ -310,7 +316,7 @@
 
                         <div class="mx-3">
                             @if(Auth::user()->accounts()->exists() == true)
-                            <img  class="w-12 h-12 border-2 border-purple-800 rounded-full cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
+                            <img  class="w-12 h-12 border border-blue-800 rounded-full cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
                             @else
                             <img src="{{asset('img/default.svg')}}" alt="" class="w-12 h-12 border-2 border-purple-800 rounded-full cursor-pointer">
                             @endif

@@ -2,9 +2,7 @@
   <transition name="slide">
     <aside v-if="isOpen">
       <div class="flex flex-col h-full items-center">
-        <header
-          class="h-24 flex items-center border-b border-indigo-700 py-5 w-full justify-center"
-        >
+        <header class="h-24 flex items-center py-5 w-full justify-center">
           <a
             class="text-2xl font-bold text-white font-mono tracking-wider"
             href="/"

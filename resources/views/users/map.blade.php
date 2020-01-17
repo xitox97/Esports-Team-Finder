@@ -16,7 +16,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-32x32.png') }}" sizes="32x32" />
+<link rel="icon" type="image/png" href="{{ asset('favicon-16x16.png" sizes="16x16') }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -25,6 +26,9 @@
       <link href="https://cdn.jsdelivr.net/npm/ol-geocoder@latest/dist/ol-geocoder.min.css" rel="stylesheet">
 
 <style>
+     .bg-grape{
+        background-color: #4b2f8b;
+    }
 .fadedrop-enter-active, .fadedrop-leave-active {
   transition: opacity .3s;
 }
@@ -142,7 +146,7 @@
                   </a>
               </sidebar-component>
               <section id="maindiv" class="flex flex-col w-10/12 bg-gray-900" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
-                  <header class="flex justify-between h-24">
+                  <header class="flex justify-between h-24 bg-grape">
                       <div class="flex items-center w-8 ml-12">
                              <i v-on:click="toggle"  class="text-white cursor-pointer material-icons md-36">
                                       menu_open

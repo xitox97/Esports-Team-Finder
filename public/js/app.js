@@ -2514,8 +2514,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -65913,8 +65911,7 @@ var render = function() {
             _c(
               "header",
               {
-                staticClass:
-                  "h-24 flex items-center border-b border-indigo-700 py-5 w-full justify-center"
+                staticClass: "h-24 flex items-center py-5 w-full justify-center"
               },
               [
                 _c(
