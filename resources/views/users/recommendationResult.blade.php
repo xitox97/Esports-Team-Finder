@@ -82,10 +82,6 @@
 
                         </table>
                         <stats-component></stats-component>
-                        <div class="mt-4 -mb-1">
-
-                            {{-- pagination --}}
-                        </div>
                     </div>
 
                 </div>
