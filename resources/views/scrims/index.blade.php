@@ -22,7 +22,7 @@
                 </span>
             </div>
             @endif
-    <div class="container ml-18 w-full mt-4 pt-3 pl-3">
+    <div class="container ml-20 w-full mt-4 pt-3 pl-3">
         <p class="ml-3 text-2xl font-bold text-purple-600 uppercase">SCRIMS</p>
         <p class="pb-4 ml-3 text-md font-normal text-gray-600 italic">Find Dota 2 teams to practice together</p>
         <div class="flex">
