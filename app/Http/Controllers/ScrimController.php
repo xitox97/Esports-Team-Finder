@@ -140,12 +140,17 @@ class ScrimController extends Controller
         }
         $myTeam = Team::find($teamid);
 
+        $scrims = $myTeam->scrims()->where('date_time', '>', Carbon::now())->get();
         //dd($myTeam->scrims->pivot);
 
         // $scrimTable = Scrimstatus::where('team_id', $myTeam->id)->get();
 
         //dd($myTeam);
-        return view('scrims.scrimlist', compact('myTeam'));
+
+        $scrimStatus = $myTeam->scrimStatus()->where('status', '!=', "Accepted")->where('date_time', '>', Carbon::now())->get();
+        //dd($scrimStatus);
+
+        return view('scrims.scrimlist', compact('scrims', 'scrimStatus'));
     }
 
     public function details($scrimid)

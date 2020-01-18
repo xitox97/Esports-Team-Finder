@@ -28,7 +28,7 @@ class Team extends Model
 
     public function scrims()
     {
-        return $this->belongsToMany(Team::class, 'team_scrim', 'team_id', 'opponent_id')->withPivot('id', 'date_time')->withTimestamps();
+        return $this->belongsToMany(Team::class, 'team_scrim', 'team_id', 'opponent_id')->withPivot('id', 'date_time')->withTimestamps()->orderBy('date_time');;
     }
 
     public function scrimStatus()

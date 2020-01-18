@@ -14,4 +14,9 @@ class Scrimstatus extends Model
     {
         return $this->belongsTo('App\Team');
     }
+
+    public function enemy()
+    {
+        return $this->belongsTo('App\Team', 'opponent_id');
+    }
 }
