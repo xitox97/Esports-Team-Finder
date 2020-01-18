@@ -80,7 +80,7 @@ class ScrimController extends Controller
         //dd($user);
         $user->notify(new OfferScrim($inviteScrim));
 
-        return redirect('/scrims');
+        return redirect('/scrims-schedule');
     }
 
     public function acceptScrim(Scrimstatus $status, DatabaseNotification $noti)
