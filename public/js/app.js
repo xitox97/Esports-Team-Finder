@@ -65923,7 +65923,7 @@ var render = function() {
                   {
                     staticClass:
                       "text-2xl font-bold text-white font-mono tracking-wider",
-                    attrs: { href: "/" }
+                    attrs: { href: "/home" }
                   },
                   [_vm._v("<DOTAHUNT/>")]
                 )

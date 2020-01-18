@@ -5,7 +5,7 @@
         <header class="h-24 flex items-center py-5 w-full justify-center">
           <a
             class="text-2xl font-bold text-white font-mono tracking-wider"
-            href="/"
+            href="/home"
           >&lt;DOTAHUNT/&gt;</a>
         </header>
         <section class="h-full flex flex-col items-start">

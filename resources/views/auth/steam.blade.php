@@ -87,7 +87,13 @@
             <div id="app" class="flex min-h-screen font-sans">
                     <sidebar-component v-bind:is-open="isOpen" class="flex flex-col w-2/12 bg-sidebar">
                         <a href="#"
-                        class="mt-12 mb-10 text-lg font-semibold text-purple-400 cursor-not-allowed hover:text-white"
+                        class="mt-12 mb-10 text-lg font-semibold text-purple-400 hover:text-white"
+                      >
+                        <i class="material-icons align-middle {{Request::is('home') ? 'text-white' : ''}}">home</i>
+                        <span class="align-middle ml-2 {{Request::is('home') ? 'text-white' : ''}}">Home</span>
+                      </a>
+                        <a href="#"
+                        class="mb-10 text-lg font-semibold text-purple-400 hover:text-white"
                       >
                         <i class="material-icons align-middle {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">assessment</i>
                         <span class="align-middle ml-2 {{Request::is($playerUrl . '/stats', $playerUrl . '/heroes', '/stats', $playerUrl . '/totals',  'matches/*') ? 'text-white' : ''}}">Overview</span>

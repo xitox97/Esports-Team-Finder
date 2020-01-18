@@ -35,7 +35,7 @@ class LoginController extends Controller
         } else {
 
             if (Auth::user()->accounts()->exists() == true) {
-                return '/players/' . Auth::user()->accounts->dota_id;
+                return '/home';
             } else {
                 return '/steamconnects';
             }

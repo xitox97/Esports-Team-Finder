@@ -235,4 +235,11 @@ class TeamController extends Controller
         $team->save();
         //return back()->with('kick', 'The user has been kick!');
     }
+
+    public function list()
+    {
+        $teams = Team::all();
+
+        return view('teams.list', compact('teams'));
+    }
 }
