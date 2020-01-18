@@ -44,10 +44,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
     //search result
     Route::get('players/list', 'UserController@list');
-    Route::resource('teams', 'TeamController');
+    Route::get('/teams/list', 'TeamController@list');
     Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');
     Route::get('/teams/notScrim/{team}', 'TeamController@notReadyScrim');
     Route::get('/kick/{user}/team/{team}', 'TeamController@kick');
+    Route::resource('teams', 'TeamController');
+
+
 
     //recommendation
     Route::get('players/recommendation', 'RecommendationController@index');
