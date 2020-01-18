@@ -32,10 +32,11 @@
                 </span>
             </div>
         @endif
+    <p class="ml-1 pb-4 text-2xl font-bold text-purple-600 uppercase">Team Dashboard</p>
     <div class="flex">
         <div class="w-2/5">
             <div class="flex flex-col bg-dark-100 shadow-lg rounded-lg mr-4">
-                <div class="w-full px-10 bg-purple-600   relative text-center pb-1">
+                <div class="w-full px-10 bg-purple-700   relative text-center pb-1">
                         <span class="text-white font-mono font-semibold text-2xl capitalize text-center">Team {{$myTeam->name}}</span>
                         @if(auth()->user()->id == $myTeam->captain_id)
                         <i class="material-icons cursor-pointer absolute ml-16 mb-1 text-white md-48 right-0"  v-click-outside="hides" v-on:click="dropTeam">
@@ -51,9 +52,9 @@
                                 <a href="/teams/notScrim/{{ $myTeam->id }}" class="block text-default py-2 px-4 no-underline hover:underline
                                     text-md leading-loose ml-1 my-1 hover:bg-dark-100"
                                 role="button" >Not Ready for scrim</a>
-                                <a href="/scrim/status" class="block text-default py-2 px-4 no-underline hover:underline
+                                <a href="/scrims-schedule" class="block text-default py-2 px-4 no-underline hover:underline
                                     text-md leading-loose ml-1 my-1 hover:bg-dark-100"
-                                role="button" >Scrim status</a>
+                                role="button" >Scrim list</a>
                             @endif
                                     <a href="/teams/{{$myTeam->id}}/edit" class="block text-default py-2 px-4 no-underline hover:underline
                                         text-md leading-loose ml-1 my-1 hover:bg-dark-100">Edit team profile</a>
@@ -69,7 +70,7 @@
                         <img src="{{  asset('storage/pics/' . $myTeam->image) }}" alt="" class=" rounded-sm w-3/5">
                 </div>
 
-                <div class="w-full px-10 bg-purple-600">
+                <div class="w-full px-10 bg-purple-700">
                         <p class="font-semibold text-xl capitalize text-center text-white font-mono">Team Information</p>
                 </div>
                 <div class="flex flex-col  items-center mt-2 mx-10 mb-2 py-2 text-white font-mono">
@@ -91,19 +92,11 @@
                     <p class="text-center"><span class="font-semibold">Scrim:</span> Not Ready</p>
                     @endif
                 </div>
-                {{-- <div class="w-full px-10 bg-purple-600">
-                        <p class="font-semibold text-xl capitalize text-center text-white font-mono">Achievements</p>
-                </div>
-                <div class="flex flex-col  items-center mt-2 mx-10 mb-2 text-white font-mono  py-2">
-                        <p class="text-left"><span class="font-semibold">Kl Major:</span> Top 3</p>
-                        <p class="text-left"><span class="font-semibold">Ti 7:</span> top2*</p>
-                </div> --}}
-
             </div>
         </div>
         <div class="w-auto rounded-lg">
             <div class="flex flex-col justify-content bg-dark-100 shadow-lg ml-4 font-mono text-white">
-                    <div class="bg-purple-600 py-2">
+                    <div class="bg-purple-700 py-2">
                             <p class="text-white font-semibold text-2xl text-center">Player Roster</p>
                         </div>
                         <div>

@@ -2512,8 +2512,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -65933,19 +65931,19 @@ var render = function() {
               2
             ),
             _vm._v(" "),
-            _c("div", [
+            _c("div", { staticClass: "hover:text-purple-600 text-white" }, [
               _c(
                 "div",
                 {
                   staticClass:
-                    "flex justify-center items-center py-6 pr-6 cursor-pointer border-t border-indigo-700"
+                    "flex justify-center items-center py-6 pr-6 cursor-pointer"
                 },
                 [
                   _c(
                     "i",
                     {
                       staticClass:
-                        "material-icons mr-3 align-middle font-semibold text-white"
+                        "material-icons mr-3 align-middle font-semibold"
                     },
                     [_vm._v("power_settings_new")]
                   ),
@@ -65953,8 +65951,7 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      staticClass:
-                        "font-semibold text-white text-xl align-middle",
+                      staticClass: "font-semibold text-xl align-middle",
                       attrs: {
                         href: "/logout",
                         onclick:

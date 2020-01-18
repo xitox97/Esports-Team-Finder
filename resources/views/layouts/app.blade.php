@@ -316,9 +316,9 @@
 
                         <div class="mx-3">
                             @if(Auth::user()->accounts()->exists() == true)
-                            <img  class="w-12 h-12 border border-blue-800 rounded-full cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt="">
+                            <a href="/{{$playerUrl}}"><img  class="w-12 h-12 border border-blue-800 rounded-full cursor-pointer" src="{{Auth::user()->accounts->avatar_url}}" alt=""></a>
                             @else
-                            <img src="{{asset('img/default.svg')}}" alt="" class="w-12 h-12 border-2 border-purple-800 rounded-full cursor-pointer">
+                            <a href="/{{$playerUrl}}"><img src="{{asset('img/default.svg')}}" alt="" class="w-12 h-12 border-2 border-purple-800 rounded-full cursor-pointer"></a>
                             @endif
                         </div>
                         <div class="mx-3">

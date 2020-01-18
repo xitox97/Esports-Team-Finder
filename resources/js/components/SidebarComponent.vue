@@ -11,13 +11,11 @@
         <section class="h-full flex flex-col items-start">
           <slot></slot>
         </section>
-        <div>
-          <div
-            class="flex justify-center items-center py-6 pr-6 cursor-pointer border-t border-indigo-700"
-          >
-            <i class="material-icons mr-3 align-middle font-semibold text-white">power_settings_new</i>
+        <div class="hover:text-purple-600 text-white">
+          <div class="flex justify-center items-center py-6 pr-6 cursor-pointer">
+            <i class="material-icons mr-3 align-middle font-semibold">power_settings_new</i>
             <a
-              class="font-semibold text-white text-xl align-middle"
+              class="font-semibold text-xl align-middle"
               href="/logout"
               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
             >log out</a>

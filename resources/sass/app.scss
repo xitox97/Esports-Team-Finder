@@ -4,11 +4,11 @@
 @tailwind components;
 
 .btn-indigo {
-    @apply bg-indigo-700 text-white rounded;
+    @apply bg-purple-700 text-white rounded;
   }
 
 .btn-indigo:hover {
-    @apply bg-indigo-800;
+    @apply bg-purple-800;
 }
 
 .mini-card{

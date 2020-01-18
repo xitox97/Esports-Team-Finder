@@ -35,17 +35,15 @@
 
                     </div>
                     <div class="px-6 py-4 text-center text-gray-300">
-                        <p class="font-medium text-md mb-2">Prize Pool: RM {{ $tour->prizepool }}</p>
-                        <p class="text-base"><span class="font-medium capitalize">Organizer:</span> {{ $tour->organizer }}</p>
-                        <p class="text-base"><span class="font-medium capitalize">Date:</span> {{ $tour->start_date }} until {{ $tour->end_date }}</p>
+                        <p class="text-sm capitalize">TOTAL PRIZE POOL</p>
+                        <p class="font-semibold text-2xl mb-2 text-purple-500 uppercase">RM {{ number_format($tour->prizepool) }}</p>
+                        <p class="text-base">Organize by<span class="font-medium capitalize"> {{ $tour->organizer }}</span></p>
+                        <p class="text-base">From <span class="font-medium capitalize underline">
+                            {{ Carbon\Carbon::createFromFormat('Y-m-d', $tour->start_date)->format('d-m-Y') }}</span> until
+                            <span class="font-medium capitalize underline">{{ Carbon\Carbon::createFromFormat('Y-m-d', $tour->end_date)->format('d-m-Y') }}</span></p>
                         <p class="text-base"><span class="font-medium capitalize">venue:</span> {{ $tour->venue }}</p>
                         <p class="text-base"><span class="font-medium capitalize">State:</span> {{ $tour->state }}</p>
 
-                        @if($tour->status == 1)
-                        <p class="text-base"><span class="font-medium capitalize">Status:</span> Ended</p>
-                        @else
-                        <p class="text-base"><span class="font-medium capitalize">Status:</span> Upcoming</p>
-                        @endif
                     </div>
                         @php
                             $check = false;
@@ -61,12 +59,12 @@
 
                         @if($check)
                             <a href="/tournaments/notInterested/{{ $tour->id }}" class="inline-block bg-transparent rounded px-3 py-1
-                                text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 border-2 border-indigo-500
+                                text-md font-semibold text-white mt-3 text-center hover:bg-purple-700 border-2 border-purple-800
                                 hover:text-white tracking-wide">Cancel</a>
 
                         @else
-                        <a href="/tournaments/interested/{{ $tour->id }}" class="inline-block bg-indigo-500 rounded px-3 py-1
-                            text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500">Interested</a>
+                        <a href="/tournaments/interested/{{ $tour->id }}" class="inline-block  rounded px-3 py-1
+                            text-md font-semibold text-white mt-3 text-center btn-indigo tracking-wide border-2 border-purple-800">Interested</a>
                         @endif
                     </div>
 

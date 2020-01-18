@@ -69,7 +69,10 @@
                         @endforeach
                 </tbody>
                 @else
-                <a href="/players/{{$users->accounts->dota_id}}/achievements/create" class="flex w-8/12 items-center px-2 py-2 font-semibold leading-loose whitespace-no-wrap border border-indigo-800 rounded-lg shadow-md btn-indigo hover:border-transparent text-md"><i class="mr-1 material-icons">
+                <a href="/players/{{$users->accounts->dota_id}}/achievements/create"
+                    class="flex w-8/12 items-center px-2 py-2 font-semibold leading-loose
+                    whitespace-no-wrap border border-indigo-800 rounded-lg shadow-md btn-indigo
+                     hover:border-transparent text-md"><i class="mr-1 material-icons">
                     add</i>New Achievement</a>
                 @endif
                 <edit-achievement></edit-achievement>

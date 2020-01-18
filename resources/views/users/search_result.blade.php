@@ -54,8 +54,8 @@
                                 @else
                                 <td class="py-4 px-6">None</td>
                                 @endif
-                                <td class="py-4 px-6"><a href="/players/{{$player->accounts['dota_id']}}" class="inline-block bg-indigo-500 rounded px-3 py-1
-                                    text-md font-semibold text-white mt-3 text-center hover:bg-indigo-600 tracking-wide border-2 border-indigo-500">View</a></td>
+                                <td class="py-4 px-6"><a href="/players/{{$player->accounts['dota_id']}}" class="inline-block  rounded px-3 py-1
+                                    text-md font-semibold text-white mt-3 text-center btn-indigo tracking-wide border-2 border-purple-800">View</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -63,7 +63,7 @@
                     </table>
                     <div class="mt-4 -mb-1">
                             {{ $pagePlayers->links() }}
-                       
+
 
                     </div>
                 </div>
