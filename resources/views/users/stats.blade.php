@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section id="breadcrumb" class="pt-2 ml-4">
+    <section id="breadcrumb" class="pt-2 ml-4 mb-8">
     <span class="text-sm italic font-medium tracking-wide text-white">Home / Overview / <a href="{{url('/players/' . $fetchPlayers->dota_id)}}"
         class="text-blue-500 no-underline hover:underline">{{$fetchPlayers->user->name}}</a></span>
     </section>

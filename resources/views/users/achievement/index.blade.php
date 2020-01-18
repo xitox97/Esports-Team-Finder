@@ -2,9 +2,8 @@
 
 @section('content')
 <section id="breadcrumb" class="pt-2 ml-4 font-medium tracking-wide text-white">
-        <span class="text-sm italic ">Home / <a href="{{url('/players/' . $users->accounts->dota_id)}}"
-            class="text-blue-500 no-underline hover:underline">Profile</a> / {{$users->name}} / <a href="{{url('/players/' . $users->accounts->dota_id . '/achievements')}}"
-            class="text-blue-500 no-underline hover:underline">Achievements</a></span>
+        <span class="text-sm italic ">Home / Profile / <a href="{{url('/players/' . $users->accounts->dota_id)}}"
+            class="text-blue-500 no-underline hover:underline">{{$users->name}}</a>  / Achievements</span>
    </section>
 
 <div class="container mt-12 font-mono">
@@ -25,7 +24,7 @@
                     <th class="py-4 capitalize border-b border-gray-600 "></th>
                 </thead>
                 <tbody class="text-center">
-                    
+
                         @foreach($achievements as $achievement)
                         <tr class="text-white hover:bg-content">
                             <td class="px-6 py-4 border-b border-gray-600">{{$loop->index + 1}}</td>

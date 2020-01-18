@@ -144,7 +144,7 @@
                   </a>
               </sidebar-component>
               <section id="maindiv" class="flex flex-col w-10/12 bg-gray-900" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
-                  <header class="flex justify-between h-24 bg-grape">
+                <header class="justify-between hidden h-20 mb-4 lg:flex bg-grape">
                       <div class="flex items-center w-8 ml-12">
                              <i v-on:click="toggle"  class="text-white cursor-pointer material-icons md-36">
                                       menu_open

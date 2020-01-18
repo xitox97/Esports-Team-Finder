@@ -266,7 +266,7 @@
 
 
             <section id="maindiv" class="flex flex-col w-full bg-contain bg-no-repeat bg-top top-bg" v-bind:class=" { 'w-10/12': isOpen, 'w-screen': !isOpen }">
-                <header class="justify-between hidden h-24 lg:flex bg-grape">
+                <header class="justify-between hidden h-20 lg:flex bg-grape">
                     <div class="flex items-center w-8 ml-12">
                            <i v-on:click="toggle"  class="text-white cursor-pointer material-icons md-36">
                                     menu_open
@@ -348,35 +348,9 @@
                 <alert-component></alert-component>
 
                 <section id="content-div" class="h-full px-20 pb-20">
-
-                                @yield('content')
-
-                            {{-- @if (count(Auth::user()->unreadNotifications))
-
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <span class="badge badge-pill badge-primary" style="float:right; margin-bottom:-10px; "> {{count(Auth::user()->unreadNotifications)}} </span> <i class="far fa-bell"></i>
-                                </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        @foreach(Auth::user()->unreadNotifications as $noti)
-                                            @include('notifications.' . snake_case(class_basename($noti->type)))
-                                        @endforeach
-
-                                    </div>
-
-                            </li>
-                            @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <i class="far fa-bell"></i>
-                                </a>
-
-
-                            </li>
-
-
-                            @endif --}}
+                    @yield('content')
                 </section>
+
             </section>
 
 
