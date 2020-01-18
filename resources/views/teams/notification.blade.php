@@ -226,6 +226,35 @@
                     </div>
                 </div>
                 @endif
+                @elseif( class_basename($noti->type) == "KickPlayer")
+                <div class="flex flex-row justify-center bg-dark-100 text-white rounded-lg my-2 py-2 shadow-lg w-8/12">
+                    <div class="mr-12">
+                            <i class="material-icons md-48 text-red-500">block</i>
+                    </div>
+                    <div class="border-r-2 border-gray-400 pr-10 mr-10">
+                        <p class="text-xl font-bold">
+                                You has been Kicked!
+                        </p>
+                        <span class="text-md font-base">
+                            <span class="font-bold text-purple-600"><a href="/teams/{{ $noti->data['team_id'] }}">Team {{ $noti->data['team_name']}}</a> </span> has kick you
+                        </span>
+                    </div>
+                    <div class="flex">
+
+                        <div class="flex flex-col ml-2 cursor-pointer">
+                                <form action="/notifications/{{$noti->id}}" method="post">
+                                    {{ method_field('DELETE') }}
+                                    @csrf
+                                    <button type="submit" class="close" ><i class="material-icons md-48 text-red-600 hover:text-red-700">
+                                            close
+                                        </i>
+                                    </button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
 
             @endif
         @endforeach

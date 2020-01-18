@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('users', 'UserController');
     Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
-    //search result
+
     Route::get('players/list', 'UserController@list');
     Route::get('/teams/list', 'TeamController@list');
     Route::get('/teams/scrim/{team}', 'TeamController@readyScrim');

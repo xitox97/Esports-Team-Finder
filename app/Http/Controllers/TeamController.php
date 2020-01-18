@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\KickPlayer;
 use App\Team;
 use App\User;
 use Illuminate\Http\Request;
@@ -233,6 +234,7 @@ class TeamController extends Controller
         $user->team()->detach($team->id);
         $team->qtty_member = $team->qtty_member - 1;
         $team->save();
+        $user->notify(new KickPlayer($team));
         //return back()->with('kick', 'The user has been kick!');
     }
 

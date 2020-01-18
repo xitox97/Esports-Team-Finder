@@ -2453,6 +2453,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -65876,6 +65881,22 @@ var render = function() {
                     "Team " +
                       _vm._s(noti.team_name) +
                       " has rejected your invitation for scrim"
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          noti.type === "App\\Notifications\\KickPlayer"
+            ? _c(
+                "a",
+                {
+                  staticClass:
+                    "block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600",
+                  attrs: { href: "/notifications" }
+                },
+                [
+                  _vm._v(
+                    "You has been kick from Team " + _vm._s(noti.team_name)
                   )
                 ]
               )

@@ -16,9 +16,6 @@ class UserController extends Controller
     public function index()
     {
         abort(403);
-        // $users = User::where('id', auth()->id())->get();
-        // dd($users->toArray());
-        // return view('users.profile');
     }
 
     public function show(User $user)
@@ -47,14 +44,6 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
 
-        //dd($request['name']);
-        // request()->validate([
-
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'age' => ['required', 'integer'],
-        //     'area' => ['required', 'string', 'max:255'],
-        //     'state' => ['required', 'string', 'max:255']
-        // ]);
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],

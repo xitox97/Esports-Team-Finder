@@ -40,6 +40,11 @@
         :href="'/notifications'"
         v-if="noti.type === 'App\\Notifications\\RejectScrim'"
       >Team {{ noti.team_name }} has rejected your invitation for scrim</a>
+      <a
+        class="block text-default py-2 px-4 no-underline text-md leading-loose ml-1 my-1 hover:bg-content border-b border-gray-600"
+        :href="'/notifications'"
+        v-if="noti.type === 'App\\Notifications\\KickPlayer'"
+      >You has been kick from Team {{ noti.team_name }}</a>
     </div>
   </div>
 </template>
