@@ -8,7 +8,7 @@
 
     <div class="container ml-24 mt-5">
     @include('messenger.partials.flash')
-    <p class="text-3xl font-bold text-white uppercase ml-10">Chat</p>
+    <p class="text-2xl font-bold text-purple-600 uppercase ml-10">chat</p>
     <div class="flex pb-2">
         <div class="border-t border-gray-600 ml-10 w-10/12" v-if="chat == false">
             <div class="mt-4 bg-dark-100 rounded p-6">
@@ -63,7 +63,7 @@
             @endforeach</div>
             {{-- send message --}}
 
-                    <form action="{{ route('messages.update', $thread->id) }}" method="post" class="bg-content 
+                    <form action="{{ route('messages.update', $thread->id) }}" method="post" class="bg-content
                         flex items-start bg-white rounded-lg px-3 pt-3  mt-6 hover:shadow-lg">
                             {{ method_field('put') }}
                             {{ csrf_field() }}

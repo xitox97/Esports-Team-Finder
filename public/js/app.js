@@ -1857,6 +1857,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["thread", "usersend", "acc", "chat"]
 });
@@ -65006,7 +65009,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  "bg-dark-100 rounded-lg shadow-lg flex flex-col items-center"
+                  "bg-dark-100 rounded-lg shadow-lg flex flex-col items-center p-4"
               },
               [
                 _c("div", { staticClass: "p-3" }, [
@@ -65016,7 +65019,7 @@ var render = function() {
                         attrs: { src: "/img/default.png" }
                       })
                     : _c("img", {
-                        staticClass: "w-48 rounded-full",
+                        staticClass: "w-48 rounded-lg",
                         attrs: { src: _vm.acc }
                       })
                 ]),
@@ -65024,7 +65027,10 @@ var render = function() {
                 _c("div", { staticClass: "p-3 text-center" }, [
                   _c(
                     "p",
-                    { staticClass: "text-xl text-gray-500 font-semibold" },
+                    {
+                      staticClass:
+                        "text-xl text-gray-500 font-semibold capitalize"
+                    },
                     [_vm._v(_vm._s(_vm.usersend))]
                   ),
                   _vm._v(" "),
@@ -65032,7 +65038,7 @@ var render = function() {
                     "p",
                     {
                       staticClass:
-                        "text-md text-gray-400 font-semibold mb-6 capitalize"
+                        "text-md text-gray-600 font-semibold mb-6 capitalize"
                     },
                     [_vm._v("Subject: " + _vm._s(_vm.thread.subject))]
                   ),
@@ -65041,7 +65047,7 @@ var render = function() {
                     "a",
                     {
                       staticClass:
-                        "bg-indigo-600 hover:bg-indigo-500 text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-2",
+                        "btn-indigo text-white text-lg font-bold py-2 px-4 rounded-lg shadow-lg mt-2",
                       attrs: { href: "/messages/" + _vm.thread.id }
                     },
                     [_vm._v("New Reply")]
