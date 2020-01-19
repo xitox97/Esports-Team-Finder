@@ -47,7 +47,7 @@ background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, F
                         <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
                           Email
                         </label>
-                        <input name="email" placeholder="Enter your email" class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="email" type="email" >
+                        <input name="email" placeholder="Enter your email" class="w-full px-2 py-1 mr-3 leading-tight text-gray-700 bg-transparent border-none appearance-none focus:outline-none" id="email" type="email" value="{{old('email')}}">
 
                     </div>
                     @error('email')
