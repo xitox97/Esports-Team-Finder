@@ -6,7 +6,7 @@
                         <img src="http://cdn.dota2.com{{ $item['img'] }}" class="h-12">
                     </div>
                     <div class="flex flex-col ml-2">
-                            <p class="uppercase font-medium text-white whitespace-no-wrap">{{ var_dump($item['dname'])}}</p>
+                            <p class="uppercase font-medium text-white whitespace-no-wrap">{{$item['dname']}}</p>
                             <div class="flex items-baseline">
                                 <div>
                                     <img src=" {{  asset('img/gold.png') }}" class="w-4 mr-1">
