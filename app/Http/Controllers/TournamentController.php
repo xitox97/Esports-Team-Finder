@@ -44,7 +44,7 @@ class TournamentController extends Controller
         //dd($request->image);
         $request->validate([
             'name' => 'required',
-            'start_date' => 'required',
+            'start_date' => 'required|before:end_date',
             'end_date' => 'required|after_or_equal:now',
             'venue' => 'required|regex:/^[\pL\s\-]+$/u',
             'state' => 'required',
