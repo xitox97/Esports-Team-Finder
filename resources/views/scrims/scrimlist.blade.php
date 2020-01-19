@@ -30,7 +30,7 @@
                         <td  class="py-4">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('d/m/Y') }}</td>
                         <td  class="py-4">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $scrim->pivot->date_time)->format('h:i:s a') }}</td>
                         <td class="py-4"> <a href="/teams/{{$scrim->id}}" class="inline-block rounded px-3
-                            text-md font-semibold text-white text-center btn-indigo tracking-wide border-2 border-purple-600">View</a></td>
+                            text-md font-semibold text-white text-center btn-indigo tracking-wide border-2 border-purple-800">View</a></td>
 
                         {{-- <td  class="py-4">
                         <a href="{{  url('/scrims/'. $scrim->pivot->id . '/details')  }}" class="bg-pink-500 font-semibold text-white hover:bg-pink-600
