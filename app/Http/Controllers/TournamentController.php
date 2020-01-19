@@ -45,7 +45,7 @@ class TournamentController extends Controller
         $request->validate([
             'name' => 'required',
             'start_date' => 'required',
-            'end_date' => 'required',
+            'end_date' => 'required|after_or_equal:now',
             'venue' => 'required|regex:/^[\pL\s\-]+$/u',
             'state' => 'required',
             'prizepool' => 'required|numeric|digits_between:1,9',
