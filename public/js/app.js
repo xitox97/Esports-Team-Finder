@@ -2792,12 +2792,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -9245,7 +9239,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fade-enter-active {\n  transition: opacity 0.5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, ".fade-enter-active {\n  transition: opacity 0.5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -9264,7 +9258,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".slide-enter-active,\n.slide-leave-active {\n  transition: transform 0.2s ease;\n}\n.slide-enter,\n.slide-leave-to {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\n", ""]);
+exports.push([module.i, ".slide-enter-active,\r\n.slide-leave-active {\n  transition: transform 0.2s ease;\n}\n.slide-enter,\r\n.slide-leave-to {\n  transform: translateX(-100%);\n  transition: all 150ms ease-in 0s;\n}\r\n", ""]);
 
 // exports
 
@@ -66300,24 +66294,6 @@ var render = function() {
                 _vm._v("State:")
               ]),
               _vm._v("\n        " + _vm._s(tournament.state) + "\n      ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-base" }, [
-              tournament.status == 1
-                ? _c("span", { staticClass: "font-medium capitalize" }, [
-                    _vm._v("Status:")
-                  ])
-                : _vm._e(),
-              _vm._v(" Ended\n      ")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-base" }, [
-              tournament.status != 1
-                ? _c("span", { staticClass: "font-medium capitalize" }, [
-                    _vm._v("Status:")
-                  ])
-                : _vm._e(),
-              _vm._v(" Upcoming\n      ")
             ])
           ]),
           _vm._v(" "),

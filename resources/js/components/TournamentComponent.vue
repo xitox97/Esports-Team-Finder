@@ -42,12 +42,6 @@
           {{ tournament.state }}
         </p>
 
-        <p class="text-base">
-          <span class="font-medium capitalize" v-if="tournament.status == 1">Status:</span> Ended
-        </p>
-        <p class="text-base">
-          <span class="font-medium capitalize" v-if="tournament.status != 1">Status:</span> Upcoming
-        </p>
       </div>
 
       <!-- <p v-for="user in tournament.users">{{user.name}}</p> -->
