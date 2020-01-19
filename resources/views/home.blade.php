@@ -2,7 +2,7 @@
 
 @section('content')
 <section id="breadcrumb" class="ml-4 pt-2">
-    <span class="italic text-sm">Home</span>
+    <span class="italic text-sm text-white">Home</span>
 </section>
 
 <p class="text-2xl font-bold text-pink-500 mb-4 ml-4">QUICK ACCESS</p>
