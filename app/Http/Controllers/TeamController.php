@@ -234,6 +234,12 @@ class TeamController extends Controller
         $user->team()->detach($team->id);
         $team->qtty_member = $team->qtty_member - 1;
         $team->save();
+
+        if ($team->scrim == true and $team->qtty_member < 5) {
+            $team->scrim = false;
+            $team->save();
+        }
+
         $user->notify(new KickPlayer($team));
         //return back()->with('kick', 'The user has been kick!');
     }
