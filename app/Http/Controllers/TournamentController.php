@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\TournamentAdded;
 use App\Tournament;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TournamentController extends Controller
@@ -15,7 +16,9 @@ class TournamentController extends Controller
      */
     public function index()
     {
-        $tournament = Tournament::where('status', '=', 0)->get();
+        $tournamen = Tournament::where('status', '=', 0)->get();
+
+        $tournament = $tournamen->where('end_date', '>', Carbon::now());
 
         return view('tournaments.index', compact('tournament'));
     }

@@ -10,6 +10,7 @@ use App\Statistic;
 use App\Team;
 use App\Tournament;
 use App\User;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -82,8 +83,9 @@ class PagesController extends Controller
 
     public function adminTour()
     {
-        $tournament = Tournament::all();
+        $tournamen = Tournament::all();
 
+        $tournament = $tournamen->where('end_date', '>', Carbon::now());
         return view('admins.tourList', compact('tournament'));
     }
 
