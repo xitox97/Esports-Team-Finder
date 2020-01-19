@@ -82,7 +82,7 @@ class OfferController extends Controller
             return back()->with('success', 'Successfully Joined');
         } catch (\Illuminate\Database\QueryException $e) {
             //dd('You must exit your team first before joining another team');
-            return back()->withError('You must exit your team first before joining another team');
+            return back()->withError('You must exit your team first before join another team');
         }
     }
 

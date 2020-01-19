@@ -123,7 +123,6 @@ Route::group(['middleware' => 'auth'], function () {
         $user = auth()->user();
         //dd($user);
         //$stats = Statistic::first();
-
         consumeOpendotaApi::dispatch($user);
         //processMatches::dispatch($user, $stats);
         //generatePlayerRole::dispatch($user);
@@ -131,9 +130,6 @@ Route::group(['middleware' => 'auth'], function () {
         // $data = DotaJson::first();
 
         // dd($data->items['broadsword']);
-
-
-
         return 'Finished';
     });
 

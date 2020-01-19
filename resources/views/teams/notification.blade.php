@@ -7,7 +7,7 @@
 <div class="container mt-6">
     <div class="p-4">
 
-        <p class=" text-center font-semibold text-indigo-500 text-3xl border-b border-gray-600">Notifications Dashboard</p>
+        <p class=" text-center font-semibold text-purple-600 text-3xl border-b border-gray-600">Notifications Dashboard</p>
 
         <div class="flex flex-col items-center justify-center mt-3">
         @foreach (Auth::user()->unreadNotifications as $noti)
