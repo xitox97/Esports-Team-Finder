@@ -11,13 +11,24 @@
             <div class="flex">
                 <div class="flex w-3/4">
                     <div class="flex">
-                        <img src="{{  $fetchPlayers->avatar_url  }}" class="w-32 border-2 border-purple-700 rounded-full shadow-lg" alt="...">
+                        <div>
+                            <img src="{{  $fetchPlayers->avatar_url  }}" class="w-40 border-2 border-purple-700 rounded-full shadow-lg" alt="...">
+                        </div>
                         <div class="ml-6">
                         <p class="text-lg font-bold text-white">{{  $fetchPlayers->steam_name  }}</p>
                         <p class="font-bold text-white text-md">Wins: {{  $fetchPlayers->win_lose['win']  }}</p>
                         <p class="font-bold text-white text-md">Losses: {{  $fetchPlayers->win_lose['lose']  }}</p>
                         <p class="font-bold text-white text-md">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
                                 $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
+                                  @if($fetchPlayers->user->knowledge != null)
+                                  <p class="text-lg font-semibold text-white capitalize">Main Roles: {{$fetchPlayers->user->knowledge->mainRole()}}</p>
+                                  <div class="mt-3">
+                                      <a href="#" @click.prevent="$modal.show('stats', { knowledge: {{$fetchPlayers->user->knowledge}} })"
+                                          class="bg-transparent hover:bg-pink-500 text-pink-400 font-semibold hover:text-white
+                                          py-2 px-4 border border-pink-500 hover:border-transparent rounded whitespace-no-wrap">View AVG Stats</a>
+                                          <stats-component></stats-component>
+                                  </div>
+                                  @endif
                         </div>
                     </div>
 
@@ -100,7 +111,7 @@
                                                     <br>
                                                    {{ $position }}
                                                 </td>
-                                                <td><a href="{{ url('matches/' . $recent['match_id']) }}"><i class="text-indigo-600 cursor-pointer material-icons md-48">
+                                                <td><a href="{{ url('matches/' . $recent['match_id']) }}"><i class="text-purple-600 cursor-pointer material-icons md-48">
                                                         pageview
                                                         </i></a></td>
                                                 </tr>

@@ -88,7 +88,7 @@
                       Name
                     </label>
                     <input class="block w-full px-4 py-3 mb-3 leading-tight text-gray-700 capitalize bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-indigo-700"
-                    id="grid-first-name" type="text" placeholder="{{$fetchPlayers->user->name}}" name="name" required>
+                    id="grid-first-name" type="text" placeholder="{{$fetchPlayers->user->name}}" name="name" value="{{ old('name') }}" required>
                     @error('name')
                     <p class="italic text-red-500 text-md">{{ $message }}</p>
                     @enderror
@@ -123,7 +123,7 @@
                       City
                     </label>
                     <input class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-indigo-700" id="grid-city"
-                    type="text" placeholder="{{$fetchPlayers->user->area}}" name="city" required>
+                    type="text" placeholder="{{$fetchPlayers->user->area}}" name="city" value="{{ old('city') }}" required>
                     @error('city')
                     <p class="italic text-red-500 text-md">{{ $message }}</p>
                     @enderror

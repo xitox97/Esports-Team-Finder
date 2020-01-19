@@ -87,6 +87,8 @@ class AchievementController extends Controller
     {
 
         $achievement->delete();
-        return redirect("/players/$player/achievements");
+
+
+        return back()->with('success', 'Successfully delete the achievement');
     }
 }

@@ -7,17 +7,28 @@
         </section>
 
         <!--topsection-->
-        <div class="bg-dark-100 container mt-4 mx-auto p-4 rounded-lg w-full font-mono">
+        <div class="bg-dark-100 container mt-4 mx-auto p-8 rounded-lg w-full font-mono">
             <div class="flex">
                 <div class="flex w-3/4">
                     <div class="flex">
-                        <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded-full shadow-lg w-32 border-purple-700 border-2" alt="...">
+                        <div>
+                            <img src="{{  $fetchPlayers->avatar_url  }}" class="rounded-full shadow-lg w-40 border-purple-700 border-2" alt="...">
+                        </div>
                         <div class="ml-6">
                         <p class="text-lg font-bold text-white">{{  $fetchPlayers->steam_name  }}</p>
                         <p class="text-md font-bold text-white">Wins: {{  $fetchPlayers->win_lose['win']  }}</p>
                         <p class="text-md font-bold text-white">Losses: {{  $fetchPlayers->win_lose['lose']  }}</p>
                         <p class="text-md font-bold text-white">Winrate: {{  round(($fetchPlayers->win_lose['win'] / ($fetchPlayers->win_lose['win'] +
                                 $fetchPlayers->win_lose['lose'])) * 100, 2)  }} %</p>
+                                 @if($fetchPlayers->user->knowledge != null)
+                                 <p class="text-lg font-semibold text-white capitalize">Main Roles: {{$fetchPlayers->user->knowledge->mainRole()}}</p>
+                                 <div class="mt-3">
+                                     <a href="#" @click.prevent="$modal.show('stats', { knowledge: {{$fetchPlayers->user->knowledge}} })"
+                                         class="bg-transparent hover:bg-pink-500 text-pink-400 font-semibold hover:text-white
+                                         py-2 px-4 border border-pink-500 hover:border-transparent rounded whitespace-no-wrap">View AVG Stats</a>
+                                         <stats-component></stats-component>
+                                 </div>
+                                 @endif
                         </div>
                     </div>
 
@@ -45,7 +56,7 @@
                                             <th class="text-left capitalize border-b border-gray-500 py-4">Hero</th>
                                             <th class="text-left capitalize border-b border-gray-500 py-4">Matches Played</th>
                                             <th class="text-left capitalize border-b border-gray-500 py-4">Win Rate %</th>
-                                            <th class="text-left capitalize border-b border-gray-500 py-4">With Win %</th>
+                                            <th class="text-left capitalize border-b border-gray-500 py-4">Win With %</th>
                                             <th class="text-left capitalize border-b border-gray-500 py-4">Win Against %</th>
                                         </tr>
                                     </thead>

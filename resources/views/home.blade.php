@@ -119,6 +119,28 @@
         </a>
     </div>
 
+    <div class="w-full lg:w-6/12 xl:w-4/12 px-4 mb-6">
+        <a href="/players/{{Auth::user()->accounts->dota_id}}/stats">
+        <div class="relative flex flex-col min-w-0 break-words rounded mb-6 xl:mb-0 shadow-lg hover:bg-teal-700 bg-teal-500">
+            <div class="flex-auto p-4">
+                <div class="flex flex-wrap">
+                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 class="text-white uppercase font-bold text-xl tracking-wide">Overview</h5>
+                    <span class="font-semibold text-md text-teal-200">View your overview</span>
+                    </div>
+                    <div class="relative w-auto pl-4 flex-initial">
+                        <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-purple-900">
+                            <i class="material-icons">
+                                assignment
+                                </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    </div>
+
     @if(Auth()->user()->team->first() != null)
     <div class="w-full lg:w-6/12 xl:w-4/12 px-4 mb-6">
         <a href="/scrims-schedule">
