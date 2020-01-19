@@ -119,6 +119,7 @@
         </a>
     </div>
 
+    @if(Auth()->user()->team->first() != null)
     <div class="w-full lg:w-6/12 xl:w-4/12 px-4 mb-6">
         <a href="/scrims-schedule">
         <div class="relative flex flex-col min-w-0 break-words rounded mb-6 xl:mb-0 shadow-lg hover:bg-indigo-700 bg-indigo-500">
@@ -140,5 +141,6 @@
         </div>
     </a>
     </div>
+    @endif
     </div>
 @endsection
