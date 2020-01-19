@@ -42,7 +42,7 @@
                         <div class="flex flex-row justify-center items-center mt-3">
                                 <div class="mr-2">
                                         <a  href="javascript:history.back()"  class="inline-block bg-transparent rounded px-4 py-1
-                                        text-md font-semibold text-white text-center hover:bg-indigo-600 border-2 border-indigo-500
+                                        text-md font-semibold text-white text-center hover:bg-purple-600 border-2 border-purple-500
                                         hover:text-white tracking-wide">Cancel</a>
                                 </div>
                                 <button type="submit" class="btn-indigo text-white font-bold py-2 px-4 rounded-lg">
