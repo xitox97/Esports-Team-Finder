@@ -28,7 +28,8 @@ class KickPlayer extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast', 'mail'];
+        //return ['database', 'broadcast'];
+        return ['database'];
     }
 
     /**
@@ -40,9 +41,9 @@ class KickPlayer extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->line('Team' . $this->team->name . ' has kick you out from the team')
-        ->action('View', url('/notifications'))
-        ->line('Dont give up!');
+            ->line('Team' . $this->team->name . ' has kick you out from the team')
+            ->action('View', url('/notifications'))
+            ->line('Dont give up!');
     }
 
     /**

@@ -37,7 +37,8 @@ class RejectScrim extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'broadcast'];
+        //return ['database', 'broadcast'];
+        return ['database'];
     }
 
     /**
